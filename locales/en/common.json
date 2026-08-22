@@ -77,12 +77,25 @@
     ]
   },
   "about": {
-    "badge": "ABOUT",
-    "heading": "Hi, I'm Youssef Manssouri.",
-    "bio": "I'm Youssef Manssouri, a web developer based in Agadir, Morocco. I build modern websites and web applications with a focus on clean interfaces, useful functionality and strong user experience.",
-    "education": "Education",
-    "school": "Business Analytics & AI — EMAA Business School (2025–Present)",
-    "location": "Agadir, Morocco (Remote & Freelance Worldwide)"
+    "badge": "ABOUT & BACKGROUND",
+    "heading": "Bridging business analytics, web development, and digital products.",
+    "intro": "I am a Business Analytics & AI student at EMAA Business School in Agadir, Morocco, focused on building practical web applications and digital tools.",
+    "intersectionTitle": "Business Insights Meets Software",
+    "intersectionText": "My approach combines business understanding with software development. Rather than relying solely on theoretical coursework, I learn by engineering complete digital products that solve real operational challenges.",
+    "proofTitle": "Applied Engineering Proof",
+    "proofText": "My technical foundation is proven through deployed applications like BusinessOS—a 15-model operational platform with role-based permissions and real-time analytics—along with responsive storefronts and web tools.",
+    "experienceTitle": "Internship Experience",
+    "experienceText": "During my internship at Wilaya de la Région Souss-Massa (Préfecture d'Agadir Ida Outanane), I observed public administrative workflows firsthand, strengthening my understanding of organizational data and system requirements.",
+    "directionTitle": "Career Direction",
+    "directionText": "I am working toward a career combining Data Analytics, AI, and Software Engineering. I am currently seeking internship opportunities, junior roles, and freelance collaborations where I can contribute practical product development skills.",
+    "educationLabel": "Education",
+    "school": "Business Analytics & AI",
+    "institution": "EMAA Business School (2025–Present)",
+    "internshipLabel": "Professional Internship",
+    "internshipOrg": "Wilaya de la Région Souss-Massa",
+    "internshipRole": "Préfecture d'Agadir Ida Outanane",
+    "focusLabel": "Core Disciplines",
+    "focusItems": ["Business Analytics", "Applied AI", "Next.js & TypeScript", "Data Modeling"]
   },
   "contact": {
     "badge": "CONTACT",

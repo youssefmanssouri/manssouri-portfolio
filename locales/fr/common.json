@@ -77,12 +77,25 @@
     ]
   },
   "about": {
-    "badge": "À PROPOS",
-    "heading": "Je suis Youssef Manssouri.",
-    "bio": "Je suis Youssef Manssouri, développeur web basé à Agadir, au Maroc. Je conçois des sites web et applications modernes, avec une attention particulière portée à la qualité des interfaces, à la fonctionnalité et à l'expérience utilisateur.",
-    "education": "Formation",
-    "school": "Business Analytics & IA — EMAA Business School (2025–Présent)",
-    "location": "Agadir, Maroc (Missions freelance & à distance)"
+    "badge": "PARCOURS & ENGAGEMENT",
+    "heading": "Relier l'analyse métier, le développement web et les produits digitaux.",
+    "intro": "Étudiant en Business Analytics & IA à l'EMAA Business School d'Agadir, je me consacre à la création d'applications web concrètes et d'outils numériques utiles.",
+    "intersectionTitle": "Analyse Métier & Développement",
+    "intersectionText": "Mon approche associe la compréhension des enjeux d'entreprise au développement logiciel. Plutôt que de me limiter à la théorie académique, j'apprends en concevant des produits digitaux fonctionnels.",
+    "proofTitle": "Preuve par la Pratique",
+    "proofText": "Mes compétences techniques s'appuient sur des projets déployés comme BusinessOS—une plateforme opérationnelle structurée autour de 15 modèles de données, d'une gestion des droits par rôle et d'indicateurs en temps réel.",
+    "experienceTitle": "Expérience de Stage",
+    "experienceText": "Lors de mon stage à la Wilaya de la Région Souss-Massa (Préfecture d'Agadir Ida Outanane), j'ai appréhendé le fonctionnement des flux administratifs publics et la gestion des données organisationnelles.",
+    "directionTitle": "Objectifs Professionnels",
+    "directionText": "Je me développe vers des fonctions à la croisée du Data Analytics, de l'IA et de l'ingénierie web. Je recherche activement des opportunités de stage, des postes juniors et des missions freelance pour apporter une valeur concrète.",
+    "educationLabel": "Formation Académique",
+    "school": "Business Analytics & IA",
+    "institution": "EMAA Business School (2025–Présent)",
+    "internshipLabel": "Stage Professionnel",
+    "internshipOrg": "Wilaya de la Région Souss-Massa",
+    "internshipRole": "Préfecture d'Agadir Ida Outanane",
+    "focusLabel": "Domaines Clés",
+    "focusItems": ["Business Analytics", "IA Appliquée", "Next.js & TypeScript", "Modélisation de Données"]
   },
   "contact": {
     "badge": "CONTACT",
