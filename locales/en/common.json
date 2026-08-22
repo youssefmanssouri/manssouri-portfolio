@@ -10,13 +10,14 @@
   },
   "hero": {
     "title": "YOUSSEF MANSSOURI",
-    "badge": "WEB DEVELOPMENT · DIGITAL STUDIO",
-    "headlineMain": "I build modern websites and web applications for",
-    "headlineEmphasized": "ambitious businesses.",
-    "subheadline": "From business websites and e-commerce experiences to custom web applications and digital tools.",
-    "viewWork": "View Selected Work",
+    "badge": "BUSINESS ANALYTICS & AI STUDENT · DIGITAL PRODUCT BUILDER",
+    "headlineMain": "I combine business insights with modern web development to build",
+    "headlineEmphasized": "practical digital products.",
+    "subheadline": "Business Analytics & AI student passionate about web development. I build clean, high-performance web applications and business tools—focused on utility and strong user experience.",
+    "viewWork": "View My Work",
+    "connect": "Let's Connect",
     "startProject": "Start a Project",
-    "location": "Agadir, Morocco · Available for freelance projects"
+    "location": "Agadir, Morocco · Open for Internships & Junior Opportunities"
   },
   "work": {
     "badge": "SELECTED WORK",

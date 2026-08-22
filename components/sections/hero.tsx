@@ -7,8 +7,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 
 export function Hero() {
-  const { t, language } = useLanguage();
-  const isFr = language === "fr";
+  const { t } = useLanguage();
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     const elem = document.getElementById(targetId);
@@ -31,17 +30,8 @@ export function Hero() {
               </p>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#242222] leading-[1.12]">
-                {isFr ? (
-                  <>
-                    Je conçois des sites web et des applications modernes pour des{" "}
-                    <span className="italic-serif font-normal">entreprises ambitieuses</span>.
-                  </>
-                ) : (
-                  <>
-                    I build modern websites and web applications for{" "}
-                    <span className="italic-serif font-normal">ambitious businesses</span>.
-                  </>
-                )}
+                {t("hero.headlineMain")}{" "}
+                <span className="italic-serif font-normal">{t("hero.headlineEmphasized")}</span>
               </h1>
             </div>
 
@@ -65,7 +55,7 @@ export function Hero() {
                 onClick={(e) => handleNavClick(e, "contact")}
                 className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-3 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98]"
               >
-                {t("hero.startProject")}
+                {t("hero.connect")}
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
@@ -78,7 +68,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Deep Burgundy Interface Frame */}
+          {/* Right Column: Deep Burgundy Interface Frame (Subtle Proof of Built Products) */}
           <div className="lg:col-span-5">
             <Link
               href="/projects/businessos"
@@ -93,7 +83,7 @@ export function Hero() {
                   <div className="w-2 h-2 rounded-full bg-[#DED6CC]/30" />
                 </div>
                 <span className="text-[10px] font-mono text-[#DED6CC]/80 uppercase tracking-wider">
-                  BusinessOS Platform
+                  Featured Project · BusinessOS
                 </span>
               </div>
 
@@ -101,7 +91,7 @@ export function Hero() {
               <div className="relative aspect-[16/10] bg-[#3A171C]">
                 <Image
                   src="/images/projects/businessos-main.jpg"
-                  alt="BusinessOS Dashboard Interface"
+                  alt="BusinessOS Dashboard Interface - Deployed Full-Stack Web Application"
                   fill
                   className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
                   priority

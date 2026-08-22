@@ -10,13 +10,14 @@
   },
   "hero": {
     "title": "YOUSSEF MANSSOURI",
-    "badge": "DÉVELOPPEMENT WEB · STUDIO DIGITAL",
-    "headlineMain": "Je conçois des sites web et des applications modernes pour des",
-    "headlineEmphasized": "entreprises ambitieuses.",
-    "subheadline": "Des sites vitrines et boutiques en ligne aux applications web et solutions digitales sur mesure.",
-    "viewWork": "Voir mes réalisations",
+    "badge": "ÉTUDIANT BUSINESS ANALYTICS & IA · CRÉATEUR DE PRODUITS DIGITAUX",
+    "headlineMain": "Je combine l'analyse métier et le développement web pour créer des",
+    "headlineEmphasized": "produits numériques utiles.",
+    "subheadline": "Étudiant en Business Analytics & IA passionné par le développement web. Je conçois des applications web et outils d'entreprise performants, axés sur l'ergonomie et la valeur concrète.",
+    "viewWork": "Voir mes projets",
+    "connect": "Me contacter",
     "startProject": "Démarrer un projet",
-    "location": "Agadir, Maroc · Disponible pour des projets freelance"
+    "location": "Agadir, Maroc · Ouvert aux stages & opportunités juniors"
   },
   "work": {
     "badge": "RÉALISATIONS SÉLECTIONNÉES",
