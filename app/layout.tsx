@@ -20,7 +20,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://manssouri.dev"),
+  metadataBase: new URL("https://www.youssefmanssouri.site"),
   title: "Youssef Manssouri — Web Developer | Développeur Web | Agadir, Morocco",
   description:
     "Youssef Manssouri is a web developer based in Agadir, Morocco. Building modern websites and web applications for ambitious businesses.",
@@ -37,24 +37,32 @@ export const metadata: Metadata = {
     "Next.js Developer",
     "TypeScript Developer"
   ],
-  authors: [{ name: "Youssef Manssouri", url: "https://manssouri.dev" }],
+  authors: [{ name: "Youssef Manssouri", url: "https://www.youssefmanssouri.site" }],
   creator: "Youssef Manssouri",
   alternates: {
-    canonical: "https://manssouri.dev",
+    canonical: "https://www.youssefmanssouri.site",
     languages: {
-      "en": "https://manssouri.dev",
-      "fr": "https://manssouri.dev",
+      "en": "https://www.youssefmanssouri.site",
+      "fr": "https://www.youssefmanssouri.site",
     },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     alternateLocale: ["fr_FR"],
-    url: "https://manssouri.dev",
+    url: "https://www.youssefmanssouri.site",
     title: "Youssef Manssouri — Web Developer | Développeur Web",
     description:
       "Building modern websites and web applications for ambitious businesses.",
     siteName: "Youssef Manssouri Portfolio",
+    images: [
+      {
+        url: "/images/projects/businessos-main.jpg",
+        width: 1200,
+        height: 675,
+        alt: "BusinessOS - Flagship Web Application by Youssef Manssouri",
+      },
+    ],
   },
   robots: {
     index: true,
@@ -67,7 +75,7 @@ const jsonLdPerson = {
   "@type": "Person",
   "name": "Youssef Manssouri",
   "jobTitle": "Web Developer",
-  "url": "https://manssouri.dev",
+  "url": "https://www.youssefmanssouri.site",
   "email": "mailto:manssouriyoussef33@gmail.com",
   "telephone": "+212656682813",
   "address": {

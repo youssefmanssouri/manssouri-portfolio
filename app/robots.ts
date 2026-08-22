@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/admin/"],
       },
     ],
-    sitemap: "https://manssouri.dev/sitemap.xml",
+    sitemap: "https://www.youssefmanssouri.site/sitemap.xml",
   };
 }
