@@ -5,6 +5,8 @@ export interface Project {
   title: string;
   category: string;
   categoryFr: string;
+  role: string;
+  roleFr: string;
   shortDescription: string;
   shortDescriptionFr: string;
   longDescription: string;
@@ -30,11 +32,13 @@ export const PROJECTS: Project[] = [
     id: "businessos",
     slug: "businessos",
     name: "BusinessOS",
-    title: "BusinessOS — Flagship All-in-One SaaS Platform",
-    category: "FLAGSHIP SAAS · BUSINESS OPERATIONS",
-    categoryFr: "PLATEFORME SAAS ÉDITORIALE · OPÉRATIONS D'ENTREPRISE",
-    shortDescription: "A centralized business operations platform built to solve operational fragmentation by unifying CRM, invoicing, scheduling, HR, and cash flow into one command center.",
-    shortDescriptionFr: "Une plateforme d'opérations d'entreprise unifiée conçue pour résoudre la fragmentation des outils métiers en regroupant CRM, facturation, réservations, RH et trésorerie.",
+    title: "BusinessOS — Flagship All-in-One Business Operations Platform",
+    category: "FLAGSHIP CASE STUDY · BUSINESS OPERATIONS",
+    categoryFr: "ÉTUDE DE CAS PHARE · OPÉRATIONS D'ENTREPRISE",
+    role: "Designed & Developed (Independent Project)",
+    roleFr: "Conception & Développement (Projet Indépendant)",
+    shortDescription: "A unified business operations platform that centralizes CRM, invoicing, bookings, employees, tasks, finance, and analytics into one command center.",
+    shortDescriptionFr: "Une plateforme d'opérations d'entreprise unifiée centralisant CRM, factures, rendez-vous, RH, tâches, trésorerie et analytics au sein d'un seul centre de contrôle.",
     longDescription: "BusinessOS addresses the inefficiency of fragmented SaaS stacks. Built with Next.js 15 App Router and React 19, it combines 7 core operational modules into a single zero-latency workspace powered by a 15-model Prisma relational schema, server-enforced RBAC, interactive Recharts telemetry, and isolated demo security guards.",
     longDescriptionFr: "BusinessOS résout l'inefficacité des outils SaaS morcelés. Développé avec Next.js 15 App Router et React 19, il réunit 7 modules opérationnels clés au sein d'un espace de travail réactif appuyé par un schéma relationnel Prisma de 15 modèles, un contrôle d'accès RBAC et une sécurisation des données en mode démonstration.",
     overview: "Fragmented operations force growing teams to juggle separate subscriptions for CRM, invoicing, appointment scheduling, employee records, and cash flow reporting. BusinessOS eliminates this friction through a unified operational command center.",
@@ -48,8 +52,7 @@ export const PROJECTS: Project[] = [
       "Prisma (15 Models)",
       "PostgreSQL",
       "Server Actions",
-      "Recharts",
-      "Framer Motion"
+      "Recharts"
     ],
     features: [
       "Executive Command Center with live revenue KPIs & activity telemetry",
@@ -89,10 +92,12 @@ export const PROJECTS: Project[] = [
     slug: "lumiere-parfums",
     name: "Lumière Parfums",
     title: "Lumière Parfums — Luxury E-Commerce Experience",
-    category: "LUXURY E-COMMERCE",
-    categoryFr: "E-COMMERCE HAUT DE GAMME",
-    shortDescription: "A luxury e-commerce experience built around product discovery, shopping and online store management.",
-    shortDescriptionFr: "Une expérience e-commerce haut de gamme pensée autour de la découverte des produits, de l'achat en ligne et de la gestion de boutique.",
+    category: "COMMERCIAL WEB EXPERIENCE",
+    categoryFr: "EXPÉRIENCE WEB COMMERCIALE",
+    role: "Designed & Developed",
+    roleFr: "Conception & Développement",
+    shortDescription: "A refined e-commerce experience focused on product presentation, responsive design, and a smooth shopping interface.",
+    shortDescriptionFr: "Une expérience e-commerce haut de gamme axée sur la présentation des produits, le design réactif et une interface d'achat fluide.",
     longDescription: "Lumière Parfums is a bespoke digital fragrance house featuring interactive note-profile filtering, high-definition product galleries, persistent cart management, customer accounts, and an administration portal.",
     longDescriptionFr: "Lumière Parfums est une boutique numérique sur mesure dédiée à la haute parfumerie, offrant un filtrage interactif des notes olfactives, des galeries produits haute définition, un panier persistant et un espace d'administration.",
     overview: "Designed for niche fragrance connoisseurs, Lumière Parfums combines editorial storytelling with seamless checkout mechanics and inventory management.",
@@ -101,11 +106,9 @@ export const PROJECTS: Project[] = [
     objectiveFr: "Développer une boutique en ligne haut de gamme privilégiant l'élégance visuelle, le filtrage rapide du catalogue et une expérience d'achat fluide.",
     technologies: [
       "Next.js",
-      "React",
       "TypeScript",
       "Tailwind CSS",
-      "Node.js",
-      "PostgreSQL"
+      "React"
     ],
     features: [
       "Dynamic fragrance catalog with olfactive notes & accords filtering",
@@ -138,11 +141,13 @@ export const PROJECTS: Project[] = [
     id: "gym-crm",
     slug: "gym-crm",
     name: "Gym CRM",
-    title: "Gym CRM — Fitness Facility Management",
-    category: "BUSINESS APPLICATION · CRM",
-    categoryFr: "APPLICATION MÉTIER · GESTION DE SALLE",
-    shortDescription: "A full-stack gym management platform designed to centralize members, operations, payments and day-to-day workflows.",
-    shortDescriptionFr: "Une plateforme complète de gestion pour salles de sport, conçue pour centraliser les adhérents, les opérations, les paiements et les activités quotidiennes.",
+    title: "Gym CRM — Practical Business Management Application",
+    category: "BUSINESS APPLICATION",
+    categoryFr: "APPLICATION MÉTIER",
+    role: "Designed & Developed",
+    roleFr: "Conception & Développement",
+    shortDescription: "A practical management application designed to organize gym operations, member information, and day-to-day administrative workflows.",
+    shortDescriptionFr: "Une application de gestion pratique conçue pour organiser l'activité des salles de sport, les adhérents et les tâches administratives.",
     longDescription: "Gym CRM provides fitness center managers and front-desk staff with instant member check-ins, membership renewal tracking, class scheduling, trainer management, and financial revenue reporting.",
     longDescriptionFr: "Gym CRM offre aux gestionnaires de salles de sport et hôtes d'accueil un outil rapide pour les pointages, le suivi des réabonnements, le planning des cours, la gestion des coachs et le chiffre d'affaires.",
     overview: "Engineered to handle high-frequency member verification and daily gym workflows, Gym CRM eliminates manual paperwork and speeds up reception check-ins.",
@@ -154,8 +159,7 @@ export const PROJECTS: Project[] = [
       "TypeScript",
       "Tailwind CSS",
       "Prisma",
-      "PostgreSQL",
-      "Chart.js"
+      "PostgreSQL"
     ],
     features: [
       "Member management database with renewal alert indicators",

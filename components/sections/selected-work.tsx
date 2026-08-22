@@ -54,6 +54,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
 }) {
   const shortDesc = language === "fr" ? project.shortDescriptionFr : project.shortDescription;
   const category = language === "fr" ? project.categoryFr : project.category;
+  const role = language === "fr" ? project.roleFr : project.role;
   const itemNum = `0${index + 1}`;
 
   const isFlagship = project.id === "businessos";
@@ -67,8 +68,8 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#A65F4B]/20 border border-[#A65F4B]/40 text-[#F3EFEA] text-[11px] font-mono uppercase tracking-widest font-semibold">
               <span>★ {language === "fr" ? "Projet Phare" : "Flagship Case Study"}</span>
             </div>
-            <span className="text-xs font-mono text-[#DED6CC]/60 hidden sm:inline">
-              {language === "fr" ? "Plateforme SaaS Unifiée" : "Unified Enterprise SaaS Workspace"}
+            <span className="text-xs font-mono text-[#DED6CC]/70 hidden sm:inline font-medium">
+              {language === "fr" ? "Plateforme Opérationnelle Unifiée" : "Unified Business Operations Center"}
             </span>
           </div>
         )}
@@ -77,10 +78,12 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
           
           <div className="lg:col-span-5 space-y-6">
             <div className="space-y-2">
-              <div className="flex items-center gap-3 text-xs font-mono text-[#DED6CC]/80">
+              <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#DED6CC]/80">
                 <span className="text-[#A65F4B] font-bold">{itemNum}</span>
                 <span>·</span>
                 <span className="uppercase">{category}</span>
+                <span>·</span>
+                <span className="text-[#DED6CC]/60">{role}</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-[#F3EFEA] tracking-tight">
                 {project.name}
@@ -120,7 +123,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                 <Link
                   href={`/projects/${project.slug}`}
                   prefetch={true}
-                  className="inline-flex items-center gap-1.5 bg-[#F3EFEA] text-[#3A171C] px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-white transition-all active:scale-[0.98]"
+                  className="inline-flex items-center gap-1.5 bg-[#F3EFEA] text-[#3A171C] px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-white transition-all active:scale-[0.98]"
                 >
                   {t("work.viewCaseStudy")}
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -131,7 +134,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
+                    className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
                   >
                     {t("work.visitLive")}
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -177,7 +180,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
     );
   }
 
-  // Light Editorial Card (Lumière Parfums & Others)
+  // Light Editorial Card (Lumière Parfums)
   return (
     <div className="border-b border-[#DED6CC] pb-20">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -202,10 +205,12 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
         {/* Information Right */}
         <div className="lg:col-span-5 lg:order-2 space-y-6">
           <div className="space-y-2">
-            <div className="flex items-center gap-3 text-xs font-mono text-[#242222]/70">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#242222]/70">
               <span className="text-[#A65F4B] font-bold">{itemNum}</span>
               <span>·</span>
               <span className="uppercase">{category}</span>
+              <span>·</span>
+              <span className="text-[#242222]/60">{role}</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-bold text-[#242222] tracking-tight">
               {project.name}
@@ -231,7 +236,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
             <Link
               href={`/projects/${project.slug}`}
               prefetch={true}
-              className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#542229] transition-all active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#542229] transition-all active:scale-[0.98]"
             >
               {t("work.viewCaseStudy")}
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -242,7 +247,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
               >
                 {t("work.visitLive")}
                 <ExternalLink className="w-3.5 h-3.5" />
