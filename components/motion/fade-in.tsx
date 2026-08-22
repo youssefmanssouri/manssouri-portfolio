@@ -51,7 +51,6 @@ export function FadeIn({
         delay,
         ease: [0.16, 1, 0.3, 1] // Snappy ease-out curve
       }}
-      style={{ willChange: "transform, opacity" }}
       className={className}
     >
       {children}
