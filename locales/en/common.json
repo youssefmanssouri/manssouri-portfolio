@@ -36,32 +36,41 @@
     "nextProject": "NEXT PROJECT",
     "backToWork": "Back to Selected Work"
   },
-  "services": {
-    "badge": "SERVICES",
-    "heading": "Digital Solutions Built for Business Impact",
-    "subheading": "Tailored web development focusing on performance, usability, and business objectives.",
+  "capabilities": {
+    "badge": "CAPABILITIES",
+    "heading": "Technical & Analytical Capabilities",
+    "subheading": "Combining business understanding, web engineering, data analysis, and AI to build practical digital tools.",
     "items": [
       {
-        "number": "01",
-        "title": "Business Websites",
-        "description": "Modern websites designed around your brand, content, and business objectives."
+        "label": "BUILD",
+        "title": "Web Development",
+        "positioning": "Building clean, responsive web experiences and practical applications tailored to specific business needs.",
+        "details": "Frontend architecture, responsive design, Next.js development, and modern web user interfaces focused on performance and usability.",
+        "evidence": "Proven through deployed portfolio applications and custom web builds."
       },
       {
-        "number": "02",
-        "title": "E-commerce",
-        "description": "Online stores focused on product discovery, usability, and conversion."
+        "label": "SYSTEMIZE",
+        "title": "Business Applications",
+        "positioning": "Turning business workflows into practical digital tools that centralize information and simplify operations.",
+        "details": "Custom CRM systems, internal dashboards, booking calendars, invoice management, and role-based administrative platforms.",
+        "evidence": "Demonstrated by BusinessOS—a 15-model operational management platform."
       },
       {
-        "number": "03",
-        "title": "Web Applications",
-        "description": "Custom dashboards, management systems, and business tools."
+        "label": "ANALYZE",
+        "title": "Data & Analytics",
+        "positioning": "Using data to organize business information, visualize KPIs, and support clearer decision-making.",
+        "details": "Business data analysis, key performance metric visualization, database modeling, and operational dashboards.",
+        "evidence": "Grounded in Business Analytics & AI coursework at EMAA Business School and BusinessOS analytics."
       },
       {
-        "number": "04",
-        "title": "Landing Pages",
-        "description": "Focused pages designed to communicate clearly and drive action."
+        "label": "EXPLORE",
+        "title": "Applied AI & Automation",
+        "positioning": "Exploring practical ways to integrate AI and automation into digital products and business workflows.",
+        "details": "AI API integration, automated workflow concepts, smart features in web applications, and hands-on experimentation with AI tools.",
+        "evidence": "Supported by ongoing academic studies and practical web integration experiments."
       }
-    ]
+    ],
+    "connectLink": "Explore Collaborations & Work"
   },
   "process": {
     "badge": "PROCESS",

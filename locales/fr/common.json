@@ -36,32 +36,41 @@
     "nextProject": "PROJET SUIVANT",
     "backToWork": "Retour aux réalisations"
   },
-  "services": {
-    "badge": "SERVICES",
-    "heading": "Des Solutions Digitales Conçues pour Votre Croissance",
-    "subheading": "Développement web sur mesure privilégiant la performance, l'ergonomie et vos objectifs métiers.",
+  "capabilities": {
+    "badge": "COMPÉTENCES & DOMAINES D'ACTION",
+    "heading": "Compétences Techniques & Analytiques",
+    "subheading": "Associer compréhension métier, ingénierie web, analyse de données et IA pour créer des outils digitaux utiles.",
     "items": [
       {
-        "number": "01",
-        "title": "Sites Web Vitrines",
-        "description": "Sites web modernes conçus pour valoriser votre marque, vos contenus et vos objectifs commerciaux."
+        "label": "DÉVELOPPER",
+        "title": "Développement Web",
+        "positioning": "Création d'expériences web réactives et d'applications modernes adaptées aux besoins de l'entreprise.",
+        "details": "Architecture frontend, design réactif, développement Next.js et interfaces utilisateur axées sur la performance et la simplicité.",
+        "evidence": "Illustré par les projets web déployés dans ce portfolio."
       },
       {
-        "number": "02",
-        "title": "Boutiques E-commerce",
-        "description": "Boutiques en ligne optimisées pour la découverte des produits, la fluidité d'achat et la conversion."
+        "label": "STRUCTURER",
+        "title": "Applications Métier & Outils",
+        "positioning": "Transformation des flux de travail en outils numériques pratiques pour centraliser les données et simplifier la gestion.",
+        "details": "Systèmes CRM sur mesure, tableaux de bord internes, gestion des réservations, facturation et gestion des rôles d'accès.",
+        "evidence": "Démontré par BusinessOS—une plateforme de gestion d'entreprise structurée sur 15 modèles de données."
       },
       {
-        "number": "03",
-        "title": "Applications Web",
-        "description": "Tableaux de bord sur mesure, outils de gestion CRM et applications d'entreprise."
+        "label": "ANALYSER",
+        "title": "Data & Analytics",
+        "positioning": "Exploitation des données pour organiser l'information, visualiser les indicateurs clés et faciliter les décisions.",
+        "details": "Analyse de données métier, tableaux de bord d'indicateurs (KPI), modélisation de bases de données et suivi opérationnel.",
+        "evidence": "Issu du cursus Business Analytics & IA à l'EMAA Business School et du module analytique de BusinessOS."
       },
       {
-        "number": "04",
-        "title": "Landing Pages",
-        "description": "Pages ciblées à forte conversion conçues pour communiquer clairement et inciter à l'action."
+        "label": "EXPLORER",
+        "title": "IA Appliquée & Automatisation",
+        "positioning": "Exploration de méthodes concrètes pour intégrer l'IA et l'automatisation dans les produits digitaux.",
+        "details": "Intégration d'API d'IA, automatisation de flux de travail, fonctionnalités intelligentes dans le web et expérimentation pratique.",
+        "evidence": "Appuyé par la formation académique et les expérimentations intégrées aux projets web."
       }
-    ]
+    ],
+    "connectLink": "Découvrir mes projets & expertises"
   },
   "process": {
     "badge": "MÉTHODOLOGIE",
