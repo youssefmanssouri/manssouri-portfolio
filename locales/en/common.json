@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "work": "Work",
+    "services": "Services",
+    "about": "About",
+    "process": "Process",
+    "contact": "Contact",
+    "talk": "Let's Talk",
+    "startProject": "Start a Project"
+  },
+  "hero": {
+    "title": "YOUSSEF MANSSOURI",
+    "badge": "WEB DEVELOPMENT · DIGITAL STUDIO",
+    "headlineMain": "I build modern websites and web applications for",
+    "headlineEmphasized": "ambitious businesses.",
+    "subheadline": "From business websites and e-commerce experiences to custom web applications and digital tools.",
+    "viewWork": "View Selected Work",
+    "startProject": "Start a Project",
+    "location": "Agadir, Morocco · Available for freelance projects"
+  },
+  "work": {
+    "badge": "SELECTED WORK",
+    "heading": "Featured Projects & Case Studies",
+    "subheading": "Real-world web applications and storefronts built with modern full-stack engineering.",
+    "viewCaseStudy": "View Case Study",
+    "visitLive": "Visit Live Site",
+    "github": "GitHub ↗"
+  },
+  "caseStudy": {
+    "overview": "Overview",
+    "objective": "Objective & Challenge",
+    "keyFeatures": "Key Features",
+    "technologies": "Technologies Used",
+    "gallery": "Project Visuals",
+    "nextProject": "NEXT PROJECT",
+    "backToWork": "Back to Selected Work"
+  },
+  "services": {
+    "badge": "SERVICES",
+    "heading": "Digital Solutions Built for Business Impact",
+    "subheading": "Tailored web development focusing on performance, usability, and business objectives.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Business Websites",
+        "description": "Modern websites designed around your brand, content, and business objectives."
+      },
+      {
+        "number": "02",
+        "title": "E-commerce",
+        "description": "Online stores focused on product discovery, usability, and conversion."
+      },
+      {
+        "number": "03",
+        "title": "Web Applications",
+        "description": "Custom dashboards, management systems, and business tools."
+      },
+      {
+        "number": "04",
+        "title": "Landing Pages",
+        "description": "Focused pages designed to communicate clearly and drive action."
+      }
+    ]
+  },
+  "process": {
+    "badge": "PROCESS",
+    "heading": "A Structured 6-Step Workflow",
+    "subheading": "Clear methodology from initial discovery through to production deployment.",
+    "steps": [
+      { "number": "01", "title": "Discover", "description": "Understanding your business goals, scope, and technical requirements." },
+      { "number": "02", "title": "Plan", "description": "Mapping site architecture, data models, and user interaction flows." },
+      { "number": "03", "title": "Design", "description": "Crafting clean, accessible component systems and responsive visual layouts." },
+      { "number": "04", "title": "Develop", "description": "Building performant, maintainable code using Next.js and TypeScript." },
+      { "number": "05", "title": "Test", "description": "Comprehensive audit of responsiveness, cross-browser compatibility, and speed." },
+      { "number": "06", "title": "Launch", "description": "Deploying to production, domain setup, SSL, and handover documentation." }
+    ]
+  },
+  "about": {
+    "badge": "ABOUT",
+    "heading": "Hi, I'm Youssef Manssouri.",
+    "bio": "I'm Youssef Manssouri, a web developer based in Agadir, Morocco. I build modern websites and web applications with a focus on clean interfaces, useful functionality and strong user experience.",
+    "education": "Education",
+    "school": "Business Analytics & AI — EMAA Business School (2025–Present)",
+    "location": "Agadir, Morocco (Remote & Freelance Worldwide)"
+  },
+  "contact": {
+    "badge": "CONTACT",
+    "heading": "Have a project in mind?",
+    "subheading": "Let's build something useful.",
+    "cta": "Start a Project",
+    "form": {
+      "name": "Your Name *",
+      "namePlaceholder": "Jane Doe",
+      "email": "Email Address *",
+      "emailPlaceholder": "jane@company.com",
+      "company": "Company / Business",
+      "companyPlaceholder": "Acme Inc. (Optional)",
+      "projectType": "Project Type *",
+      "selectProjectType": "Select project type...",
+      "budget": "Budget Range",
+      "selectBudget": "Select budget range...",
+      "message": "Project Details *",
+      "messagePlaceholder": "Tell me about your project goals, required features, and timeline...",
+      "submit": "Send Inquiry",
+      "submitting": "Sending Inquiry...",
+      "successTitle": "Message Received",
+      "successMessage": "Thank you. Your message has been received. I'll get back to you as soon as possible.",
+      "errorTitle": "Submission Error",
+      "errorMessage": "The form couldn't be submitted. You can contact me directly by email or WhatsApp below."
+    },
+    "directContact": "Direct Contact",
+    "email": "Email",
+    "phone": "Phone / WhatsApp",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "whatsAppCTA": "Chat on WhatsApp",
+    "whatsAppMessage": "Hello Youssef, I would like to discuss a web development project."
+  },
+  "footer": {
+    "tagline": "Building modern websites and web applications for businesses.",
+    "location": "Based in Agadir, Morocco",
+    "rights": "All rights reserved.",
+    "backToTop": "Back to top"
+  }
+}

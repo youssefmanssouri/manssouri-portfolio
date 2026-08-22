@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-cream: #F3EFEA;
+    --color-burgundy: #3A171C;
+    --color-charcoal: #242222;
+    --color-terracotta: #A65F4B;
+    --color-beige: #DED6CC;
+
+    --background: var(--color-cream);
+    --foreground: var(--color-charcoal);
+    --burgundy: var(--color-burgundy);
+    --charcoal: var(--color-charcoal);
+    --terracotta: var(--color-terracotta);
+    --beige: var(--color-beige);
+
+    --border-light: var(--color-beige);
+    --border-dark: rgba(222, 214, 204, 0.25);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Design Token Utility Classes */
+.bg-cream { background-color: #F3EFEA; }
+.bg-burgundy { background-color: #3A171C; }
+.bg-charcoal { background-color: #242222; }
+.bg-terracotta { background-color: #A65F4B; }
+.bg-beige { background-color: #DED6CC; }
+
+.text-cream { color: #F3EFEA; }
+.text-burgundy { color: #3A171C; }
+.text-charcoal { color: #242222; }
+.text-terracotta { color: #A65F4B; }
+.text-beige { color: #DED6CC; }
+
+.border-beige { border-color: #DED6CC; }
+.border-burgundy { border-color: #3A171C; }
+
+/* Typography Utilities */
+.font-serif {
+  font-family: var(--font-serif), Cormorant Garamond, Georgia, serif;
+}
+
+.italic-serif {
+  font-family: var(--font-serif), Cormorant Garamond, Georgia, serif;
+  font-style: italic;
+  color: #A65F4B;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3EFEA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DED6CC;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A65F4B;
+}
+
+/* Text Selection */
+::selection {
+  background: #A65F4B;
+  color: #ffffff;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,233 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { PROJECTS, Project } from "@/data/projects";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/context";
+
+export function SelectedWork() {
+  const { t, language } = useLanguage();
+
+  return (
+    <section id="work" className="py-24 md:py-32 bg-[#F3EFEA]">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#DED6CC]">
+          <div>
+            <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest mb-1 font-semibold">
+              01 / {t("work.badge")}
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#242222]">
+              {t("work.heading")}
+            </h2>
+          </div>
+          <p className="text-[#242222]/70 text-sm max-w-sm mt-3 md:mt-0 leading-relaxed">
+            {t("work.subheading")}
+          </p>
+        </div>
+
+        {/* Editorial Case Study Compositions */}
+        <div className="space-y-24">
+          {PROJECTS.map((project, idx) => (
+            <ProjectEditorialItem key={project.id} project={project} index={idx} language={language} t={t} />
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
+  project,
+  index,
+  language,
+  t
+}: {
+  project: Project;
+  index: number;
+  language: string;
+  t: (key: string) => string;
+}) {
+  const shortDesc = language === "fr" ? project.shortDescriptionFr : project.shortDescription;
+  const category = language === "fr" ? project.categoryFr : project.category;
+  const itemNum = `0${index + 1}`;
+
+  const isDarkCard = project.id === "businessos" || project.id === "gym-crm";
+
+  if (isDarkCard) {
+    return (
+      <div className="rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 p-8 sm:p-10 lg:p-12 shadow-xl space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div className="lg:col-span-5 space-y-6">
+            <div className="space-y-2">
+              <div className="flex items-center gap-3 text-xs font-mono text-[#DED6CC]/80">
+                <span className="text-[#A65F4B] font-bold">{itemNum}</span>
+                <span>·</span>
+                <span className="uppercase">{category}</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#F3EFEA] tracking-tight">
+                {project.name}
+              </h3>
+            </div>
+
+            <p className="text-[#DED6CC]/80 text-sm leading-relaxed">
+              {shortDesc}
+            </p>
+
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-1 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 text-[#F3EFEA] font-mono text-[11px]"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 pt-3">
+              <Link
+                href={`/projects/${project.slug}`}
+                prefetch={true}
+                className="inline-flex items-center gap-1.5 bg-[#F3EFEA] text-[#3A171C] px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-white transition-all active:scale-[0.98]"
+              >
+                {t("work.viewCaseStudy")}
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+
+              {project.hasLiveDemo && project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
+                >
+                  {t("work.visitLive")}
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
+
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-transparent border border-[#DED6CC]/40 text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#F3EFEA]/10 transition-all active:scale-[0.98]"
+              >
+                {t("work.github")}
+              </a>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7">
+            <Link
+              href={`/projects/${project.slug}`}
+              prefetch={true}
+              className="block relative aspect-[16/10] rounded-xs overflow-hidden border border-[#DED6CC]/20 bg-[#2D1216] group"
+            >
+              <Image
+                src={project.heroImage}
+                alt={project.name}
+                fill
+                className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
+                sizes="(max-width: 1024px) 100vw, 55vw"
+              />
+            </Link>
+          </div>
+
+        </div>
+      </div>
+    );
+  }
+
+  // Light Editorial Card (Lumière Parfums & Others)
+  return (
+    <div className="border-b border-[#DED6CC] pb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        {/* Real Product Image Showcase */}
+        <div className="lg:col-span-7 lg:order-1">
+          <Link
+            href={`/projects/${project.slug}`}
+            prefetch={true}
+            className="block relative aspect-[16/10] rounded-xs overflow-hidden border border-[#DED6CC] bg-[#3A171C] group"
+          >
+            <Image
+              src={project.heroImage}
+              alt={project.name}
+              fill
+              className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
+              sizes="(max-width: 1024px) 100vw, 55vw"
+            />
+          </Link>
+        </div>
+
+        {/* Information Right */}
+        <div className="lg:col-span-5 lg:order-2 space-y-6">
+          <div className="space-y-2">
+            <div className="flex items-center gap-3 text-xs font-mono text-[#242222]/70">
+              <span className="text-[#A65F4B] font-bold">{itemNum}</span>
+              <span>·</span>
+              <span className="uppercase">{category}</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#242222] tracking-tight">
+              {project.name}
+            </h3>
+          </div>
+
+          <p className="text-[#242222]/80 text-sm leading-relaxed">
+            {shortDesc}
+          </p>
+
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {project.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="px-2.5 py-1 rounded-xs bg-[#242222]/5 border border-[#DED6CC] text-[#242222] font-mono text-[11px]"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 pt-3">
+            <Link
+              href={`/projects/${project.slug}`}
+              prefetch={true}
+              className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#542229] transition-all active:scale-[0.98]"
+            >
+              {t("work.viewCaseStudy")}
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+
+            {project.hasLiveDemo && project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
+              >
+                {t("work.visitLive")}
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-transparent border border-[#3A171C] text-[#3A171C] px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98]"
+            >
+              {t("work.github")}
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+});

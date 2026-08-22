@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "work": "Réalisations",
+    "services": "Services",
+    "about": "À propos",
+    "process": "Méthodologie",
+    "contact": "Contact",
+    "talk": "Me Contacter",
+    "startProject": "Démarrer un projet"
+  },
+  "hero": {
+    "title": "YOUSSEF MANSSOURI",
+    "badge": "DÉVELOPPEMENT WEB · STUDIO DIGITAL",
+    "headlineMain": "Je conçois des sites web et des applications modernes pour des",
+    "headlineEmphasized": "entreprises ambitieuses.",
+    "subheadline": "Des sites vitrines et boutiques en ligne aux applications web et solutions digitales sur mesure.",
+    "viewWork": "Voir mes réalisations",
+    "startProject": "Démarrer un projet",
+    "location": "Agadir, Maroc · Disponible pour des projets freelance"
+  },
+  "work": {
+    "badge": "RÉALISATIONS SÉLECTIONNÉES",
+    "heading": "Projets Phares & Études de Cas",
+    "subheading": "Applications web concrètes et boutiques en ligne conçues avec des architectures modernes.",
+    "viewCaseStudy": "Consulter l'étude de cas",
+    "visitLive": "Visiter le site en direct",
+    "github": "Code source GitHub ↗"
+  },
+  "caseStudy": {
+    "overview": "Présentation du projet",
+    "objective": "Objectif & Défis techniques",
+    "keyFeatures": "Fonctionnalités clés",
+    "technologies": "Technologies utilisées",
+    "gallery": "Visuels du projet",
+    "nextProject": "PROJET SUIVANT",
+    "backToWork": "Retour aux réalisations"
+  },
+  "services": {
+    "badge": "SERVICES",
+    "heading": "Des Solutions Digitales Conçues pour Votre Croissance",
+    "subheading": "Développement web sur mesure privilégiant la performance, l'ergonomie et vos objectifs métiers.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Sites Web Vitrines",
+        "description": "Sites web modernes conçus pour valoriser votre marque, vos contenus et vos objectifs commerciaux."
+      },
+      {
+        "number": "02",
+        "title": "Boutiques E-commerce",
+        "description": "Boutiques en ligne optimisées pour la découverte des produits, la fluidité d'achat et la conversion."
+      },
+      {
+        "number": "03",
+        "title": "Applications Web",
+        "description": "Tableaux de bord sur mesure, outils de gestion CRM et applications d'entreprise."
+      },
+      {
+        "number": "04",
+        "title": "Landing Pages",
+        "description": "Pages ciblées à forte conversion conçues pour communiquer clairement et inciter à l'action."
+      }
+    ]
+  },
+  "process": {
+    "badge": "MÉTHODOLOGIE",
+    "heading": "Un Processus Structuré en 6 Étapes",
+    "subheading": "Une méthode claire et transparente de la phase de cadrage jusqu'à la mise en production.",
+    "steps": [
+      { "number": "01", "title": "Découverte", "description": "Compréhension de vos enjeux métiers, du périmètre et des exigences techniques." },
+      { "number": "02", "title": "Planification", "description": "Conception de l'arborescence, modélisation des données et parcours utilisateurs." },
+      { "number": "03", "title": "Design UI", "description": "Création d'interfaces modernes, d'un système de composants et de maquettes réactives." },
+      { "number": "04", "title": "Développement", "description": "Programmation d'un code propre, performant et évolutif avec Next.js et TypeScript." },
+      { "number": "05", "title": "Tests & QA", "description": "Audit complet de l'ergonomie mobile, de la compatibilité navigateurs et des performances." },
+      { "number": "06", "title": "Lancement", "description": "Déploiement en production, configuration DNS/SSL et remise de la documentation." }
+    ]
+  },
+  "about": {
+    "badge": "À PROPOS",
+    "heading": "Je suis Youssef Manssouri.",
+    "bio": "Je suis Youssef Manssouri, développeur web basé à Agadir, au Maroc. Je conçois des sites web et applications modernes, avec une attention particulière portée à la qualité des interfaces, à la fonctionnalité et à l'expérience utilisateur.",
+    "education": "Formation",
+    "school": "Business Analytics & IA — EMAA Business School (2025–Présent)",
+    "location": "Agadir, Maroc (Missions freelance & à distance)"
+  },
+  "contact": {
+    "badge": "CONTACT",
+    "heading": "Vous avez un projet en tête ?",
+    "subheading": "Construisons quelque chose d'utile.",
+    "cta": "Démarrer un projet",
+    "form": {
+      "name": "Votre nom complet *",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Adresse e-mail *",
+      "emailPlaceholder": "jean@entreprise.com",
+      "company": "Entreprise / Société",
+      "companyPlaceholder": "Nom de la société (Optionnel)",
+      "projectType": "Type de projet *",
+      "selectProjectType": "Sélectionnez un type de projet...",
+      "budget": "Budget estimé",
+      "selectBudget": "Sélectionnez une tranche...",
+      "message": "Détails du projet *",
+      "messagePlaceholder": "Présentez vos objectifs métiers, fonctionnalités souhaitées et délais...",
+      "submit": "Envoyer ma demande",
+      "submitting": "Envoi en cours...",
+      "successTitle": "Message bien reçu",
+      "successMessage": "Merci. Votre message a bien été envoyé. Je vous répondrai dans les meilleurs délais.",
+      "errorTitle": "Erreur d'envoi",
+      "errorMessage": "Le formulaire n'a pas pu être envoyé. Vous pouvez me contacter directement par e-mail ou WhatsApp ci-dessous."
+    },
+    "directContact": "Coordonnées directes",
+    "email": "E-mail",
+    "phone": "Téléphone / WhatsApp",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "whatsAppCTA": "Discuter sur WhatsApp",
+    "whatsAppMessage": "Bonjour Youssef, je souhaiterais discuter d'un projet de développement web."
+  },
+  "footer": {
+    "tagline": "Conception de sites web modernes et d'applications web pour les entreprises.",
+    "location": "Basé à Agadir, Maroc",
+    "rights": "Tous droits réservés.",
+    "backToTop": "Haut de page"
+  }
+}

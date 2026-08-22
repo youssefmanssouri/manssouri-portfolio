@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         String    @default("ADMIN")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  lastLoginAt  DateTime?
+}
+
+model ContactMessage {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  company     String?
+  projectType String
+  budgetRange String?
+  message     String
+  language    String   @default("en")
+  status      String   @default("NEW")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([createdAt])
+  @@index([status])
+  @@index([email])
+}
+
+model Project {
+  id               String              @id @default(cuid())
+  slug             String              @unique
+  title            String
+  category         String
+  type             String              @default("PERSONAL PROJECT")
+  taglineEn        String
+  taglineFr        String
+  descriptionEn    String
+  descriptionFr    String
+  overviewEn       String
+  overviewFr       String
+  objectiveEn      String
+  objectiveFr      String
+  outcomeEn        String
+  outcomeFr        String
+  featured         Boolean             @default(true)
+  published        Boolean             @default(true)
+  editorialVariant String              @default("featured-large")
+  githubUrl        String
+  liveUrl          String?
+  heroImage        String
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+  features         ProjectFeature[]
+  technologies     ProjectTechnology[]
+  challenges       ProjectChallenge[]
+
+  @@index([slug])
+  @@index([published])
+  @@index([featured])
+}
+
+model ProjectFeature {
+  id            String  @id @default(cuid())
+  projectId     String
+  project       Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  titleEn       String
+  titleFr       String
+  descriptionEn String?
+  descriptionFr String?
+}
+
+model ProjectTechnology {
+  id        String  @id @default(cuid())
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  name      String
+}
+
+model ProjectChallenge {
+  id        String  @id @default(cuid())
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  textEn    String
+  textFr    String
+}
+
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  event     String
+  path      String?
+  meta      String?
+  ipHash    String?
+  createdAt DateTime @default(now())
+
+  @@index([event])
+  @@index([createdAt])
+}
