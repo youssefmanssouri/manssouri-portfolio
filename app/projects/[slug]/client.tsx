@@ -107,27 +107,130 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
 
         {/* Overview & Objective */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-4">
-          <div className="lg:col-span-8 space-y-8">
-            <div className="space-y-2">
-              <h2 className="text-xl font-bold text-[#242222]">
-                {t("caseStudy.overview")}
-              </h2>
-              <p className="text-[#242222]/80 text-sm leading-relaxed">
-                {overview}
-              </p>
-              <p className="text-[#242222]/80 text-sm leading-relaxed">
-                {longDesc}
-              </p>
-            </div>
+          <div className="lg:col-span-8 space-y-12">
+            
+            {/* Business Problem vs Solution Grid (Flagship BusinessOS Only) */}
+            {project.id === "businessos" ? (
+              <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="p-6 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/20 space-y-3">
+                    <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                      01 / {isFr ? "Problème Métier" : "The Business Problem"}
+                    </div>
+                    <h3 className="text-lg font-bold text-[#3A171C]">
+                      {isFr ? "Fragmentation Opérationnelle & Silos de Données" : "Operational Fragmentation & Tool Silos"}
+                    </h3>
+                    <p className="text-xs text-[#242222]/80 leading-relaxed">
+                      {isFr 
+                        ? "Les entreprises en croissance gèrent leurs opérations avec un empilement d'outils SaaS déconnectés : un CRM pour les prospects, un logiciel séparé pour la facturation, un calendrier externe pour les rendez-vous et des fichiers Excel pour les RH et la trésorerie. Cette fragmentation engorde les coûts et crée des failles de suivi."
+                        : "Growing businesses operate on a fragmented stack of disconnected tools: one SaaS for leads, another for invoicing, an external calendar for bookings, and spreadsheets for HR and cash flow. This fragmentation inflates software costs, creates data silos, and wastes valuable operational hours."}
+                    </p>
+                  </div>
 
-            <div className="space-y-2">
-              <h2 className="text-xl font-bold text-[#242222]">
-                {t("caseStudy.objective")}
-              </h2>
-              <p className="text-[#242222]/80 text-sm leading-relaxed">
-                {objective}
-              </p>
-            </div>
+                  <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3 shadow-md">
+                    <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                      02 / {isFr ? "La Solution BusinessOS" : "The BusinessOS Solution"}
+                    </div>
+                    <h3 className="text-lg font-bold text-[#F3EFEA]">
+                      {isFr ? "Centre de Commande Opérationnel Unifié" : "Unified Operational Command Center"}
+                    </h3>
+                    <p className="text-xs text-[#DED6CC]/80 leading-relaxed">
+                      {isFr 
+                        ? "BusinessOS rassemble l'ensemble des parcours métiers dans un centre de contrôle unique. Les équipes pilotent prospects, factures payées, plannings de rendez-vous et flux de trésorerie sans jamais quitter l'interface, avec un contrôle d'accès par rôle sécurisé."
+                        : "BusinessOS unifies all enterprise operations into a single cohesive workspace. Teams manage pipelines, itemized invoices, resource calendars, employee rosters, and live cash flow without ever context-switching, protected by role-based access control."}
+                    </p>
+                  </div>
+                </div>
+
+                {/* 7 Core Modules Showcase Grid */}
+                <div className="space-y-4 pt-4">
+                  <h2 className="text-xl font-bold text-[#242222]">
+                    {isFr ? "Les 7 Modules Opérationnels Clés" : "7 Core Operational Modules"}
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-sm font-bold text-[#242222]">1. Executive Command Center</h4>
+                      <p className="text-xs text-[#242222]/70">Live revenue metrics, active pipeline telemetry, and audit logging.</p>
+                    </div>
+                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-sm font-bold text-[#242222]">2. CRM & Sales Pipeline</h4>
+                      <p className="text-xs text-[#242222]/70">Multi-stage deal tracking, prospect stages, and client database.</p>
+                    </div>
+                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-sm font-bold text-[#242222]">3. Itemized Billing & Invoicing</h4>
+                      <p className="text-xs text-[#242222]/70">Automatic tax/subtotal calculation, payment states, and PDF-style layout.</p>
+                    </div>
+                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-sm font-bold text-[#242222]">4. Resource Booking Calendar</h4>
+                      <p className="text-xs text-[#242222]/70">Client appointment scheduling, staff capacity, and service duration matrix.</p>
+                    </div>
+                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-sm font-bold text-[#242222]">5. HR Directory & RBAC</h4>
+                      <p className="text-xs text-[#242222]/70">Department rosters, staff directory, and role-based permissions (Admin, Manager, Staff).</p>
+                    </div>
+                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-sm font-bold text-[#242222]">6. Finance & Recharts Analytics</h4>
+                      <p className="text-xs text-[#242222]/70">Real-time ledger, revenue velocity area charts, and multidimensional reports.</p>
+                    </div>
+                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 sm:col-span-2 space-y-1">
+                      <h4 className="text-sm font-bold text-[#242222]">7. Task Workflow & DEMO_MODE Security</h4>
+                      <p className="text-xs text-[#242222]/70">Kanban task management board coupled with server-enforced mutation guards protecting database integrity during live public exploration.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Technical Architecture Breakdown */}
+                <div className="space-y-4 pt-4 border-t border-[#DED6CC]">
+                  <h2 className="text-xl font-bold text-[#242222]">
+                    {isFr ? "Architecture Technique Verified" : "Verified Technical Architecture"}
+                  </h2>
+                  <div className="p-6 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/15 space-y-3 font-mono text-xs text-[#242222]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <span className="text-[#A65F4B] font-bold block mb-1">FRAMEWORK & RUNTIME</span>
+                        <p className="text-[#242222]/80 font-sans">Next.js 15 (App Router), React 19, TypeScript 5.7, Tailwind CSS 3.4.</p>
+                      </div>
+                      <div>
+                        <span className="text-[#A65F4B] font-bold block mb-1">DATA ARCHITECTURE</span>
+                        <p className="text-[#242222]/80 font-sans">Prisma 6.3 ORM with 15 relational schema models & PostgreSQL database.</p>
+                      </div>
+                      <div>
+                        <span className="text-[#A65F4B] font-bold block mb-1">SERVER ACTIONS & MUTATIONS</span>
+                        <p className="text-[#242222]/80 font-sans">Zero API boilerplate using Next.js Server Actions with Zod validations.</p>
+                      </div>
+                      <div>
+                        <span className="text-[#A65F4B] font-bold block mb-1">DEMO SECURITY BOUNDARY</span>
+                        <p className="text-[#242222]/80 font-sans">Server-only `DEMO_MODE=true` environment guards blocking database writes.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            ) : (
+              <>
+                <div className="space-y-2">
+                  <h2 className="text-xl font-bold text-[#242222]">
+                    {t("caseStudy.overview")}
+                  </h2>
+                  <p className="text-[#242222]/80 text-sm leading-relaxed">
+                    {overview}
+                  </p>
+                  <p className="text-[#242222]/80 text-sm leading-relaxed">
+                    {longDesc}
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <h2 className="text-xl font-bold text-[#242222]">
+                    {t("caseStudy.objective")}
+                  </h2>
+                  <p className="text-[#242222]/80 text-sm leading-relaxed">
+                    {objective}
+                  </p>
+                </div>
+              </>
+            )}
 
             {/* Features */}
             <div className="space-y-3">
@@ -162,6 +265,37 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 ))}
               </div>
             </div>
+
+            {/* Live Demo Dedicated Banner */}
+            {project.hasLiveDemo && project.liveUrl && (
+              <div className="p-6 rounded-xs bg-[#F3EFEA] border border-[#A65F4B]/40 space-y-4 shadow-sm">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                    {isFr ? "DÉMONSTRATION EN DIRECT" : "LIVE PUBLIC DEMO"}
+                  </span>
+                  <h4 className="text-base font-bold text-[#242222]">
+                    {isFr ? "Explorer l'application" : "Explore BusinessOS Live"}
+                  </h4>
+                </div>
+                <p className="text-xs text-[#242222]/70 leading-relaxed">
+                  {isFr 
+                    ? "Accédez immédiatement au tableau de bord, au CRM et aux factures dans un environnement sécurisé."
+                    : "Access the dashboard, CRM, invoices, and analytics instantly in a safe, read-only demo environment."}
+                </p>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#A65F4B] text-white px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
+                >
+                  <span>{t("work.visitLive")}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <p className="text-[10px] font-mono text-[#242222]/60 text-center">
+                  🔒 Read-only environment · Synthetic data
+                </p>
+              </div>
+            )}
           </div>
         </div>
 

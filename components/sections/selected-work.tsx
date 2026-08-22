@@ -56,11 +56,23 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
   const category = language === "fr" ? project.categoryFr : project.category;
   const itemNum = `0${index + 1}`;
 
-  const isDarkCard = project.id === "businessos" || project.id === "gym-crm";
+  const isFlagship = project.id === "businessos";
+  const isDarkCard = isFlagship || project.id === "gym-crm";
 
   if (isDarkCard) {
     return (
-      <div className="rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 p-8 sm:p-10 lg:p-12 shadow-xl space-y-8">
+      <div className={`rounded-xs bg-[#3A171C] text-[#F3EFEA] border p-8 sm:p-10 lg:p-12 shadow-xl space-y-8 ${isFlagship ? 'border-[#A65F4B]/60 ring-1 ring-[#A65F4B]/30' : 'border-[#DED6CC]/20'}`}>
+        {isFlagship && (
+          <div className="flex items-center justify-between border-b border-[#DED6CC]/20 pb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#A65F4B]/20 border border-[#A65F4B]/40 text-[#F3EFEA] text-[11px] font-mono uppercase tracking-widest font-semibold">
+              <span>★ {language === "fr" ? "Projet Phare" : "Flagship Case Study"}</span>
+            </div>
+            <span className="text-xs font-mono text-[#DED6CC]/60 hidden sm:inline">
+              {language === "fr" ? "Plateforme SaaS Unifiée" : "Unified Enterprise SaaS Workspace"}
+            </span>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div className="lg:col-span-5 space-y-6">
@@ -75,9 +87,22 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
               </h3>
             </div>
 
-            <p className="text-[#DED6CC]/80 text-sm leading-relaxed">
+            <p className="text-[#DED6CC]/90 text-sm leading-relaxed">
               {shortDesc}
             </p>
+
+            {isFlagship && (
+              <div className="p-3.5 rounded-xs bg-[#F3EFEA]/5 border border-[#DED6CC]/15 text-xs text-[#DED6CC]/85 space-y-1.5 font-sans">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold">{language === "fr" ? "Problème:" : "Problem:"}</span>
+                  <span className="text-[#DED6CC]/70">{language === "fr" ? "Outils métiers fragmentés (CRM, factures, RH, trésorerie)." : "Fragmented SaaS tools for CRM, invoicing, scheduling & finance."}</span>
+                </div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold">{language === "fr" ? "Solution:" : "Solution:"}</span>
+                  <span className="text-[#F3EFEA] font-medium">{language === "fr" ? "Centre de contrôle d'entreprise unifié dans une seule interface." : "Single unified operational command center for all business workflows."}</span>
+                </div>
+              </div>
+            )}
 
             <div className="flex flex-wrap gap-1.5 pt-1">
               {project.technologies.map((tech) => (
@@ -90,36 +115,44 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 pt-3">
-              <Link
-                href={`/projects/${project.slug}`}
-                prefetch={true}
-                className="inline-flex items-center gap-1.5 bg-[#F3EFEA] text-[#3A171C] px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-white transition-all active:scale-[0.98]"
-              >
-                {t("work.viewCaseStudy")}
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
+            <div className="space-y-2 pt-2">
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href={`/projects/${project.slug}`}
+                  prefetch={true}
+                  className="inline-flex items-center gap-1.5 bg-[#F3EFEA] text-[#3A171C] px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-white transition-all active:scale-[0.98]"
+                >
+                  {t("work.viewCaseStudy")}
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
 
-              {project.hasLiveDemo && project.liveUrl && (
+                {project.hasLiveDemo && project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
+                  >
+                    {t("work.visitLive")}
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+
                 <a
-                  href={project.liveUrl}
+                  href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
+                  className="inline-flex items-center gap-1.5 bg-transparent border border-[#DED6CC]/40 text-[#F3EFEA] px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#F3EFEA]/10 transition-all active:scale-[0.98]"
                 >
-                  {t("work.visitLive")}
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  {t("work.github")}
                 </a>
-              )}
+              </div>
 
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-transparent border border-[#DED6CC]/40 text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#F3EFEA]/10 transition-all active:scale-[0.98]"
-              >
-                {t("work.github")}
-              </a>
+              {isFlagship && project.hasLiveDemo && (
+                <p className="text-[11px] font-mono text-[#DED6CC]/60 pt-1">
+                  🔒 {language === "fr" ? "Démonstration interactive — environnement sécurisé en lecture seule avec données synthétiques." : "Interactive demo — read-only environment with synthetic data."}
+                </p>
+              )}
             </div>
           </div>
 
