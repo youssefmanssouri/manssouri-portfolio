@@ -21,21 +21,20 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.youssefmanssouri.site"),
-  title: "Youssef Manssouri — Web Developer | Développeur Web | Agadir, Morocco",
+  title: "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
   description:
-    "Youssef Manssouri is a web developer based in Agadir, Morocco. Building modern websites and web applications for ambitious businesses.",
+    "Business Analytics & AI student at EMAA Business School building practical digital products at the intersection of business, technology, data, and AI.",
   keywords: [
     "Youssef Manssouri",
-    "Web Developer",
-    "Développeur Web",
-    "Agadir Morocco Developer",
-    "Développeur Web Agadir",
-    "Freelance Web Developer Morocco",
-    "Web Applications",
-    "SaaS Development",
-    "E-commerce Websites",
+    "Business Analytics & AI Student",
+    "Digital Product Builder",
+    "Web Developer Agadir",
+    "Développeur Web Agadir Morocco",
     "Next.js Developer",
-    "TypeScript Developer"
+    "TypeScript Developer",
+    "Prisma Developer",
+    "Business Applications",
+    "SaaS Development"
   ],
   authors: [{ name: "Youssef Manssouri", url: "https://www.youssefmanssouri.site" }],
   creator: "Youssef Manssouri",
@@ -51,9 +50,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["fr_FR"],
     url: "https://www.youssefmanssouri.site",
-    title: "Youssef Manssouri — Web Developer | Développeur Web",
+    title: "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
     description:
-      "Building modern websites and web applications for ambitious businesses.",
+      "Business Analytics & AI student at EMAA Business School building practical digital products at the intersection of business, technology, data, and AI.",
     siteName: "Youssef Manssouri Portfolio",
     images: [
       {
@@ -74,7 +73,7 @@ const jsonLdPerson = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Youssef Manssouri",
-  "jobTitle": "Web Developer",
+  "jobTitle": "Business Analytics & AI Student & Digital Product Builder",
   "url": "https://www.youssefmanssouri.site",
   "email": "mailto:manssouriyoussef33@gmail.com",
   "telephone": "+212656682813",
