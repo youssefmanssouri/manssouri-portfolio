@@ -74,7 +74,7 @@ export const PROJECTS: Project[] = [
       "/images/projects/businessos-calendar.jpg"
     ],
     githubUrl: "https://github.com/b91749533-sys/business-os",
-    liveUrl: "https://business-os-demo.vercel.app/",
+    liveUrl: "https://business-os-manssouri.vercel.app",
     hasLiveDemo: true,
     featured: true,
     order: 1
