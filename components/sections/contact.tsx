@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
-import { ArrowUpRight, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, AlertCircle, Loader2, Mail } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 
 export function Contact() {
@@ -25,18 +25,18 @@ export function Contact() {
   const [serverErrorMsg, setServerErrorMsg] = useState<string | null>(null);
 
   const projectTypeOptions = [
-    { label: language === "fr" ? "Site Web Vitrine" : "Business Website", value: "Business Website" },
-    { label: language === "fr" ? "Boutique E-commerce" : "E-commerce Store", value: "E-commerce" },
-    { label: language === "fr" ? "Application Web" : "Web Application", value: "Web Application" },
-    { label: language === "fr" ? "Landing Page" : "Landing Page", value: "Landing Page" },
-    { label: language === "fr" ? "Autre Solution" : "Other Solution", value: "Other" }
+    { label: language === "fr" ? "Stage / Postes Juniors" : "Internship / Junior Opportunity", value: "Internship / Junior Role" },
+    { label: language === "fr" ? "Application Métier / Outil Web" : "Business Application / Web Tool", value: "Business Application" },
+    { label: language === "fr" ? "Projet Web & Frontend" : "Web Development Project", value: "Web Development" },
+    { label: language === "fr" ? "Analyse de Données & Dashboard" : "Data Analytics & Dashboards", value: "Data Analytics" },
+    { label: language === "fr" ? "Mission Freelance / Autre Collaboration" : "Freelance / Collaboration", value: "Freelance Collaboration" }
   ];
 
   const budgetOptions = [
-    { label: "< 1 000 USD", value: "< $1k" },
-    { label: "1 000 USD - 3 000 USD", value: "$1k - $3k" },
-    { label: "3 000 USD - 5 000 USD", value: "$3k - $5k" },
-    { label: "5 000+ USD", value: "$5k+" }
+    { label: language === "fr" ? "Stage / Gratification" : "Internship / Entry Opportunity", value: "Internship" },
+    { label: language === "fr" ? "Projet < 1 000 USD" : "Project < $1k", value: "< $1k" },
+    { label: language === "fr" ? "Projet 1 000 - 3 000 USD" : "Project $1k - $3k", value: "$1k - $3k" },
+    { label: language === "fr" ? "Projet 3 000 USD+" : "Project $3k+", value: "$3k+" }
   ];
 
   const validate = () => {
@@ -50,10 +50,10 @@ export function Contact() {
       newErrors.email = language === "fr" ? "Veuillez entrer une adresse e-mail valide" : "Please enter a valid email address";
     }
     if (!formData.projectType) {
-      newErrors.projectType = language === "fr" ? "Veuillez sélectionner un type de projet" : "Please select a project type";
+      newErrors.projectType = language === "fr" ? "Veuillez sélectionner un type de demande" : "Please select an inquiry type";
     }
     if (!formData.message.trim()) {
-      newErrors.message = language === "fr" ? "Veuillez décrire votre projet" : "Please enter project details";
+      newErrors.message = language === "fr" ? "Veuillez entrer les détails" : "Please enter details";
     }
 
     setErrors(newErrors);
@@ -111,16 +111,32 @@ export function Contact() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-2xl mb-16 pb-6 border-b border-[#DED6CC]">
+        <div className="max-w-3xl mb-16 pb-6 border-b border-[#DED6CC]">
           <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest mb-1 font-semibold">
             05 / {t("contact.badge")}
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#242222] mb-2">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#242222] mb-2 leading-tight">
             {t("contact.heading")}
           </h2>
-          <p className="text-xl text-[#242222]/70 font-medium">
+          <p className="text-base sm:text-lg text-[#242222]/80 font-normal leading-relaxed">
             {t("contact.subheading")}
           </p>
+
+          {/* Primary Quick Email CTA Banner */}
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <a
+              href="mailto:manssouriyoussef33@gmail.com"
+              className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#542229] transition-all active:scale-[0.98]"
+            >
+              <Mail className="w-4 h-4 text-[#A65F4B]" />
+              <span>manssouriyoussef33@gmail.com</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+
+            <span className="text-xs font-mono text-[#A65F4B] bg-[#A65F4B]/10 border border-[#A65F4B]/20 px-3 py-1.5 rounded-xs font-semibold">
+              ● {t("contact.availability")}
+            </span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -144,7 +160,7 @@ export function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+              <form onSubmit={handleSubmit} className="space-y-6" noValidate aria-label="Contact Form">
                 {/* Honeypot field */}
                 <div style={{ display: "none" }} aria-hidden="true">
                   <input
@@ -229,7 +245,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#3A171C] text-[#F3EFEA] px-6 py-3 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#542229] transition-colors disabled:opacity-50 active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#3A171C] text-[#F3EFEA] px-6 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#542229] transition-colors disabled:opacity-50 active:scale-[0.98]"
                 >
                   {status === "submitting" ? (
                     <>
@@ -249,58 +265,58 @@ export function Contact() {
 
           {/* Direct Channels Highlight Card */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-4 shadow-lg">
-              <h3 className="text-xs font-mono font-medium uppercase tracking-wider text-[#A65F4B]">
+            <div className="p-6 sm:p-8 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-6 shadow-xl">
+              <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#A65F4B]">
                 {t("contact.directContact")}
               </h3>
 
-              <div className="space-y-4 text-xs">
+              <div className="space-y-5 text-xs">
                 <div>
-                  <span className="text-[#DED6CC]/70 block uppercase font-mono">{t("contact.email")}</span>
+                  <span className="text-[#DED6CC]/70 block uppercase font-mono font-medium">{t("contact.email")}</span>
                   <a
                     href="mailto:manssouriyoussef33@gmail.com"
-                    className="text-[#F3EFEA] hover:text-[#A65F4B] font-medium transition-colors"
+                    className="text-[#F3EFEA] hover:text-[#A65F4B] font-bold text-sm transition-colors break-all"
                   >
                     manssouriyoussef33@gmail.com
                   </a>
                 </div>
 
                 <div>
-                  <span className="text-[#DED6CC]/70 block uppercase font-mono">{t("contact.phone")}</span>
+                  <span className="text-[#DED6CC]/70 block uppercase font-mono font-medium">{t("contact.phone")}</span>
                   <a
                     href={whatsAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#F3EFEA] hover:text-[#A65F4B] font-medium transition-colors inline-flex items-center gap-1"
+                    className="text-[#F3EFEA] hover:text-[#A65F4B] font-semibold transition-colors inline-flex items-center gap-1"
                   >
                     +212 6 56 68 28 13 ({t("contact.whatsAppCTA")})
-                    <ArrowUpRight className="w-3 h-3 text-[#A65F4B]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#A65F4B]" />
                   </a>
                 </div>
 
                 <div>
-                  <span className="text-[#DED6CC]/70 block uppercase font-mono">{t("contact.linkedin")}</span>
+                  <span className="text-[#DED6CC]/70 block uppercase font-mono font-medium">{t("contact.linkedin")}</span>
                   <a
                     href="https://www.linkedin.com/in/youssef-manssouri-24b4662ba/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#F3EFEA] hover:text-[#A65F4B] font-medium transition-colors inline-flex items-center gap-1"
+                    className="text-[#F3EFEA] hover:text-[#A65F4B] font-semibold transition-colors inline-flex items-center gap-1"
                   >
                     Youssef Manssouri
-                    <ArrowUpRight className="w-3 h-3 text-[#A65F4B]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#A65F4B]" />
                   </a>
                 </div>
 
                 <div>
-                  <span className="text-[#DED6CC]/70 block uppercase font-mono">{t("contact.github")}</span>
+                  <span className="text-[#DED6CC]/70 block uppercase font-mono font-medium">{t("contact.github")}</span>
                   <a
                     href="https://github.com/b91749533-sys"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#F3EFEA] hover:text-[#A65F4B] font-medium transition-colors inline-flex items-center gap-1"
+                    className="text-[#F3EFEA] hover:text-[#A65F4B] font-semibold transition-colors inline-flex items-center gap-1"
                   >
                     b91749533-sys
-                    <ArrowUpRight className="w-3 h-3 text-[#A65F4B]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#A65F4B]" />
                   </a>
                 </div>
               </div>

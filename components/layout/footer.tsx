@@ -39,7 +39,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/#services" className="hover:text-[#F3EFEA] transition-colors">
-                  {t("nav.services")}
+                  {t("capabilities.badge")}
                 </Link>
               </li>
               <li>
