@@ -118,8 +118,9 @@ export const PROJECTS: Project[] = [
     heroImage: "/images/projects/lumiere-main.jpg",
     galleryImages: [
       "/images/projects/lumiere-main.jpg",
-      "/images/projects/businessos-crm.jpg",
-      "/images/projects/businessos-invoicing.jpg"
+      "/images/projects/lumiere-catalog.jpg",
+      "/images/projects/lumiere-cart.jpg",
+      "/images/projects/lumiere-admin.jpg"
     ],
     githubUrl: "https://github.com/b91749533-sys/lumiere-parfums",
     liveUrl: "https://lumiere-parfums-mu.vercel.app/",
