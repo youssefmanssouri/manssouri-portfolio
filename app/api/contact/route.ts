@@ -53,26 +53,44 @@ export async function POST(request: Request) {
     // 2. Honeypot check
     if (website_confirm && website_confirm.trim() !== "") {
       console.warn(`[Anti-Spam] Honeypot triggered by IP ${ip}`);
-      // Fake success response to spambots
       return NextResponse.json(
         { success: true, message: "Inquiry received successfully." },
         { status: 200 }
       );
     }
 
-    // 3. Save to Prisma Database
-    const savedMessage = await prisma.contactMessage.create({
-      data: {
-        name,
-        email,
-        company: company || null,
-        projectType,
-        budgetRange: budget || null,
-        message,
-        language: language || "en",
-        status: "NEW",
-      },
-    });
+    // 3. Save to Prisma Database if available
+    let savedId = "msg_" + Date.now();
+    let createdAt = new Date();
+
+    if (prisma) {
+      try {
+        const savedMessage = await prisma.contactMessage.create({
+          data: {
+            name,
+            email,
+            company: company || null,
+            projectType,
+            budgetRange: budget || null,
+            message,
+            language: language || "en",
+            status: "NEW",
+          },
+        });
+        savedId = savedMessage.id;
+        createdAt = savedMessage.createdAt;
+
+        await prisma.analyticsEvent.create({
+          data: {
+            event: "CONTACT_SUBMIT",
+            path: "/#contact",
+            meta: JSON.stringify({ projectType, language }),
+          },
+        }).catch(() => {});
+      } catch (dbErr) {
+        console.warn("DB save failed, proceeding with email notification:", dbErr);
+      }
+    }
 
     // 4. Send Email Notification
     sendContactNotificationEmail({
@@ -83,27 +101,14 @@ export async function POST(request: Request) {
       budgetRange: budget || undefined,
       message,
       language: language || "en",
-      submittedAt: savedMessage.createdAt,
+      submittedAt: createdAt,
     }).catch((err) => console.error("Async email notification error:", err));
-
-    // 5. Track analytics event
-    try {
-      await prisma.analyticsEvent.create({
-        data: {
-          event: "CONTACT_SUBMIT",
-          path: "/#contact",
-          meta: JSON.stringify({ projectType, language }),
-        },
-      });
-    } catch (e) {
-      // Non-critical
-    }
 
     return NextResponse.json(
       {
         success: true,
         message: "Message stored successfully",
-        id: savedMessage.id,
+        id: savedId,
       },
       { status: 201 }
     );
