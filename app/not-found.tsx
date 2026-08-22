@@ -1,18 +1,18 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Home } from "lucide-react";
+import { Home } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-[#090a0f] text-slate-100 px-4">
-      <div className="max-w-md w-full text-center space-y-6 p-8 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-2xl">
-        <div className="w-16 h-16 rounded-2xl bg-blue-950/80 border border-blue-800/60 flex items-center justify-center mx-auto text-blue-400 font-mono text-2xl font-bold">
+    <main className="min-h-screen flex items-center justify-center bg-[#F3EFEA] text-[#242222] px-4">
+      <div className="max-w-md w-full text-center space-y-6 p-8 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 shadow-2xl">
+        <div className="w-16 h-16 rounded-xs bg-[#A65F4B]/20 border border-[#A65F4B] flex items-center justify-center mx-auto text-[#A65F4B] font-mono text-2xl font-bold">
           404
         </div>
 
         <div className="space-y-2">
-          <h1 className="text-2xl font-bold text-white">Page Not Found</h1>
-          <p className="text-slate-400 text-sm leading-relaxed">
+          <h1 className="text-2xl font-bold text-[#F3EFEA]">Page Not Found</h1>
+          <p className="text-[#DED6CC]/80 text-sm leading-relaxed">
             The requested page or project case study could not be found. It may have been moved or renamed.
           </p>
         </div>
@@ -20,7 +20,7 @@ export default function NotFound() {
         <div className="pt-2 flex justify-center">
           <Button
             href="/"
-            variant="primary"
+            variant="secondary"
             size="md"
             icon={<Home className="w-4 h-4" />}
           >
