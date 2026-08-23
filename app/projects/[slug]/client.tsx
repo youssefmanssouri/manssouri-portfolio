@@ -93,6 +93,27 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
           </div>
         </div>
 
+        {/* Verified Implementation Metrics Strip */}
+        {project.metrics && project.metrics.length > 0 && (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-xs bg-[#3A171C]/5 border border-[#DED6CC]">
+            {project.metrics.map((m, idx) => (
+              <div key={idx} className="space-y-1 border-l-2 border-[#A65F4B] pl-3">
+                <div className="text-2xl sm:text-3xl font-bold font-mono text-[#3A171C]">
+                  {m.value}
+                </div>
+                <div className="text-xs font-bold text-[#242222]">
+                  {isFr ? m.labelFr : m.label}
+                </div>
+                {(m.detail || m.detailFr) && (
+                  <div className="text-[11px] text-[#242222]/70 leading-tight">
+                    {isFr ? m.detailFr : m.detail}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Hero Visual Preview */}
         <div className="relative aspect-[16/9] rounded-xs overflow-hidden border border-[#DED6CC] bg-[#3A171C]">
           <Image

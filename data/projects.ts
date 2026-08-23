@@ -1,3 +1,11 @@
+export interface ProjectMetric {
+  value: string;
+  label: string;
+  labelFr: string;
+  detail?: string;
+  detailFr?: string;
+}
+
 export interface Project {
   id: string;
   slug: string;
@@ -18,6 +26,7 @@ export interface Project {
   technologies: string[];
   features: string[];
   featuresFr: string[];
+  metrics?: ProjectMetric[];
   heroImage: string;
   galleryImages: string[];
   githubUrl: string;
@@ -75,6 +84,36 @@ export const PROJECTS: Project[] = [
       "Tableau Kanban de suivi des tâches avec gestion des priorités",
       "Garde-fou serveur DEMO_MODE protégeant la base de données lors des visites publiques"
     ],
+    metrics: [
+      {
+        value: "15",
+        label: "Database Models",
+        labelFr: "Modèles Prisma",
+        detail: "Relational schema mapping enterprise entities",
+        detailFr: "Schéma relationnel couvrant l'ensemble des entités"
+      },
+      {
+        value: "7",
+        label: "Core Modules",
+        labelFr: "Modules Métiers",
+        detail: "CRM, Billing, Calendar, HR, Tasks, Finance, Inventory",
+        detailFr: "CRM, Factures, Calendrier, RH, Tâches, Trésorerie, Stocks"
+      },
+      {
+        value: "12",
+        label: "App Routes",
+        labelFr: "Pages & Routes",
+        detail: "Dashboard views and authenticated workspace routes",
+        detailFr: "Vues du tableau de bord et parcours sécurisés"
+      },
+      {
+        value: "1",
+        label: "Server Security Guard",
+        labelFr: "Garde-Fou Démo Serveur",
+        detail: "DEMO_MODE=true environment write mutation barrier",
+        detailFr: "Protection serveur DEMO_MODE interceptant les écritures"
+      }
+    ],
     heroImage: "/images/projects/businessos-main.jpg",
     galleryImages: [
       "/images/projects/businessos-main.jpg",
@@ -126,6 +165,29 @@ export const PROJECTS: Project[] = [
       "Espace client avec historique des commandes",
       "Panneau d'administration des stocks, produits et rapports de vente"
     ],
+    metrics: [
+      {
+        value: "10",
+        label: "Catalog Products",
+        labelFr: "Produits au Catalogue",
+        detail: "Fragrance entries with scent pyramid data",
+        detailFr: "Fiches produits avec pyramides olfactives"
+      },
+      {
+        value: "5",
+        label: "Filter Criteria",
+        labelFr: "Filtres Olfactifs",
+        detail: "Brand, accords, gender, concentration, price",
+        detailFr: "Marque, accords, genre, concentration, prix"
+      },
+      {
+        value: "11",
+        label: "E-Commerce Routes",
+        labelFr: "Routes E-Commerce",
+        detail: "Catalog, PDPs, cart, checkout, admin portal",
+        detailFr: "Catalogue, PDP, panier, commande, espace admin"
+      }
+    ],
     heroImage: "/images/projects/lumiere-main.jpg",
     galleryImages: [
       "/images/projects/lumiere-main.jpg",
@@ -176,6 +238,22 @@ export const PROJECTS: Project[] = [
       "Planning des cours collectifs et gestion des jauges",
       "Rapports financiers du chiffre d'affaires récurrent mensuel (MRR)",
       "Gestion des autorisations et rôles du personnel"
+    ],
+    metrics: [
+      {
+        value: "12",
+        label: "Database Models",
+        labelFr: "Modèles Prisma",
+        detail: "User, MemberProfile, Membership, Attendance, Payments...",
+        detailFr: "Adhérents, Abonnements, Présences, Paiements, Exercices..."
+      },
+      {
+        value: "12",
+        label: "Operational Modules",
+        labelFr: "Modules Métiers UI",
+        detail: "Dashboard, Members, Attendance, POS, Workouts, AI Suite...",
+        detailFr: "Pointages, Adhérents, Cours, Nutrition, Caisse, Rapports..."
+      }
     ],
     heroImage: "/images/projects/gymcrm-main.jpg",
     galleryImages: [

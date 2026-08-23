@@ -94,6 +94,17 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
               {shortDesc}
             </p>
 
+            {project.metrics && project.metrics.length > 0 && (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 p-3 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20">
+                {project.metrics.map((m, mIdx) => (
+                  <div key={mIdx} className="space-y-0.5 border-l-2 border-[#A65F4B] pl-2">
+                    <span className="text-lg font-bold font-mono text-[#F3EFEA] block leading-none">{m.value}</span>
+                    <span className="text-[10px] font-mono text-[#DED6CC]/80 uppercase tracking-wider block font-semibold">{language === "fr" ? m.labelFr : m.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
             {isFlagship && (
               <div className="p-3.5 rounded-xs bg-[#F3EFEA]/5 border border-[#DED6CC]/15 text-xs text-[#DED6CC]/85 space-y-1.5 font-sans">
                 <div className="flex items-baseline gap-2">
