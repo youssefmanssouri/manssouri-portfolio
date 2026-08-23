@@ -180,10 +180,52 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 </div>
 
                 {/* Technical Architecture Breakdown */}
-                <div className="space-y-4 pt-4 border-t border-[#DED6CC]">
+                <div className="space-y-6 pt-4 border-t border-[#DED6CC]">
                   <h2 className="text-xl font-bold text-[#242222]">
-                    {isFr ? "Architecture Technique Verified" : "Verified Technical Architecture"}
+                    {isFr ? "Architecture Technique & Flux de Données" : "Technical Architecture & Data Flow"}
                   </h2>
+
+                  {/* Architecture Diagram Box */}
+                  <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-5 shadow-lg">
+                    <div className="flex items-center justify-between border-b border-[#DED6CC]/15 pb-3">
+                      <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                        SYSTEM ARCHITECTURE & SECURITY BOUNDARY
+                      </span>
+                      <span className="text-[10px] font-mono text-[#DED6CC]/60">
+                        VERIFIED CODEBASE FLOW
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs font-mono">
+                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
+                        <span className="text-white font-bold block">1. Client / Browser</span>
+                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">Next.js App Router, React 19, Tailwind CSS</span>
+                      </div>
+
+                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
+                        <span className="text-white font-bold block">2. Application Server</span>
+                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">Server Actions & Zod Payload Validation</span>
+                      </div>
+
+                      <div className="p-3.5 rounded-xs bg-[#A65F4B]/30 border border-[#A65F4B]/50 space-y-1">
+                        <span className="text-white font-bold block">3. Security Boundary</span>
+                        <span className="text-[11px] text-[#DED6CC]/90 font-sans block">DEMO_MODE=true Write Guard & RBAC</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center text-xs font-mono pt-1">
+                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
+                        <span className="text-white font-bold block">4. Prisma ORM Layer</span>
+                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">15 Relational Models & Type-Safe Queries</span>
+                      </div>
+
+                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
+                        <span className="text-white font-bold block">5. PostgreSQL Database</span>
+                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">Multi-Table Relational Persistence</span>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="p-6 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/15 space-y-3 font-mono text-xs text-[#242222]">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
