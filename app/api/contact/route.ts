@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { contactSchema } from "@/lib/validations/contact";
 import { sendContactNotificationEmail } from "@/lib/email";
 
@@ -62,6 +62,7 @@ export async function POST(request: Request) {
     // 3. Save to Database via Prisma (Mandatory Source of Truth)
     let savedMessage;
     try {
+      await ensureDbSchema();
       savedMessage = await prisma.contactMessage.create({
         data: {
           name,

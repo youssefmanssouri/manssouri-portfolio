@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { getAdminSessionFromCookie } from "@/lib/auth";
 
 export async function GET(request: Request) {
@@ -13,6 +13,7 @@ export async function GET(request: Request) {
   const search = searchParams.get("search");
 
   try {
+    await ensureDbSchema();
     const whereClause: any = {};
     if (status && status !== "ALL") {
       whereClause.status = status;
