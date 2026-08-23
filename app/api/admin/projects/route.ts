@@ -3,6 +3,11 @@ import { prisma } from "@/lib/prisma";
 import { getAdminSessionFromCookie } from "@/lib/auth";
 
 export async function GET() {
+  const session = await getAdminSessionFromCookie();
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized access." }, { status: 401 });
+  }
+
   try {
     const projects = await prisma.project.findMany({
       include: {
