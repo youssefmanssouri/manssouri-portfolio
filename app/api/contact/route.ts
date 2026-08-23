@@ -59,40 +59,38 @@ export async function POST(request: Request) {
       );
     }
 
-    // 3. Save to Prisma Database if available
-    let savedId = "msg_" + Date.now();
-    let createdAt = new Date();
+    // 3. Save to Database via Prisma (Mandatory Source of Truth)
+    let savedMessage;
+    try {
+      savedMessage = await prisma.contactMessage.create({
+        data: {
+          name,
+          email,
+          company: company || null,
+          projectType,
+          budgetRange: budget || null,
+          message,
+          language: language || "en",
+          status: "NEW",
+        },
+      });
 
-    if (prisma) {
-      try {
-        const savedMessage = await prisma.contactMessage.create({
-          data: {
-            name,
-            email,
-            company: company || null,
-            projectType,
-            budgetRange: budget || null,
-            message,
-            language: language || "en",
-            status: "NEW",
-          },
-        });
-        savedId = savedMessage.id;
-        createdAt = savedMessage.createdAt;
-
-        await prisma.analyticsEvent.create({
-          data: {
-            event: "CONTACT_SUBMIT",
-            path: "/#contact",
-            meta: JSON.stringify({ projectType, language }),
-          },
-        }).catch(() => {});
-      } catch (dbErr) {
-        console.warn("DB save failed, proceeding with email notification:", dbErr);
-      }
+      await prisma.analyticsEvent.create({
+        data: {
+          event: "CONTACT_SUBMIT",
+          path: "/#contact",
+          meta: JSON.stringify({ projectType, language }),
+        },
+      }).catch(() => {});
+    } catch (dbErr) {
+      console.error("[Database Error] Failed to persist contact message:", dbErr);
+      return NextResponse.json(
+        { error: "Database failure: Unable to store contact inquiry." },
+        { status: 500 }
+      );
     }
 
-    // 4. Send Email Notification
+    // 4. Send Email Notification asynchronously after DB confirmation
     sendContactNotificationEmail({
       name,
       email,
@@ -101,14 +99,14 @@ export async function POST(request: Request) {
       budgetRange: budget || undefined,
       message,
       language: language || "en",
-      submittedAt: createdAt,
+      submittedAt: savedMessage.createdAt,
     }).catch((err) => console.error("Async email notification error:", err));
 
     return NextResponse.json(
       {
         success: true,
         message: "Message stored successfully",
-        id: savedId,
+        id: savedMessage.id,
       },
       { status: 201 }
     );
