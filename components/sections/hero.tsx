@@ -18,7 +18,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 bg-[#F3EFEA]">
+    <section className="relative pt-28 pb-14 sm:pt-36 md:pt-44 md:pb-28 bg-[#F3EFEA]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           

@@ -330,7 +330,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
           <div className="fixed inset-0 z-50 bg-[#3A171C]/95 backdrop-blur-sm flex items-center justify-center p-4">
             <button
               onClick={() => setLightboxIndex(null)}
-              className="absolute top-4 right-4 text-[#F3EFEA] p-2 hover:text-[#A65F4B] transition-colors"
+              className="absolute top-4 right-4 text-[#F3EFEA] p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:text-[#A65F4B] transition-colors"
               aria-label="Close Lightbox"
             >
               <X className="w-6 h-6" />
@@ -342,7 +342,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                   prev !== null && prev > 0 ? prev - 1 : project.galleryImages.length - 1
                 )
               }
-              className="absolute left-4 text-[#F3EFEA] p-2 hover:text-[#A65F4B] transition-colors"
+              className="absolute left-2 sm:left-4 text-[#F3EFEA] p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:text-[#A65F4B] transition-colors"
               aria-label="Previous Image"
             >
               <ChevronLeft className="w-8 h-8" />
@@ -364,7 +364,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                   prev !== null ? (prev + 1) % project.galleryImages.length : 0
                 )
               }
-              className="absolute right-4 text-[#F3EFEA] p-2 hover:text-[#A65F4B] transition-colors"
+              className="absolute right-2 sm:right-4 text-[#F3EFEA] p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:text-[#A65F4B] transition-colors"
               aria-label="Next Image"
             >
               <ChevronRight className="w-8 h-8" />
