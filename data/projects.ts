@@ -121,7 +121,7 @@ export const PROJECTS: Project[] = [
       "/images/projects/businessos-invoicing.jpg",
       "/images/projects/businessos-calendar.jpg"
     ],
-    githubUrl: "https://github.com/b91749533-sys/business-os",
+    githubUrl: "https://github.com/youssefmanssouri/business-os",
     liveUrl: "https://business-os-manssouri.vercel.app",
     hasLiveDemo: true,
     featured: true,
@@ -195,7 +195,7 @@ export const PROJECTS: Project[] = [
       "/images/projects/lumiere-cart.jpg",
       "/images/projects/lumiere-admin.jpg"
     ],
-    githubUrl: "https://github.com/b91749533-sys/lumiere-parfums",
+    githubUrl: "https://github.com/youssefmanssouri/lumiere-parfums",
     liveUrl: "https://lumiere-parfums-mu.vercel.app/",
     hasLiveDemo: true,
     featured: true,
@@ -261,7 +261,7 @@ export const PROJECTS: Project[] = [
       "/images/projects/gymcrm-members.jpg",
       "/images/projects/gymcrm-classes.jpg"
     ],
-    githubUrl: "https://github.com/b91749533-sys/gym-crm",
+    githubUrl: "https://github.com/youssefmanssouri/gym-crm",
     hasLiveDemo: false,
     featured: true,
     order: 3

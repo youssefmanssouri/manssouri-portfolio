@@ -50,8 +50,8 @@ async function main() {
       featured: true,
       published: true,
       editorialVariant: "featured-large",
-      githubUrl: "https://github.com/b91749533-sys",
-      liveUrl: "https://github.com/b91749533-sys",
+      githubUrl: "https://github.com/youssefmanssouri",
+      liveUrl: "https://github.com/youssefmanssouri",
       heroImage: "/images/projects/businessos-main.jpg",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL", "Framer Motion", "Recharts"],
       features: [
@@ -109,8 +109,8 @@ async function main() {
       featured: true,
       published: true,
       editorialVariant: "two-column-alt",
-      githubUrl: "https://github.com/b91749533-sys",
-      liveUrl: "https://github.com/b91749533-sys",
+      githubUrl: "https://github.com/youssefmanssouri",
+      liveUrl: "https://github.com/youssefmanssouri",
       heroImage: "/images/projects/lumiere-main.jpg",
       technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
       features: [
@@ -162,8 +162,8 @@ async function main() {
       featured: true,
       published: true,
       editorialVariant: "visual-showcase",
-      githubUrl: "https://github.com/b91749533-sys",
-      liveUrl: "https://github.com/b91749533-sys",
+      githubUrl: "https://github.com/youssefmanssouri",
+      liveUrl: "https://github.com/youssefmanssouri",
       heroImage: "/images/projects/ember-main.jpg",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Django", "PostgreSQL"],
       features: [
@@ -215,8 +215,8 @@ async function main() {
       featured: true,
       published: true,
       editorialVariant: "app-showcase",
-      githubUrl: "https://github.com/b91749533-sys",
-      liveUrl: "https://github.com/b91749533-sys",
+      githubUrl: "https://github.com/youssefmanssouri",
+      liveUrl: "https://github.com/youssefmanssouri",
       heroImage: "/images/projects/gymcrm-main.jpg",
       technologies: ["TypeScript", "React", "Tailwind CSS", "Laravel", "PostgreSQL", "Chart.js"],
       features: [

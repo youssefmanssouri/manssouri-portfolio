@@ -23,7 +23,7 @@ This portfolio is built with modern full-stack web technologies and features:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/b91749533-sys/manssouri-portfolio.git
+   git clone https://github.com/youssefmanssouri/manssouri-portfolio.git
    cd manssouri-portfolio
    ```
 

@@ -310,12 +310,12 @@ export function Contact() {
                 <div>
                   <span className="text-[#DED6CC]/70 block uppercase font-mono font-medium">{t("contact.github")}</span>
                   <a
-                    href="https://github.com/b91749533-sys"
+                    href="https://github.com/youssefmanssouri"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#F3EFEA] hover:text-[#A65F4B] font-semibold transition-colors inline-flex items-center gap-1"
                   >
-                    b91749533-sys
+                    youssefmanssouri
                     <ArrowUpRight className="w-3.5 h-3.5 text-[#A65F4B]" />
                   </a>
                 </div>

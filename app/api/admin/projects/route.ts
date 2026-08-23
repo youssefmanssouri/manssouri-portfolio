@@ -85,7 +85,7 @@ export async function POST(request: Request) {
         featured: featured ?? true,
         published: published ?? true,
         editorialVariant: editorialVariant || "featured-large",
-        githubUrl: githubUrl || "https://github.com/b91749533-sys",
+        githubUrl: githubUrl || "https://github.com/youssefmanssouri",
         liveUrl: liveUrl || null,
         heroImage: heroImage || "/images/projects/businessos-main.jpg",
         technologies: {

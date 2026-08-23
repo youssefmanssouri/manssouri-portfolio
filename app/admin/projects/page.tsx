@@ -146,7 +146,7 @@ export default function AdminProjectsPage() {
               outcomeFr: "",
               featured: true,
               published: true,
-              githubUrl: "https://github.com/b91749533-sys",
+              githubUrl: "https://github.com/youssefmanssouri",
               liveUrl: "",
               heroImage: "/images/projects/businessos-main.jpg",
             })

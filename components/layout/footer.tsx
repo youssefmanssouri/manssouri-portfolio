@@ -93,7 +93,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/b91749533-sys"
+                  href="https://github.com/youssefmanssouri"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#F3EFEA] transition-colors inline-flex items-center gap-1"

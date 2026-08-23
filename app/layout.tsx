@@ -83,7 +83,7 @@ const jsonLdPerson = {
     "addressCountry": "Morocco"
   },
   "sameAs": [
-    "https://github.com/b91749533-sys",
+    "https://github.com/youssefmanssouri",
     "https://www.linkedin.com/in/youssef-manssouri-24b4662ba/"
   ]
 };

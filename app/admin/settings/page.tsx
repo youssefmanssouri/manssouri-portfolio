@@ -9,7 +9,7 @@ export default function AdminSettingsPage() {
   const [email, setEmail] = useState("manssouriyoussef33@gmail.com");
   const [phone, setPhone] = useState("+212 6 56 68 28 13");
   const [linkedIn, setLinkedIn] = useState("https://www.linkedin.com/in/youssef-manssouri-24b4662ba/");
-  const [github, setGithub] = useState("https://github.com/b91749533-sys");
+  const [github, setGithub] = useState("https://github.com/youssefmanssouri");
   const [available, setAvailable] = useState(true);
   const [saved, setSaved] = useState(false);
 
