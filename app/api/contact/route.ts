@@ -82,10 +82,10 @@ export async function POST(request: Request) {
           meta: JSON.stringify({ projectType, language }),
         },
       }).catch(() => {});
-    } catch (dbErr) {
-      console.error("[Database Error] Failed to persist contact message:", dbErr);
+    } catch (dbErr: any) {
+      console.error("[Database Error] Failed to persist contact message:", dbErr?.message || dbErr);
       return NextResponse.json(
-        { error: "Database failure: Unable to store contact inquiry." },
+        { error: `Database error: ${dbErr?.message || "Unable to store contact inquiry."}` },
         { status: 500 }
       );
     }
