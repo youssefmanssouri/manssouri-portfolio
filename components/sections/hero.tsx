@@ -44,7 +44,7 @@ export function Hero() {
                 href="/#work"
                 prefetch={true}
                 onClick={(e) => handleNavClick(e, "work")}
-                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-3 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#542229] transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98]"
               >
                 {t("hero.viewWork")}
                 <ArrowRight className="w-4 h-4" />

@@ -126,7 +126,7 @@ export function Contact() {
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <a
               href="mailto:manssouriyoussef33@gmail.com"
-              className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#542229] transition-all active:scale-[0.98]"
+              className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98]"
             >
               <Mail className="w-4 h-4 text-[#A65F4B]" />
               <span>manssouriyoussef33@gmail.com</span>
@@ -144,7 +144,7 @@ export function Contact() {
           {/* Form Side */}
           <div className="lg:col-span-7">
             {status === "success" ? (
-              <div className="p-8 rounded-xs bg-white border border-[#DED6CC] text-center space-y-4 shadow-sm">
+              <div className="p-8 rounded-xs bg-[#F3EFEA] border border-[#DED6CC] text-center space-y-4 shadow-sm">
                 <div className="w-12 h-12 rounded-full bg-[#A65F4B]/15 border border-[#A65F4B] flex items-center justify-center mx-auto text-[#A65F4B]">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
@@ -231,12 +231,12 @@ export function Contact() {
                 />
 
                 {status === "error" && (
-                  <div className="p-4 rounded-xs bg-red-50 border border-red-200 text-red-700 text-xs space-y-2">
+                  <div className="p-4 rounded-xs bg-[#3A171C]/5 border border-[#A65F4B]/40 text-[#3A171C] text-xs space-y-2">
                     <div className="flex items-center gap-2 font-semibold">
-                      <AlertCircle className="w-4 h-4 shrink-0 text-red-500" />
+                      <AlertCircle className="w-4 h-4 shrink-0 text-[#A65F4B]" />
                       <span>{t("contact.form.errorTitle")}</span>
                     </div>
-                    <p className="text-red-600 leading-relaxed">
+                    <p className="text-[#3A171C]/90 leading-relaxed">
                       {serverErrorMsg || t("contact.form.errorMessage")}
                     </p>
                   </div>
@@ -245,7 +245,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#3A171C] text-[#F3EFEA] px-6 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#542229] transition-colors disabled:opacity-50 active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#3A171C] text-[#F3EFEA] px-6 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-colors disabled:opacity-50 active:scale-[0.98]"
                 >
                   {status === "submitting" ? (
                     <>

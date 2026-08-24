@@ -51,6 +51,12 @@
 .border-beige { border-color: #DED6CC; }
 .border-burgundy { border-color: #3A171C; }
 
+/* Focus & Interaction Utilities */
+.focus-ring-terracotta:focus-visible {
+  outline: 2px solid #A65F4B;
+  outline-offset: 2px;
+}
+
 /* Typography Utilities */
 .font-serif {
   font-family: var(--font-serif), Cormorant Garamond, Georgia, serif;

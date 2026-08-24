@@ -76,7 +76,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:opacity-90 transition-opacity active:scale-[0.98]"
+                className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity active:scale-[0.98]"
               >
                 {t("work.visitLive")}
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -86,7 +86,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#542229] transition-colors active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-colors active:scale-[0.98]"
             >
               {t("work.github")}
             </a>
@@ -453,7 +453,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
 
             <Link
               href="/#contact"
-              className="inline-flex items-center justify-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#542229] transition-colors active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-colors active:scale-[0.98]"
             >
               <span>{t("hero.startProject")}</span>
               <ArrowRight className="w-4 h-4" />

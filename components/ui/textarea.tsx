@@ -25,13 +25,13 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           id={textareaId}
           ref={ref}
           className={cn(
-            "w-full rounded-xs bg-[#EAE5DF] border border-[#DED6CC] px-4 py-2.5 text-base sm:text-sm text-[#242222] placeholder-[#242222]/40 transition-all duration-200 focus:bg-white focus:border-[#A65F4B] focus:outline-none focus:ring-1 focus:ring-[#A65F4B] disabled:cursor-not-allowed disabled:opacity-50 min-h-[120px] resize-y",
-            error && "border-red-500 focus:border-red-500 focus:ring-red-500",
+            "w-full rounded-xs bg-[#DED6CC]/30 border border-[#DED6CC] px-4 py-2.5 text-base sm:text-sm text-[#242222] placeholder-[#242222]/50 transition-all duration-200 focus:bg-[#F3EFEA] focus:border-[#A65F4B] focus:outline-none focus:ring-1 focus:ring-[#A65F4B] disabled:cursor-not-allowed disabled:opacity-50 min-h-[120px] resize-y",
+            error && "border-[#A65F4B] focus:border-[#A65F4B] focus:ring-[#A65F4B]",
             className
           )}
           {...props}
         />
-        {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
+        {error && <p className="text-xs text-[#A65F4B] font-mono mt-1 font-semibold">{error}</p>}
       </div>
     );
   }

@@ -145,7 +145,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
+                    className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-[#F3EFEA] px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
                   >
                     {t("work.visitLive")}
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -247,7 +247,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
             <Link
               href={`/projects/${project.slug}`}
               prefetch={true}
-              className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#542229] transition-all active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98]"
             >
               {t("work.viewCaseStudy")}
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -258,7 +258,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-white px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
               >
                 {t("work.visitLive")}
                 <ExternalLink className="w-3.5 h-3.5" />

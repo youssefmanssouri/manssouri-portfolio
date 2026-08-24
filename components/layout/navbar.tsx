@@ -103,7 +103,7 @@ export function Navbar() {
             <button
               onClick={() => setLanguage("en")}
               className={`px-1 py-0.5 transition-colors ${
-                language === "en" ? "text-[#3A171C] font-bold" : "hover:text-[#A65F4B]"
+                language === "en" ? "text-[#A65F4B] font-bold" : "hover:text-[#A65F4B]"
               }`}
               aria-label="Switch to English"
             >
@@ -113,7 +113,7 @@ export function Navbar() {
             <button
               onClick={() => setLanguage("fr")}
               className={`px-1 py-0.5 transition-colors ${
-                language === "fr" ? "text-[#3A171C] font-bold" : "hover:text-[#A65F4B]"
+                language === "fr" ? "text-[#A65F4B] font-bold" : "hover:text-[#A65F4B]"
               }`}
               aria-label="Changer en Français"
             >
@@ -125,7 +125,7 @@ export function Navbar() {
             href="/#contact"
             prefetch={true}
             onClick={(e) => handleNavClick(e, "/#contact")}
-            className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#542229] transition-colors active:scale-95"
+            className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-colors active:scale-95"
           >
             {t("nav.talk")}
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -137,14 +137,14 @@ export function Navbar() {
           <div className="flex items-center gap-1 text-xs font-mono text-[#242222]/70">
             <button
               onClick={() => setLanguage("en")}
-              className={`px-1 ${language === "en" ? "text-[#3A171C] font-bold" : ""}`}
+              className={`px-1 ${language === "en" ? "text-[#A65F4B] font-bold" : ""}`}
             >
               EN
             </button>
             <span className="text-[#DED6CC]">|</span>
             <button
               onClick={() => setLanguage("fr")}
-              className={`px-1 ${language === "fr" ? "text-[#3A171C] font-bold" : ""}`}
+              className={`px-1 ${language === "fr" ? "text-[#A65F4B] font-bold" : ""}`}
             >
               FR
             </button>

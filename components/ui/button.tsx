@@ -35,9 +35,9 @@ export function Button({
 
   const variantStyles = {
     primary:
-      "bg-[#3A171C] text-[#F3EFEA] hover:bg-[#542229] border border-[#3A171C]",
+      "bg-[#3A171C] text-[#F3EFEA] hover:bg-[#2D1216] border border-[#3A171C]",
     secondary:
-      "bg-[#A65F4B] text-white hover:opacity-90 border border-[#A65F4B]",
+      "bg-[#A65F4B] text-[#F3EFEA] hover:opacity-90 border border-[#A65F4B]",
     outline:
       "bg-transparent text-[#3A171C] border border-[#3A171C] hover:bg-[#3A171C]/5",
     ghost:
