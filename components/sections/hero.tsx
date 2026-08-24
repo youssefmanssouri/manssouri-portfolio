@@ -44,13 +44,22 @@ export function Hero() {
 
             <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
               <Link
+                href="/#contact"
+                prefetch={true}
+                onClick={(e) => handleNavClick(e, "contact")}
+                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98]"
+              >
+                {t("hero.startProject")}
+                <ArrowRight className="w-4 h-4 text-[#A65F4B]" />
+              </Link>
+              <Link
                 href="/#work"
                 prefetch={true}
                 onClick={(e) => handleNavClick(e, "work")}
-                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98]"
               >
                 {t("hero.viewWork")}
-                <ArrowRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" />
               </Link>
               <a
                 href={cvHref}
@@ -62,19 +71,13 @@ export function Hero() {
                 <FileText className="w-4 h-4" />
                 {t("hero.downloadCV")}
               </a>
-              <Link
-                href="/#contact"
-                prefetch={true}
-                onClick={(e) => handleNavClick(e, "contact")}
-                className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-3 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98]"
-              >
-                {t("hero.connect")}
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
             </div>
 
-            <div className="pt-4 border-t border-[#DED6CC] flex items-center justify-between text-xs font-mono text-[#242222]/70">
-              <span>{t("hero.location")}</span>
+            <div className="pt-4 border-t border-[#DED6CC] flex flex-wrap items-center justify-between text-xs font-mono text-[#242222]/70 gap-2">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#A65F4B] animate-pulse" />
+                {t("hero.location")}
+              </span>
               <span className="hidden sm:inline text-[#A65F4B] uppercase tracking-wider font-semibold">
                 Youssef Manssouri
               </span>

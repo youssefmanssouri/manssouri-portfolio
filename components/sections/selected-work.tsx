@@ -106,14 +106,35 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
             )}
 
             {isFlagship && (
-              <div className="p-3.5 rounded-xs bg-[#F3EFEA]/5 border border-[#DED6CC]/15 text-xs text-[#DED6CC]/85 space-y-1.5 font-sans">
+              <div className="p-3.5 rounded-xs bg-[#F3EFEA]/5 border border-[#DED6CC]/15 text-xs text-[#DED6CC]/85 space-y-2 font-sans">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold">{language === "fr" ? "Problème:" : "Problem:"}</span>
-                  <span className="text-[#DED6CC]/70">{language === "fr" ? "Outils métiers fragmentés (CRM, factures, RH, trésorerie)." : "Fragmented SaaS tools for CRM, invoicing, scheduling & finance."}</span>
+                  <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold shrink-0">{language === "fr" ? "Problème:" : "Problem:"}</span>
+                  <span className="text-[#DED6CC]/75">{language === "fr" ? "Outils métiers fragmentés (CRM, factures, RH, trésorerie)." : "Fragmented SaaS subscriptions for CRM, billing, bookings & cash flow."}</span>
                 </div>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold">{language === "fr" ? "Solution:" : "Solution:"}</span>
-                  <span className="text-[#F3EFEA] font-medium">{language === "fr" ? "Centre de contrôle d'entreprise unifié dans une seule interface." : "Single unified operational command center for all business workflows."}</span>
+                  <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold shrink-0">{language === "fr" ? "Solution:" : "Solution:"}</span>
+                  <span className="text-[#F3EFEA] font-medium">{language === "fr" ? "Centre de contrôle d'entreprise unifié dans une seule interface." : "Single unified operational command center for all core business workflows."}</span>
+                </div>
+                <div className="flex items-baseline gap-2 pt-1 border-t border-[#DED6CC]/10">
+                  <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold shrink-0">{language === "fr" ? "Valeur Métier:" : "Business Value:"}</span>
+                  <span className="text-[#DED6CC]/90 italic-serif">{language === "fr" ? "Centralise la gestion quotidienne et réduit les coûts d'abonnements logiciels." : "Centralizes daily management and eliminates software fragmentation overhead."}</span>
+                </div>
+              </div>
+            )}
+
+            {project.id === "gym-crm" && (
+              <div className="p-3.5 rounded-xs bg-[#F3EFEA]/5 border border-[#DED6CC]/15 text-xs text-[#DED6CC]/85 space-y-2 font-sans">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold shrink-0">{language === "fr" ? "Problème:" : "Problem:"}</span>
+                  <span className="text-[#DED6CC]/75">{language === "fr" ? "Suivi manuel des abonnés et pointages d'accueil au comptoir." : "Manual desk check-ins, untracked membership renewals & scheduling friction."}</span>
+                </div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold shrink-0">{language === "fr" ? "Solution:" : "Solution:"}</span>
+                  <span className="text-[#F3EFEA] font-medium">{language === "fr" ? "Application de gestion d'accueil avec alertes de validité du forfait." : "Gym operations app with instant member search, renewal alerts & revenue logs."}</span>
+                </div>
+                <div className="flex items-baseline gap-2 pt-1 border-t border-[#DED6CC]/10">
+                  <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold shrink-0">{language === "fr" ? "Valeur Métier:" : "Business Value:"}</span>
+                  <span className="text-[#DED6CC]/90 italic-serif">{language === "fr" ? "Accélère l'accueil et prévient les pertes de chiffre d'affaires liées aux forfaits expirés." : "Speeds up front-desk check-ins and prevents expired membership revenue loss."}</span>
                 </div>
               </div>
             )}
@@ -231,6 +252,21 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
           <p className="text-[#242222]/80 text-sm leading-relaxed">
             {shortDesc}
           </p>
+
+          <div className="p-3.5 rounded-xs bg-[#242222]/5 border border-[#DED6CC] text-xs text-[#242222] space-y-2 font-sans">
+            <div className="flex items-baseline gap-2">
+              <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold shrink-0">{language === "fr" ? "Problème:" : "Problem:"}</span>
+              <span className="text-[#242222]/80">{language === "fr" ? "Boutiques génériques manquant de filtrage par caractéristiques olfactives." : "Generic e-commerce stores lacking product note filtering & brand elegance."}</span>
+            </div>
+            <div className="flex items-baseline gap-2">
+              <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold shrink-0">{language === "fr" ? "Solution:" : "Solution:"}</span>
+              <span className="text-[#242222] font-medium">{language === "fr" ? "Boutique en ligne sur mesure avec filtrage olfactif et gestion du panier." : "Bespoke online boutique with scent pyramid filtering, slide-out cart & admin dashboard."}</span>
+            </div>
+            <div className="flex items-baseline gap-2 pt-1 border-t border-[#DED6CC]">
+              <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold shrink-0">{language === "fr" ? "Valeur Métier:" : "Business Value:"}</span>
+              <span className="text-[#242222]/90 italic-serif">{language === "fr" ? "Valorise l'image de marque, accélère la découverte produit et simplifie la vente." : "Elevates brand positioning, speeds up product discovery and streamlines order prep."}</span>
+            </div>
+          </div>
 
           <div className="flex flex-wrap gap-1.5 pt-1">
             {project.technologies.map((tech) => (

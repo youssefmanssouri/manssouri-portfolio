@@ -13,12 +13,12 @@
     "badge": "ÉTUDIANT BUSINESS ANALYTICS & IA · CONCEPTEUR DE PRODUITS DIGITAUX",
     "headlineMain": "Je combine l'analyse métier et le développement web pour créer des",
     "headlineEmphasized": "produits numériques utiles.",
-    "subheadline": "Étudiant en Business Analytics & IA à l'EMAA Business School. Je développe des applications web, outils d'entreprise et boutiques en ligne avec Next.js et TypeScript—axés sur l'ergonomie, la valeur métier et la clarté.",
+    "subheadline": "Étudiant en Business Analytics & IA à l'EMAA Business School. Je développe des sites web, boutiques e-commerce, outils métier et tableaux de bord avec Next.js et TypeScript—axés sur la clarté, l'ergonomie et la valeur concrète.",
     "viewWork": "Voir mes projets",
     "connect": "Me contacter",
     "downloadCV": "Télécharger le CV (PDF)",
     "startProject": "Démarrer un projet",
-    "location": "Agadir, Maroc · Ouvert aux stages & opportunités juniors"
+    "location": "Agadir, Maroc · Stages & Projets Freelance"
   },
   "work": {
     "badge": "PROJETS & ÉTUDES DE CAS",
@@ -38,50 +38,50 @@
     "backToWork": "Retour aux réalisations"
   },
   "capabilities": {
-    "badge": "COMPÉTENCES & DOMAINES D'ACTION",
-    "heading": "Compétences Techniques & Analytiques",
-    "subheading": "Associer compréhension métier, ingénierie web, analyse de données et IA pour créer des outils digitaux utiles.",
+    "badge": "SERVICES & COMPÉTENCES",
+    "heading": "Services Concrets & Compétences Techniques",
+    "subheading": "Création de sites web réactifs, boutiques en ligne sur mesure, outils d'entreprise et tableaux de bord d'indicateurs.",
     "items": [
       {
-        "label": "DÉVELOPPER",
-        "title": "Développement Web",
-        "positioning": "Création d'expériences web réactives et d'applications modernes adaptées aux besoins de l'entreprise.",
-        "details": "Architecture frontend, design réactif, développement Next.js et interfaces utilisateur axées sur la performance et la simplicité.",
-        "evidence": "Illustré par les projets web déployés dans ce portfolio."
+        "label": "SITES WEB",
+        "title": "Sites Web d'Entreprise",
+        "positioning": "Création d'expériences web élégantes, réactives et performantes adaptées à votre image de marque et vos objectifs.",
+        "details": "Architecture frontend, design réactif, développement Next.js et interfaces modernes axées sur la rapidité et la simplicité d'utilisation.",
+        "evidence": "Illustré par les applications et projets web déployés dans ce portfolio."
+      },
+      {
+        "label": "E-COMMERCE",
+        "title": "Boutiques E-Commerce",
+        "positioning": "Conception et développement de boutiques en ligne sur mesure avec filtrage dynamique du catalogue, gestion du panier et administration.",
+        "details": "Présentation produits, algorithmes de filtrage par caractéristiques, panier persistant, préparation des commandes et espace de gestion des stocks.",
+        "evidence": "Démontré par Lumière Parfums—une démo e-commerce full-stack avec filtres catalogue et panneau administrateur."
       },
       {
         "label": "STRUCTURER",
-        "title": "Applications Métier & Outils",
-        "positioning": "Transformation des flux de travail en outils numériques pratiques pour centraliser les données et simplifier la gestion.",
-        "details": "Systèmes CRM sur mesure, tableaux de bord internes, gestion des réservations, facturation et gestion des rôles d'accès.",
-        "evidence": "Démontré par BusinessOS—une plateforme de gestion d'entreprise structurée sur 15 modèles de données."
+        "title": "Applications Métier & CRM",
+        "positioning": "Transformation des flux de travail manuels en outils numériques pratiques pour centraliser les opérations et simplifier la gestion.",
+        "details": "Systèmes CRM personnalisés, portails de gestion interne, plannings de réservation, facturation et gestion des autorisations par rôle (RBAC).",
+        "evidence": "Démontré par BusinessOS—une plateforme de gestion d'entreprise structurée sur 15 modèles—et Gym CRM."
       },
       {
         "label": "ANALYSER",
-        "title": "Data & Analytics",
-        "positioning": "Exploitation des données pour organiser l'information, visualiser les indicateurs clés et faciliter les décisions.",
-        "details": "Analyse de données métier, tableaux de bord d'indicateurs (KPI), modélisation de bases de données et suivi opérationnel.",
+        "title": "Tableaux de Bord & Data",
+        "positioning": "Exploitation des données pour structurer l'information, visualiser les indicateurs clés (KPI) et faciliter la prise de décision.",
+        "details": "Analyse de données d'entreprise, suivi visuel des performances, modélisation de bases de données et tableaux de bord décisionnels.",
         "evidence": "Issu du cursus Business Analytics & IA à l'EMAA Business School et du module analytique de BusinessOS."
-      },
-      {
-        "label": "EXPLORER",
-        "title": "IA Appliquée & Automatisation",
-        "positioning": "Exploration de méthodes concrètes pour intégrer l'IA et l'automatisation dans les produits digitaux.",
-        "details": "Intégration d'API d'IA, automatisation de flux de travail, fonctionnalités intelligentes dans le web et expérimentation pratique.",
-        "evidence": "Appuyé par la formation académique et les expérimentations intégrées aux projets web."
       }
     ],
-    "connectLink": "Découvrir mes projets & expertises"
+    "connectLink": "Discuter de votre projet ou d'une opportunité"
   },
   "process": {
     "badge": "MÉTHODOLOGIE",
     "heading": "Un Processus Structuré en 6 Étapes",
     "subheading": "Une méthode claire et transparente de la phase de cadrage jusqu'à la mise en production.",
     "steps": [
-      { "number": "01", "title": "Découverte", "description": "Compréhension de vos enjeux métiers, du périmètre et des exigences techniques." },
+      { "number": "01", "title": "Découverte", "description": "Compréhension de vos enjeux métiers, de votre public cible, des fonctionnalités et du périmètre." },
       { "number": "02", "title": "Planification", "description": "Conception de l'arborescence, modélisation des données et parcours utilisateurs." },
       { "number": "03", "title": "Design UI", "description": "Création d'interfaces modernes, d'un système de composants et de maquettes réactives." },
-      { "number": "04", "title": "Développement", "description": "Programmation d'un code propre, performant et évolutif avec Next.js et TypeScript." },
+      { "number": "04", "title": "Développement", "description": "Programmation d'un code propre, performant et évolutif avec Next.js, React et TypeScript." },
       { "number": "05", "title": "Tests & QA", "description": "Audit complet de l'ergonomie mobile, de la compatibilité navigateurs et des performances." },
       { "number": "06", "title": "Lancement", "description": "Déploiement en production, configuration DNS/SSL et remise de la documentation." }
     ]
@@ -89,15 +89,15 @@
   "about": {
     "badge": "PARCOURS & ENGAGEMENT",
     "heading": "Relier l'analyse métier, le développement web et les produits digitaux.",
-    "intro": "Étudiant en Business Analytics & IA à l'EMAA Business School d'Agadir, je me consacre à la création d'applications web concrètes et d'outils numériques utiles.",
+    "intro": "Étudiant en Business Analytics & IA à l'EMAA Business School d'Agadir, je me consacre à la création d'applications web concrètes, d'outils métier et de boutiques en ligne.",
     "intersectionTitle": "Analyse Métier & Développement",
     "intersectionText": "Mon approche associe la compréhension des enjeux d'entreprise au développement logiciel. Plutôt que de me limiter à la théorie académique, j'apprends en concevant des produits digitaux fonctionnels.",
     "proofTitle": "Preuve par la Pratique",
     "proofText": "Mes compétences techniques s'appuient sur des projets déployés comme BusinessOS—une plateforme opérationnelle structurée autour de 15 modèles de données, d'une gestion des droits par rôle et d'indicateurs en temps réel.",
     "experienceTitle": "Expérience de Stage",
     "experienceText": "Lors de mon stage à la Wilaya de la Région Souss-Massa (Préfecture d'Agadir Ida Outanane), j'ai appréhendé le fonctionnement des flux administratifs publics et la gestion des données organisationnelles.",
-    "directionTitle": "Objectifs Professionnels",
-    "directionText": "Je me développe vers des fonctions à la croisée du Data Analytics, de l'IA et de l'ingénierie web. Je recherche activement des opportunités de stage, des postes juniors et des missions freelance pour apporter une valeur concrète.",
+    "directionTitle": "Objectifs Professionnels & Freelance",
+    "directionText": "Je me développe vers des fonctions à la croisée du Data Analytics, de l'IA et de l'ingénierie web. Je suis ouvert aux opportunités de stage, postes juniors et missions freelance sur mesure.",
     "educationLabel": "Formation Académique",
     "school": "Business Analytics & IA",
     "institution": "EMAA Business School (2025–Présent)",
@@ -110,9 +110,9 @@
   "contact": {
     "badge": "CONTACT & COLLABORATION",
     "heading": "Construisons quelque chose d'utile.",
-    "subheading": "Ouvert aux opportunités de stage, postes juniors et missions freelance en développement web, applications métier, analyse de données et produits numériques.",
+    "subheading": "Ouvert aux opportunités de stage, postes juniors et projets freelance sur mesure (sites web, e-commerce, outils métier et tableaux de bord).",
     "cta": "Envoyer un e-mail",
-    "availability": "Agadir, Maroc · Ouvert aux stages & opportunités juniors",
+    "availability": "Agadir, Maroc · Disponible à distance & en local",
     "form": {
       "name": "Votre nom complet *",
       "namePlaceholder": "Jean Dupont",
@@ -139,11 +139,11 @@
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "whatsAppCTA": "Discuter sur WhatsApp",
-    "whatsAppMessage": "Bonjour Youssef, je souhaiterais discuter d'une opportunité ou d'un projet."
+    "whatsAppMessage": "Bonjour Youssef, je souhaiterais discuter d'un projet ou d'une opportunité."
   },
   "footer": {
     "tagline": "Création de produits numériques utiles à la croisée de l'analyse métier, du développement web, des données et de l'IA.",
-    "location": "Agadir, Maroc",
+    "location": "Agadir, Maroc · Local & À distance",
     "rights": "Tous droits réservés.",
     "backToTop": "Haut de page"
   }

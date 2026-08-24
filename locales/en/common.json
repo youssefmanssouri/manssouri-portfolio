@@ -13,12 +13,12 @@
     "badge": "BUSINESS ANALYTICS & AI STUDENT · DIGITAL PRODUCT BUILDER",
     "headlineMain": "I combine business insights with modern web development to build",
     "headlineEmphasized": "practical digital products.",
-    "subheadline": "Business Analytics & AI student at EMAA Business School. I engineer web applications, operational business tools, and bespoke storefronts with Next.js and TypeScript—focusing on clarity, utility, and strong user experience.",
+    "subheadline": "Business Analytics & AI student at EMAA Business School. I engineer websites, e-commerce storefronts, custom business tools, and dashboards with Next.js and TypeScript—focusing on clarity, utility, and real business value.",
     "viewWork": "View My Work",
     "connect": "Let's Connect",
     "downloadCV": "Download CV (PDF)",
     "startProject": "Start a Project",
-    "location": "Agadir, Morocco · Open for Internships & Junior Opportunities"
+    "location": "Agadir, Morocco · Open for Internships & Freelance Projects"
   },
   "work": {
     "badge": "SELECTED WORK",
@@ -38,50 +38,50 @@
     "backToWork": "Back to Selected Work"
   },
   "capabilities": {
-    "badge": "CAPABILITIES",
-    "heading": "Technical & Analytical Capabilities",
-    "subheading": "Combining business understanding, web engineering, data analysis, and AI to build practical digital tools.",
+    "badge": "SERVICES & CAPABILITIES",
+    "heading": "Practical Services & Technical Capabilities",
+    "subheading": "Delivering responsive websites, custom storefronts, business tools, and data dashboards engineered for clarity and utility.",
     "items": [
       {
-        "label": "BUILD",
-        "title": "Web Development",
-        "positioning": "Building clean, responsive web experiences and practical applications tailored to specific business needs.",
-        "details": "Frontend architecture, responsive design, Next.js development, and modern web user interfaces focused on performance and usability.",
+        "label": "WEBSITES",
+        "title": "Business Websites",
+        "positioning": "Building clean, responsive web experiences and business websites tailored to your specific audience and goals.",
+        "details": "Frontend architecture, responsive design, Next.js development, and modern user interfaces focused on speed, clarity, and usability.",
         "evidence": "Proven through deployed portfolio applications and custom web builds."
       },
       {
+        "label": "E-COMMERCE",
+        "title": "E-Commerce Storefronts",
+        "positioning": "Designing and developing tailored online stores with dynamic catalog filtering, cart workflows, and admin controls.",
+        "details": "Product showcases, category & attribute filter algorithms, persistent slide-out cart drawers, order preparation flows, and store management.",
+        "evidence": "Demonstrated by Lumière Parfums—a full-stack e-commerce demo with catalog filtering and admin tools."
+      },
+      {
         "label": "SYSTEMIZE",
-        "title": "Business Applications",
-        "positioning": "Turning business workflows into practical digital tools that centralize information and simplify operations.",
-        "details": "Custom CRM systems, internal dashboards, booking calendars, invoice management, and role-based administrative platforms.",
-        "evidence": "Demonstrated by BusinessOS—a 15-model operational management platform."
+        "title": "Business Applications & CRMs",
+        "positioning": "Turning manual business workflows into practical digital tools that centralize operations and save daily management time.",
+        "details": "Custom CRM systems, internal management portals, appointment booking calendars, invoice generation, and role-based permissions (RBAC).",
+        "evidence": "Demonstrated by BusinessOS—a 15-model operational management platform—and Gym CRM."
       },
       {
         "label": "ANALYZE",
-        "title": "Data & Analytics",
-        "positioning": "Using data to organize business information, visualize KPIs, and support clearer decision-making.",
-        "details": "Business data analysis, key performance metric visualization, database modeling, and operational dashboards.",
+        "title": "Dashboards & Data Tools",
+        "positioning": "Using data to organize business information, visualize operational KPIs, and support clearer decision-making.",
+        "details": "Business data analysis, key performance metric visualization, database modeling, and interactive reporting dashboards.",
         "evidence": "Grounded in Business Analytics & AI coursework at EMAA Business School and BusinessOS analytics."
-      },
-      {
-        "label": "EXPLORE",
-        "title": "Applied AI & Automation",
-        "positioning": "Exploring practical ways to integrate AI and automation into digital products and business workflows.",
-        "details": "AI API integration, automated workflow concepts, smart features in web applications, and hands-on experimentation with AI tools.",
-        "evidence": "Supported by ongoing academic studies and practical web integration experiments."
       }
     ],
-    "connectLink": "Explore Collaborations & Work"
+    "connectLink": "Discuss Your Project or Opportunities"
   },
   "process": {
     "badge": "PROCESS",
     "heading": "A Structured 6-Step Workflow",
     "subheading": "Clear methodology from initial discovery through to production deployment.",
     "steps": [
-      { "number": "01", "title": "Discover", "description": "Understanding your business goals, scope, and technical requirements." },
-      { "number": "02", "title": "Plan", "description": "Mapping site architecture, data models, and user interaction flows." },
+      { "number": "01", "title": "Discover", "description": "Understanding your business goals, target audience, key features, and project scope." },
+      { "number": "02", "title": "Plan", "description": "Mapping site architecture, user journeys, database schemas, and technical approach." },
       { "number": "03", "title": "Design", "description": "Crafting clean, accessible component systems and responsive visual layouts." },
-      { "number": "04", "title": "Develop", "description": "Building performant, maintainable code using Next.js and TypeScript." },
+      { "number": "04", "title": "Develop", "description": "Building performant, maintainable code using Next.js, React, and TypeScript." },
       { "number": "05", "title": "Test", "description": "Comprehensive audit of responsiveness, cross-browser compatibility, and speed." },
       { "number": "06", "title": "Launch", "description": "Deploying to production, domain setup, SSL, and handover documentation." }
     ]
@@ -89,15 +89,15 @@
   "about": {
     "badge": "ABOUT & BACKGROUND",
     "heading": "Bridging business analytics, web development, and digital products.",
-    "intro": "I am a Business Analytics & AI student at EMAA Business School in Agadir, Morocco, focused on building practical web applications and digital tools.",
+    "intro": "I am a Business Analytics & AI student at EMAA Business School in Agadir, Morocco, focused on building practical web applications, business tools, and storefronts.",
     "intersectionTitle": "Business Insights Meets Software",
     "intersectionText": "My approach combines business understanding with software development. Rather than relying solely on theoretical coursework, I learn by engineering complete digital products that solve real operational challenges.",
     "proofTitle": "Applied Engineering Proof",
     "proofText": "My technical foundation is proven through deployed applications like BusinessOS—a 15-model operational platform with role-based permissions and real-time analytics—along with responsive storefronts and web tools.",
     "experienceTitle": "Internship Experience",
     "experienceText": "During my internship at Wilaya de la Région Souss-Massa (Préfecture d'Agadir Ida Outanane), I observed public administrative workflows firsthand, strengthening my understanding of organizational data and system requirements.",
-    "directionTitle": "Career Direction",
-    "directionText": "I am working toward a career combining Data Analytics, AI, and Software Engineering. I am currently seeking internship opportunities, junior roles, and freelance collaborations where I can contribute practical product development skills.",
+    "directionTitle": "Career & Freelance Availability",
+    "directionText": "I am working toward a career combining Data Analytics, AI, and Software Engineering. I am currently open for internship opportunities, junior roles, and selected freelance collaborations where I can build useful web applications.",
     "educationLabel": "Education",
     "school": "Business Analytics & AI",
     "institution": "EMAA Business School (2025–Present)",
@@ -110,9 +110,9 @@
   "contact": {
     "badge": "CONTACT & COLLABORATION",
     "heading": "Let's build something useful.",
-    "subheading": "Open to internships, junior opportunities, and selected freelance collaborations in web development, business applications, data, and digital products.",
+    "subheading": "Open for internships, junior roles, and selected freelance projects (websites, e-commerce, custom tools, and dashboards).",
     "cta": "Send an Email",
-    "availability": "Agadir, Morocco · Open for Internships & Junior Opportunities",
+    "availability": "Agadir, Morocco · Available for Local & Remote Projects",
     "form": {
       "name": "Your Name *",
       "namePlaceholder": "Jane Doe",
@@ -139,11 +139,11 @@
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "whatsAppCTA": "Chat on WhatsApp",
-    "whatsAppMessage": "Hello Youssef, I would like to discuss a potential opportunity or project."
+    "whatsAppMessage": "Hello Youssef, I would like to discuss a potential project or opportunity."
   },
   "footer": {
     "tagline": "Building practical digital products at the intersection of business analytics, technology, data, and AI.",
-    "location": "Agadir, Morocco",
+    "location": "Agadir, Morocco · Local & Remote",
     "rights": "All rights reserved.",
     "backToTop": "Back to top"
   }
