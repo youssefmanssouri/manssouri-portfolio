@@ -1,16 +1,20 @@
 "use client";
 
 import React from "react";
+import { FileText } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 
 export function About() {
-  const { t, dictionary } = useLanguage();
+  const { language, t, dictionary } = useLanguage();
   const focusItems = dictionary?.about?.focusItems || [
     "Business Analytics",
     "Applied AI",
     "Next.js & TypeScript",
     "Data Modeling"
   ];
+
+  const cvHref = language === "fr" ? "/cv-fr.pdf" : "/cv-en.pdf";
+  const cvDownloadName = language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf";
 
   return (
     <section id="about" className="py-24 md:py-32 bg-[#F3EFEA] text-[#242222]">
@@ -125,6 +129,20 @@ export function About() {
                     </span>
                   ))}
                 </div>
+              </div>
+
+              {/* Direct CV Download Button */}
+              <div className="border-t border-[#DED6CC]/15 pt-4">
+                <a
+                  href={cvHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download={cvDownloadName}
+                  className="inline-flex items-center justify-center gap-2 w-full bg-[#F3EFEA] text-[#3A171C] px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#F3EFEA]/90 transition-colors active:scale-95"
+                >
+                  <FileText className="w-4 h-4 text-[#A65F4B]" />
+                  {t("hero.downloadCV")}
+                </a>
               </div>
 
             </div>

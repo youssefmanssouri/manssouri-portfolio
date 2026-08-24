@@ -3,11 +3,11 @@
 import React, { useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     const elem = document.getElementById(targetId);
@@ -16,6 +16,9 @@ export function Hero() {
       elem.scrollIntoView({ behavior: "smooth" });
     }
   }, []);
+
+  const cvHref = language === "fr" ? "/cv-fr.pdf" : "/cv-en.pdf";
+  const cvDownloadName = language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf";
 
   return (
     <section className="relative pt-28 pb-14 sm:pt-36 md:pt-44 md:pb-28 bg-[#F3EFEA]">
@@ -39,7 +42,7 @@ export function Hero() {
               {t("hero.subheadline")}
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
               <Link
                 href="/#work"
                 prefetch={true}
@@ -49,6 +52,16 @@ export function Hero() {
                 {t("hero.viewWork")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
+              <a
+                href={cvHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                download={cvDownloadName}
+                className="inline-flex items-center gap-2 bg-transparent border border-[#A65F4B] text-[#A65F4B] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#A65F4B]/10 transition-all active:scale-[0.98]"
+              >
+                <FileText className="w-4 h-4" />
+                {t("hero.downloadCV")}
+              </a>
               <Link
                 href="/#contact"
                 prefetch={true}
