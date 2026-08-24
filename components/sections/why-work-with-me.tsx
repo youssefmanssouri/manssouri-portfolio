@@ -22,7 +22,7 @@ export function WhyWorkWithMe() {
         : "Flawless user experience optimized across mobile devices, tablets, and desktop displays.",
     },
     {
-      title: isFr ? "Code Propre & Robuste" : "Clean Full-Stack Engineering",
+      title: isFr ? "Code Propre & Robuste" : "Clean Next.js & TypeScript Code",
       description: isFr
         ? "Code moderne (Next.js, TypeScript, Tailwind) structuré pour être maintenable, rapide et évolutif."
         : "Maintainable, scalable codebase built with Next.js, React, TypeScript, and modern best practices.",
