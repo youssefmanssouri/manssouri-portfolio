@@ -10,19 +10,19 @@
   },
   "hero": {
     "title": "YOUSSEF MANSSOURI",
-    "badge": "ÉTUDIANT BUSINESS ANALYTICS & IA · CRÉATEUR DE PRODUITS DIGITAUX",
+    "badge": "ÉTUDIANT BUSINESS ANALYTICS & IA · CONCEPTEUR DE PRODUITS DIGITAUX",
     "headlineMain": "Je combine l'analyse métier et le développement web pour créer des",
     "headlineEmphasized": "produits numériques utiles.",
-    "subheadline": "Étudiant en Business Analytics & IA passionné par le développement web. Je conçois des applications web et outils d'entreprise performants, axés sur l'ergonomie et la valeur concrète.",
+    "subheadline": "Étudiant en Business Analytics & IA à l'EMAA Business School. Je développe des applications web, outils d'entreprise et boutiques en ligne avec Next.js et TypeScript—axés sur l'ergonomie, la valeur métier et la clarté.",
     "viewWork": "Voir mes projets",
     "connect": "Me contacter",
     "startProject": "Démarrer un projet",
     "location": "Agadir, Maroc · Ouvert aux stages & opportunités juniors"
   },
   "work": {
-    "badge": "RÉALISATIONS SÉLECTIONNÉES",
+    "badge": "PROJETS & ÉTUDES DE CAS",
     "heading": "Projets Phares & Études de Cas",
-    "subheading": "Applications web concrètes et boutiques en ligne conçues avec des architectures modernes.",
+    "subheading": "Applications web concrètes et produits digitaux développés avec Next.js, TypeScript et Prisma.",
     "viewCaseStudy": "Consulter l'étude de cas",
     "visitLive": "Visiter le site en direct",
     "github": "Code source GitHub ↗"

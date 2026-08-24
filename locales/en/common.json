@@ -13,7 +13,7 @@
     "badge": "BUSINESS ANALYTICS & AI STUDENT · DIGITAL PRODUCT BUILDER",
     "headlineMain": "I combine business insights with modern web development to build",
     "headlineEmphasized": "practical digital products.",
-    "subheadline": "Business Analytics & AI student passionate about web development. I build clean, high-performance web applications and business tools—focused on utility and strong user experience.",
+    "subheadline": "Business Analytics & AI student at EMAA Business School. I engineer web applications, operational business tools, and bespoke storefronts with Next.js and TypeScript—focusing on clarity, utility, and strong user experience.",
     "viewWork": "View My Work",
     "connect": "Let's Connect",
     "startProject": "Start a Project",
@@ -22,7 +22,7 @@
   "work": {
     "badge": "SELECTED WORK",
     "heading": "Featured Projects & Case Studies",
-    "subheading": "Real-world web applications and storefronts built with modern full-stack engineering.",
+    "subheading": "Deploys web applications and digital products engineered with Next.js, TypeScript, and Prisma.",
     "viewCaseStudy": "View Case Study",
     "visitLive": "Visit Live Site",
     "github": "GitHub ↗"

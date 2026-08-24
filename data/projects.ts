@@ -216,7 +216,7 @@ export const PROJECTS: Project[] = [
     longDescriptionFr: "Gym CRM offre aux gestionnaires de salles de sport et hôtes d'accueil un outil rapide pour les recherches de membres, les alertes d'abonnement, les cours collectifs et le chiffre d'affaires.",
     overview: "Engineered to handle reception desk check-ins and daily facility management, Gym CRM digitizes member records and simplifies renewal tracking.",
     overviewFr: "Développé pour gérer les enregistrements à l'accueil et la gestion quotidienne des installations, Gym CRM numérise la gestion des adhérents.",
-    objective: "Build an administrative application delivering sub-second member lookups, clear membership alert states, and recurring revenue summaries.",
+    objective: "Build an administrative application delivering rapid member lookups, clear membership alert states, and recurring revenue summaries.",
     objectiveFr: "Concevoir une application d'administration réactive offrant des recherches instantanées, des alertes de statut claires et des synthèses financières.",
     technologies: [
       "Next.js",
