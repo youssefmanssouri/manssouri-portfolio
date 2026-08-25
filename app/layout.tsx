@@ -73,10 +73,30 @@ const jsonLdPerson = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Youssef Manssouri",
-  "jobTitle": "Business Analytics & AI Student & Digital Product Builder",
+  "jobTitle": "Digital Product Builder & Business Analytics Student",
   "url": "https://www.youssefmanssouri.site",
   "email": "mailto:manssouriyoussef33@gmail.com",
   "telephone": "+212656682813",
+  "description": "Business Analytics & AI student at EMAA Business School building practical web applications, e-commerce storefronts, and operational SaaS tools with Next.js and TypeScript.",
+  "image": "https://www.youssefmanssouri.site/images/projects/businessos-main.jpg",
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "EMAA Business School",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Agadir",
+      "addressCountry": "Morocco"
+    }
+  },
+  "knowsAbout": [
+    "Business Analytics",
+    "Artificial Intelligence",
+    "Web Application Architecture",
+    "Next.js",
+    "TypeScript",
+    "Prisma ORM",
+    "SaaS Development"
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Agadir",
@@ -91,9 +111,10 @@ const jsonLdPerson = {
 const jsonLdWebsite = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Youssef Manssouri Portfolio",
+  "name": "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
   "url": "https://www.youssefmanssouri.site",
-  "author": {
+  "description": "Official portfolio of Youssef Manssouri featuring case studies, full-stack web applications, e-commerce storefronts, and operational tools built with Next.js, TypeScript, and Prisma.",
+  "publisher": {
     "@type": "Person",
     "name": "Youssef Manssouri"
   }

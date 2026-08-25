@@ -199,7 +199,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
             >
               <Image
                 src={project.heroImage}
-                alt={project.name}
+                alt={`${project.name} — ${shortDesc}`}
                 fill
                 className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 55vw"
@@ -226,7 +226,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
           >
             <Image
               src={project.heroImage}
-              alt={project.name}
+              alt={`${project.name} — ${shortDesc}`}
               fill
               className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
               sizes="(max-width: 1024px) 100vw, 55vw"

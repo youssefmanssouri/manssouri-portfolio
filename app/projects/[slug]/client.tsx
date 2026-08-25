@@ -118,7 +118,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
         <div className="relative aspect-[16/9] rounded-xs overflow-hidden border border-[#DED6CC] bg-[#3A171C]">
           <Image
             src={project.heroImage}
-            alt={project.name}
+            alt={`${project.name} — ${project.shortDescription}`}
             fill
             className="object-cover object-top"
             priority
@@ -536,7 +536,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 >
                   <Image
                     src={imgSrc}
-                    alt={`${project.name} asset ${index + 1}`}
+                    alt={`${project.name} interface visual screenshot ${index + 1}`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform"
                     sizes="(max-width: 768px) 50vw, 25vw"
