@@ -86,7 +86,7 @@ export async function POST(request: Request) {
     } catch (dbErr: any) {
       console.error("[Database Error] Failed to persist contact message:", dbErr?.message || dbErr);
       return NextResponse.json(
-        { error: `Database error: ${dbErr?.message || "Unable to store contact inquiry."}` },
+        { error: "Unable to process inquiry at this time. Please try again later." },
         { status: 500 }
       );
     }

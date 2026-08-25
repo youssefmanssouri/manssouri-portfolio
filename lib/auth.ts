@@ -1,9 +1,13 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-const secretKey = new TextEncoder().encode(
-  process.env.AUTH_SECRET || "super-secret-ym-portfolio-jwt-key-2026"
-);
+function getSecretKey(): Uint8Array {
+  const secret = process.env.AUTH_SECRET || process.env.JWT_SECRET;
+  if (!secret) {
+    throw new Error("Security Error: AUTH_SECRET environment variable is missing.");
+  }
+  return new TextEncoder().encode(secret);
+}
 
 const COOKIE_NAME = "ym_admin_session";
 
@@ -18,12 +22,12 @@ export async function createAdminSessionToken(payload: SessionPayload): Promise<
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("7d")
-    .sign(secretKey);
+    .sign(getSecretKey());
 }
 
 export async function verifyAdminSessionToken(token: string): Promise<SessionPayload | null> {
   try {
-    const { payload } = await jwtVerify(token, secretKey);
+    const { payload } = await jwtVerify(token, getSecretKey());
     return payload as unknown as SessionPayload;
   } catch (error) {
     return null;

@@ -88,6 +88,17 @@ const jsonLdPerson = {
   ]
 };
 
+const jsonLdWebsite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Youssef Manssouri Portfolio",
+  "url": "https://www.youssefmanssouri.site",
+  "author": {
+    "@type": "Person",
+    "name": "Youssef Manssouri"
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -99,6 +110,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
         />
       </head>
       <body className="bg-[#F3EFEA] text-[#242222] antialiased font-sans min-h-screen flex flex-col" suppressHydrationWarning>

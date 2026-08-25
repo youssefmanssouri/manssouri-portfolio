@@ -41,45 +41,51 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const setLanguage = (lang: Language) => {
+  const setLanguage = React.useCallback((lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("ym_portfolio_lang", lang);
     document.cookie = `ym_locale=${lang}; path=/; max-age=31536000`;
-  };
+  }, []);
 
-  const t = (keyPath: string): string => {
-    const keys = keyPath.split(".");
-    let current: any = dictionaries[language] || dictionaries.en;
-    
-    for (const key of keys) {
-      if (current && typeof current === "object" && key in current) {
-        current = current[key];
-      } else {
-        // Fallback to English if key missing in current language
-        let fallback: any = dictionaries.en;
-        for (const fKey of keys) {
-          if (fallback && typeof fallback === "object" && fKey in fallback) {
-            fallback = fallback[fKey];
-          } else {
-            return keyPath;
+  const t = React.useCallback(
+    (keyPath: string): string => {
+      const keys = keyPath.split(".");
+      let current: any = dictionaries[language] || dictionaries.en;
+
+      for (const key of keys) {
+        if (current && typeof current === "object" && key in current) {
+          current = current[key];
+        } else {
+          // Fallback to English if key missing in current language
+          let fallback: any = dictionaries.en;
+          for (const fKey of keys) {
+            if (fallback && typeof fallback === "object" && fKey in fallback) {
+              fallback = fallback[fKey];
+            } else {
+              return keyPath;
+            }
           }
+          return typeof fallback === "string" ? fallback : keyPath;
         }
-        return typeof fallback === "string" ? fallback : keyPath;
       }
-    }
-    
-    return typeof current === "string" ? current : keyPath;
-  };
+
+      return typeof current === "string" ? current : keyPath;
+    },
+    [language]
+  );
+
+  const value = React.useMemo(
+    () => ({
+      language,
+      setLanguage,
+      t,
+      dictionary: dictionaries[language] || dictionaries.en,
+    }),
+    [language, setLanguage, t]
+  );
 
   return (
-    <LanguageContext.Provider
-      value={{
-        language,
-        setLanguage,
-        t,
-        dictionary: dictionaries[language] || dictionaries.en,
-      }}
-    >
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
