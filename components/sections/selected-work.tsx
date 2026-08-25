@@ -183,7 +183,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                 </a>
               </div>
 
-              {isFlagship && project.hasLiveDemo && (
+              {(isFlagship || project.id === "gym-crm") && project.hasLiveDemo && (
                 <p className="text-[11px] font-mono text-[#DED6CC]/60 pt-1">
                   🔒 {language === "fr" ? "Démonstration interactive — environnement sécurisé en lecture seule avec données synthétiques." : "Interactive demo — read-only environment with synthetic data."}
                 </p>

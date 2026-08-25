@@ -262,7 +262,8 @@ export const PROJECTS: Project[] = [
       "/images/projects/gymcrm-classes.jpg"
     ],
     githubUrl: "https://github.com/youssefmanssouri/gym-crm",
-    hasLiveDemo: false,
+    liveUrl: "https://gym-crm-gules.vercel.app",
+    hasLiveDemo: true,
     featured: true,
     order: 3
   }

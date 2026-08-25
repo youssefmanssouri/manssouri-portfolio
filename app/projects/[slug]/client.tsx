@@ -270,6 +270,165 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 </div>
 
               </div>
+            ) : project.id === "gym-crm" ? (
+              <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="p-6 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/20 space-y-3">
+                    <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                      01 / {isFr ? "Problème Métier" : "The Business Problem"}
+                    </div>
+                    <h3 className="text-lg font-bold text-[#3A171C]">
+                      {isFr ? "Engorgement de l'Accueil & Pertes de Chiffre d'Affaires" : "Front-Desk Bottlenecks & Unrenewed Subscriptions"}
+                    </h3>
+                    <p className="text-xs text-[#242222]/80 leading-relaxed">
+                      {isFr 
+                        ? "Les complexes sportifs font face à l'engorgement de l'accueil aux heures de pointe, aux accès d'adhérents dont le forfait a expiré sans suivi, aux carnets de pointage papier et à une absence d'alertes proactives pour le renouvellement des abonnements."
+                        : "Fitness centers face severe front-desk check-in congestion during peak hours, unverified entry from expired memberships, manual attendance rosters, and zero proactive renewal tracking—causing direct revenue leakage and client churn."}
+                    </p>
+                  </div>
+
+                  <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3 shadow-md">
+                    <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                      02 / {isFr ? "La Solution Gym CRM" : "The Gym CRM Solution"}
+                    </div>
+                    <h3 className="text-lg font-bold text-[#F3EFEA]">
+                      {isFr ? "Plateforme Unifiée de Gestion d'Accueil & d'Abonnés" : "Unified Operations & Member Management System"}
+                    </h3>
+                    <p className="text-xs text-[#DED6CC]/80 leading-relaxed">
+                      {isFr 
+                        ? "Gym CRM numérise l'ensemble des opérations d'accueil : recherche instantanée par nom ou ID, terminal de pointage QR code, alertes visuelles d'expiration (ACTIVE, EXPIRED, FROZEN), suivi des coachs et rapports de chiffre d'affaires récurrent (MRR)."
+                        : "Gym CRM digitizes front-desk facility management: rapid ID/name lookups, visual subscription status alerts (ACTIVE, EXPIRED, FROZEN), QR pass check-in terminals, coach scheduling, POS inventory, and real-time monthly recurring revenue (MRR) telemetry."}
+                    </p>
+                  </div>
+                </div>
+
+                {/* 12 Operational Modules Showcase Grid */}
+                <div className="space-y-4 pt-4">
+                  <h2 className="text-xl font-bold text-[#242222]">
+                    {isFr ? "Les 12 Modules Opérationnels Clés" : "12 Operational Modules"}
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">1. Operations Dashboard</h4>
+                      <p className="text-[11px] text-[#242222]/70">Live active members, daily check-ins, retention & MRR telemetry.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">2. Member CRM</h4>
+                      <p className="text-[11px] text-[#242222]/70">Instant ID lookups, renewal alerts, and complete member profiles.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">3. Membership Plans</h4>
+                      <p className="text-[11px] text-[#242222]/70">Monthly, quarterly & VIP plans with feature matrices and pricing.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">4. Attendance Terminal</h4>
+                      <p className="text-[11px] text-[#242222]/70">QR code pass scanner, manual receptionist verification, and logs.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">5. Trainer Hub</h4>
+                      <p className="text-[11px] text-[#242222]/70">Coach assignments, client roster load, and personal training logs.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">6. Workout Builder</h4>
+                      <p className="text-[11px] text-[#242222]/70">Exercise database, routine creation, and personalized training plans.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">7. Nutrition Planner</h4>
+                      <p className="text-[11px] text-[#242222]/70">Caloric macro distribution, meal plan generators, and dietary logs.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">8. Payments & Billing</h4>
+                      <p className="text-[11px] text-[#242222]/70">Invoice generation, subscription payments, and transaction history.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">9. POS & Inventory</h4>
+                      <p className="text-[11px] text-[#242222]/70">Supplements, merchandise, SKU stock tracking, and front-desk sales.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">10. Staff & Audit Logs</h4>
+                      <p className="text-[11px] text-[#242222]/70">Role assignments (Admin, Manager, Staff) and audit security trail.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">11. AI Power Suite</h4>
+                      <p className="text-[11px] text-[#242222]/70">Gemini AI predictive insights, upsell alerts, and capacity forecasts.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
+                      <h4 className="text-xs font-bold text-[#242222]">12. Reports & Analytics</h4>
+                      <p className="text-[11px] text-[#242222]/70">Multidimensional Recharts telemetry for revenue, peak load & churn.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Technical Architecture Breakdown */}
+                <div className="space-y-6 pt-4 border-t border-[#DED6CC]">
+                  <h2 className="text-xl font-bold text-[#242222]">
+                    {isFr ? "Architecture Technique & Flux de Données" : "Technical Architecture & Data Flow"}
+                  </h2>
+
+                  {/* Architecture Diagram Box */}
+                  <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-5 shadow-lg">
+                    <div className="flex items-center justify-between border-b border-[#DED6CC]/15 pb-3">
+                      <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                        SYSTEM ARCHITECTURE & SECURITY BOUNDARY
+                      </span>
+                      <span className="text-[10px] font-mono text-[#DED6CC]/60">
+                        VERIFIED CODEBASE FLOW
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs font-mono">
+                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
+                        <span className="text-white font-bold block">1. Client Workspace</span>
+                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">Next.js App Router, React 18, Tailwind CSS</span>
+                      </div>
+
+                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
+                        <span className="text-white font-bold block">2. Role Authentication</span>
+                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">5 Simulated Roles & Session API</span>
+                      </div>
+
+                      <div className="p-3.5 rounded-xs bg-[#A65F4B]/30 border border-[#A65F4B]/50 space-y-1">
+                        <span className="text-white font-bold block">3. Demo Safeguards</span>
+                        <span className="text-[11px] text-[#DED6CC]/90 font-sans block">Safe Fictional Seed & Mock Fallbacks</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center text-xs font-mono pt-1">
+                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
+                        <span className="text-white font-bold block">4. Prisma ORM Layer</span>
+                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">12 Relational Schema Models</span>
+                      </div>
+
+                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
+                        <span className="text-white font-bold block">5. Analytics & AI Engine</span>
+                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">Recharts Telemetry & Gemini AI</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-6 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/15 space-y-3 font-mono text-xs text-[#242222]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <span className="text-[#A65F4B] font-bold block mb-1">FRAMEWORK & STACK</span>
+                        <p className="text-[#242222]/80 font-sans">Next.js 14, TypeScript, Tailwind CSS, Lucide icons, Framer Motion.</p>
+                      </div>
+                      <div>
+                        <span className="text-[#A65F4B] font-bold block mb-1">DATA ARCHITECTURE</span>
+                        <p className="text-[#242222]/80 font-sans">Prisma ORM with 12 relational models mapping members, plans & payments.</p>
+                      </div>
+                      <div>
+                        <span className="text-[#A65F4B] font-bold block mb-1">ROLE PERMISSIONS (RBAC)</span>
+                        <p className="text-[#242222]/80 font-sans">Enforces granular permissions for Admin, Manager, Trainer, Receptionist & Member.</p>
+                      </div>
+                      <div>
+                        <span className="text-[#A65F4B] font-bold block mb-1">AI INTELLIGENCE</span>
+                        <p className="text-[#242222]/80 font-sans">Google Gemini AI integration with realistic predictive fallback handlers.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             ) : (
               <>
                 <div className="space-y-2">
@@ -337,13 +496,13 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                     {isFr ? "DÉMONSTRATION EN DIRECT" : "LIVE PUBLIC DEMO"}
                   </span>
                   <h4 className="text-base font-bold text-[#242222]">
-                    {isFr ? "Explorer l'application" : "Explore BusinessOS Live"}
+                    {isFr ? "Explorer l'application en direct" : `Explore ${project.name} Live`}
                   </h4>
                 </div>
                 <p className="text-xs text-[#242222]/70 leading-relaxed">
                   {isFr 
-                    ? "Accédez immédiatement au tableau de bord, au CRM et aux factures dans un environnement sécurisé."
-                    : "Access the dashboard, CRM, invoices, and analytics instantly in a safe, read-only demo environment."}
+                    ? `Accédez immédiatement au tableau de bord et aux modules de ${project.name} dans un environnement sécurisé.`
+                    : `Access the dashboard, operational modules, and analytics for ${project.name} in a safe, read-only demo environment.`}
                 </p>
                 <a
                   href={project.liveUrl}
