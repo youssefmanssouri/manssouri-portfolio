@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/context";
+import { YMLogo } from "@/components/ui/logo";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -76,9 +77,10 @@ export function Navbar() {
         <Link
           href="/"
           prefetch={true}
-          className="text-[#242222] font-bold text-sm tracking-widest uppercase hover:text-[#A65F4B] transition-colors"
+          aria-label="Youssef Manssouri — Home"
+          className="inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] rounded-xs"
         >
-          Youssef Manssouri
+          <YMLogo variant="responsive" theme="dark" />
         </Link>
 
         {/* Desktop Navigation Links */}

@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
+import { YMLogo } from "@/components/ui/logo";
 
 export function Footer() {
   const { t, language, setLanguage } = useLanguage();
@@ -15,8 +16,12 @@ export function Footer() {
           
           {/* Brand Info */}
           <div className="md:col-span-2 space-y-3">
-            <Link href="/" className="text-[#F3EFEA] font-bold text-sm tracking-widest uppercase hover:text-[#A65F4B] transition-colors">
-              Youssef Manssouri
+            <Link
+              href="/"
+              aria-label="Youssef Manssouri — Home"
+              className="inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] rounded-xs"
+            >
+              <YMLogo variant="lockup" theme="light" />
             </Link>
             <p className="text-[#DED6CC]/80 text-xs max-w-sm leading-relaxed">
               {t("footer.tagline")}

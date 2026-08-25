@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 72" width="340" height="72" fill="none">
+  <style>
+    .lockup-text-light {
+      font-family: 'Cormorant Garamond', 'Bodoni MT', Didot, Georgia, serif;
+      font-weight: 600;
+      fill: #F3EFEA;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+  </style>
+  <g transform="translate(0, 0) scale(0.6)">
+    <g fill="#F3EFEA">
+      <path d="M 44 60 L 44 98 H 36 V 104 H 64 V 98 H 56 L 56 60 Z" />
+      <path d="M 16 20 V 26 H 24 L 46 62 L 54 58 L 30 26 H 36 V 20 H 16 Z" />
+      <path d="M 74 20 H 88 V 26 H 80 L 52 60 L 46 56 L 70 26 H 64 V 20 Z" opacity="0.9" />
+      <path d="M 40 38 L 58 76 L 66 76 L 82 32 H 74 V 26 H 92 V 32 H 86 L 70 82 L 56 82 L 36 40 Z" />
+      <path d="M 82 38 L 94 88 H 102 V 94 H 78 V 88 H 86 L 76 44 Z" />
+      <path d="M 48 30 L 58 54 L 64 50 L 54 26 H 44 V 30 Z" />
+    </g>
+  </g>
+  <text x="84" y="28" class="lockup-text-light" font-size="24">YOUSSEF</text>
+  <text x="84" y="56" class="lockup-text-light" font-size="24">MANSSOURI</text>
+</svg>
