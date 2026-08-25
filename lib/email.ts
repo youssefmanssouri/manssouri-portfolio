@@ -1,9 +1,5 @@
 import { Resend } from "resend";
 
-const resendApiKey = process.env.RESEND_API_KEY;
-const resend = resendApiKey ? new Resend(resendApiKey) : null;
-const contactDestination = process.env.CONTACT_EMAIL || "manssouriyoussef33@gmail.com";
-
 interface SendNotificationParams {
   name: string;
   email: string;
@@ -37,23 +33,38 @@ ${data.message}
 `;
 
   try {
-    if (resend) {
-      await resend.emails.send({
-        from: "Portfolio Contact Form <onboarding@resend.dev>",
+    const rawApiKey = process.env.RESEND_API_KEY;
+    const resendApiKey =
+      rawApiKey && rawApiKey.trim() !== "" && !rawApiKey.includes("[SENSITIVE]")
+        ? rawApiKey.trim()
+        : null;
+
+    const contactDestination = process.env.CONTACT_EMAIL || "manssouriyoussef33@gmail.com";
+    const emailFrom = process.env.EMAIL_FROM || "Portfolio Contact Form <onboarding@resend.dev>";
+
+    if (resendApiKey) {
+      const resend = new Resend(resendApiKey);
+      const emailResult = await resend.emails.send({
+        from: emailFrom,
         to: [contactDestination],
         replyTo: data.email,
         subject,
         text: textBody,
       });
-      console.log(`[Email Notification] Email sent successfully to ${contactDestination}`);
+
+      if (emailResult.error) {
+        console.error("[Email Delivery Error] Resend returned API error:", emailResult.error);
+        return false;
+      }
+
+      console.log(`[Email Notification] Email sent successfully to ${contactDestination} (ID: ${emailResult.data?.id})`);
       return true;
     } else {
-      console.log(`[Email Notification (Console Log Only)] No RESEND_API_KEY configured.\n${textBody}`);
+      console.log(`[Email Notification (Console Fallback)] No valid RESEND_API_KEY set.\n${textBody}`);
       return true;
     }
   } catch (error) {
     console.error("[Email Notification Failed] Error sending email:", error);
-    // Return true because database submission is the primary source of truth
     return false;
   }
 }

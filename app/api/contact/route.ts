@@ -28,6 +28,13 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
+export async function GET() {
+  return NextResponse.json(
+    { error: "Method not allowed. Use POST for contact submissions." },
+    { status: 405 }
+  );
+}
+
 export async function POST(request: Request) {
   try {
     const ip = request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "127.0.0.1";
@@ -50,7 +57,7 @@ export async function POST(request: Request) {
 
     const { name, email, company, projectType, budget, message, website_confirm, language } = validationResult.data;
 
-    // 2. Honeypot check
+    // 2. Honeypot check for automated spambots
     if (website_confirm && website_confirm.trim() !== "") {
       console.warn(`[Anti-Spam] Honeypot triggered by IP ${ip}`);
       return NextResponse.json(
@@ -91,23 +98,30 @@ export async function POST(request: Request) {
       );
     }
 
-    // 4. Send Email Notification asynchronously after DB confirmation
-    sendContactNotificationEmail({
-      name,
-      email,
-      company: company || undefined,
-      projectType,
-      budgetRange: budget || undefined,
-      message,
-      language: language || "en",
-      submittedAt: savedMessage.createdAt,
-    }).catch((err) => console.error("Async email notification error:", err));
+    // 4. Send Email Notification with await so Vercel Serverless Function completes delivery before returning
+    let emailDelivered = false;
+    try {
+      emailDelivered = await sendContactNotificationEmail({
+        name,
+        email,
+        company: company || undefined,
+        projectType,
+        budgetRange: budget || undefined,
+        message,
+        language: language || "en",
+        submittedAt: savedMessage.createdAt,
+      });
+    } catch (emailErr) {
+      console.error("[Email Dispatch Warning] Exception during notification dispatch:", emailErr);
+    }
 
+    // 5. Return Success Response (Database write is preserved even if email fails)
     return NextResponse.json(
       {
         success: true,
-        message: "Message stored successfully",
+        message: "Your message has been received successfully.",
         id: savedMessage.id,
+        emailDelivered,
       },
       { status: 201 }
     );

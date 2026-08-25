@@ -12,6 +12,10 @@ export const prisma =
 
 export async function ensureDbSchema() {
   try {
+    const dbUrl = process.env.DATABASE_URL || "";
+    const isPostgres = dbUrl.startsWith("postgres://") || dbUrl.startsWith("postgresql://");
+    const dateTimeType = isPostgres ? "TIMESTAMP WITH TIME ZONE" : "DATETIME";
+
     await prisma.$executeRawUnsafe(`
       CREATE TABLE IF NOT EXISTS "ContactMessage" (
         "id" TEXT NOT NULL PRIMARY KEY,
@@ -23,8 +27,8 @@ export async function ensureDbSchema() {
         "message" TEXT NOT NULL,
         "language" TEXT NOT NULL DEFAULT 'en',
         "status" TEXT NOT NULL DEFAULT 'NEW',
-        "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        "updatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        "createdAt" ${dateTimeType} NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "updatedAt" ${dateTimeType} NOT NULL DEFAULT CURRENT_TIMESTAMP
       );
     `);
     await prisma.$executeRawUnsafe(`
@@ -34,9 +38,9 @@ export async function ensureDbSchema() {
         "passwordHash" TEXT NOT NULL,
         "name" TEXT NOT NULL,
         "role" TEXT NOT NULL DEFAULT 'ADMIN',
-        "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        "updatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        "lastLoginAt" DATETIME
+        "createdAt" ${dateTimeType} NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "updatedAt" ${dateTimeType} NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "lastLoginAt" ${dateTimeType}
       );
     `);
     await prisma.$executeRawUnsafe(`
@@ -46,11 +50,11 @@ export async function ensureDbSchema() {
         "path" TEXT,
         "meta" TEXT,
         "ipHash" TEXT,
-        "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        "createdAt" ${dateTimeType} NOT NULL DEFAULT CURRENT_TIMESTAMP
       );
     `);
   } catch (err) {
-    console.error("[Prisma Schema Init Warning]", err);
+    console.warn("[Prisma Schema Init Notice]", err);
   }
 }
 
