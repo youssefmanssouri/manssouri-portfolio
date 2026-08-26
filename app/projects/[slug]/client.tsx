@@ -3,10 +3,16 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Project } from "@/data/projects";
-import { ArrowLeft, ArrowRight, ExternalLink, X, ChevronLeft, ChevronRight, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Mail } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
+
+const ProjectLightbox = dynamic(
+  () => import("@/components/projects/project-lightbox"),
+  { ssr: false }
+);
 
 interface ProjectCaseStudyClientProps {
   project: Project;
@@ -562,51 +568,24 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
           </div>
         )}
 
-        {/* Lightbox Modal */}
-        {lightboxIndex !== null && (
-          <div className="fixed inset-0 z-50 bg-[#3A171C]/95 backdrop-blur-sm flex items-center justify-center p-4">
-            <button
-              onClick={() => setLightboxIndex(null)}
-              className="absolute top-4 right-4 text-[#F3EFEA] p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:text-[#A65F4B] transition-colors"
-              aria-label="Close Lightbox"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            
-            <button
-              onClick={() =>
-                setLightboxIndex((prev) =>
-                  prev !== null && prev > 0 ? prev - 1 : project.galleryImages.length - 1
-                )
-              }
-              className="absolute left-2 sm:left-4 text-[#F3EFEA] p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:text-[#A65F4B] transition-colors"
-              aria-label="Previous Image"
-            >
-              <ChevronLeft className="w-8 h-8" />
-            </button>
-
-            <div className="relative max-w-4xl max-h-[85vh] w-full h-full flex items-center justify-center">
-              <Image
-                src={project.galleryImages[lightboxIndex]}
-                alt={`${project.name} enlarged preview`}
-                width={1200}
-                height={800}
-                className="object-contain max-h-[85vh] w-auto rounded-xs border border-[#DED6CC]/20"
-              />
-            </div>
-
-            <button
-              onClick={() =>
-                setLightboxIndex((prev) =>
-                  prev !== null ? (prev + 1) % project.galleryImages.length : 0
-                )
-              }
-              className="absolute right-2 sm:right-4 text-[#F3EFEA] p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:text-[#A65F4B] transition-colors"
-              aria-label="Next Image"
-            >
-              <ChevronRight className="w-8 h-8" />
-            </button>
-          </div>
+        {/* Dynamically Imported Lightbox Modal */}
+        {lightboxIndex !== null && project.galleryImages && (
+          <ProjectLightbox
+            images={project.galleryImages}
+            currentIndex={lightboxIndex}
+            projectName={project.name}
+            onClose={() => setLightboxIndex(null)}
+            onPrev={() =>
+              setLightboxIndex((prev) =>
+                prev !== null && prev > 0 ? prev - 1 : project.galleryImages.length - 1
+              )
+            }
+            onNext={() =>
+              setLightboxIndex((prev) =>
+                prev !== null ? (prev + 1) % project.galleryImages.length : 0
+              )
+            }
+          />
         )}
 
         {/* Next Project & Case Study Conversion CTA */}
