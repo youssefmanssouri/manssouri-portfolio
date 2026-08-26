@@ -34,9 +34,9 @@ export function Contact() {
 
   const budgetOptions = [
     { label: language === "fr" ? "Stage / Gratification" : "Internship / Entry Opportunity", value: "Internship" },
-    { label: language === "fr" ? "Projet < 1 000 USD" : "Project < $1k", value: "< $1k" },
-    { label: language === "fr" ? "Projet 1 000 - 3 000 USD" : "Project $1k - $3k", value: "$1k - $3k" },
-    { label: language === "fr" ? "Projet 3 000 USD+" : "Project $3k+", value: "$3k+" }
+    { label: language === "fr" ? "Projet < 5 000 DH (MAD)" : "Project < 5,000 MAD", value: "< 5,000 MAD" },
+    { label: language === "fr" ? "Projet 5 000 - 15 000 DH (MAD)" : "Project 5,000 - 15,000 MAD", value: "5,000 - 15,000 MAD" },
+    { label: language === "fr" ? "Projet 15 000 DH+ (MAD)" : "Project 15,000 MAD+", value: "15,000 MAD+" }
   ];
 
   const validate = () => {
