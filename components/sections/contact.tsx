@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
 import { ArrowUpRight, CheckCircle2, AlertCircle, Loader2, Mail } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
+import { trackEvent } from "@/lib/analytics";
 
 export function Contact() {
   const { language, t } = useLanguage();
@@ -126,6 +127,9 @@ export function Contact() {
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <a
               href="mailto:manssouriyoussef33@gmail.com"
+              onClick={() => {
+                trackEvent("EMAIL_CLICK", { source: "contact_banner", destination: "email" });
+              }}
               className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98]"
             >
               <Mail className="w-4 h-4 text-[#A65F4B]" />
@@ -275,6 +279,9 @@ export function Contact() {
                   <span className="text-[#DED6CC]/70 block uppercase font-mono font-medium">{t("contact.email")}</span>
                   <a
                     href="mailto:manssouriyoussef33@gmail.com"
+                    onClick={() => {
+                      trackEvent("EMAIL_CLICK", { source: "contact_direct", destination: "email" });
+                    }}
                     className="text-[#F3EFEA] hover:text-[#A65F4B] font-bold text-sm transition-colors break-all"
                   >
                     manssouriyoussef33@gmail.com
@@ -287,6 +294,9 @@ export function Contact() {
                     href={whatsAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                      trackEvent("WHATSAPP_CLICK", { source: "contact", destination: "whatsapp" });
+                    }}
                     className="text-[#F3EFEA] hover:text-[#A65F4B] font-semibold transition-colors inline-flex items-center gap-1"
                   >
                     +212 6 56 68 28 13 ({t("contact.whatsAppCTA")})
@@ -313,6 +323,9 @@ export function Contact() {
                     href="https://github.com/youssefmanssouri"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                      trackEvent("GITHUB_CLICK", { source: "contact" });
+                    }}
                     className="text-[#F3EFEA] hover:text-[#A65F4B] font-semibold transition-colors inline-flex items-center gap-1"
                   >
                     youssefmanssouri

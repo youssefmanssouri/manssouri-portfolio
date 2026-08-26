@@ -7,6 +7,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/context";
 import { YMLogo } from "@/components/ui/logo";
+import { trackEvent } from "@/lib/analytics";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -126,7 +127,10 @@ export function Navbar() {
           <Link
             href="/#contact"
             prefetch={true}
-            onClick={(e) => handleNavClick(e, "/#contact")}
+            onClick={(e) => {
+              trackEvent("CTA_START_PROJECT", { source: "navbar", destination: "contact" });
+              handleNavClick(e, "/#contact");
+            }}
             className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-colors active:scale-95"
           >
             {t("nav.talk")}
@@ -188,7 +192,10 @@ export function Navbar() {
                 <Link
                   href="/#contact"
                   prefetch={true}
-                  onClick={(e) => handleNavClick(e, "/#contact")}
+                  onClick={(e) => {
+                    trackEvent("CTA_START_PROJECT", { source: "navbar_mobile", destination: "contact" });
+                    handleNavClick(e, "/#contact");
+                  }}
                   className="inline-flex items-center justify-center gap-1.5 w-full bg-[#3A171C] text-[#F3EFEA] px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider active:scale-95"
                 >
                   {t("nav.talk")}

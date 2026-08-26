@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { YMLogo } from "@/components/ui/logo";
+import { trackEvent } from "@/lib/analytics";
 
 export function Footer() {
   const { t, language, setLanguage } = useLanguage();
@@ -69,6 +70,9 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:manssouriyoussef33@gmail.com"
+                  onClick={() => {
+                    trackEvent("EMAIL_CLICK", { source: "footer", destination: "email" });
+                  }}
                   className="hover:text-[#F3EFEA] transition-colors inline-flex items-center gap-1"
                 >
                   manssouriyoussef33@gmail.com
@@ -79,6 +83,9 @@ export function Footer() {
                   href="https://wa.me/212656682813"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    trackEvent("WHATSAPP_CLICK", { source: "footer", destination: "whatsapp" });
+                  }}
                   className="hover:text-[#F3EFEA] transition-colors inline-flex items-center gap-1"
                 >
                   +212 6 56 68 28 13
@@ -101,6 +108,9 @@ export function Footer() {
                   href="https://github.com/youssefmanssouri"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    trackEvent("GITHUB_CLICK", { source: "footer" });
+                  }}
                   className="hover:text-[#F3EFEA] transition-colors inline-flex items-center gap-1"
                 >
                   GitHub

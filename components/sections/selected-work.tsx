@@ -6,6 +6,7 @@ import Link from "next/link";
 import { PROJECTS, Project } from "@/data/projects";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
+import { trackEvent } from "@/lib/analytics";
 
 export function SelectedWork() {
   const { t, language } = useLanguage();
@@ -166,6 +167,9 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                      trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "selected_work" });
+                    }}
                     className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-[#F3EFEA] px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
                   >
                     {t("work.visitLive")}
@@ -177,6 +181,9 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    trackEvent("GITHUB_CLICK", { slug: project.slug, source: "selected_work" });
+                  }}
                   className="inline-flex items-center gap-1.5 bg-transparent border border-[#DED6CC]/40 text-[#F3EFEA] px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#F3EFEA]/10 transition-all active:scale-[0.98]"
                 >
                   {t("work.github")}
@@ -294,6 +301,9 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "selected_work" });
+                }}
                 className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
               >
                 {t("work.visitLive")}
@@ -305,6 +315,9 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                trackEvent("GITHUB_CLICK", { slug: project.slug, source: "selected_work" });
+              }}
               className="inline-flex items-center gap-1.5 bg-transparent border border-[#3A171C] text-[#3A171C] px-4 py-2 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98]"
             >
               {t("work.github")}

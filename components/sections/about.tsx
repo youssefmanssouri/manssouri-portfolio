@@ -3,6 +3,7 @@
 import React from "react";
 import { FileText } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
+import { trackEvent } from "@/lib/analytics";
 
 export function About() {
   const { language, t, dictionary } = useLanguage();
@@ -138,6 +139,9 @@ export function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                   download={cvDownloadName}
+                  onClick={() => {
+                    trackEvent("CV_DOWNLOAD", { language, source: "about" });
+                  }}
                   className="inline-flex items-center justify-center gap-2 w-full bg-[#F3EFEA] text-[#3A171C] px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#F3EFEA]/90 transition-colors active:scale-95"
                 >
                   <FileText className="w-4 h-4 text-[#A65F4B]" />

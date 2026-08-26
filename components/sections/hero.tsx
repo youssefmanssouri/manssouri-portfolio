@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
+import { trackEvent } from "@/lib/analytics";
 
 export function Hero() {
   const { language, t } = useLanguage();
@@ -46,7 +47,10 @@ export function Hero() {
               <Link
                 href="/#contact"
                 prefetch={true}
-                onClick={(e) => handleNavClick(e, "contact")}
+                onClick={(e) => {
+                  trackEvent("CTA_START_PROJECT", { source: "hero", destination: "contact" });
+                  handleNavClick(e, "contact");
+                }}
                 className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98]"
               >
                 {t("hero.startProject")}
@@ -66,6 +70,9 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 download={cvDownloadName}
+                onClick={() => {
+                  trackEvent("CV_DOWNLOAD", { language, source: "hero" });
+                }}
                 className="inline-flex items-center gap-2 bg-transparent border border-[#A65F4B] text-[#A65F4B] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#A65F4B]/10 transition-all active:scale-[0.98]"
               >
                 <FileText className="w-4 h-4" />
@@ -89,6 +96,9 @@ export function Hero() {
             <Link
               href="/projects/businessos"
               prefetch={true}
+              onClick={() => {
+                trackEvent("LIVE_DEMO_CLICK", { slug: "businessos", name: "BusinessOS", source: "hero" });
+              }}
               className="block relative rounded-xs border border-[#DED6CC]/30 bg-[#3A171C] overflow-hidden shadow-xl group"
             >
               {/* Header Bar */}

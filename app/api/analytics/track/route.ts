@@ -1,9 +1,25 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbSchema } from "@/lib/prisma";
 
 export async function POST(request: Request) {
   try {
-    const { event, path, meta } = await request.json();
+    await ensureDbSchema();
+
+    let body: any = {};
+    const contentType = request.headers.get("content-type") || "";
+
+    if (contentType.includes("application/json")) {
+      body = await request.json();
+    } else {
+      const text = await request.text();
+      try {
+        body = JSON.parse(text);
+      } catch {
+        body = {};
+      }
+    }
+
+    const { event, path, meta } = body;
 
     if (!event) {
       return NextResponse.json({ error: "Event name is required." }, { status: 400 });

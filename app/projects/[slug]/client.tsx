@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Project } from "@/data/projects";
 import { ArrowLeft, ArrowRight, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
+import { trackEvent } from "@/lib/analytics";
 
 interface ProjectCaseStudyClientProps {
   project: Project;
@@ -24,6 +25,11 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
   const features = isFr ? project.featuresFr : project.features;
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Track page view once per mount
+  useEffect(() => {
+    trackEvent("CASE_STUDY_VIEW", { slug: project.slug, name: project.name }, `/projects/${project.slug}`);
+  }, [project.slug, project.name]);
 
   // Keyboard navigation for Lightbox
   useEffect(() => {
@@ -76,6 +82,9 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "case_study_top" });
+                }}
                 className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity active:scale-[0.98]"
               >
                 {t("work.visitLive")}
@@ -86,6 +95,9 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                trackEvent("GITHUB_CLICK", { slug: project.slug, source: "case_study" });
+              }}
               className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-colors active:scale-[0.98]"
             >
               {t("work.github")}
@@ -508,6 +520,9 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "case_study_sidebar" });
+                  }}
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#A65F4B] text-white px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
                 >
                   <span>{t("work.visitLive")}</span>
@@ -612,6 +627,9 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
 
             <Link
               href="/#contact"
+              onClick={() => {
+                trackEvent("CTA_START_PROJECT", { source: "case_study", destination: "contact" });
+              }}
               className="inline-flex items-center justify-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-colors active:scale-[0.98]"
             >
               <span>{t("hero.startProject")}</span>
