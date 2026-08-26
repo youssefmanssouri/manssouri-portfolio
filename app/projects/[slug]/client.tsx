@@ -55,7 +55,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
   }, [lightboxIndex, project.galleryImages.length]);
 
   return (
-    <main className="min-h-screen pt-32 pb-24 bg-[#F3EFEA] text-[#242222]">
+    <article className="min-h-screen pt-32 pb-24 bg-[#F3EFEA] text-[#242222]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Back Link */}
@@ -691,6 +691,6 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
         </div>
 
       </div>
-    </main>
+    </article>
   );
 }

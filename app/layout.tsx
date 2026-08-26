@@ -142,9 +142,17 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#F3EFEA] text-[#242222] antialiased font-sans min-h-screen flex flex-col" suppressHydrationWarning>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-[#3A171C] focus:text-[#F3EFEA] focus:px-4 focus:py-2 focus:rounded-xs focus:ring-2 focus:ring-[#A65F4B] focus:outline-none text-xs font-mono font-semibold uppercase tracking-wider shadow-xl"
+        >
+          Skip to content
+        </a>
         <LanguageProvider>
           <Navbar />
-          <div className="flex-grow">{children}</div>
+          <main id="main-content" className="flex-grow flex flex-col">
+            {children}
+          </main>
           <Footer />
         </LanguageProvider>
       </body>
