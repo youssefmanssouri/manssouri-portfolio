@@ -51,7 +51,7 @@ export function Hero() {
                   trackEvent("CTA_START_PROJECT", { source: "hero", destination: "contact" });
                   handleNavClick(e, "contact");
                 }}
-                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
               >
                 {t("hero.startProject")}
                 <ArrowRight className="w-4 h-4 text-[#A65F4B]" />
@@ -60,24 +60,11 @@ export function Hero() {
                 href="/#work"
                 prefetch={true}
                 onClick={(e) => handleNavClick(e, "work")}
-                className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
               >
                 {t("hero.viewWork")}
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
-              <a
-                href={cvHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                download={cvDownloadName}
-                onClick={() => {
-                  trackEvent("CV_DOWNLOAD", { language, source: "hero" });
-                }}
-                className="inline-flex items-center gap-2 bg-transparent border border-[#A65F4B] text-[#A65F4B] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#A65F4B]/10 transition-all active:scale-[0.98]"
-              >
-                <FileText className="w-4 h-4" />
-                {t("hero.downloadCV")}
-              </a>
             </div>
 
             <div className="pt-4 border-t border-[#DED6CC] flex flex-wrap items-center justify-between text-xs font-mono text-[#242222]/70 gap-2">
@@ -85,9 +72,19 @@ export function Hero() {
                 <span className="w-2 h-2 rounded-full bg-[#A65F4B] animate-pulse" />
                 {t("hero.location")}
               </span>
-              <span className="hidden sm:inline text-[#A65F4B] uppercase tracking-wider font-semibold">
-                Youssef Manssouri
-              </span>
+              <a
+                href={cvHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                download={cvDownloadName}
+                onClick={() => {
+                  trackEvent("CV_DOWNLOAD", { language, source: "hero_metadata" });
+                }}
+                className="inline-flex items-center gap-1.5 text-[#A65F4B] hover:text-[#3A171C] font-semibold uppercase tracking-wider transition-colors py-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#A65F4B] rounded-xs"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>{t("hero.downloadCV")}</span>
+              </a>
             </div>
           </div>
 
