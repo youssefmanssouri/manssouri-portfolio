@@ -21,15 +21,26 @@ export async function POST(request: Request) {
 
     const { event, path, meta } = body;
 
-    if (!event) {
+    if (!event || typeof event !== "string" || event.trim().length === 0) {
       return NextResponse.json({ error: "Event name is required." }, { status: 400 });
+    }
+
+    if (event.length > 100) {
+      return NextResponse.json({ error: "Event name too long." }, { status: 400 });
+    }
+
+    const metaString = meta ? (typeof meta === "string" ? meta : JSON.stringify(meta)) : null;
+
+    // Hardened check: Reject oversized metadata payloads (> 2000 characters) cleanly with HTTP 400
+    if (metaString && metaString.length > 2000) {
+      return NextResponse.json({ error: "Oversized metadata payload." }, { status: 400 });
     }
 
     const createdEvent = await prisma.analyticsEvent.create({
       data: {
-        event: String(event).substring(0, 50),
+        event: event.substring(0, 50),
         path: path ? String(path).substring(0, 200) : null,
-        meta: meta ? (typeof meta === "string" ? meta : JSON.stringify(meta)).substring(0, 500) : null,
+        meta: metaString ? metaString.substring(0, 500) : null,
       },
     });
 
