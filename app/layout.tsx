@@ -83,7 +83,7 @@ const jsonLdPerson = {
   "telephone": "+212656682813",
   "description": "Business Analytics & AI student at EMAA Business School building practical web applications, e-commerce storefronts, and operational SaaS tools with Next.js and TypeScript.",
   "image": "https://www.youssefmanssouri.site/images/projects/businessos-main.jpg",
-  "alumniOf": {
+  "affiliation": {
     "@type": "EducationalOrganization",
     "name": "EMAA Business School",
     "address": {
