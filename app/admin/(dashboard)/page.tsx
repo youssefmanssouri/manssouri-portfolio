@@ -25,7 +25,12 @@ export default function AdminOverviewPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/admin/stats")
+    fetch("/api/admin/stats", {
+      cache: "no-store",
+      headers: {
+        "Cache-Control": "no-cache",
+      },
+    })
       .then((res) => res.json())
       .then((resData) => {
         setData(resData);

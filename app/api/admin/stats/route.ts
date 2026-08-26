@@ -1,14 +1,18 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { getAdminSessionFromCookie } from "@/lib/auth";
 
-export async function GET() {
-  const session = await getAdminSessionFromCookie();
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export async function GET(request: Request) {
+  const session = await getAdminSessionFromCookie(request);
   if (!session) {
     return NextResponse.json({ error: "Unauthorized access." }, { status: 401 });
   }
 
   try {
+    await ensureDbSchema();
     const totalMessages = await prisma.contactMessage.count();
     const newMessages = await prisma.contactMessage.count({ where: { status: "NEW" } });
     const readMessages = await prisma.contactMessage.count({ where: { status: "READ" } });
@@ -25,19 +29,28 @@ export async function GET() {
 
     const analyticsCount = await prisma.analyticsEvent.count();
 
-    return NextResponse.json({
-      metrics: {
-        totalMessages,
-        newMessages,
-        readMessages,
-        repliedMessages,
-        totalProjects,
-        publishedProjects,
-        featuredProjects,
-        totalEvents: analyticsCount,
+    return NextResponse.json(
+      {
+        metrics: {
+          totalMessages,
+          newMessages,
+          readMessages,
+          repliedMessages,
+          totalProjects,
+          publishedProjects,
+          featuredProjects,
+          totalEvents: analyticsCount,
+        },
+        recentSubmissions,
       },
-      recentSubmissions,
-    });
+      {
+        headers: {
+          "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "Pragma": "no-cache",
+          "Expires": "0",
+        },
+      }
+    );
   } catch (error) {
     console.error("Admin stats error:", error);
     return NextResponse.json({ error: "Failed to fetch stats." }, { status: 500 });

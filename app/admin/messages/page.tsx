@@ -31,7 +31,12 @@ export default function AdminMessagesPage() {
     if (statusFilter !== "ALL") query.set("status", statusFilter);
     if (search.trim()) query.set("search", search.trim());
 
-    fetch(`/api/admin/messages?${query.toString()}`)
+    fetch(`/api/admin/messages?${query.toString()}`, {
+      cache: "no-store",
+      headers: {
+        "Cache-Control": "no-cache",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setMessages(data.messages || []);

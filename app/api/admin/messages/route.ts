@@ -2,8 +2,11 @@ import { NextResponse } from "next/server";
 import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { getAdminSessionFromCookie } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export async function GET(request: Request) {
-  const session = await getAdminSessionFromCookie();
+  const session = await getAdminSessionFromCookie(request);
   if (!session) {
     return NextResponse.json({ error: "Unauthorized access." }, { status: 401 });
   }
@@ -32,7 +35,16 @@ export async function GET(request: Request) {
       orderBy: { createdAt: "desc" },
     });
 
-    return NextResponse.json({ messages });
+    return NextResponse.json(
+      { messages },
+      {
+        headers: {
+          "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "Pragma": "no-cache",
+          "Expires": "0",
+        },
+      }
+    );
   } catch (error) {
     console.error("Admin messages fetch error:", error);
     return NextResponse.json({ error: "Failed to fetch messages." }, { status: 500 });
@@ -40,7 +52,7 @@ export async function GET(request: Request) {
 }
 
 export async function PATCH(request: Request) {
-  const session = await getAdminSessionFromCookie();
+  const session = await getAdminSessionFromCookie(request);
   if (!session) {
     return NextResponse.json({ error: "Unauthorized access." }, { status: 401 });
   }
@@ -65,7 +77,7 @@ export async function PATCH(request: Request) {
 }
 
 export async function DELETE(request: Request) {
-  const session = await getAdminSessionFromCookie();
+  const session = await getAdminSessionFromCookie(request);
   if (!session) {
     return NextResponse.json({ error: "Unauthorized access." }, { status: 401 });
   }
