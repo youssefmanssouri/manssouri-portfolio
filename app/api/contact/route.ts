@@ -2,31 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { contactSchema } from "@/lib/validations/contact";
 import { sendContactNotificationEmail } from "@/lib/email";
-
-// Simple in-memory rate limiter
-const ipMap = new Map<string, { count: number; expiresAt: number }>();
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const entry = ipMap.get(ip);
-
-  if (!entry) {
-    ipMap.set(ip, { count: 1, expiresAt: now + 10 * 60 * 1000 });
-    return false;
-  }
-
-  if (now > entry.expiresAt) {
-    ipMap.set(ip, { count: 1, expiresAt: now + 10 * 60 * 1000 });
-    return false;
-  }
-
-  if (entry.count >= 5) {
-    return true;
-  }
-
-  entry.count += 1;
-  return false;
-}
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function GET() {
   return NextResponse.json(
@@ -37,12 +13,17 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const ip = request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "127.0.0.1";
+    const { limited, retryAfterSeconds } = checkRateLimit(request, "contact", 5, 15 * 60 * 1000);
 
-    if (isRateLimited(ip)) {
+    if (limited) {
       return NextResponse.json(
         { error: "Too many contact requests. Please wait a few minutes before trying again." },
-        { status: 429 }
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(retryAfterSeconds),
+          },
+        }
       );
     }
 
@@ -59,7 +40,7 @@ export async function POST(request: Request) {
 
     // 2. Honeypot check for automated spambots
     if (website_confirm && website_confirm.trim() !== "") {
-      console.warn(`[Anti-Spam] Honeypot triggered by IP ${ip}`);
+      console.warn(`[Anti-Spam] Honeypot triggered by IP ${getClientIp(request)}`);
       return NextResponse.json(
         { success: true, message: "Inquiry received successfully." },
         { status: 200 }

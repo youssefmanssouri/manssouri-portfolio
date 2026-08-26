@@ -2,9 +2,24 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 import { createAdminSessionToken, setAdminSessionCookie } from "@/lib/auth";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export async function POST(request: Request) {
   try {
+    // 1. Rate limiting: 5 requests per 15 minutes per IP
+    const { limited, retryAfterSeconds } = checkRateLimit(request, "auth_login", 5, 15 * 60 * 1000);
+    if (limited) {
+      return NextResponse.json(
+        { error: "Too many login attempts. Please wait 15 minutes before trying again." },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(retryAfterSeconds),
+          },
+        }
+      );
+    }
+
     const { email, password } = await request.json();
 
     if (!email || !password) {
