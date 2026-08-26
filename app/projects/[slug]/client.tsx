@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "@/data/projects";
-import { ArrowLeft, ArrowRight, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, X, ChevronLeft, ChevronRight, Mail } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
 
@@ -609,9 +609,93 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
           </div>
         )}
 
-        {/* Next Project & Contact CTA */}
+        {/* Next Project & Case Study Conversion CTA */}
         <div className="pt-16 border-t border-[#DED6CC] space-y-12">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          
+          {/* Editorial Case Study Conversion Banner */}
+          <div className="p-8 sm:p-12 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-8 shadow-xl">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="space-y-2 max-w-xl">
+                <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                  {isFr ? "PROCHAINE ÉTAPE" : "NEXT STEPS"}
+                </p>
+                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#F3EFEA]">
+                  {isFr ? "Un projet similaire en tête ?" : "Have a similar project in mind?"}
+                </h3>
+                <p className="text-sm sm:text-base text-[#DED6CC]/80 leading-relaxed font-sans">
+                  {isFr ? "Discutons de ce que vous souhaitez créer." : "Let's discuss what you'd like to build."}
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+                <Link
+                  href="/#contact"
+                  onClick={() => {
+                    trackEvent("CTA_START_PROJECT", {
+                      source: "case_study",
+                      destination: "contact",
+                      project: project.slug,
+                    });
+                  }}
+                  className="inline-flex items-center justify-center gap-2 bg-[#F3EFEA] text-[#3A171C] px-6 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-white transition-all active:scale-[0.98]"
+                >
+                  <span>{isFr ? "DÉMARRER UN PROJET" : "START A PROJECT"}</span>
+                  <ArrowRight className="w-4 h-4 text-[#A65F4B]" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Direct Channel Actions: WhatsApp & Email */}
+            <div className="pt-6 border-t border-[#DED6CC]/15 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+              <span className="text-[#DED6CC]/60 uppercase tracking-wider">
+                {isFr ? "Ou contactez-moi directement :" : "Or reach out directly:"}
+              </span>
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                <a
+                  href={`https://wa.me/212656682813?text=${encodeURIComponent(
+                    isFr
+                      ? `Bonjour Youssef, j'ai consulté l'étude de cas ${project.name} et j'aimerais discuter d'un projet similaire.`
+                      : `Hello Youssef, I checked out the ${project.name} case study and would like to discuss a similar project.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    trackEvent("WHATSAPP_CLICK", {
+                      source: "case_study",
+                      destination: "whatsapp",
+                      project: project.slug,
+                    });
+                  }}
+                  className="text-[#F3EFEA] hover:text-[#A65F4B] transition-colors inline-flex items-center gap-1.5 font-semibold"
+                >
+                  <span>WhatsApp (+212 6 56 68 28 13)</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#A65F4B]" />
+                </a>
+
+                <span className="text-[#DED6CC]/30 hidden sm:inline">•</span>
+
+                <a
+                  href={`mailto:manssouriyoussef33@gmail.com?subject=${encodeURIComponent(
+                    `Inquiry: Project similar to ${project.name}`
+                  )}`}
+                  onClick={() => {
+                    trackEvent("EMAIL_CLICK", {
+                      source: "case_study",
+                      destination: "email",
+                      project: project.slug,
+                    });
+                  }}
+                  className="text-[#F3EFEA] hover:text-[#A65F4B] transition-colors inline-flex items-center gap-1.5 font-semibold"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#A65F4B]" />
+                  <span>manssouriyoussef33@gmail.com</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Next Project Footer Navigation Link */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4">
             <div>
               <span className="text-xs font-mono text-[#242222]/70 uppercase tracking-widest block mb-1">
                 {t("caseStudy.nextProject")}
@@ -624,17 +708,6 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
-
-            <Link
-              href="/#contact"
-              onClick={() => {
-                trackEvent("CTA_START_PROJECT", { source: "case_study", destination: "contact" });
-              }}
-              className="inline-flex items-center justify-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-colors active:scale-[0.98]"
-            >
-              <span>{t("hero.startProject")}</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
 
