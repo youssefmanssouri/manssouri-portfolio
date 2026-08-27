@@ -21,6 +21,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.youssefmanssouri.site"),
+  applicationName: "Youssef Manssouri",
   title: "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
   description:
     "Business Analytics & AI student at EMAA Business School building practical digital products at the intersection of business, technology, data, and AI.",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     title: "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
     description:
       "Business Analytics & AI student at EMAA Business School building practical digital products at the intersection of business, technology, data, and AI.",
-    siteName: "Youssef Manssouri Portfolio",
+    siteName: "Youssef Manssouri",
     images: [
       {
         url: "/images/projects/businessos-main.jpg",
@@ -122,7 +123,8 @@ const jsonLdPerson = {
 const jsonLdWebsite = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
+  "name": "Youssef Manssouri",
+  "alternateName": ["Youssef Manssouri Portfolio", "youssefmanssouri.site"],
   "url": "https://www.youssefmanssouri.site",
   "description": "Official portfolio of Youssef Manssouri featuring case studies, full-stack web applications, e-commerce storefronts, and operational tools built with Next.js, TypeScript, and Prisma.",
   "publisher": {

@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       url: projectUrl,
       title: pageTitle,
       description: pageDesc,
-      siteName: "Youssef Manssouri Portfolio",
+      siteName: "Youssef Manssouri",
       images: [
         {
           url: imageUrl,
