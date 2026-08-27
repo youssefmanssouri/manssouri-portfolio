@@ -26,7 +26,10 @@ export const metadata: Metadata = {
     title: "Youssef Manssouri",
     statusBarStyle: "default",
   },
-  title: "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
+  title: {
+    default: "Youssef Manssouri",
+    template: "%s | Youssef Manssouri",
+  },
   description:
     "Business Analytics & AI student at EMAA Business School building practical digital products at the intersection of business, technology, data, and AI.",
   keywords: [
@@ -55,7 +58,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["fr_FR"],
     url: "https://www.youssefmanssouri.site",
-    title: "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
+    title: "Youssef Manssouri",
     description:
       "Business Analytics & AI student at EMAA Business School building practical digital products at the intersection of business, technology, data, and AI.",
     siteName: "Youssef Manssouri",
@@ -67,6 +70,13 @@ export const metadata: Metadata = {
         alt: "BusinessOS - Flagship Web Application by Youssef Manssouri",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Youssef Manssouri",
+    description:
+      "Business Analytics & AI student at EMAA Business School building practical digital products at the intersection of business, technology, data, and AI.",
+    images: ["/images/projects/businessos-main.jpg"],
   },
   robots: {
     index: true,
@@ -128,13 +138,7 @@ const jsonLdWebsite = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Youssef Manssouri",
-  "alternateName": ["Youssef Manssouri Portfolio", "youssefmanssouri.site"],
-  "url": "https://www.youssefmanssouri.site",
-  "description": "Official portfolio of Youssef Manssouri featuring case studies, full-stack web applications, e-commerce storefronts, and operational tools built with Next.js, TypeScript, and Prisma.",
-  "publisher": {
-    "@type": "Person",
-    "name": "Youssef Manssouri"
-  }
+  "url": "https://www.youssefmanssouri.site/"
 };
 
 export default function RootLayout({
