@@ -22,6 +22,10 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.youssefmanssouri.site"),
   applicationName: "Youssef Manssouri",
+  appleWebApp: {
+    title: "Youssef Manssouri",
+    statusBarStyle: "default",
+  },
   title: "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
   description:
     "Business Analytics & AI student at EMAA Business School building practical digital products at the intersection of business, technology, data, and AI.",
