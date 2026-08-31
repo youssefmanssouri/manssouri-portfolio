@@ -145,32 +145,32 @@
     }
   },
   "process": {
-    "badge": "COMMENT ÇA FONCTIONNE",
-    "heading": "Un processus clair, de l'idée au lancement.",
-    "subheading": "Chaque projet commence par la compréhension du problème, la définition d'un périmètre précis et le développement vers un résultat concret.",
+    "badge": "MÉTHODE DE TRAVAIL",
+    "heading": "Une approche orientée métier pour concevoir des produits digitaux.",
+    "subheading": "Je ne me contente pas de coder—j'analyse le besoin opérationnel, structure l'architecture du produit et développe une solution concrète et fonctionnelle.",
     "steps": [
       {
         "number": "01",
         "title": "Comprendre",
-        "description": "Nous définissons vos objectifs, les utilisateurs cibles et ce que le projet doit accomplir concrètement."
+        "description": "Comprendre le contexte opérationnel, les flux utilisateurs et les besoins métier avant tout développement."
       },
       {
         "number": "02",
-        "title": "Planifier",
-        "description": "Nous traduisons vos besoins en un périmètre clair, structurons l'expérience utilisateur et établissons l'approche technique adaptée."
+        "title": "Structurer",
+        "description": "Traduire les besoins en flux produit clairs, modèles de données relationnels et choix techniques adaptés."
       },
       {
         "number": "03",
         "title": "Développer",
-        "description": "Je développe le produit par étapes ciblées, en veillant à ce que chaque fonctionnalité reste alignée sur les priorités convenues."
+        "description": "Développer le produit digital avec un code propre, des technologies web modernes et des itérations ciblées."
       },
       {
         "number": "04",
-        "title": "Tester & Déployer",
-        "description": "Je vérifie le comportement sur tous les écrans, corrige les anomalies et prépare la mise en production du produit final."
+        "title": "Affiner",
+        "description": "Tester l'expérience sur tous les écrans, fiabiliser les cas limites et préparer le déploiement en production."
       }
     ],
-    "note": "Les délais de réalisation dépendent du périmètre et de la complexité du projet.",
+    "note": "Chaque réalisation est adaptée aux besoins opérationnels et au périmètre technique de votre projet.",
     "startProjectLink": "Démarrer un projet →"
   },
   "faq": {

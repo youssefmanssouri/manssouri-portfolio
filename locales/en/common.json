@@ -145,32 +145,32 @@
     }
   },
   "process": {
-    "badge": "HOW IT WORKS",
-    "heading": "A clear process from idea to launch.",
-    "subheading": "Every project starts with understanding the problem, defining the right scope, and building toward a practical result.",
+    "badge": "HOW I WORK",
+    "heading": "A problem-first approach to building digital products.",
+    "subheading": "I don't just write code—I analyze the operational problem, structure the product architecture, and build a reliable, working solution.",
     "steps": [
       {
         "number": "01",
         "title": "Understand",
-        "description": "We define what you want to achieve, who the product is for, and what the project needs to accomplish."
+        "description": "Understand the operational context, user workflows, and business requirements before building."
       },
       {
         "number": "02",
-        "title": "Plan",
-        "description": "We turn the requirements into a clear scope, structure the experience, and establish the right technical approach."
+        "title": "Structure",
+        "description": "Translate requirements into clear product flows, data models, and technical architecture."
       },
       {
         "number": "03",
         "title": "Build",
-        "description": "I develop the product in focused stages, keeping the implementation aligned with the agreed scope and priorities."
+        "description": "Develop the working digital product with clean code, modern web technologies, and focused iterations."
       },
       {
         "number": "04",
-        "title": "Test & Launch",
-        "description": "I review the experience across devices, resolve issues, and prepare the finished product for deployment."
+        "title": "Refine",
+        "description": "Test the user experience across devices, resolve edge cases, and ensure production readiness."
       }
     ],
-    "note": "Project timelines depend on scope and complexity.",
+    "note": "Every project is tailored to the specific operational needs and technical scope of your business.",
     "startProjectLink": "Start a Project →"
   },
   "faq": {
