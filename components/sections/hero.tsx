@@ -3,12 +3,12 @@
 import React, { useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
 
 export function Hero() {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     const elem = document.getElementById(targetId);
@@ -17,9 +17,6 @@ export function Hero() {
       elem.scrollIntoView({ behavior: "smooth" });
     }
   }, []);
-
-  const cvHref = language === "fr" ? "/cv-fr.pdf" : "/cv-en.pdf";
-  const cvDownloadName = language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf";
 
   return (
     <section className="relative pt-28 pb-14 sm:pt-36 md:pt-44 md:pb-28 bg-[#F3EFEA]">
@@ -33,9 +30,8 @@ export function Hero() {
                 {t("hero.badge")}
               </p>
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#242222] leading-[1.12]">
-                {t("hero.headlineMain")}{" "}
-                <span className="italic-serif font-normal">{t("hero.headlineEmphasized")}</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.25rem] font-bold tracking-tight text-[#242222] leading-[1.14]">
+                {t("hero.headline")}
               </h1>
             </div>
 
@@ -51,56 +47,47 @@ export function Hero() {
                   trackEvent("CTA_START_PROJECT", { source: "hero", destination: "contact" });
                   handleNavClick(e, "contact");
                 }}
-                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-6 py-3.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] shadow-xs"
               >
-                {t("hero.startProject")}
-                <ArrowRight className="w-4 h-4 text-[#A65F4B]" />
+                <span>{t("hero.startProject")}</span>
+                <ArrowRight className="w-4 h-4 text-[#A65F4B]" aria-hidden="true" />
               </Link>
               <Link
                 href="/#work"
                 prefetch={true}
-                onClick={(e) => handleNavClick(e, "work")}
-                className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+                onClick={(e) => {
+                  trackEvent("CTA_VIEW_WORK", { source: "hero", destination: "work" });
+                  handleNavClick(e, "work");
+                }}
+                className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-6 py-3.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
               >
-                {t("hero.viewWork")}
-                <ArrowUpRight className="w-4 h-4" />
+                <span>{t("hero.viewWork")}</span>
+                <ArrowUpRight className="w-4 h-4 text-[#3A171C]/75" aria-hidden="true" />
               </Link>
             </div>
 
-            <div className="pt-4 border-t border-[#DED6CC] flex flex-wrap items-center justify-between text-xs font-mono text-[#242222]/70 gap-2">
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#A65F4B] animate-pulse" />
-                {t("hero.location")}
+            <div className="pt-4 border-t border-[#DED6CC] flex items-center text-xs font-mono text-[#242222]/75">
+              <span className="inline-flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#A65F4B]" aria-hidden="true" />
+                <span>{t("hero.location")}</span>
               </span>
-              <a
-                href={cvHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                download={cvDownloadName}
-                onClick={() => {
-                  trackEvent("CV_DOWNLOAD", { language, source: "hero_metadata" });
-                }}
-                className="inline-flex items-center gap-1.5 text-[#A65F4B] hover:text-[#3A171C] font-semibold uppercase tracking-wider transition-colors py-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#A65F4B] rounded-xs"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>{t("hero.downloadCV")}</span>
-              </a>
             </div>
           </div>
 
-          {/* Right Column: Deep Burgundy Interface Frame (Subtle Proof of Built Products) */}
+          {/* Right Column: Deep Burgundy Interface Frame (Proof of Built Products) */}
           <div className="lg:col-span-5">
             <Link
               href="/projects/businessos"
               prefetch={true}
+              aria-label="View BusinessOS Case Study — Custom Web Application by Youssef Manssouri"
               onClick={() => {
                 trackEvent("LIVE_DEMO_CLICK", { slug: "businessos", name: "BusinessOS", source: "hero" });
               }}
-              className="block relative rounded-xs border border-[#DED6CC]/30 bg-[#3A171C] overflow-hidden shadow-xl group"
+              className="block relative rounded-xs border border-[#DED6CC]/30 bg-[#3A171C] overflow-hidden shadow-xl group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
             >
               {/* Header Bar */}
               <div className="px-4 py-2.5 bg-[#2D1216] border-b border-[#DED6CC]/20 flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5" aria-hidden="true">
                   <div className="w-2 h-2 rounded-full bg-[#DED6CC]/30" />
                   <div className="w-2 h-2 rounded-full bg-[#DED6CC]/30" />
                   <div className="w-2 h-2 rounded-full bg-[#DED6CC]/30" />

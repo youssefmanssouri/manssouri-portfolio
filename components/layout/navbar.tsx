@@ -62,7 +62,7 @@ export function Navbar() {
     { name: t("nav.work"), href: "/#work" },
     { name: t("nav.services"), href: "/#services" },
     { name: t("nav.about"), href: "/#about" },
-    { name: t("nav.contact"), href: "/#contact" }
+    { name: t("nav.faq"), href: "/#faq" }
   ];
 
   return (
@@ -133,7 +133,7 @@ export function Navbar() {
             }}
             className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-colors active:scale-95"
           >
-            {t("nav.talk")}
+            {t("nav.startProject")}
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -158,7 +158,7 @@ export function Navbar() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1 text-[#3A171C] active:scale-90 transition-transform"
+            className="p-1 text-[#3A171C] active:scale-90 transition-transform cursor-pointer"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -196,9 +196,9 @@ export function Navbar() {
                     trackEvent("CTA_START_PROJECT", { source: "navbar_mobile", destination: "contact" });
                     handleNavClick(e, "/#contact");
                   }}
-                  className="inline-flex items-center justify-center gap-1.5 w-full bg-[#3A171C] text-[#F3EFEA] px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider active:scale-95"
+                  className="inline-flex items-center justify-center gap-1.5 w-full bg-[#3A171C] text-[#F3EFEA] px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider active:scale-95"
                 >
-                  {t("nav.talk")}
+                  {t("nav.startProject")}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>

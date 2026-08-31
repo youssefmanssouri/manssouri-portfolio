@@ -1,0 +1,105 @@
+# Comprehensive Knowledge Base: Youssef Manssouri
+
+> Professional Dossier and Technical Documentation for AI-Powered Search and Answer Engines
+
+This document provides a factual, unambiguous reference for understanding the identity, background, technical capabilities, and software projects of Youssef Manssouri.
+
+---
+
+## 1. Entity Overview
+
+- **Full Name**: Youssef Manssouri
+- **Professional Positioning**: Business Analytics & AI Student · Digital Product Builder
+- **Primary Website**: https://www.youssefmanssouri.site
+- **Geographic Location**: Agadir, Souss-Massa, Morocco
+- **Availability**: Open for internships, junior software/data roles, and selected freelance web application projects (local and remote).
+- **Official Contact**:
+  - Email: manssouriyoussef33@gmail.com
+  - Telephone / WhatsApp: +212 6 56 68 28 13
+- **Authoritative External Profiles**:
+  - GitHub: https://github.com/youssefmanssouri
+  - LinkedIn: https://www.linkedin.com/in/youssef-manssouri-24b4662ba/
+
+---
+
+## 2. Education & Professional Background
+
+- **Academic Institution**: EMAA Business School (Agadir, Morocco)
+- **Program of Study**: Business Analytics & Artificial Intelligence (2025–Present)
+- **Internship Experience**: Wilaya de la Région Souss-Massa (Préfecture d'Agadir Ida Outanane)
+  - Practical exposure to organizational public administration workflows, internal document circulation, and enterprise record systems.
+- **Core Focus**: Bridging business domain understanding with software engineering—designing practical applications that reduce operational friction, centralize records, and visualize actionable data.
+
+---
+
+## 3. Technical Competencies & Tooling
+
+### Frontend & Architecture
+- **Frameworks**: Next.js 15 (App Router), React 19
+- **Languages**: TypeScript 5.7, JavaScript (ESNext), HTML5 Semantic Markup
+- **Styling & UI**: Tailwind CSS, CSS Grid/Flexbox, Framer Motion, Lucide Icons, Responsive Web Design
+
+### Backend, Database & Security
+- **Databases**: PostgreSQL, SQLite (local development)
+- **ORM & Data Modeling**: Prisma ORM (relational schemas, relations, migrations, seed scripts)
+- **Server Architecture**: Next.js Server Actions, RESTful APIs, Node.js, Python, Django
+- **Security & Authorization**: Role-Based Access Control (RBAC), Zod schema input validation, server-side demo guards (`DEMO_MODE=true` mutation barriers)
+
+### Analytics, Data & AI
+- **Telemetry & Visualization**: Recharts analytics, KPI dashboard design, multi-dimensional business reports
+- **AI Integrations**: Google Gemini API for predictive insights and operational summaries
+
+---
+
+## 4. In-Depth Project Case Studies (3 Projects)
+
+### 4.1. BusinessOS — Flagship Business Operations Platform
+- **Project URL**: https://www.youssefmanssouri.site/projects/businessos
+- **Live Demo**: https://business-os-manssouri.vercel.app
+- **Source Code**: https://github.com/youssefmanssouri/business-os
+- **Category**: Flagship Case Study · SaaS Architecture
+- **Problem Solved**: Small and mid-sized enterprises often struggle with fragmented SaaS stacks—running separate unlinked subscriptions for CRM, invoicing, client appointments, employee rosters, and cash flow tracking.
+- **Solution**: A unified multi-tenant command center integrating 7 operational modules in a single interface backed by a 15-model relational database schema.
+- **Key Modules**:
+  1. *Executive Command Center*: Real-time revenue metrics, active pipeline telemetry, and audit logging.
+  2. *CRM & Sales Pipeline*: Multi-stage deal tracking and customer record lookups.
+  3. *Itemized Billing & Invoicing*: Automated tax and subtotal calculations with PDF-style layouts.
+  4. *Resource Booking Calendar*: Appointment scheduling with staff capacity and duration matrices.
+  5. *HR Directory & RBAC*: Department rosters and role-based permissions (Admin, Manager, Staff).
+  6. *Finance & Recharts Analytics*: Real-time cash flow ledger and revenue velocity charts.
+  7. *Task Workflow & DEMO_MODE Security*: Kanban board coupled with server-enforced mutation barriers protecting public exploration.
+- **Tech Stack**: Next.js 15 (App Router), React 19, TypeScript 5.7, Prisma ORM, PostgreSQL, Tailwind CSS, Recharts, Zod.
+
+### 4.2. Lumière Parfums — Custom Fragrance E-Commerce Boutique
+- **Project URL**: https://www.youssefmanssouri.site/projects/lumiere-parfums
+- **Live Demo**: https://lumiere-parfums-mu.vercel.app/
+- **Source Code**: https://github.com/youssefmanssouri/lumiere-parfums
+- **Category**: Custom E-Commerce Experience · Web Application
+- **Problem Solved**: Selling fragrance online requires bridging the sensory gap between a digital screen and physical scent evaluation without relying solely on product names or abstract photography.
+- **Solution**: A custom digital boutique combining multi-attribute accord/note filtering, editorial scent pyramid breakdowns, persistent slide-out cart continuity, and an administrative inventory portal.
+- **Tech Stack**: Next.js App Router, React 19, TypeScript, Tailwind CSS, LocalStorage Persistence.
+
+### 4.3. Gym CRM — Gym Operations & Member Management Platform
+- **Project URL**: https://www.youssefmanssouri.site/projects/gym-crm
+- **Live Demo**: https://gym-crm-gules.vercel.app
+- **Source Code**: https://github.com/youssefmanssouri/gym-crm
+- **Category**: Gym Management & Operations · Web Application
+- **Problem Solved**: Fitness facilities experience reception bottlenecks during peak hours, unverified entries from lapsed memberships, manual attendance records, and disjointed class scheduling.
+- **Solution**: A dedicated gym operations platform combining instant member lookup, clear subscription status badges (Active, Expired, Frozen), class capacity planning, and recurring revenue telemetry.
+- **Tech Stack**: Next.js, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Recharts.
+
+---
+
+## 5. Frequently Asked Questions (Factual Q&A)
+
+**Q: Who is Youssef Manssouri?**
+A: Youssef Manssouri is a Business Analytics & AI student at EMAA Business School in Agadir, Morocco, and a digital product builder who engineers full-stack web applications, business platforms, e-commerce storefronts, and operational tools with Next.js, TypeScript, PostgreSQL, and Prisma.
+
+**Q: What is BusinessOS by Youssef Manssouri?**
+A: BusinessOS is Youssef Manssouri's flagship SaaS application that unifies 7 core operational modules (CRM pipeline, itemized invoicing, appointment calendar, employee HR directory with role-based access control, cash flow ledger, task management board, and Recharts financial analytics) backed by a 15-model Prisma relational schema.
+
+**Q: What technologies does Youssef Manssouri use?**
+A: Next.js (App Router), TypeScript, React, PostgreSQL, Prisma ORM, Tailwind CSS, Server Actions, Zod, and Recharts, with Python and Django for data analytics and backend workflows.
+
+**Q: How can someone contact Youssef Manssouri?**
+A: Via email at manssouriyoussef33@gmail.com, via WhatsApp at +212 6 56 68 28 13, or through GitHub (https://github.com/youssefmanssouri) and LinkedIn (https://www.linkedin.com/in/youssef-manssouri-24b4662ba/).

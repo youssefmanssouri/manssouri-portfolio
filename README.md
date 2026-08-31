@@ -7,7 +7,7 @@ A minimal, warm editorial web development portfolio for Youssef Manssouri based 
 This portfolio is built with modern full-stack web technologies and features:
 - **Warm Editorial Visual System**: Custom typography pairing (Inter & Cormorant Garamond), warm alabaster canvas (`#F3EFEA`), deep onyx panels (`#111111`), and subtle gold accents (`#B3906F`).
 - **Bilingual Internationalization (EN | FR)**: Seamless context-driven language switching with local state persistence.
-- **Featured Case Studies**: Live showcase of 4 real GitHub projects (BusinessOS, Lumière Parfums, Ember Coffee, Gym CRM).
+- **Featured Case Studies**: Live showcase of 3 real projects (BusinessOS, Lumière Parfums, Gym CRM).
 - **Interactive Lightbox**: Full-screen keyboard-navigable image gallery.
 - **Direct Client Channels**: Integrated contact form and direct WhatsApp / Email routing.
 

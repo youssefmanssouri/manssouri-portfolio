@@ -1,0 +1,39 @@
+# Youssef Manssouri
+
+> Business Analytics & AI Student at EMAA Business School · Digital Product Builder
+
+Youssef Manssouri is a full-stack digital product builder and business analytics student based in Agadir, Morocco. He engineers web applications, SaaS tools, e-commerce storefronts, and KPI dashboards using Next.js (App Router), TypeScript, PostgreSQL, Prisma ORM, and Tailwind CSS.
+
+## Primary Entities & Information
+
+- **Website**: https://www.youssefmanssouri.site
+- **Location**: Agadir, Souss-Massa, Morocco (Available for local roles and remote collaborations)
+- **Education**: Business Analytics & AI, EMAA Business School (2025–Present)
+- **Internship**: Wilaya de la Région Souss-Massa (Préfecture d'Agadir Ida Outanane)
+- **Contact Email**: manssouriyoussef33@gmail.com
+- **WhatsApp**: +212 6 56 68 28 13
+- **GitHub**: https://github.com/youssefmanssouri
+- **LinkedIn**: https://www.linkedin.com/in/youssef-manssouri-24b4662ba/
+
+## Core Technologies & Capabilities
+
+- **Frontend & Full-Stack**: Next.js 15 (App Router), React 19, TypeScript 5.7, Tailwind CSS, Server Actions, Zod validation
+- **Backend & Database**: PostgreSQL, Prisma ORM (relational schemas, RBAC authorization), Node.js, Python, Django
+- **Analytics & Visualization**: Recharts telemetry, Business KPI modeling, financial cash-flow tracking, Google Gemini AI integration
+
+## Major Projects & Case Studies
+
+- [BusinessOS](https://www.youssefmanssouri.site/projects/businessos): Flagship business operations platform unifying 7 core modules (CRM deal pipeline, itemized invoicing, appointment calendar, employee HR directory with RBAC, cash flow ledger, Kanban task workflow, and Recharts financial analytics) with a 15-model Prisma relational schema.
+  - Live Application: https://business-os-manssouri.vercel.app
+  - Source Code: https://github.com/youssefmanssouri/business-os
+- [Lumière Parfums](https://www.youssefmanssouri.site/projects/lumiere-parfums): Custom fragrance e-commerce experience designed for online scent discovery, multi-attribute accord filtering, editorial scent pyramid breakdowns, persistent cart continuity, and administrative store management.
+  - Live Application: https://lumiere-parfums-mu.vercel.app/
+  - Source Code: https://github.com/youssefmanssouri/lumiere-parfums
+- [Gym CRM](https://www.youssefmanssouri.site/projects/gym-crm): Gym operations platform designed to streamline front-desk check-ins, track membership renewal statuses (Active, Expired, Frozen), organize group class schedules, and monitor recurring facility revenue.
+  - Live Application: https://gym-crm-gules.vercel.app
+  - Source Code: https://github.com/youssefmanssouri/gym-crm
+
+## Detailed Context
+
+For comprehensive technical architecture diagrams, database schemas, and metric breakdowns, consult the full LLM context document:
+- [Full LLM Knowledge Context](https://www.youssefmanssouri.site/llms-full.txt)

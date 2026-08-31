@@ -18,13 +18,13 @@ export function About() {
   const cvDownloadName = language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf";
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-[#F3EFEA] text-[#242222]">
+    <section id="about" className="py-16 sm:py-20 md:py-28 lg:py-32 bg-[#F3EFEA] text-[#242222] border-t border-[#DED6CC]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12 pb-6 border-b border-[#DED6CC]">
-          <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest mb-1 font-semibold">
-            04 / {t("about.badge")}
+          <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest mb-2 font-semibold">
+            06 / {t("about.badge")}
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#242222] leading-tight">
             {t("about.heading")}
@@ -34,61 +34,26 @@ export function About() {
         {/* Narrative & Credentials Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Main Narrative Blocks */}
-          <div className="lg:col-span-7 space-y-8">
-            
-            {/* Lead Intro */}
+          {/* Main Professional Narrative */}
+          <div className="lg:col-span-7 space-y-6">
             <p className="text-base sm:text-lg text-[#242222] font-medium leading-relaxed">
-              {t("about.intro")}
+              {t("about.lead")}
             </p>
 
-            {/* Business Meets Software */}
-            <div className="space-y-2">
-              <h3 className="text-sm font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
-                {t("about.intersectionTitle")}
-              </h3>
-              <p className="text-sm sm:text-base text-[#242222]/80 leading-relaxed">
-                {t("about.intersectionText")}
-              </p>
-            </div>
+            <p className="text-sm sm:text-base text-[#242222]/85 leading-relaxed">
+              {t("about.p1")}
+            </p>
 
-            {/* Applied Engineering Proof */}
-            <div className="space-y-2">
-              <h3 className="text-sm font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
-                {t("about.proofTitle")}
-              </h3>
-              <p className="text-sm sm:text-base text-[#242222]/80 leading-relaxed">
-                {t("about.proofText")}
-              </p>
-            </div>
-
-            {/* Internship Experience */}
-            <div className="space-y-2">
-              <h3 className="text-sm font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
-                {t("about.experienceTitle")}
-              </h3>
-              <p className="text-sm sm:text-base text-[#242222]/80 leading-relaxed">
-                {t("about.experienceText")}
-              </p>
-            </div>
-
-            {/* Career Direction */}
-            <div className="space-y-2 pt-2 border-t border-[#DED6CC]">
-              <h3 className="text-sm font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
-                {t("about.directionTitle")}
-              </h3>
-              <p className="text-sm sm:text-base text-[#242222]/80 leading-relaxed">
-                {t("about.directionText")}
-              </p>
-            </div>
-
+            <p className="text-sm sm:text-base text-[#242222]/85 leading-relaxed">
+              {t("about.p2")}
+            </p>
           </div>
 
           {/* Sidebar Highlights: Education, Internship & Focus Cards */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Academic & Internship Card */}
-            <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-6 shadow-xl">
+            {/* Academic & Foundation Card */}
+            <div className="p-6 sm:p-8 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-6 shadow-xl">
               
               {/* Education Block */}
               <div className="space-y-1">
@@ -103,6 +68,7 @@ export function About() {
                 </p>
               </div>
 
+              {/* Internship Experience */}
               <div className="border-t border-[#DED6CC]/15 pt-4 space-y-1">
                 <p className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
                   {t("about.internshipLabel")}
@@ -142,10 +108,10 @@ export function About() {
                   onClick={() => {
                     trackEvent("CV_DOWNLOAD", { language, source: "about" });
                   }}
-                  className="inline-flex items-center justify-center gap-2 w-full bg-[#F3EFEA] text-[#3A171C] px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#F3EFEA]/90 transition-colors active:scale-95"
+                  className="inline-flex items-center justify-center gap-2 w-full bg-[#F3EFEA] text-[#3A171C] px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-white transition-colors active:scale-95"
                 >
                   <FileText className="w-4 h-4 text-[#A65F4B]" />
-                  {t("hero.downloadCV")}
+                  {t("about.downloadCV")}
                 </a>
               </div>
 

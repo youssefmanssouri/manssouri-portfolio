@@ -3,6 +3,7 @@
     "work": "Réalisations",
     "services": "Services",
     "about": "À propos",
+    "faq": "FAQ",
     "process": "Méthodologie",
     "contact": "Contact",
     "talk": "Me Contacter",
@@ -10,136 +11,249 @@
   },
   "hero": {
     "title": "YOUSSEF MANSSOURI",
-    "badge": "ÉTUDIANT BUSINESS ANALYTICS & IA · CONCEPTEUR DE PRODUITS DIGITAUX",
-    "headlineMain": "Je combine l'analyse métier et le développement web pour créer des",
-    "headlineEmphasized": "produits numériques utiles.",
-    "subheadline": "Étudiant en Business Analytics & IA à l'EMAA Business School. Je développe des sites web, boutiques e-commerce, outils métier et tableaux de bord avec Next.js et TypeScript—axés sur la clarté, l'ergonomie et la valeur concrète.",
-    "viewWork": "Voir mes projets",
-    "connect": "Me contacter",
-    "downloadCV": "Télécharger le CV (PDF)",
+    "badge": "ÉTUDIANT EN BUSINESS ANALYTICS & IA · CONCEPTEUR DE PRODUITS DIGITAUX",
+    "headline": "Je conçois des sites web et des applications sur mesure pour aider les entreprises à présenter leur activité et structurer leurs opérations.",
+    "subheadline": "Des sites vitrines professionnels et boutiques e-commerce aux tableaux de bord, CRM et outils internes—je transforme vos besoins métiers en produits digitaux concrets et performants.",
+    "viewWork": "Voir mes réalisations",
     "startProject": "Démarrer un projet",
-    "location": "Agadir, Maroc · Stages & Projets Freelance"
+    "location": "Basé à Agadir, Maroc · Disponible localement et à distance"
   },
   "work": {
-    "badge": "PROJETS & ÉTUDES DE CAS",
-    "heading": "Projets Phares & Études de Cas",
-    "subheading": "Applications web concrètes et produits digitaux développés avec Next.js, TypeScript et Prisma.",
+    "badge": "RÉALISATIONS",
+    "heading": "Des produits digitaux conçus pour répondre à de vrais besoins d'entreprise.",
+    "subheading": "Une sélection de sites web et d'applications conçus pour résoudre des problèmes concrets—du renforcement de la présence en ligne à l'organisation des opérations métiers.",
     "viewCaseStudy": "Consulter l'étude de cas",
-    "visitLive": "Visiter le site en direct",
+    "visitLive": "Voir la démo en direct",
     "github": "Code source GitHub ↗"
   },
   "caseStudy": {
     "overview": "Présentation du projet",
-    "objective": "Objectif & Défis techniques",
+    "challengeTitle": "Le Problème Métier",
+    "solutionTitle": "La Solution",
+    "capabilitiesTitle": "Fonctionnalités & Parcours Utilisateur",
+    "capabilitiesBadge": "EXPÉRIENCE PRODUIT",
+    "engineeringTitle": "Fondations Techniques & Architecture",
+    "engineeringBadge": "ARCHITECTURE TECHNIQUE",
+    "liveDemoTitle": "Explorer l'Application en Direct",
+    "liveDemoBadge": "DÉMONSTRATION INTERACTIVE",
+    "liveDemoDesc": "Accédez immédiatement au tableau de bord et aux fonctionnalités dans un environnement de test sécurisé.",
+    "liveDemoDisclaimer": "Environnement en lecture seule · Données de test",
     "keyFeatures": "Fonctionnalités clés",
     "technologies": "Technologies utilisées",
     "gallery": "Visuels du projet",
     "nextProject": "PROJET SUIVANT",
-    "backToWork": "Retour aux réalisations"
+    "backToWork": "Retour aux réalisations",
+    "practicalOutcome": "Valeur Pratique :",
+    "expandImage": "Cliquer pour agrandir l'interface",
+    "nextStepsBadge": "PROCHAINE ÉTAPE",
+    "nextStepsHeading": "Un projet similaire en tête ?",
+    "nextStepsSubheading": "Discutons de ce que vous souhaitez créer.",
+    "startProject": "Démarrer un projet",
+    "orDirect": "Ou contactez-moi directement :"
   },
   "capabilities": {
-    "badge": "SERVICES & COMPÉTENCES",
-    "heading": "Services Concrets & Compétences Techniques",
-    "subheading": "Création de sites web réactifs, boutiques en ligne sur mesure, outils d'entreprise et tableaux de bord d'indicateurs.",
+    "badge": "CE QUE JE DÉVELOPPE",
+    "heading": "Des produits digitaux concrets, conçus pour vos opérations réelles.",
+    "subheading": "De votre premier site web professionnel à une application métier complète, je conçois des outils adaptés à vos objectifs, vos utilisateurs et votre quotidien.",
     "items": [
       {
-        "label": "SITES WEB",
         "title": "Sites Web d'Entreprise",
-        "positioning": "Création d'expériences web élégantes, réactives et performantes adaptées à votre image de marque et vos objectifs.",
-        "details": "Architecture frontend, design réactif, développement Next.js et interfaces modernes axées sur la rapidité et la simplicité d'utilisation.",
-        "evidence": "Illustré par les applications et projets web déployés dans ce portfolio."
+        "description": "Des sites web professionnels et responsives pour asseoir votre crédibilité, présenter votre offre clairement et convertir les visiteurs en demandes concrètes.",
+        "listLabel": "Inclus :",
+        "features": [
+          "Design responsive sur mesure",
+          "Présentation de l'activité & des offres",
+          "Formulaires de contact & capture de leads",
+          "Bases SEO & référencement"
+        ]
       },
       {
-        "label": "E-COMMERCE",
         "title": "Boutiques E-Commerce",
-        "positioning": "Conception et développement de boutiques en ligne sur mesure avec filtrage dynamique du catalogue, gestion du panier et administration.",
-        "details": "Présentation produits, algorithmes de filtrage par caractéristiques, panier persistant, préparation des commandes et espace de gestion des stocks.",
-        "evidence": "Démontré par Lumière Parfums—une démo e-commerce full-stack avec filtres catalogue et panneau administrateur."
+        "description": "Des boutiques en ligne conçues pour valoriser vos produits et offrir aux clients un parcours d'achat fluide et rassurant.",
+        "listLabel": "Inclus :",
+        "features": [
+          "Catalogue produits",
+          "Parcours d'achat intuitif",
+          "Panier & processus de commande",
+          "Design responsive optimisé"
+        ]
       },
       {
-        "label": "STRUCTURER",
-        "title": "Applications Métier & CRM",
-        "positioning": "Transformation des flux de travail manuels en outils numériques pratiques pour centraliser les opérations et simplifier la gestion.",
-        "details": "Systèmes CRM personnalisés, portails de gestion interne, plannings de réservation, facturation et gestion des autorisations par rôle (RBAC).",
-        "evidence": "Démontré par BusinessOS—une plateforme de gestion d'entreprise structurée sur 15 modèles—et Gym CRM."
+        "title": "Applications Métier sur Mesure",
+        "description": "Des applications web développées sur mesure pour vos flux réels, sans vous contraindre aux limites d'outils génériques.",
+        "listLabel": "Exemples :",
+        "features": [
+          "Systèmes CRM",
+          "Plateformes de gestion",
+          "Systèmes de réservation",
+          "Outils métier internes"
+        ]
       },
       {
-        "label": "ANALYSER",
-        "title": "Tableaux de Bord & Data",
-        "positioning": "Exploitation des données pour structurer l'information, visualiser les indicateurs clés (KPI) et faciliter la prise de décision.",
-        "details": "Analyse de données d'entreprise, suivi visuel des performances, modélisation de bases de données et tableaux de bord décisionnels.",
-        "evidence": "Issu du cursus Business Analytics & IA à l'EMAA Business School et du module analytique de BusinessOS."
+        "title": "Tableaux de Bord & Outils Internes",
+        "description": "Des interfaces opérationnelles claires pour transformer les données d'entreprise et les processus répétitifs en flux simples.",
+        "listLabel": "Exemples :",
+        "features": [
+          "Tableaux de bord analytiques",
+          "Interfaces de reporting",
+          "Tableaux de bord opérationnels",
+          "Outils de gestion de données"
+        ]
       }
     ],
-    "connectLink": "Discuter de votre projet ou d'une opportunité"
+    "consultation": {
+      "title": "VOUS HÉSITEZ SUR LA SOLUTION ADAPTÉE ?",
+      "text": "Décrivez-moi ce que vous souhaitez créer ou améliorer, et nous définirons ensemble la solution la plus adaptée.",
+      "cta": "Démarrer un projet"
+    }
+  },
+  "whyWorkWithMe": {
+    "badge": "POURQUOI ME CONFIER VOTRE PROJET",
+    "heading": "Une approche guidée par le besoin métier, pas seulement par le code.",
+    "intro": "J'aborde chaque projet numérique sous un double angle : comprendre d'abord le besoin opérationnel, puis bâtir la solution technique adaptée.",
+    "points": [
+      {
+        "number": "01",
+        "title": "Priorité aux objectifs métier",
+        "description": "Je pars de l'objectif, du parcours et des utilisateurs finaux—pas d'un empilement technologique. Le produit est conçu pour répondre aux besoins réels de votre activité."
+      },
+      {
+        "number": "02",
+        "title": "Conçu pour vos flux réels",
+        "description": "Qu'il s'agisse d'un site vitrine, d'un CRM ou d'un outil interne, mon attention se porte sur la clarté et l'efficacité des tâches essentielles."
+      },
+      {
+        "number": "03",
+        "title": "Développement moderne et robuste",
+        "description": "Je crée des interfaces réactives et des applications fiables selon les standards de production actuels, avec une exigence de performance, de maintenabilité et de sécurité."
+      },
+      {
+        "number": "04",
+        "title": "Collaboration Directe & Transparente",
+        "description": "Un périmètre clair, des échanges directs et des avancées concrètes tout au long du projet—pour que vous sachiez toujours ce qui est développé et pourquoi."
+      }
+    ],
+    "proof": [
+      { "label": "Réalisations", "value": "3 Produits sur Mesure" },
+      { "label": "Démonstrations", "value": "Démos Déployées en Ligne" },
+      { "label": "Compatibilité", "value": "Interfaces 100% Réactives" },
+      { "label": "Ingénierie", "value": "Standards Orientés Production" }
+    ],
+    "cta": {
+      "prompt": "PRÊT À CONSTRUIRE UN OUTIL UTILE ET PERFORMANT ?",
+      "action": "Démarrer un projet"
+    }
   },
   "process": {
-    "badge": "MÉTHODOLOGIE",
-    "heading": "Un Processus Structuré en 6 Étapes",
-    "subheading": "Une méthode claire et transparente de la phase de cadrage jusqu'à la mise en production.",
+    "badge": "COMMENT ÇA FONCTIONNE",
+    "heading": "Un processus clair, de l'idée au lancement.",
+    "subheading": "Chaque projet commence par la compréhension du problème, la définition d'un périmètre précis et le développement vers un résultat concret.",
     "steps": [
-      { "number": "01", "title": "Découverte", "description": "Compréhension de vos enjeux métiers, de votre public cible, des fonctionnalités et du périmètre." },
-      { "number": "02", "title": "Planification", "description": "Conception de l'arborescence, modélisation des données et parcours utilisateurs." },
-      { "number": "03", "title": "Design UI", "description": "Création d'interfaces modernes, d'un système de composants et de maquettes réactives." },
-      { "number": "04", "title": "Développement", "description": "Programmation d'un code propre, performant et évolutif avec Next.js, React et TypeScript." },
-      { "number": "05", "title": "Tests & QA", "description": "Audit complet de l'ergonomie mobile, de la compatibilité navigateurs et des performances." },
-      { "number": "06", "title": "Lancement", "description": "Déploiement en production, configuration DNS/SSL et remise de la documentation." }
+      {
+        "number": "01",
+        "title": "Comprendre",
+        "description": "Nous définissons vos objectifs, les utilisateurs cibles et ce que le projet doit accomplir concrètement."
+      },
+      {
+        "number": "02",
+        "title": "Planifier",
+        "description": "Nous traduisons vos besoins en un périmètre clair, structurons l'expérience utilisateur et établissons l'approche technique adaptée."
+      },
+      {
+        "number": "03",
+        "title": "Développer",
+        "description": "Je développe le produit par étapes ciblées, en veillant à ce que chaque fonctionnalité reste alignée sur les priorités convenues."
+      },
+      {
+        "number": "04",
+        "title": "Tester & Déployer",
+        "description": "Je vérifie le comportement sur tous les écrans, corrige les anomalies et prépare la mise en production du produit final."
+      }
+    ],
+    "note": "Les délais de réalisation dépendent du périmètre et de la complexité du projet.",
+    "startProjectLink": "Démarrer un projet →"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "heading": "Foire Aux Questions",
+    "subheading": "Réponses claires aux questions fréquentes concernant les types de projets, le lancement, les coûts, les délais et la collaboration à distance.",
+    "items": [
+      {
+        "question": "Quels types de projets développez-vous ?",
+        "answer": "Je développe des sites web professionnels, des boutiques e-commerce, des applications métier sur mesure, des tableaux de bord, des systèmes CRM et des outils internes. La solution retenue dépend de votre besoin métier et du périmètre du projet."
+      },
+      {
+        "question": "Comment démarre un projet ?",
+        "answer": "Nous commençons par un échange sur vos objectifs, le problème à résoudre et vos attentes. À partir de là, je vous aide à définir un périmètre clair et les prochaines étapes."
+      },
+      {
+        "question": "Combien coûte un projet ?",
+        "answer": "Il n'y a pas de tarif fixe car le périmètre varie grandement d'un projet à l'autre. Après avoir compris vos besoins, je peux vous fournir une estimation claire basée sur le travail à réaliser."
+      },
+      {
+        "question": "Combien de temps prend un projet ?",
+        "answer": "Les délais dépendent du périmètre, de la complexité et des fonctionnalités requises. Un site vitrine professionnel et une application métier sur mesure ont des exigences de développement très différentes."
+      },
+      {
+        "question": "Pouvez-vous travailler sur un site ou une application existante ?",
+        "answer": "Oui. Selon vos besoins, je peux améliorer, refondre, étendre ou reconstruire un produit digital existant plutôt que de repartir de zéro."
+      },
+      {
+        "question": "Travaillez-vous avec des clients à distance ?",
+        "answer": "Oui. Les projets peuvent être cadrés et pilotés à distance, avec une communication régulière et des livrables partagés tout au long du développement."
+      }
     ]
   },
   "about": {
-    "badge": "PARCOURS & ENGAGEMENT",
-    "heading": "Relier l'analyse métier, le développement web et les produits digitaux.",
-    "intro": "Étudiant en Business Analytics & IA à l'EMAA Business School d'Agadir, je me consacre à la création d'applications web concrètes, d'outils métier et de boutiques en ligne.",
-    "intersectionTitle": "Analyse Métier & Développement",
-    "intersectionText": "Mon approche associe la compréhension des enjeux d'entreprise au développement logiciel. Plutôt que de me limiter à la théorie académique, j'apprends en concevant des produits digitaux fonctionnels.",
-    "proofTitle": "Preuve par la Pratique",
-    "proofText": "Mes compétences techniques s'appuient sur des projets déployés comme BusinessOS—une plateforme opérationnelle structurée autour de 15 modèles de données, d'une gestion des droits par rôle et d'indicateurs en temps réel.",
-    "experienceTitle": "Expérience de Stage",
-    "experienceText": "Lors de mon stage à la Wilaya de la Région Souss-Massa (Préfecture d'Agadir Ida Outanane), j'ai appréhendé le fonctionnement des flux administratifs publics et la gestion des données organisationnelles.",
-    "directionTitle": "Objectifs Professionnels & Freelance",
-    "directionText": "Je me développe vers des fonctions à la croisée du Data Analytics, de l'IA et de l'ingénierie web. Je suis ouvert aux opportunités de stage, postes juniors et missions freelance sur mesure.",
-    "educationLabel": "Formation Académique",
+    "badge": "À PROPOS",
+    "heading": "Concevoir des produits digitaux utiles à la croisée du commerce et de la technologie.",
+    "lead": "Je suis Youssef Manssouri, étudiant en Business Analytics & IA à l'EMAA Business School et concepteur de produits digitaux axé sur le développement d'expériences pratiques pour les entreprises.",
+    "p1": "Mon approche associe la vision métier au développement web moderne. J'aime comprendre le fonctionnement d'une activité, identifier les leviers où la technologie peut optimiser un parcours ou simplifier un flux, et traduire cette compréhension en un produit digital ciblé.",
+    "p2": "Mes réalisations couvrent les sites vitrines professionnels, les boutiques e-commerce, les applications métier, les tableaux de bord et les outils internes.",
+    "educationLabel": "Formation & Fondations",
     "school": "Business Analytics & IA",
     "institution": "EMAA Business School (2025–Présent)",
-    "internshipLabel": "Stage Professionnel",
+    "internshipLabel": "Expérience de Stage",
     "internshipOrg": "Wilaya de la Région Souss-Massa",
-    "internshipRole": "Préfecture d'Agadir Ida Outanane",
+    "internshipRole": "Flux Administratifs & Opérations",
     "focusLabel": "Domaines Clés",
-    "focusItems": ["Business Analytics", "IA Appliquée", "Next.js & TypeScript", "Modélisation de Données"]
+    "focusItems": ["Business Analytics", "IA Appliquée", "Next.js & TypeScript", "Modélisation de Données"],
+    "downloadCV": "Télécharger le CV (PDF)"
   },
   "contact": {
-    "badge": "CONTACT & COLLABORATION",
-    "heading": "Construisons quelque chose d'utile.",
-    "subheading": "Ouvert aux opportunités de stage, postes juniors et projets freelance sur mesure (sites web, e-commerce, outils métier et tableaux de bord).",
-    "cta": "Envoyer un e-mail",
-    "availability": "Agadir, Maroc · Disponible à distance & en local",
+    "badge": "ÉCHANGEONS",
+    "heading": "Vous avez un projet ou une opportunité en tête ?",
+    "subheading": "Que vous souhaitiez concevoir un nouveau produit digital, améliorer un site existant ou explorer une collaboration—partagez vos besoins et je vous répondrai rapidement.",
     "form": {
       "name": "Votre nom complet *",
       "namePlaceholder": "Jean Dupont",
       "email": "Adresse e-mail *",
       "emailPlaceholder": "jean@entreprise.com",
-      "company": "Entreprise / Organisation",
-      "companyPlaceholder": "Nom de l'organisation (Optionnel)",
-      "projectType": "Type de demande *",
-      "selectProjectType": "Sélectionnez une opportunité ou un type de projet...",
-      "budget": "Budget ou gratification estimé",
-      "selectBudget": "Sélectionnez une tranche...",
-      "message": "Détails / Description *",
-      "messagePlaceholder": "Partagez les exigences du projet, le poste ou vos propositions de collaboration...",
-      "submit": "Envoyer le message",
+      "projectType": "Que souhaitez-vous créer ? *",
+      "selectProjectType": "Sélectionnez une catégorie de projet...",
+      "message": "Détails / Description du projet *",
+      "messagePlaceholder": "Décrivez votre projet, vos objectifs, vos fonctionnalités clés ou votre site existant...",
+      "submit": "Envoyer la demande",
       "submitting": "Envoi en cours...",
-      "successTitle": "Message bien reçu",
-      "successMessage": "Merci. Votre message a bien été envoyé. Je vous répondrai dans les meilleurs délais.",
-      "errorTitle": "Erreur d'envoi",
+      "successTitle": "Message reçu.",
+      "successMessage": "Merci pour votre prise de contact. Les détails de votre projet ont bien été reçus.",
+      "errorTitle": "Une erreur est survenue.",
       "errorMessage": "Le formulaire n'a pas pu être envoyé. Vous pouvez me contacter directement à manssouriyoussef33@gmail.com."
     },
+    "projectTypes": [
+      { "label": "Site Web d'Entreprise", "value": "Business Website" },
+      { "label": "E-Commerce", "value": "E-Commerce" },
+      { "label": "Application Métier sur Mesure", "value": "Custom Business Application" },
+      { "label": "Tableau de Bord / Outil Interne", "value": "Dashboard / Internal Tool" },
+      { "label": "Autre", "value": "Other" }
+    ],
     "directContact": "Coordonnées directes",
     "email": "E-mail",
     "phone": "WhatsApp",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "whatsAppCTA": "Discuter sur WhatsApp",
-    "whatsAppMessage": "Bonjour Youssef, je souhaiterais discuter d'un projet ou d'une opportunité."
+    "whatsAppMessage": "Bonjour Youssef, j'ai une demande de projet et je souhaiterais en discuter avec vous."
   },
   "footer": {
     "tagline": "Création de produits numériques utiles à la croisée de l'analyse métier, du développement web, des données et de l'IA.",

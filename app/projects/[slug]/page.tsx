@@ -22,18 +22,19 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   if (!project) {
     return {
-      title: "Project Not Found — Youssef Manssouri",
+      title: "Project Not Found",
+      description: "The requested project case study could not be found.",
     };
   }
 
-  const mainCategory = project.category.split("·")[0].trim();
-  const pageTitle = `${project.name} — ${mainCategory} Case Study | Youssef Manssouri`;
-  const pageDesc = `${project.shortDescription} Designed and developed by Youssef Manssouri using ${project.technologies.slice(0, 4).join(", ")}.`;
+  const rawTitle = project.seoTitle || `${project.name} Case Study`;
+  const fullTitle = `${rawTitle} | Youssef Manssouri`;
+  const pageDesc = project.seoDescription || project.shortDescription;
   const projectUrl = `https://www.youssefmanssouri.site/projects/${project.slug}`;
   const imageUrl = `https://www.youssefmanssouri.site${project.heroImage}`;
 
   return {
-    title: pageTitle,
+    title: rawTitle,
     description: pageDesc,
     keywords: [
       project.name,
@@ -51,8 +52,9 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     openGraph: {
       type: "article",
       locale: "en_US",
+      alternateLocale: ["fr_FR"],
       url: projectUrl,
-      title: pageTitle,
+      title: fullTitle,
       description: pageDesc,
       siteName: "Youssef Manssouri",
       images: [
@@ -60,13 +62,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
           url: imageUrl,
           width: 1200,
           height: 675,
-          alt: `${project.name} Case Study — Youssef Manssouri`,
+          alt: `${project.name} — ${project.title}`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: pageTitle,
+      title: fullTitle,
       description: pageDesc,
       images: [imageUrl],
     },
@@ -85,27 +87,63 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
   const currentIndex = PROJECTS.findIndex((p) => p.slug === project.slug);
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
 
-  const breadcrumbJsonLd = {
+  const schemaType = project.schemaType || "WebApplication";
+  const projectUrl = `https://www.youssefmanssouri.site/projects/${project.slug}`;
+  const imageUrl = `https://www.youssefmanssouri.site${project.heroImage}`;
+
+  const projectPageGraphJsonLd = {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@graph": [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.youssefmanssouri.site"
+        "@type": "BreadcrumbList",
+        "@id": `${projectUrl}#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.youssefmanssouri.site"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Selected Work",
+            "item": "https://www.youssefmanssouri.site/#work"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": project.name,
+            "item": projectUrl
+          }
+        ]
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Selected Work",
-        "item": "https://www.youssefmanssouri.site/#work"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
+        "@type": schemaType,
+        "@id": `${projectUrl}#software`,
         "name": project.name,
-        "item": `https://www.youssefmanssouri.site/projects/${project.slug}`
+        "headline": project.title,
+        "description": project.longDescription || project.shortDescription,
+        "url": projectUrl,
+        "image": imageUrl,
+        "applicationCategory": project.applicationCategory || "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "author": {
+          "@type": "Person",
+          "@id": "https://www.youssefmanssouri.site/#identity",
+          "name": "Youssef Manssouri",
+          "url": "https://www.youssefmanssouri.site"
+        },
+        "creator": {
+          "@type": "Person",
+          "@id": "https://www.youssefmanssouri.site/#identity",
+          "name": "Youssef Manssouri",
+          "url": "https://www.youssefmanssouri.site"
+        },
+        ...(project.githubUrl ? { "codeRepository": project.githubUrl } : {}),
+        ...(project.liveUrl && project.hasLiveDemo ? { "sameAs": project.liveUrl } : {}),
+        "programmingLanguage": project.technologies,
+        "featureList": project.features
       }
     ]
   };
@@ -114,7 +152,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectPageGraphJsonLd) }}
       />
       <ProjectCaseStudyClient project={project} nextProject={nextProject} />
     </>

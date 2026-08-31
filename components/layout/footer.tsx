@@ -45,7 +45,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/#services" className="hover:text-[#F3EFEA] transition-colors">
-                  {t("capabilities.badge")}
+                  {t("nav.services")}
                 </Link>
               </li>
               <li>
@@ -54,8 +54,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/#faq" className="hover:text-[#F3EFEA] transition-colors">
+                  {t("faq.badge")}
+                </Link>
+              </li>
+              <li>
                 <Link href="/#contact" className="hover:text-[#F3EFEA] transition-colors">
-                  {t("nav.contact")}
+                  {t("contact.badge")}
                 </Link>
               </li>
             </ul>
@@ -70,10 +75,11 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:manssouriyoussef33@gmail.com"
+                  aria-label="Send email to Youssef Manssouri"
                   onClick={() => {
                     trackEvent("EMAIL_CLICK", { source: "footer", destination: "email" });
                   }}
-                  className="hover:text-[#F3EFEA] transition-colors inline-flex items-center gap-1"
+                  className="hover:text-[#F3EFEA] transition-colors inline-flex items-center gap-1 break-all"
                 >
                   manssouriyoussef33@gmail.com
                 </a>
@@ -83,6 +89,7 @@ export function Footer() {
                   href="https://wa.me/212656682813"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Contact Youssef Manssouri on WhatsApp"
                   onClick={() => {
                     trackEvent("WHATSAPP_CLICK", { source: "footer", destination: "whatsapp" });
                   }}
@@ -97,6 +104,7 @@ export function Footer() {
                   href="https://www.linkedin.com/in/youssef-manssouri-24b4662ba/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="View Youssef Manssouri's LinkedIn Profile"
                   className="hover:text-[#F3EFEA] transition-colors inline-flex items-center gap-1"
                 >
                   LinkedIn
@@ -108,6 +116,7 @@ export function Footer() {
                   href="https://github.com/youssefmanssouri"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="View Youssef Manssouri's GitHub Profile and repositories"
                   onClick={() => {
                     trackEvent("GITHUB_CLICK", { source: "footer" });
                   }}

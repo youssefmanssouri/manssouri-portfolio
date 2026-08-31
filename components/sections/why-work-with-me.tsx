@@ -1,80 +1,104 @@
 "use client";
 
-import React from "react";
-import { Target, Smartphone, Code2, Sparkles } from "lucide-react";
+import React, { useCallback } from "react";
+import Link from "next/link";
+import { ArrowRight, Briefcase, Cpu, Layers, MessageSquare } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
+import { trackEvent } from "@/lib/analytics";
 
 export function WhyWorkWithMe() {
-  const { language, t } = useLanguage();
-  const isFr = language === "fr";
+  const { t, dictionary } = useLanguage();
+  const points = dictionary?.whyWorkWithMe?.points || [];
+  const proofItems = dictionary?.whyWorkWithMe?.proof || [];
 
-  const defaultPoints = [
-    {
-      title: isFr ? "Approche Axée Résultats" : "Business-Driven Focus",
-      description: isFr
-        ? "Des fonctionnalités conçues pour répondre à vos objectifs commerciaux réels et maximiser la valeur pour vos utilisateurs."
-        : "Features engineered specifically around your business objectives, ROI, and measurable user engagement.",
-    },
-    {
-      title: isFr ? "Expérience Mobile-First" : "Responsive & Mobile-First",
-      description: isFr
-        ? "Interfaces réactives et fluides sur smartphones, tablettes et ordinateurs sans compromis."
-        : "Flawless user experience optimized across mobile devices, tablets, and desktop displays.",
-    },
-    {
-      title: isFr ? "Code Propre & Robuste" : "Clean Next.js & TypeScript Code",
-      description: isFr
-        ? "Code moderne (Next.js, TypeScript, Tailwind) structuré pour être maintenable, rapide et évolutif."
-        : "Maintainable, scalable codebase built with Next.js, React, TypeScript, and modern best practices.",
-    },
-    {
-      title: isFr ? "Communication Transparente" : "Direct & Clear Communication",
-      description: isFr
-        ? "Communication directe, livrables clairs et respect rigoureux des délais convenus."
-        : "Transparent updates, responsive communication, and strict commitment to project milestones.",
-    },
-  ];
+  const pointIcons = [Briefcase, Layers, Cpu, MessageSquare];
 
-  const icons = [Target, Smartphone, Code2, Sparkles];
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    const elem = document.getElementById(targetId);
+    if (elem) {
+      e.preventDefault();
+      elem.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
   return (
-    <section id="why-me" className="py-24 md:py-32 bg-[#F3EFEA] border-t border-[#DED6CC]">
+    <section id="why-me" className="py-16 sm:py-20 md:py-28 lg:py-32 bg-[#F3EFEA] text-[#242222] border-t border-[#DED6CC]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="max-w-2xl mb-16 pb-6 border-b border-[#DED6CC]">
-          <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#A65F4B] block mb-1">
-            {t("whyMe.badge")}
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#242222] mb-3">
-            {t("whyMe.heading")}
+        {/* Section Header */}
+        <div className="max-w-3xl mb-12 sm:mb-16 pb-6 border-b border-[#DED6CC]">
+          <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest mb-2 font-semibold">
+            03 / {t("whyWorkWithMe.badge")}
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#242222] mb-3 leading-tight">
+            {t("whyWorkWithMe.heading")}
           </h2>
-          <p className="text-[#242222]/70 text-sm leading-relaxed">
-            {t("whyMe.subheading")}
+          <p className="text-[#242222]/80 text-base sm:text-lg leading-relaxed">
+            {t("whyWorkWithMe.intro")}
           </p>
         </div>
 
-        {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12">
-          {defaultPoints.map((pillar: any, idx: number) => {
-            const Icon = icons[idx % icons.length];
+        {/* 4 Credibility Points */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          {points.map((point: any, idx: number) => {
+            const Icon = pointIcons[idx % pointIcons.length];
             return (
-              <div key={pillar.title} className="border-b border-[#DED6CC] pb-8 space-y-3">
-                <div className="w-10 h-10 rounded-xs bg-[#3A171C] text-[#F3EFEA] flex items-center justify-center mb-2">
-                  <Icon className="w-5 h-5 text-[#A65F4B]" />
+              <div
+                key={idx}
+                className="border-t border-[#DED6CC] pt-6 space-y-3"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-2 text-xs font-mono text-[#A65F4B] font-semibold tracking-wider">
+                    <Icon className="w-4 h-4 text-[#A65F4B]" aria-hidden="true" />
+                    <span>{point.number || `0${idx + 1}`}</span>
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-[#242222] tracking-tight">
-                  {pillar.title}
+                <h3 className="text-xl font-bold text-[#242222] tracking-tight">
+                  {point.title}
                 </h3>
-                <p className="text-[#242222]/80 text-xs leading-relaxed">
-                  {pillar.description}
+                <p className="text-[#242222]/85 text-sm sm:text-base leading-relaxed">
+                  {point.description}
                 </p>
-                <div className="pt-2 text-[10px] font-mono text-[#A65F4B] uppercase tracking-widest font-semibold">
-                  PILLAR 0{idx + 1}
-                </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Verifiable Proof Row */}
+        {proofItems.length > 0 && (
+          <div className="mt-12 sm:mt-16 p-5 sm:p-7 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] shadow-xs">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-left">
+              {proofItems.map((item: any, idx: number) => (
+                <div key={idx} className="space-y-1.5 break-words">
+                  <span className="text-[10px] sm:text-[11px] font-mono text-[#A65F4B] uppercase tracking-wider font-semibold block">
+                    {item.label}
+                  </span>
+                  <p className="text-sm sm:text-base font-bold text-[#242222] tracking-tight leading-snug">
+                    {item.value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Subtle Bottom CTA */}
+        <div className="mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-[#DED6CC] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <p className="text-xs font-mono text-[#3A171C] uppercase tracking-wider font-semibold">
+            {t("whyWorkWithMe.cta.prompt")}
+          </p>
+          <Link
+            href="/#contact"
+            prefetch={true}
+            onClick={(e) => {
+              trackEvent("CTA_START_PROJECT", { source: "why_work_with_me", destination: "contact" });
+              handleNavClick(e, "contact");
+            }}
+            className="inline-flex items-center justify-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] shrink-0"
+          >
+            <span>{t("whyWorkWithMe.cta.action")}</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#A65F4B]" aria-hidden="true" />
+          </Link>
         </div>
 
       </div>

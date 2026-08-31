@@ -8,6 +8,20 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/admin/", "/api/admin/"],
       },
+      {
+        userAgent: [
+          "Googlebot",
+          "Google-Extended",
+          "Bingbot",
+          "Applebot",
+          "GPTBot",
+          "ChatGPT-User",
+          "ClaudeBot",
+          "PerplexityBot",
+        ],
+        allow: "/",
+        disallow: ["/admin/", "/api/admin/"],
+      },
     ],
     sitemap: "https://www.youssefmanssouri.site/sitemap.xml",
   };

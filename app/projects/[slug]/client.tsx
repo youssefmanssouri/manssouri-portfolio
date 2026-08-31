@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Project } from "@/data/projects";
-import { ArrowLeft, ArrowRight, ExternalLink, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Mail, ShieldCheck, Layers, Eye } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
 
@@ -24,13 +24,28 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
   const isFr = language === "fr";
 
   const shortDesc = isFr ? project.shortDescriptionFr : project.shortDescription;
-  const longDesc = isFr ? project.longDescriptionFr : project.longDescription;
   const category = isFr ? project.categoryFr : project.category;
-  const overview = isFr ? project.overviewFr : project.overview;
-  const objective = isFr ? project.objectiveFr : project.objective;
-  const features = isFr ? project.featuresFr : project.features;
+  const role = isFr ? project.roleFr : project.role;
 
+  // Problem & Solution
+  const ps = project.problemSolution;
+  const problemTitle = isFr ? ps.problemTitleFr : ps.problemTitleEn;
+  const problemDesc = isFr ? ps.problemDescFr : ps.problemDescEn;
+  const solutionTitle = isFr ? ps.solutionTitleFr : ps.solutionTitleEn;
+  const solutionDesc = isFr ? ps.solutionDescFr : ps.solutionDescEn;
+
+  // Lightbox modal index
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Gallery image array for lightbox inspection
+  const allImages = project.galleryImages && project.galleryImages.length > 0
+    ? project.galleryImages
+    : [project.heroImage];
+
+  const handleOpenLightboxBySrc = (src: string) => {
+    const idx = allImages.findIndex((img) => img === src);
+    setLightboxIndex(idx !== -1 ? idx : 0);
+  };
 
   // Track page view once per mount
   useEffect(() => {
@@ -43,45 +58,49 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
       if (lightboxIndex === null) return;
       if (e.key === "Escape") setLightboxIndex(null);
       if (e.key === "ArrowLeft") {
-        setLightboxIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : project.galleryImages.length - 1));
+        setLightboxIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : allImages.length - 1));
       }
       if (e.key === "ArrowRight") {
-        setLightboxIndex((prev) => (prev !== null ? (prev + 1) % project.galleryImages.length : 0));
+        setLightboxIndex((prev) => (prev !== null ? (prev + 1) % allImages.length : 0));
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lightboxIndex, project.galleryImages.length]);
+  }, [lightboxIndex, allImages.length]);
 
   return (
-    <article className="min-h-screen pt-32 pb-24 bg-[#F3EFEA] text-[#242222]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <article className="min-h-screen pt-28 sm:pt-36 pb-20 sm:pb-28 bg-[#F3EFEA] text-[#242222]">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
         
-        {/* Back Link */}
+        {/* 1. Back Link */}
         <div>
           <Link
             href="/#work"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#242222]/70 hover:text-[#A65F4B] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#242222]/70 hover:text-[#A65F4B] transition-colors group"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
             <span>{t("caseStudy.backToWork")}</span>
           </Link>
         </div>
 
-        {/* Case Study Header */}
+        {/* 2. Case Study Header & Action Bar */}
         <div className="space-y-4 pb-8 border-b border-[#DED6CC]">
-          <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-            {category}
+          <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+            <span>{category}</span>
+            <span>·</span>
+            <span className="text-[#242222]/60 font-medium lowercase tracking-normal">{role}</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#242222]">
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#242222] leading-[1.15]">
             {project.name}
           </h1>
-          <p className="text-[#242222]/80 text-base sm:text-lg max-w-3xl leading-relaxed">
+
+          <p className="text-[#242222]/85 text-base sm:text-lg max-w-3xl leading-relaxed">
             {shortDesc}
           </p>
 
-          {/* Action CTAs */}
+          {/* Action CTAs: Live Demo (Primary) vs GitHub (Secondary) */}
           <div className="flex flex-wrap items-center gap-3 pt-3">
             {project.hasLiveDemo && project.liveUrl && (
               <a
@@ -91,39 +110,40 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 onClick={() => {
                   trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "case_study_top" });
                 }}
-                className="inline-flex items-center gap-1.5 bg-[#A65F4B] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity active:scale-[0.98]"
+                className="inline-flex items-center gap-2 bg-[#A65F4B] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
               >
-                {t("work.visitLive")}
+                <span>{t("work.visitLive")}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             )}
+
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
-                trackEvent("GITHUB_CLICK", { slug: project.slug, source: "case_study" });
+                trackEvent("GITHUB_CLICK", { slug: project.slug, source: "case_study_top" });
               }}
-              className="inline-flex items-center gap-1.5 bg-[#3A171C] text-[#F3EFEA] px-4 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-colors active:scale-[0.98]"
+              className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
             >
-              {t("work.github")}
+              <span>{t("work.github")}</span>
             </a>
           </div>
         </div>
 
-        {/* Verified Implementation Metrics Strip */}
+        {/* 3. Product Scope Strip */}
         {project.metrics && project.metrics.length > 0 && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-xs bg-[#3A171C]/5 border border-[#DED6CC]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] shadow-xs">
             {project.metrics.map((m, idx) => (
-              <div key={idx} className="space-y-1 border-l-2 border-[#A65F4B] pl-3">
-                <div className="text-2xl sm:text-3xl font-bold font-mono text-[#3A171C]">
+              <div key={idx} className="space-y-1.5 border-l-2 border-[#A65F4B] pl-3.5 break-words">
+                <div className="text-2xl sm:text-3xl font-bold font-mono text-[#3A171C] leading-none">
                   {m.value}
                 </div>
                 <div className="text-xs font-bold text-[#242222]">
                   {isFr ? m.labelFr : m.label}
                 </div>
                 {(m.detail || m.detailFr) && (
-                  <div className="text-[11px] text-[#242222]/70 leading-tight">
+                  <div className="text-[11px] text-[#242222]/70 leading-snug">
                     {isFr ? m.detailFr : m.detail}
                   </div>
                 )}
@@ -132,477 +152,278 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
           </div>
         )}
 
-        {/* Hero Visual Preview */}
-        <div className="relative aspect-[16/9] rounded-xs overflow-hidden border border-[#DED6CC] bg-[#3A171C]">
-          <Image
-            src={project.heroImage}
-            alt={`${project.name} — ${project.shortDescription}`}
-            fill
-            className="object-cover object-top"
-            priority
-            sizes="(max-width: 1280px) 100vw, 1280px"
-          />
+        {/* 4. Primary Hero Visual Showcase */}
+        <div className="space-y-2">
+          <button
+            type="button"
+            onClick={() => handleOpenLightboxBySrc(project.heroImage)}
+            className="w-full text-left relative aspect-[16/10] sm:aspect-[16/9] rounded-xs overflow-hidden border border-[#DED6CC] bg-[#3A171C] shadow-lg group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] cursor-pointer"
+            aria-label={`${project.name} main interface preview - ${t("caseStudy.expandImage")}`}
+          >
+            <Image
+              src={project.heroImage}
+              alt={`${project.name} primary interface showcase`}
+              fill
+              className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
+              priority
+              sizes="(max-width: 1280px) 100vw, 1280px"
+            />
+            <div className="absolute bottom-3 right-3 px-2.5 py-1.5 rounded-xs bg-[#3A171C]/80 backdrop-blur-xs text-[#F3EFEA] text-[11px] font-mono flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+              <Eye className="w-3.5 h-3.5 text-[#A65F4B]" />
+              <span>{t("caseStudy.expandImage")}</span>
+            </div>
+          </button>
         </div>
 
-        {/* Overview & Objective */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-4">
-          <div className="lg:col-span-8 space-y-12">
+        {/* 5. The Business Problem vs The Solution (2-Column Editorial Grid) */}
+        <div className="space-y-6 pt-4 border-t border-[#DED6CC]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
             
-            {/* Business Problem vs Solution Grid (Flagship BusinessOS Only) */}
-            {project.id === "businessos" ? (
-              <div className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="p-6 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/20 space-y-3">
-                    <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-                      01 / {isFr ? "Problème Métier" : "The Business Problem"}
-                    </div>
-                    <h3 className="text-lg font-bold text-[#3A171C]">
-                      {isFr ? "Fragmentation Opérationnelle & Silos de Données" : "Operational Fragmentation & Tool Silos"}
-                    </h3>
-                    <p className="text-xs text-[#242222]/80 leading-relaxed">
-                      {isFr 
-                        ? "Les entreprises en croissance gèrent leurs opérations avec un empilement d'outils SaaS déconnectés : un CRM pour les prospects, un logiciel séparé pour la facturation, un calendrier externe pour les rendez-vous et des fichiers Excel pour les RH et la trésorerie. Cette fragmentation engorde les coûts et crée des failles de suivi."
-                        : "Growing businesses operate on a fragmented stack of disconnected tools: one SaaS for leads, another for invoicing, an external calendar for bookings, and spreadsheets for HR and cash flow. This fragmentation inflates software costs, creates data silos, and wastes valuable operational hours."}
-                    </p>
-                  </div>
-
-                  <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3 shadow-md">
-                    <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-                      02 / {isFr ? "La Solution BusinessOS" : "The BusinessOS Solution"}
-                    </div>
-                    <h3 className="text-lg font-bold text-[#F3EFEA]">
-                      {isFr ? "Centre de Commande Opérationnel Unifié" : "Unified Operational Command Center"}
-                    </h3>
-                    <p className="text-xs text-[#DED6CC]/80 leading-relaxed">
-                      {isFr 
-                        ? "BusinessOS rassemble l'ensemble des parcours métiers dans un centre de contrôle unique. Les équipes pilotent prospects, factures payées, plannings de rendez-vous et flux de trésorerie sans jamais quitter l'interface, avec un contrôle d'accès par rôle sécurisé."
-                        : "BusinessOS unifies all enterprise operations into a single cohesive workspace. Teams manage pipelines, itemized invoices, resource calendars, employee rosters, and live cash flow without ever context-switching, protected by role-based access control."}
-                    </p>
-                  </div>
+            {/* The Business Challenge Card */}
+            <div className="p-6 sm:p-8 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] space-y-3.5 flex flex-col justify-between shadow-xs">
+              <div className="space-y-3">
+                <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                  01 / {t("caseStudy.challengeTitle")}
                 </div>
-
-                {/* 7 Core Modules Showcase Grid */}
-                <div className="space-y-4 pt-4">
-                  <h2 className="text-xl font-bold text-[#242222]">
-                    {isFr ? "Les 7 Modules Opérationnels Clés" : "7 Core Operational Modules"}
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-sm font-bold text-[#242222]">1. Executive Command Center</h4>
-                      <p className="text-xs text-[#242222]/70">Live revenue metrics, active pipeline telemetry, and audit logging.</p>
-                    </div>
-                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-sm font-bold text-[#242222]">2. CRM & Sales Pipeline</h4>
-                      <p className="text-xs text-[#242222]/70">Multi-stage deal tracking, prospect stages, and client database.</p>
-                    </div>
-                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-sm font-bold text-[#242222]">3. Itemized Billing & Invoicing</h4>
-                      <p className="text-xs text-[#242222]/70">Automatic tax/subtotal calculation, payment states, and PDF-style layout.</p>
-                    </div>
-                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-sm font-bold text-[#242222]">4. Resource Booking Calendar</h4>
-                      <p className="text-xs text-[#242222]/70">Client appointment scheduling, staff capacity, and service duration matrix.</p>
-                    </div>
-                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-sm font-bold text-[#242222]">5. HR Directory & RBAC</h4>
-                      <p className="text-xs text-[#242222]/70">Department rosters, staff directory, and role-based permissions (Admin, Manager, Staff).</p>
-                    </div>
-                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-sm font-bold text-[#242222]">6. Finance & Recharts Analytics</h4>
-                      <p className="text-xs text-[#242222]/70">Real-time ledger, revenue velocity area charts, and multidimensional reports.</p>
-                    </div>
-                    <div className="p-4 rounded-xs border border-[#DED6CC] bg-white/50 sm:col-span-2 space-y-1">
-                      <h4 className="text-sm font-bold text-[#242222]">7. Task Workflow & DEMO_MODE Security</h4>
-                      <p className="text-xs text-[#242222]/70">Kanban task management board coupled with server-enforced mutation guards protecting database integrity during live public exploration.</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Technical Architecture Breakdown */}
-                <div className="space-y-6 pt-4 border-t border-[#DED6CC]">
-                  <h2 className="text-xl font-bold text-[#242222]">
-                    {isFr ? "Architecture Technique & Flux de Données" : "Technical Architecture & Data Flow"}
-                  </h2>
-
-                  {/* Architecture Diagram Box */}
-                  <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-5 shadow-lg">
-                    <div className="flex items-center justify-between border-b border-[#DED6CC]/15 pb-3">
-                      <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-                        SYSTEM ARCHITECTURE & SECURITY BOUNDARY
-                      </span>
-                      <span className="text-[10px] font-mono text-[#DED6CC]/60">
-                        VERIFIED CODEBASE FLOW
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs font-mono">
-                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
-                        <span className="text-white font-bold block">1. Client / Browser</span>
-                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">Next.js App Router, React 19, Tailwind CSS</span>
-                      </div>
-
-                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
-                        <span className="text-white font-bold block">2. Application Server</span>
-                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">Server Actions & Zod Payload Validation</span>
-                      </div>
-
-                      <div className="p-3.5 rounded-xs bg-[#A65F4B]/30 border border-[#A65F4B]/50 space-y-1">
-                        <span className="text-white font-bold block">3. Security Boundary</span>
-                        <span className="text-[11px] text-[#DED6CC]/90 font-sans block">DEMO_MODE=true Write Guard & RBAC</span>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center text-xs font-mono pt-1">
-                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
-                        <span className="text-white font-bold block">4. Prisma ORM Layer</span>
-                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">15 Relational Models & Type-Safe Queries</span>
-                      </div>
-
-                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
-                        <span className="text-white font-bold block">5. PostgreSQL Database</span>
-                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">Multi-Table Relational Persistence</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-6 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/15 space-y-3 font-mono text-xs text-[#242222]">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <span className="text-[#A65F4B] font-bold block mb-1">FRAMEWORK & RUNTIME</span>
-                        <p className="text-[#242222]/80 font-sans">Next.js 15 (App Router), React 19, TypeScript 5.7, Tailwind CSS 3.4.</p>
-                      </div>
-                      <div>
-                        <span className="text-[#A65F4B] font-bold block mb-1">DATA ARCHITECTURE</span>
-                        <p className="text-[#242222]/80 font-sans">Prisma 6.3 ORM with 15 relational schema models & PostgreSQL database.</p>
-                      </div>
-                      <div>
-                        <span className="text-[#A65F4B] font-bold block mb-1">SERVER ACTIONS & MUTATIONS</span>
-                        <p className="text-[#242222]/80 font-sans">Zero API boilerplate using Next.js Server Actions with Zod validations.</p>
-                      </div>
-                      <div>
-                        <span className="text-[#A65F4B] font-bold block mb-1">DEMO SECURITY BOUNDARY</span>
-                        <p className="text-[#242222]/80 font-sans">Server-only `DEMO_MODE=true` environment guards blocking database writes.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
+                <h2 className="text-xl sm:text-2xl font-bold text-[#242222] tracking-tight">
+                  {problemTitle}
+                </h2>
+                <p className="text-xs sm:text-sm text-[#242222]/85 leading-relaxed">
+                  {problemDesc}
+                </p>
               </div>
-            ) : project.id === "gym-crm" ? (
-              <div className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="p-6 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/20 space-y-3">
-                    <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-                      01 / {isFr ? "Problème Métier" : "The Business Problem"}
-                    </div>
-                    <h3 className="text-lg font-bold text-[#3A171C]">
-                      {isFr ? "Engorgement de l'Accueil & Pertes de Chiffre d'Affaires" : "Front-Desk Bottlenecks & Unrenewed Subscriptions"}
-                    </h3>
-                    <p className="text-xs text-[#242222]/80 leading-relaxed">
-                      {isFr 
-                        ? "Les complexes sportifs font face à l'engorgement de l'accueil aux heures de pointe, aux accès d'adhérents dont le forfait a expiré sans suivi, aux carnets de pointage papier et à une absence d'alertes proactives pour le renouvellement des abonnements."
-                        : "Fitness centers face severe front-desk check-in congestion during peak hours, unverified entry from expired memberships, manual attendance rosters, and zero proactive renewal tracking—causing direct revenue leakage and client churn."}
-                    </p>
-                  </div>
-
-                  <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3 shadow-md">
-                    <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-                      02 / {isFr ? "La Solution Gym CRM" : "The Gym CRM Solution"}
-                    </div>
-                    <h3 className="text-lg font-bold text-[#F3EFEA]">
-                      {isFr ? "Plateforme Unifiée de Gestion d'Accueil & d'Abonnés" : "Unified Operations & Member Management System"}
-                    </h3>
-                    <p className="text-xs text-[#DED6CC]/80 leading-relaxed">
-                      {isFr 
-                        ? "Gym CRM numérise l'ensemble des opérations d'accueil : recherche instantanée par nom ou ID, terminal de pointage QR code, alertes visuelles d'expiration (ACTIVE, EXPIRED, FROZEN), suivi des coachs et rapports de chiffre d'affaires récurrent (MRR)."
-                        : "Gym CRM digitizes front-desk facility management: rapid ID/name lookups, visual subscription status alerts (ACTIVE, EXPIRED, FROZEN), QR pass check-in terminals, coach scheduling, POS inventory, and real-time monthly recurring revenue (MRR) telemetry."}
-                    </p>
-                  </div>
-                </div>
-
-                {/* 12 Operational Modules Showcase Grid */}
-                <div className="space-y-4 pt-4">
-                  <h2 className="text-xl font-bold text-[#242222]">
-                    {isFr ? "Les 12 Modules Opérationnels Clés" : "12 Operational Modules"}
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">1. Operations Dashboard</h4>
-                      <p className="text-[11px] text-[#242222]/70">Live active members, daily check-ins, retention & MRR telemetry.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">2. Member CRM</h4>
-                      <p className="text-[11px] text-[#242222]/70">Instant ID lookups, renewal alerts, and complete member profiles.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">3. Membership Plans</h4>
-                      <p className="text-[11px] text-[#242222]/70">Monthly, quarterly & VIP plans with feature matrices and pricing.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">4. Attendance Terminal</h4>
-                      <p className="text-[11px] text-[#242222]/70">QR code pass scanner, manual receptionist verification, and logs.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">5. Trainer Hub</h4>
-                      <p className="text-[11px] text-[#242222]/70">Coach assignments, client roster load, and personal training logs.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">6. Workout Builder</h4>
-                      <p className="text-[11px] text-[#242222]/70">Exercise database, routine creation, and personalized training plans.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">7. Nutrition Planner</h4>
-                      <p className="text-[11px] text-[#242222]/70">Caloric macro distribution, meal plan generators, and dietary logs.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">8. Payments & Billing</h4>
-                      <p className="text-[11px] text-[#242222]/70">Invoice generation, subscription payments, and transaction history.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">9. POS & Inventory</h4>
-                      <p className="text-[11px] text-[#242222]/70">Supplements, merchandise, SKU stock tracking, and front-desk sales.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">10. Staff & Audit Logs</h4>
-                      <p className="text-[11px] text-[#242222]/70">Role assignments (Admin, Manager, Staff) and audit security trail.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">11. AI Power Suite</h4>
-                      <p className="text-[11px] text-[#242222]/70">Gemini AI predictive insights, upsell alerts, and capacity forecasts.</p>
-                    </div>
-                    <div className="p-3.5 rounded-xs border border-[#DED6CC] bg-white/50 space-y-1">
-                      <h4 className="text-xs font-bold text-[#242222]">12. Reports & Analytics</h4>
-                      <p className="text-[11px] text-[#242222]/70">Multidimensional Recharts telemetry for revenue, peak load & churn.</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Technical Architecture Breakdown */}
-                <div className="space-y-6 pt-4 border-t border-[#DED6CC]">
-                  <h2 className="text-xl font-bold text-[#242222]">
-                    {isFr ? "Architecture Technique & Flux de Données" : "Technical Architecture & Data Flow"}
-                  </h2>
-
-                  {/* Architecture Diagram Box */}
-                  <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-5 shadow-lg">
-                    <div className="flex items-center justify-between border-b border-[#DED6CC]/15 pb-3">
-                      <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-                        SYSTEM ARCHITECTURE & SECURITY BOUNDARY
-                      </span>
-                      <span className="text-[10px] font-mono text-[#DED6CC]/60">
-                        VERIFIED CODEBASE FLOW
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs font-mono">
-                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
-                        <span className="text-white font-bold block">1. Client Workspace</span>
-                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">Next.js App Router, React 18, Tailwind CSS</span>
-                      </div>
-
-                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
-                        <span className="text-white font-bold block">2. Role Authentication</span>
-                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">5 Simulated Roles & Session API</span>
-                      </div>
-
-                      <div className="p-3.5 rounded-xs bg-[#A65F4B]/30 border border-[#A65F4B]/50 space-y-1">
-                        <span className="text-white font-bold block">3. Demo Safeguards</span>
-                        <span className="text-[11px] text-[#DED6CC]/90 font-sans block">Safe Fictional Seed & Mock Fallbacks</span>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center text-xs font-mono pt-1">
-                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
-                        <span className="text-white font-bold block">4. Prisma ORM Layer</span>
-                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">12 Relational Schema Models</span>
-                      </div>
-
-                      <div className="p-3.5 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 space-y-1">
-                        <span className="text-white font-bold block">5. Analytics & AI Engine</span>
-                        <span className="text-[11px] text-[#DED6CC]/80 font-sans block">Recharts Telemetry & Gemini AI</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-6 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/15 space-y-3 font-mono text-xs text-[#242222]">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <span className="text-[#A65F4B] font-bold block mb-1">FRAMEWORK & STACK</span>
-                        <p className="text-[#242222]/80 font-sans">Next.js 14, TypeScript, Tailwind CSS, Lucide icons, Framer Motion.</p>
-                      </div>
-                      <div>
-                        <span className="text-[#A65F4B] font-bold block mb-1">DATA ARCHITECTURE</span>
-                        <p className="text-[#242222]/80 font-sans">Prisma ORM with 12 relational models mapping members, plans & payments.</p>
-                      </div>
-                      <div>
-                        <span className="text-[#A65F4B] font-bold block mb-1">ROLE PERMISSIONS (RBAC)</span>
-                        <p className="text-[#242222]/80 font-sans">Enforces granular permissions for Admin, Manager, Trainer, Receptionist & Member.</p>
-                      </div>
-                      <div>
-                        <span className="text-[#A65F4B] font-bold block mb-1">AI INTELLIGENCE</span>
-                        <p className="text-[#242222]/80 font-sans">Google Gemini AI integration with realistic predictive fallback handlers.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            ) : (
-              <>
-                <div className="space-y-2">
-                  <h2 className="text-xl font-bold text-[#242222]">
-                    {t("caseStudy.overview")}
-                  </h2>
-                  <p className="text-[#242222]/80 text-sm leading-relaxed">
-                    {overview}
-                  </p>
-                  <p className="text-[#242222]/80 text-sm leading-relaxed">
-                    {longDesc}
-                  </p>
-                </div>
-
-                <div className="space-y-2">
-                  <h2 className="text-xl font-bold text-[#242222]">
-                    {t("caseStudy.objective")}
-                  </h2>
-                  <p className="text-[#242222]/80 text-sm leading-relaxed">
-                    {objective}
-                  </p>
-                </div>
-              </>
-            )}
-
-            {/* Features */}
-            <div className="space-y-3">
-              <h2 className="text-xl font-bold text-[#242222]">
-                {t("caseStudy.keyFeatures")}
-              </h2>
-              <ul className="space-y-2 text-sm text-[#242222]/80">
-                {features.map((feat, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <span className="text-[#A65F4B] font-mono text-xs mt-0.5">•</span>
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
+
+            {/* The Solution Card */}
+            <div className="p-6 sm:p-8 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3.5 flex flex-col justify-between shadow-md">
+              <div className="space-y-3">
+                <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                  02 / {t("caseStudy.solutionTitle")}
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#F3EFEA] tracking-tight">
+                  {solutionTitle}
+                </h2>
+                <p className="text-xs sm:text-sm text-[#DED6CC]/85 leading-relaxed">
+                  {solutionDesc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* 6. Core Capabilities & Contextual Visual Walkthrough */}
+        <div className="space-y-10 pt-8 border-t border-[#DED6CC]">
+          <div className="max-w-2xl space-y-2">
+            <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+              03 / {t("caseStudy.capabilitiesBadge")}
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#242222]">
+              {t("caseStudy.capabilitiesTitle")}
+            </h2>
           </div>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-4 space-y-6">
-            <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-4">
-              <h3 className="text-xs font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
-                {t("caseStudy.technologies")}
-              </h3>
-              <div className="flex flex-wrap gap-1.5">
+          {/* Capabilities List with Alternating Visual Showcase */}
+          <div className="space-y-12 sm:space-y-16">
+            {project.capabilities.map((cap, idx) => {
+              const capTitle = isFr ? cap.titleFr : cap.titleEn;
+              const capSummary = isFr ? cap.summaryFr : cap.summaryEn;
+              const capOutcome = isFr ? cap.practicalOutcomeFr : cap.practicalOutcomeEn;
+              const capCaption = isFr ? cap.imageCaptionFr : cap.imageCaptionEn;
+              const isEven = idx % 2 === 0;
+
+              return (
+                <div
+                  key={cap.id}
+                  className="border border-[#DED6CC] bg-[#FAF7F2] p-6 sm:p-8 lg:p-10 rounded-xs shadow-xs space-y-6"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    {/* Capability Narrative */}
+                    <div className={`lg:col-span-5 space-y-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                      <div className="space-y-2">
+                        <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-wider font-bold">
+                          MODULE 0{idx + 1}
+                        </span>
+                        <h3 className="text-xl sm:text-2xl font-bold text-[#242222] tracking-tight">
+                          {capTitle}
+                        </h3>
+                      </div>
+
+                      <p className="text-xs sm:text-sm text-[#242222]/85 leading-relaxed">
+                        {capSummary}
+                      </p>
+
+                      {/* Practical Outcome Box */}
+                      <div className="p-4 rounded-xs bg-[#242222]/5 border border-[#DED6CC] text-xs text-[#242222] space-y-1.5">
+                        <span className="text-[#A65F4B] font-mono text-[10px] uppercase tracking-wider font-bold block">
+                          {t("caseStudy.practicalOutcome")}
+                        </span>
+                        <p className="text-[#242222]/90 leading-relaxed font-medium">
+                          {capOutcome}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Capability Contextual Screenshot */}
+                    {cap.image && (
+                      <div className={`lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+                        <button
+                          type="button"
+                          onClick={() => handleOpenLightboxBySrc(cap.image!)}
+                          className="w-full text-left block relative aspect-[16/10] rounded-xs overflow-hidden border border-[#DED6CC] bg-[#3A171C] group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] cursor-pointer shadow-sm"
+                          aria-label={`${capTitle} - ${t("caseStudy.expandImage")}`}
+                        >
+                          <Image
+                            src={cap.image}
+                            alt={`${project.name} - ${capTitle}`}
+                            fill
+                            className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
+                            sizes="(max-width: 1024px) 100vw, 55vw"
+                          />
+                          <div className="absolute bottom-2.5 right-2.5 px-2 py-1 rounded-xs bg-[#3A171C]/80 backdrop-blur-xs text-[#F3EFEA] text-[10px] font-mono flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <Eye className="w-3 h-3 text-[#A65F4B]" />
+                            <span>{t("caseStudy.expandImage")}</span>
+                          </div>
+                        </button>
+                        {capCaption && (
+                          <p className="text-[11px] font-mono text-[#242222]/60 pt-2 px-1 leading-snug">
+                            {capCaption}
+                          </p>
+                        )}
+                      </div>
+                    )}
+
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 7. Engineering Foundation & Architecture */}
+        {project.engineeringPoints && project.engineeringPoints.length > 0 && (
+          <div className="space-y-8 pt-8 border-t border-[#DED6CC]">
+            <div className="max-w-2xl space-y-2">
+              <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                04 / {t("caseStudy.engineeringBadge")}
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#242222]">
+                {t("caseStudy.engineeringTitle")}
+              </h2>
+            </div>
+
+            {/* 4 Outcome-Oriented Engineering Decisions */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {project.engineeringPoints.map((eng, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] space-y-2.5 shadow-xs"
+                >
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#A65F4B] font-bold">
+                    <ShieldCheck className="w-4 h-4 text-[#A65F4B]" />
+                    <span>0{idx + 1}</span>
+                  </div>
+                  <h3 className="text-base font-bold text-[#242222] tracking-tight">
+                    {isFr ? eng.titleFr : eng.titleEn}
+                  </h3>
+                  <p className="text-xs text-[#242222]/80 leading-relaxed font-sans">
+                    {isFr ? eng.descFr : eng.descEn}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Technologies Strip */}
+            <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3.5 shadow-md">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#A65F4B] uppercase tracking-wider font-bold">
+                <Layers className="w-4 h-4 text-[#A65F4B]" />
+                <span>{t("caseStudy.technologies")}</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2 py-1 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 text-[#F3EFEA] font-mono text-[11px]"
+                    className="px-3 py-1 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 text-[#F3EFEA] font-mono text-xs"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
             </div>
-
-            {/* Live Demo Dedicated Banner */}
-            {project.hasLiveDemo && project.liveUrl && (
-              <div className="p-6 rounded-xs bg-[#F3EFEA] border border-[#A65F4B]/40 space-y-4 shadow-sm">
-                <div className="space-y-1">
-                  <span className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-                    {isFr ? "DÉMONSTRATION EN DIRECT" : "LIVE PUBLIC DEMO"}
-                  </span>
-                  <h4 className="text-base font-bold text-[#242222]">
-                    {isFr ? "Explorer l'application en direct" : `Explore ${project.name} Live`}
-                  </h4>
-                </div>
-                <p className="text-xs text-[#242222]/70 leading-relaxed">
-                  {isFr 
-                    ? `Accédez immédiatement au tableau de bord et aux modules de ${project.name} dans un environnement sécurisé.`
-                    : `Access the dashboard, operational modules, and analytics for ${project.name} in a safe, read-only demo environment.`}
-                </p>
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "case_study_sidebar" });
-                  }}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#A65F4B] text-white px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98]"
-                >
-                  <span>{t("work.visitLive")}</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-                <p className="text-[10px] font-mono text-[#242222]/60 text-center">
-                  🔒 Read-only environment · Synthetic data
-                </p>
-              </div>
-            )}
           </div>
-        </div>
+        )}
 
-        {/* Gallery with Lightbox */}
-        {project.galleryImages.length > 0 && (
-          <div className="space-y-4 pt-8 border-t border-[#DED6CC]">
-            <h2 className="text-xl font-bold text-[#242222]">
-              {t("caseStudy.gallery")}
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {project.galleryImages.map((imgSrc, index) => (
-                <button
-                  key={index}
-                  onClick={() => setLightboxIndex(index)}
-                  className="relative aspect-square rounded-xs overflow-hidden border border-[#DED6CC] bg-[#3A171C] group focus:outline-none focus:ring-2 focus:ring-[#A65F4B]"
-                >
-                  <Image
-                    src={imgSrc}
-                    alt={`${project.name} interface visual screenshot ${index + 1}`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                </button>
-              ))}
+        {/* 8. Live Sandbox Demo Invitation */}
+        {project.hasLiveDemo && project.liveUrl && (
+          <div className="p-8 sm:p-10 rounded-xs bg-[#FAF7F2] border border-[#A65F4B]/50 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="max-w-xl space-y-2">
+              <span className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-widest font-bold block">
+                {t("caseStudy.liveDemoBadge")}
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#242222]">
+                {t("caseStudy.liveDemoTitle")}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#242222]/80 leading-relaxed">
+                {t("caseStudy.liveDemoDesc")}
+              </p>
+              <p className="text-[11px] font-mono text-[#242222]/60 pt-1">
+                🔒 {t("caseStudy.liveDemoDisclaimer")}
+              </p>
+            </div>
+
+            <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "case_study_sandbox_banner" });
+                }}
+                className="inline-flex items-center justify-center gap-2 bg-[#A65F4B] text-[#F3EFEA] px-6 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98] shadow-xs"
+              >
+                <span>{t("work.visitLive")}</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           </div>
         )}
 
-        {/* Dynamically Imported Lightbox Modal */}
-        {lightboxIndex !== null && project.galleryImages && (
+        {/* 9. Lightbox Modal */}
+        {lightboxIndex !== null && allImages.length > 0 && (
           <ProjectLightbox
-            images={project.galleryImages}
+            images={allImages}
             currentIndex={lightboxIndex}
             projectName={project.name}
             onClose={() => setLightboxIndex(null)}
             onPrev={() =>
               setLightboxIndex((prev) =>
-                prev !== null && prev > 0 ? prev - 1 : project.galleryImages.length - 1
+                prev !== null && prev > 0 ? prev - 1 : allImages.length - 1
               )
             }
             onNext={() =>
               setLightboxIndex((prev) =>
-                prev !== null ? (prev + 1) % project.galleryImages.length : 0
+                prev !== null ? (prev + 1) % allImages.length : 0
               )
             }
           />
         )}
 
-        {/* Next Project & Case Study Conversion CTA */}
-        <div className="pt-16 border-t border-[#DED6CC] space-y-12">
+        {/* 10. Next Project & Case Study Conversion CTA Banner */}
+        <div className="pt-12 sm:pt-16 border-t border-[#DED6CC] space-y-12">
           
           {/* Editorial Case Study Conversion Banner */}
           <div className="p-8 sm:p-12 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-8 shadow-xl">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-2 max-w-xl">
                 <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-                  {isFr ? "PROCHAINE ÉTAPE" : "NEXT STEPS"}
+                  {t("caseStudy.nextStepsBadge")}
                 </p>
                 <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#F3EFEA]">
-                  {isFr ? "Un projet similaire en tête ?" : "Have a similar project in mind?"}
+                  {t("caseStudy.nextStepsHeading")}
                 </h3>
                 <p className="text-sm sm:text-base text-[#DED6CC]/80 leading-relaxed font-sans">
-                  {isFr ? "Discutons de ce que vous souhaitez créer." : "Let's discuss what you'd like to build."}
+                  {t("caseStudy.nextStepsSubheading")}
                 </p>
               </div>
 
@@ -618,7 +439,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                   }}
                   className="inline-flex items-center justify-center gap-2 bg-[#F3EFEA] text-[#3A171C] px-6 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-white transition-all active:scale-[0.98]"
                 >
-                  <span>{isFr ? "DÉMARRER UN PROJET" : "START A PROJECT"}</span>
+                  <span>{t("caseStudy.startProject")}</span>
                   <ArrowRight className="w-4 h-4 text-[#A65F4B]" />
                 </Link>
               </div>
@@ -627,7 +448,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
             {/* Direct Channel Actions: WhatsApp & Email */}
             <div className="pt-6 border-t border-[#DED6CC]/15 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
               <span className="text-[#DED6CC]/60 uppercase tracking-wider">
-                {isFr ? "Ou contactez-moi directement :" : "Or reach out directly:"}
+                {t("caseStudy.orDirect")}
               </span>
               <div className="flex flex-wrap items-center gap-4 sm:gap-6">
                 <a
@@ -681,10 +502,11 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
               </span>
               <Link
                 href={`/projects/${nextProject.slug}`}
-                className="text-2xl font-bold text-[#242222] hover:text-[#A65F4B] transition-colors inline-flex items-center gap-2"
+                aria-label={`Explore next case study: ${nextProject.name}`}
+                className="text-2xl font-bold text-[#242222] hover:text-[#A65F4B] transition-colors inline-flex items-center gap-2 group"
               >
                 <span>{nextProject.name}</span>
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-5 h-5 text-[#A65F4B] group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>

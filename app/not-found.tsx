@@ -1,6 +1,16 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Page Not Found",
+  description: "The requested page or project case study could not be found.",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function NotFound() {
   return (
