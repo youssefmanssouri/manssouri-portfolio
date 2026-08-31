@@ -39,15 +39,17 @@ export async function POST(request: Request) {
 
     const clientIp = getClientIp(request);
 
-    // 1. Rate Limiting: Max 5 submissions per 15 minutes per IP
-    const { limited, retryAfterSeconds } = checkRateLimit(request, "contact", 5, 15 * 60 * 1000);
-    if (limited) {
+    // 1. Rate Limiting: Max 5 submissions per 15 minutes per IP (Distributed Upstash)
+    const rateLimitResult = await checkRateLimit(request, "contact");
+    if (rateLimitResult.limited) {
       return NextResponse.json(
         { error: "Too many contact requests. Please wait a few minutes before trying again." },
         {
           status: 429,
           headers: {
-            "Retry-After": String(retryAfterSeconds),
+            "Retry-After": String(rateLimitResult.retryAfterSeconds),
+            "X-RateLimit-Limit": String(rateLimitResult.limit),
+            "X-RateLimit-Remaining": String(rateLimitResult.remaining),
           },
         }
       );

@@ -25,10 +25,20 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Payload too large" }, { status: 413 });
     }
 
-    // Rate limit: max 60 tracking requests per minute per IP
-    const { limited } = checkRateLimit(request, "analytics_track", 60, 60 * 1000);
-    if (limited) {
-      return NextResponse.json({ success: false, error: "Rate limit exceeded" }, { status: 429 });
+    // Rate limit: max 60 tracking requests per minute per IP (Distributed Upstash)
+    const rateLimitResult = await checkRateLimit(request, "analytics");
+    if (rateLimitResult.limited) {
+      return NextResponse.json(
+        { success: false, error: "Rate limit exceeded" },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(rateLimitResult.retryAfterSeconds),
+            "X-RateLimit-Limit": String(rateLimitResult.limit),
+            "X-RateLimit-Remaining": String(rateLimitResult.remaining),
+          },
+        }
+      );
     }
 
     await ensureDbSchema();

@@ -41,16 +41,18 @@ export async function POST(request: Request) {
   const clientIp = getClientIp(request);
 
   try {
-    // 1. Rate limiting: 5 attempts per 15 minutes per IP
-    const { limited, retryAfterSeconds } = checkRateLimit(request, "auth_login", 5, 15 * 60 * 1000);
-    if (limited) {
+    // 1. Rate limiting: 5 attempts per 15 minutes per IP (Distributed Upstash)
+    const rateLimitResult = await checkRateLimit(request, "login");
+    if (rateLimitResult.limited) {
       console.warn(`[Security:Auth] Rate limit exceeded for IP: ${clientIp}`);
       return NextResponse.json(
         { error: "Too many login attempts. Please wait 15 minutes before trying again." },
         {
           status: 429,
           headers: {
-            "Retry-After": String(retryAfterSeconds),
+            "Retry-After": String(rateLimitResult.retryAfterSeconds),
+            "X-RateLimit-Limit": String(rateLimitResult.limit),
+            "X-RateLimit-Remaining": String(rateLimitResult.remaining),
           },
         }
       );

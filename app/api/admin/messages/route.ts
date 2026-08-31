@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { getAdminSessionFromCookie } from "@/lib/auth";
 import { validateOrigin, isOversized } from "@/lib/security";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -69,6 +70,22 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: "Unauthorized access." }, { status: 401 });
   }
 
+  // Admin write rate limit (60 ops / 1 min)
+  const rateLimitResult = await checkRateLimit(request, "admin_write", `admin:${session.userId}`);
+  if (rateLimitResult.limited) {
+    return NextResponse.json(
+      { error: "Too many admin requests. Please slow down." },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(rateLimitResult.retryAfterSeconds),
+          "X-RateLimit-Limit": String(rateLimitResult.limit),
+          "X-RateLimit-Remaining": String(rateLimitResult.remaining),
+        },
+      }
+    );
+  }
+
   try {
     let rawBody: any;
     try {
@@ -110,6 +127,22 @@ export async function DELETE(request: Request) {
   const session = await getAdminSessionFromCookie(request);
   if (!session) {
     return NextResponse.json({ error: "Unauthorized access." }, { status: 401 });
+  }
+
+  // Admin write rate limit (60 ops / 1 min)
+  const rateLimitResult = await checkRateLimit(request, "admin_write", `admin:${session.userId}`);
+  if (rateLimitResult.limited) {
+    return NextResponse.json(
+      { error: "Too many admin requests. Please slow down." },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(rateLimitResult.retryAfterSeconds),
+          "X-RateLimit-Limit": String(rateLimitResult.limit),
+          "X-RateLimit-Remaining": String(rateLimitResult.remaining),
+        },
+      }
+    );
   }
 
   try {
