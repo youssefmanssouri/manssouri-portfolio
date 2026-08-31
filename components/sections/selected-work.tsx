@@ -69,6 +69,8 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
     solutionFr: string;
     valueEn: string;
     valueFr: string;
+    scopeIndicatorsEn: { title: string; subtitle: string }[];
+    scopeIndicatorsFr: { title: string; subtitle: string }[];
     keyTechs: string[];
   }> = {
     businessos: {
@@ -78,6 +80,18 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       solutionFr: "Une plateforme d'opérations unifiée intégrant pipeline commercial, facturation détaillée, calendrier de réservation, annuaire RH et trésorerie.",
       valueEn: "Centralizes core business workflows in a single operational workspace, giving teams clearer visibility across day-to-day activity and financial data.",
       valueFr: "Centralise les flux métiers essentiels dans un espace opérationnel unique, offrant aux équipes une visibilité plus claire sur l'activité quotidienne et les données financières.",
+      scopeIndicatorsEn: [
+        { title: "CRM", subtitle: "Client pipeline" },
+        { title: "Invoicing", subtitle: "Billing & quotes" },
+        { title: "Scheduling", subtitle: "Calendar bookings" },
+        { title: "Analytics", subtitle: "Financial telemetry" }
+      ],
+      scopeIndicatorsFr: [
+        { title: "CRM", subtitle: "Pipeline commercial" },
+        { title: "Facturation", subtitle: "Devis & paiements" },
+        { title: "Planification", subtitle: "Réservations & agenda" },
+        { title: "Analyse", subtitle: "Télémétrie financière" }
+      ],
       keyTechs: ["Next.js 15 (App Router)", "TypeScript", "PostgreSQL", "Prisma ORM", "Recharts"]
     },
     "lumiere-parfums": {
@@ -87,6 +101,18 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       solutionFr: "Une boutique en ligne sur mesure avec filtrage par notes olfactives et pyramide de senteurs, panier latéral persistant et gestion des stocks.",
       valueEn: "Makes fragrance discovery easier through structured scent information, clearer product comparison, and a continuous path from browsing to purchase.",
       valueFr: "Facilite la découverte olfactive grâce à des informations de senteur structurées, une comparaison produit plus claire et un parcours continu de la visite à l'achat.",
+      scopeIndicatorsEn: [
+        { title: "Scent Discovery", subtitle: "Accord & note filters" },
+        { title: "Product Storytelling", subtitle: "Scent pyramids" },
+        { title: "Persistent Cart", subtitle: "Slide-out drawer" },
+        { title: "Store Admin", subtitle: "Catalog management" }
+      ],
+      scopeIndicatorsFr: [
+        { title: "Découverte olfactive", subtitle: "Filtres de notes" },
+        { title: "Présentation produit", subtitle: "Pyramides olfactives" },
+        { title: "Panier persistant", subtitle: "Tiroir latéral" },
+        { title: "Administration boutique", subtitle: "Gestion catalogue" }
+      ],
       keyTechs: ["Next.js (App Router)", "TypeScript", "Tailwind CSS", "Persistent Cart", "Responsive UI"]
     },
     "gym-crm": {
@@ -96,6 +122,18 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       solutionFr: "Une application d'exploitation offrant des recherches rapides d'adhérents, des alertes de statut, la gestion des cours et le suivi des revenus.",
       valueEn: "Helps staff manage member check-ins, identify expired memberships, organize class capacity, and monitor recurring revenue data from a centralized interface.",
       valueFr: "Aide l'équipe à gérer les pointages des membres, identifier les forfaits expirés, organiser les jauges de cours et suivre les revenus récurrents depuis une interface centralisée.",
+      scopeIndicatorsEn: [
+        { title: "Member Management", subtitle: "Directory & profiles" },
+        { title: "Check-In", subtitle: "Front-desk terminal" },
+        { title: "Class Scheduling", subtitle: "Capacity matrix" },
+        { title: "Revenue Tracking", subtitle: "Monthly summaries" }
+      ],
+      scopeIndicatorsFr: [
+        { title: "Gestion des adhérents", subtitle: "Fiches & profils" },
+        { title: "Pointage", subtitle: "Borne d'accueil" },
+        { title: "Planification des cours", subtitle: "Jauges & plannings" },
+        { title: "Suivi des revenus", subtitle: "Synthèses mensuelles" }
+      ],
       keyTechs: ["Next.js", "TypeScript", "PostgreSQL", "Prisma ORM", "Role-Based Access"]
     }
   };
@@ -133,6 +171,25 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
             <p className="text-[#DED6CC]/90 text-sm sm:text-base leading-relaxed">
               {shortDesc}
             </p>
+
+            {/* 4 Scope Indicators */}
+            {details && (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+                {(isFr ? details.scopeIndicatorsFr : details.scopeIndicatorsEn).map((ind, iIdx) => (
+                  <div
+                    key={iIdx}
+                    className="p-2.5 rounded-xs border text-left space-y-0.5 bg-[#F3EFEA]/5 border-[#DED6CC]/15"
+                  >
+                    <div className="text-xs font-mono font-bold tracking-tight text-[#F3EFEA]">
+                      {ind.title}
+                    </div>
+                    <div className="text-[10px] leading-tight text-[#DED6CC]/70">
+                      {ind.subtitle}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {details && (
               <div className="p-4 rounded-xs bg-[#F3EFEA]/5 border border-[#DED6CC]/15 text-xs text-[#DED6CC]/85 space-y-2.5 font-sans">
@@ -285,6 +342,25 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
           <p className="text-[#242222]/85 text-sm sm:text-base leading-relaxed">
             {shortDesc}
           </p>
+
+          {/* 4 Scope Indicators */}
+          {details && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+              {(isFr ? details.scopeIndicatorsFr : details.scopeIndicatorsEn).map((ind, iIdx) => (
+                <div
+                  key={iIdx}
+                  className="p-2.5 rounded-xs border text-left space-y-0.5 bg-[#242222]/5 border-[#DED6CC]"
+                >
+                  <div className="text-xs font-mono font-bold tracking-tight text-[#242222]">
+                    {ind.title}
+                  </div>
+                  <div className="text-[10px] leading-tight text-[#242222]/70">
+                    {ind.subtitle}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
           {details && (
             <div className="p-4 rounded-xs bg-[#242222]/5 border border-[#DED6CC] text-xs text-[#242222] space-y-2.5 font-sans">

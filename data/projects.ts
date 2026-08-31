@@ -108,32 +108,32 @@ export const PROJECTS: Project[] = [
     },
     metrics: [
       {
-        value: "7",
-        label: "Core Workflows",
-        labelFr: "Flux Opérationnels",
-        detail: "CRM, Billing, Booking, HR, Finance, Tasks, Inventory",
-        detailFr: "CRM, Facturation, Calendrier, RH, Finance, Tâches, Stocks"
+        value: "CRM",
+        label: "Client Pipeline",
+        labelFr: "Pipeline Commercial",
+        detail: "Lead stages, deal tracking, client records",
+        detailFr: "Statuts de prospection, suivi des opportunités"
       },
       {
-        value: "1",
-        label: "Unified Workspace",
-        labelFr: "Espace Unifié",
-        detail: "Central command center replacing multiple disconnected tools",
-        detailFr: "Centre de commande unique remplaçant les outils séparés"
+        value: "Invoicing",
+        label: "Billing & Quotes",
+        labelFr: "Facturation & Devis",
+        detail: "Itemized invoices, tax calculations, status tracking",
+        detailFr: "Factures détaillées, calculs de TVA, statuts"
       },
       {
-        value: "3",
-        label: "Permission Roles",
-        labelFr: "Niveaux d'Accès",
-        detail: "Admin, Manager, and Staff role-based authorizations",
-        detailFr: "Autorisations par rôle : Admin, Manager et Équipe"
+        value: "Scheduling",
+        label: "Calendar Bookings",
+        labelFr: "Planification",
+        detail: "Appointment reservations, team availability",
+        detailFr: "Réservations clients, planning d'équipe"
       },
       {
-        value: "100%",
-        label: "Safe Sandbox",
-        labelFr: "Démo Sécurisée",
-        detail: "Interactive demo environment with protected data integrity",
-        detailFr: "Environnement de test interactif avec données protégées"
+        value: "Analytics",
+        label: "Financial Telemetry",
+        labelFr: "Télémétrie Financière",
+        detail: "Cash flow trends, revenue charts, activity feeds",
+        detailFr: "Flux de trésorerie, graphiques de revenus"
       }
     ],
     capabilities: [
@@ -283,32 +283,32 @@ export const PROJECTS: Project[] = [
     },
     metrics: [
       {
-        value: "10",
-        label: "Catalog Fragrances",
-        labelFr: "Parfums au Catalogue",
-        detail: "Detailed top, heart, and base olfactory profiles",
+        value: "Discovery",
+        label: "Scent Filtering",
+        labelFr: "Découverte Olfactive",
+        detail: "Olfactory families, accords, notes, gender, price",
+        detailFr: "Familles olfactives, accords, notes, budget"
+      },
+      {
+        value: "Storytelling",
+        label: "Product Detail",
+        labelFr: "Présentation Produit",
+        detail: "Top, heart, and base pyramid note breakdowns",
         detailFr: "Profils détaillés avec notes de tête, cœur et fond"
       },
       {
-        value: "5",
-        label: "Discovery Criteria",
-        labelFr: "Critères de Recherche",
-        detail: "Olfactive families, accords, notes, gender, price",
-        detailFr: "Familles, accords, notes, genre et budget"
-      },
-      {
-        value: "1",
-        label: "Persistent Cart",
+        value: "Cart",
+        label: "Persistent Drawer",
         labelFr: "Panier Persistant",
-        detail: "Preserves customer selections across browsing sessions",
+        detail: "Slide-out cart across page navigation",
         detailFr: "Maintient les sélections du visiteur durant la session"
       },
       {
-        value: "1",
-        label: "Admin Portal",
-        labelFr: "Espace Gestion",
-        detail: "Centralized catalog, pricing, and store data management",
-        detailFr: "Gestion centralisée du catalogue, des prix et des stocks"
+        value: "Admin",
+        label: "Store Control",
+        labelFr: "Administration Boutique",
+        detail: "Catalog pricing and inventory management",
+        detailFr: "Gestion du catalogue, prix et commandes"
       }
     ],
     capabilities: [
@@ -455,32 +455,32 @@ export const PROJECTS: Project[] = [
     },
     metrics: [
       {
-        value: "1",
-        label: "Reception Terminal",
-        labelFr: "Terminal d'Accueil",
-        detail: "Instant member lookup and attendance check-in",
-        detailFr: "Recherche instantanée et pointage d'accueil rapide"
+        value: "Members",
+        label: "Member Management",
+        labelFr: "Gestion des Adhérents",
+        detail: "Profiles with Active, Expired, and Frozen states",
+        detailFr: "Profils et statuts : Actif, Expiré, Suspendu"
       },
       {
-        value: "3",
-        label: "Status Indicators",
-        labelFr: "Alertes Forfaits",
-        detail: "Active, Expired, and Frozen subscription states",
-        detailFr: "Statuts d'adhésion : Actif, Expiré et Suspendu"
+        value: "Check-In",
+        label: "Front-Desk Terminal",
+        labelFr: "Pointage d'Accueil",
+        detail: "Rapid member lookup and attendance logs",
+        detailFr: "Recherche instantanée et historique de pointage"
       },
       {
-        value: "4",
-        label: "Core Modules",
-        labelFr: "Modules Métiers",
-        detail: "Check-ins, member CRM, class schedules, revenue analytics",
-        detailFr: "Pointages, CRM adhérents, plannings, suivi financier"
+        value: "Classes",
+        label: "Capacity Planning",
+        labelFr: "Planning des Cours",
+        detail: "Group class capacity matrix and trainer schedules",
+        detailFr: "Jauges de cours collectifs et plannings"
       },
       {
-        value: "MRR",
-        label: "Revenue Tracking",
-        labelFr: "Suivi Financier",
-        detail: "Monthly recurring revenue and plan distribution",
-        detailFr: "Chiffre d'affaires récurrent et répartition des forfaits"
+        value: "Revenue",
+        label: "Financial Tracking",
+        labelFr: "Suivi des Revenus",
+        detail: "Monthly recurring revenue summaries and metrics",
+        detailFr: "Synthèse des revenus récurrents et métriques"
       }
     ],
     capabilities: [
