@@ -53,57 +53,58 @@
   },
   "capabilities": {
     "badge": "WHAT I BUILD",
+    "itemPrefix": "CAPABILITY",
     "heading": "Practical digital products built around real business workflows.",
-    "subheading": "From your first professional website to a custom business platform, I build practical digital experiences designed around your goals, customers, and day-to-day operations.",
+    "subheading": "From company websites and custom e-commerce storefronts to multi-module business applications and operational dashboards—I turn business requirements into reliable, working digital products.",
     "items": [
       {
         "title": "Business Websites",
-        "description": "Professional, responsive websites that establish credibility, communicate your offer clearly, and turn visitors into inquiries.",
-        "listLabel": "Includes:",
+        "description": "Professional, responsive websites designed around a company's identity, structured content, and clear visitor journey.",
+        "listLabel": "Focus Areas:",
         "features": [
-          "Custom responsive design",
-          "Business/service presentation",
-          "Contact & lead generation",
-          "SEO foundations"
+          "Responsive layouts",
+          "Company presentation",
+          "Structured inquiry flow",
+          "Fast load performance"
         ]
       },
       {
         "title": "E-Commerce Experiences",
-        "description": "Online stores designed to present your products professionally and give customers a smooth path from discovery to purchase.",
-        "listLabel": "Includes:",
+        "description": "Custom storefronts focused on editorial product presentation, attribute discovery filtering, cart workflows, and a smooth path from exploration to purchase.",
+        "listLabel": "Focus Areas:",
         "features": [
-          "Product catalog",
-          "Shopping experience",
-          "Cart & checkout",
-          "Responsive design"
+          "Product catalog & filtering",
+          "Structured discovery",
+          "Persistent cart drawer",
+          "Store administration"
         ]
       },
       {
-        "title": "Custom Business Applications",
-        "description": "Web applications built around the workflows your business actually uses instead of forcing your operations into a generic tool.",
-        "listLabel": "Examples:",
+        "title": "Business Applications",
+        "description": "Custom web applications for operational workflows such as CRM pipelines, itemized invoicing, appointment scheduling, member tracking, and internal administration.",
+        "listLabel": "Focus Areas:",
         "features": [
-          "CRM systems",
-          "Management platforms",
-          "Booking systems",
-          "Internal business tools"
+          "CRM & client records",
+          "Itemized billing & invoicing",
+          "Calendar scheduling",
+          "Role-based access (RBAC)"
         ]
       },
       {
-        "title": "Dashboards & Internal Tools",
-        "description": "Clear operational interfaces that turn business data and repetitive processes into easier, more manageable workflows.",
-        "listLabel": "Examples:",
+        "title": "Data & Analytics",
+        "description": "Operational dashboards, financial metrics, and data interfaces that turn business records and activity into clear visual summaries.",
+        "listLabel": "Focus Areas:",
         "features": [
-          "Analytics dashboards",
-          "Reporting interfaces",
-          "Operational dashboards",
-          "Data management tools"
+          "Financial telemetry (Recharts)",
+          "KPI summary cards",
+          "Relational data modeling",
+          "Interactive filters & charts"
         ]
       }
     ],
     "consultation": {
-      "title": "NOT SURE WHAT YOU NEED?",
-      "text": "Tell me what you're trying to build or improve, and we can define the right solution together.",
+      "title": "HAVE A SPECIFIC REQUIREMENT?",
+      "text": "Whether you need a new website, a tailored business tool, or a custom analytics dashboard—share your operational context and we can define the right approach.",
       "cta": "Start a Project"
     }
   },

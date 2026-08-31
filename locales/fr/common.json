@@ -53,57 +53,58 @@
   },
   "capabilities": {
     "badge": "CE QUE JE DÉVELOPPE",
+    "itemPrefix": "CAPACITÉ",
     "heading": "Des produits digitaux concrets, conçus pour vos opérations réelles.",
-    "subheading": "De votre premier site web professionnel à une application métier complète, je conçois des outils adaptés à vos objectifs, vos utilisateurs et votre quotidien.",
+    "subheading": "Du site d'entreprise à la boutique en ligne sur mesure, jusqu'aux applications de gestion et tableaux de bord opérationnels—je traduis vos besoins en produits digitaux fiables et utilisables.",
     "items": [
       {
         "title": "Sites Web d'Entreprise",
-        "description": "Des sites web professionnels et responsives pour asseoir votre crédibilité, présenter votre offre clairement et convertir les visiteurs en demandes concrètes.",
-        "listLabel": "Inclus :",
+        "description": "Des sites web professionnels et responsives conçus autour de l'identité de votre entreprise, d'un contenu structuré et d'un parcours visiteur clair.",
+        "listLabel": "Domaines clés :",
         "features": [
-          "Design responsive sur mesure",
-          "Présentation de l'activité & des offres",
-          "Formulaires de contact & capture de leads",
-          "Bases SEO & référencement"
+          "Design responsive & soigné",
+          "Présentation de l'activité",
+          "Formulaires de contact clairs",
+          "Performance & accessibilité"
         ]
       },
       {
         "title": "Boutiques E-Commerce",
-        "description": "Des boutiques en ligne conçues pour valoriser vos produits et offrir aux clients un parcours d'achat fluide et rassurant.",
-        "listLabel": "Inclus :",
+        "description": "Des boutiques en ligne sur mesure axées sur la présentation éditoriale des produits, le filtrage par attributs, l'expérience de panier et un parcours fluide vers l'achat.",
+        "listLabel": "Domaines clés :",
         "features": [
-          "Catalogue produits",
-          "Parcours d'achat intuitif",
-          "Panier & processus de commande",
-          "Design responsive optimisé"
+          "Catalogue & filtres avancés",
+          "Découverte produit guidée",
+          "Panier latéral persistant",
+          "Gestion des stocks & commandes"
         ]
       },
       {
-        "title": "Applications Métier sur Mesure",
-        "description": "Des applications web développées sur mesure pour vos flux réels, sans vous contraindre aux limites d'outils génériques.",
-        "listLabel": "Exemples :",
+        "title": "Applications Métier",
+        "description": "Des applications web sur mesure pour structurer vos flux opérationnels : pipeline CRM, facturation détaillée, prise de rendez-vous, suivi des adhérents et administration interne.",
+        "listLabel": "Domaines clés :",
         "features": [
-          "Systèmes CRM",
-          "Plateformes de gestion",
-          "Systèmes de réservation",
-          "Outils métier internes"
+          "Gestion CRM & dossiers clients",
+          "Facturation & devis détaillés",
+          "Réservations & calendrier",
+          "Contrôle d'accès par rôles (RBAC)"
         ]
       },
       {
-        "title": "Tableaux de Bord & Outils Internes",
-        "description": "Des interfaces opérationnelles claires pour transformer les données d'entreprise et les processus répétitifs en flux simples.",
-        "listLabel": "Exemples :",
+        "title": "Données & Tableaux de Bord",
+        "description": "Des tableaux de bord opérationnels, métriques financières et interfaces de données pour centraliser et visualiser clairement l'activité de l'entreprise.",
+        "listLabel": "Domaines clés :",
         "features": [
-          "Tableaux de bord analytiques",
-          "Interfaces de reporting",
-          "Tableaux de bord opérationnels",
-          "Outils de gestion de données"
+          "Télémétrie financière (Recharts)",
+          "Indicateurs de performance (KPI)",
+          "Modélisation relationnelle",
+          "Filtres & graphiques interactifs"
         ]
       }
     ],
     "consultation": {
-      "title": "VOUS HÉSITEZ SUR LA SOLUTION ADAPTÉE ?",
-      "text": "Décrivez-moi ce que vous souhaitez créer ou améliorer, et nous définirons ensemble la solution la plus adaptée.",
+      "title": "VOUS AVEZ UN BESOIN SPÉCIFIQUE ?",
+      "text": "Que vous ayez besoin d'un nouveau site web, d'un outil de gestion sur mesure ou d'un tableau de bord analytique—partagez votre contexte pour définir l'approche adaptée.",
       "cta": "Démarrer un projet"
     }
   },

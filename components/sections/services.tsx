@@ -52,7 +52,7 @@ export function Services() {
                   <div className="flex items-center justify-between border-b border-[#DED6CC]/70 pb-3">
                     <span className="inline-flex items-center gap-2 text-xs font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
                       <Icon className="w-4 h-4 text-[#A65F4B]" aria-hidden="true" />
-                      <span>SERVICE {itemNum}</span>
+                      <span>{t("capabilities.itemPrefix") || "CAPABILITY"} {itemNum}</span>
                     </span>
                     <span className="text-xs font-mono text-[#242222]/40 font-bold">
                       {itemNum}
