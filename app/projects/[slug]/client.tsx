@@ -8,6 +8,7 @@ import { Project } from "@/data/projects";
 import { ArrowLeft, ArrowRight, ExternalLink, Mail, ShieldCheck, Layers, Eye } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
+import { CaseStudyNav } from "@/components/projects/case-study-nav";
 
 const ProjectLightbox = dynamic(
   () => import("@/components/projects/project-lightbox"),
@@ -70,8 +71,11 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
   }, [lightboxIndex, allImages.length]);
 
   return (
-    <article className="min-h-screen pt-28 sm:pt-36 pb-20 sm:pb-28 bg-[#F3EFEA] text-[#242222]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+    <article className="min-h-screen pt-24 sm:pt-28 pb-20 sm:pb-28 bg-[#F3EFEA] text-[#242222]">
+      {/* Sticky Table of Contents Sub-Navigation */}
+      <CaseStudyNav hasLiveDemo={project.hasLiveDemo && Boolean(project.liveUrl)} />
+
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 space-y-12 sm:space-y-16">
         
         {/* 1. Back Link */}
         <div>
@@ -84,103 +88,106 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
           </Link>
         </div>
 
-        {/* 2. Case Study Header & Action Bar */}
-        <div className="space-y-4 pb-8 border-b border-[#DED6CC]">
-          <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-            <span>{category}</span>
-            <span>·</span>
-            <span className="text-[#242222]/60 font-medium lowercase tracking-normal">{role}</span>
-          </div>
+        {/* Section 1: Overview */}
+        <section id="overview" className="scroll-mt-36 space-y-12 sm:space-y-16">
+          {/* Case Study Header & Action Bar */}
+          <div className="space-y-4 pb-8 border-b border-[#DED6CC]">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+              <span>{category}</span>
+              <span>·</span>
+              <span className="text-[#242222]/60 font-medium lowercase tracking-normal">{role}</span>
+            </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#242222] leading-[1.15]">
-            {project.name}
-          </h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#242222] leading-[1.15]">
+              {project.name}
+            </h1>
 
-          <p className="text-[#242222]/85 text-base sm:text-lg max-w-3xl leading-relaxed">
-            {shortDesc}
-          </p>
+            <p className="text-[#242222]/85 text-base sm:text-lg max-w-3xl leading-relaxed">
+              {shortDesc}
+            </p>
 
-          {/* Action CTAs: Live Demo (Primary) vs GitHub (Secondary) */}
-          <div className="flex flex-wrap items-center gap-3 pt-3">
-            {project.hasLiveDemo && project.liveUrl && (
+            {/* Action CTAs: Live Demo (Primary) vs GitHub (Secondary) */}
+            <div className="flex flex-wrap items-center gap-3 pt-3">
+              {project.hasLiveDemo && project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "case_study_top" });
+                  }}
+                  className="inline-flex items-center gap-2 bg-[#A65F4B] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+                >
+                  <span>{t("work.visitLive")}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
+
               <a
-                href={project.liveUrl}
+                href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
-                  trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "case_study_top" });
+                  trackEvent("GITHUB_CLICK", { slug: project.slug, source: "case_study_top" });
                 }}
-                className="inline-flex items-center gap-2 bg-[#A65F4B] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+                className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
               >
-                <span>{t("work.visitLive")}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <span>{t("work.github")}</span>
               </a>
-            )}
-
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => {
-                trackEvent("GITHUB_CLICK", { slug: project.slug, source: "case_study_top" });
-              }}
-              className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
-            >
-              <span>{t("work.github")}</span>
-            </a>
-          </div>
-        </div>
-
-        {/* 3. Product Scope Strip */}
-        {project.metrics && project.metrics.length > 0 && (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] shadow-xs">
-            {project.metrics.map((m, idx) => (
-              <div key={idx} className="space-y-1.5 border-l-2 border-[#A65F4B] pl-3.5 break-words">
-                <div className="text-2xl sm:text-3xl font-bold font-mono text-[#3A171C] leading-none">
-                  {m.value}
-                </div>
-                <div className="text-xs font-bold text-[#242222]">
-                  {isFr ? m.labelFr : m.label}
-                </div>
-                {(m.detail || m.detailFr) && (
-                  <div className="text-[11px] text-[#242222]/70 leading-snug">
-                    {isFr ? m.detailFr : m.detail}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* 4. Primary Hero Visual Showcase */}
-        <div className="space-y-2">
-          <button
-            type="button"
-            onClick={() => handleOpenLightboxBySrc(project.heroImage)}
-            className="w-full text-left relative aspect-[16/10] sm:aspect-[16/9] rounded-xs overflow-hidden border border-[#DED6CC] bg-[#3A171C] shadow-lg group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] cursor-pointer"
-            aria-label={`${project.name} main interface preview - ${t("caseStudy.expandImage")}`}
-          >
-            <Image
-              src={project.heroImage}
-              alt={`${project.name} primary interface showcase`}
-              fill
-              className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
-              priority
-              sizes="(max-width: 1280px) 100vw, 1280px"
-            />
-            <div className="absolute bottom-3 right-3 px-2.5 py-1.5 rounded-xs bg-[#3A171C]/80 backdrop-blur-xs text-[#F3EFEA] text-[11px] font-mono flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
-              <Eye className="w-3.5 h-3.5 text-[#A65F4B]" />
-              <span>{t("caseStudy.expandImage")}</span>
             </div>
-          </button>
-        </div>
+          </div>
 
-        {/* 5. The Business Problem vs The Solution (2-Column Editorial Grid) */}
-        <div className="space-y-6 pt-4 border-t border-[#DED6CC]">
+          {/* Product Scope Strip */}
+          {project.metrics && project.metrics.length > 0 && (
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] shadow-xs">
+              {project.metrics.map((m, idx) => (
+                <div key={idx} className="space-y-1.5 border-l-2 border-[#A65F4B] pl-3.5 break-words">
+                  <div className="text-2xl sm:text-3xl font-bold font-mono text-[#3A171C] leading-none">
+                    {m.value}
+                  </div>
+                  <div className="text-xs font-bold text-[#242222]">
+                    {isFr ? m.labelFr : m.label}
+                  </div>
+                  {(m.detail || m.detailFr) && (
+                    <div className="text-[11px] text-[#242222]/70 leading-snug">
+                      {isFr ? m.detailFr : m.detail}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Primary Hero Visual Showcase */}
+          <div className="space-y-2">
+            <button
+              type="button"
+              onClick={() => handleOpenLightboxBySrc(project.heroImage)}
+              className="w-full text-left relative aspect-[16/10] sm:aspect-[16/9] rounded-xs overflow-hidden border border-[#DED6CC] bg-[#3A171C] shadow-lg group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] cursor-pointer"
+              aria-label={`${project.name} main interface preview - ${t("caseStudy.expandImage")}`}
+            >
+              <Image
+                src={project.heroImage}
+                alt={`${project.name} primary interface showcase`}
+                fill
+                className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
+                priority
+                sizes="(max-width: 1280px) 100vw, 1280px"
+              />
+              <div className="absolute bottom-3 right-3 px-2.5 py-1.5 rounded-xs bg-[#3A171C]/80 backdrop-blur-xs text-[#F3EFEA] text-[11px] font-mono flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                <Eye className="w-3.5 h-3.5 text-[#A65F4B]" />
+                <span>{t("caseStudy.expandImage")}</span>
+              </div>
+            </button>
+          </div>
+        </section>
+
+        {/* Section 2 & 3: The Business Problem vs The Solution (2-Column Editorial Grid) */}
+        <section className="space-y-6 pt-4 border-t border-[#DED6CC]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
             
             {/* The Business Challenge Card */}
-            <div className="p-6 sm:p-8 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] space-y-3.5 flex flex-col justify-between shadow-xs">
+            <div id="problem" className="scroll-mt-36 p-6 sm:p-8 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] space-y-3.5 flex flex-col justify-between shadow-xs">
               <div className="space-y-3">
                 <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
                   01 / {t("caseStudy.challengeTitle")}
@@ -195,7 +202,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
             </div>
 
             {/* The Solution Card */}
-            <div className="p-6 sm:p-8 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3.5 flex flex-col justify-between shadow-md">
+            <div id="solution" className="scroll-mt-36 p-6 sm:p-8 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3.5 flex flex-col justify-between shadow-md">
               <div className="space-y-3">
                 <div className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
                   02 / {t("caseStudy.solutionTitle")}
@@ -210,10 +217,10 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
             </div>
 
           </div>
-        </div>
+        </section>
 
-        {/* 6. Core Capabilities & Contextual Visual Walkthrough */}
-        <div className="space-y-10 pt-8 border-t border-[#DED6CC]">
+        {/* Section 4: Core Capabilities & Contextual Visual Walkthrough */}
+        <section id="capabilities" className="scroll-mt-36 space-y-10 pt-8 border-t border-[#DED6CC]">
           <div className="max-w-2xl space-y-2">
             <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
               03 / {t("caseStudy.capabilitiesBadge")}
@@ -299,11 +306,11 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
               );
             })}
           </div>
-        </div>
+        </section>
 
-        {/* 7. Engineering Foundation & Architecture */}
+        {/* Section 5: Engineering Foundation & Architecture */}
         {project.engineeringPoints && project.engineeringPoints.length > 0 && (
-          <div className="space-y-8 pt-8 border-t border-[#DED6CC]">
+          <section id="engineering" className="scroll-mt-36 space-y-8 pt-8 border-t border-[#DED6CC]">
             <div className="max-w-2xl space-y-2">
               <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
                 04 / {t("caseStudy.engineeringBadge")}
@@ -351,42 +358,44 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 ))}
               </div>
             </div>
-          </div>
+          </section>
         )}
 
-        {/* 8. Live Sandbox Demo Invitation */}
+        {/* Section 6: Live Sandbox Demo Invitation */}
         {project.hasLiveDemo && project.liveUrl && (
-          <div className="p-8 sm:p-10 rounded-xs bg-[#FAF7F2] border border-[#A65F4B]/50 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="max-w-xl space-y-2">
-              <span className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-widest font-bold block">
-                {t("caseStudy.liveDemoBadge")}
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#242222]">
-                {t("caseStudy.liveDemoTitle")}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#242222]/80 leading-relaxed">
-                {t("caseStudy.liveDemoDesc")}
-              </p>
-              <p className="text-[11px] font-mono text-[#242222]/60 pt-1">
-                🔒 {t("caseStudy.liveDemoDisclaimer")}
-              </p>
-            </div>
+          <section id="demo" className="scroll-mt-36">
+            <div className="p-8 sm:p-10 rounded-xs bg-[#FAF7F2] border border-[#A65F4B]/50 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="max-w-xl space-y-2">
+                <span className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-widest font-bold block">
+                  {t("caseStudy.liveDemoBadge")}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#242222]">
+                  {t("caseStudy.liveDemoTitle")}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#242222]/80 leading-relaxed">
+                  {t("caseStudy.liveDemoDesc")}
+                </p>
+                <p className="text-[11px] font-mono text-[#242222]/60 pt-1">
+                  🔒 {t("caseStudy.liveDemoDisclaimer")}
+                </p>
+              </div>
 
-            <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
-                  trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "case_study_sandbox_banner" });
-                }}
-                className="inline-flex items-center justify-center gap-2 bg-[#A65F4B] text-[#F3EFEA] px-6 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98] shadow-xs"
-              >
-                <span>{t("work.visitLive")}</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
+              <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    trackEvent("LIVE_DEMO_CLICK", { slug: project.slug, name: project.name, source: "case_study_sandbox_banner" });
+                  }}
+                  className="inline-flex items-center justify-center gap-2 bg-[#A65F4B] text-[#F3EFEA] px-6 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-[0.98] shadow-xs"
+                >
+                  <span>{t("work.visitLive")}</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
             </div>
-          </div>
+          </section>
         )}
 
         {/* 9. Lightbox Modal */}

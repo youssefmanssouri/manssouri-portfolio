@@ -27,6 +27,15 @@
     "github": "Code source GitHub ↗"
   },
   "caseStudy": {
+    "nav": {
+      "ariaLabel": "Sections de l'étude de cas",
+      "overview": "Présentation",
+      "problem": "Le Défi",
+      "solution": "La Solution",
+      "capabilities": "Fonctionnalités",
+      "engineering": "Ingénierie",
+      "demo": "Démo Live"
+    },
     "overview": "Présentation du projet",
     "challengeTitle": "Le Problème Métier",
     "solutionTitle": "La Solution",

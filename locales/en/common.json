@@ -27,6 +27,15 @@
     "github": "GitHub ↗"
   },
   "caseStudy": {
+    "nav": {
+      "ariaLabel": "Case study sections",
+      "overview": "Overview",
+      "problem": "The Problem",
+      "solution": "The Solution",
+      "capabilities": "Capabilities",
+      "engineering": "Engineering",
+      "demo": "Live Demo"
+    },
     "overview": "Overview",
     "challengeTitle": "The Business Problem",
     "solutionTitle": "The Solution",
