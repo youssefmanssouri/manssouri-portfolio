@@ -263,6 +263,7 @@
       "submitting": "Envoi en cours...",
       "successTitle": "Message reçu.",
       "successMessage": "Merci pour votre prise de contact. Les détails de votre projet ont bien été reçus.",
+      "sendAnother": "Envoyer un autre message",
       "errorTitle": "Une erreur est survenue.",
       "errorMessage": "Le formulaire n'a pas pu être envoyé. Vous pouvez me contacter directement à manssouriyoussef33@gmail.com."
     },

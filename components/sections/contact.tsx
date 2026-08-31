@@ -76,6 +76,17 @@ export function Contact() {
       if (response.ok && resData.success) {
         trackEvent("FORM_SUBMIT_SUCCESS", { source: "contact_form", projectType: formData.projectType });
         setStatus("success");
+        // Reset form data only on confirmed success
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          projectType: "",
+          budget: "",
+          message: "",
+          website_confirm: "",
+        });
+        setErrors({});
       } else {
         setServerErrorMsg(resData.error || t("contact.form.errorMessage"));
         setStatus("error");
@@ -126,7 +137,7 @@ export function Contact() {
           {/* Form Side (Primary) */}
           <div className="lg:col-span-7">
             {status === "success" ? (
-              <div className="p-8 rounded-xs bg-[#F3EFEA] border border-[#DED6CC] text-center space-y-4 shadow-sm">
+              <div className="p-8 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] text-center space-y-4 shadow-sm">
                 <div className="w-12 h-12 rounded-full bg-[#A65F4B]/15 border border-[#A65F4B] flex items-center justify-center mx-auto text-[#A65F4B]">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
@@ -135,10 +146,12 @@ export function Contact() {
                   {t("contact.form.successMessage")}
                 </p>
                 <button
+                  type="button"
                   onClick={handleReset}
-                  className="mt-4 text-xs font-mono text-[#A65F4B] hover:underline uppercase tracking-wider font-semibold cursor-pointer"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-mono text-[#A65F4B] hover:text-[#3A171C] hover:underline uppercase tracking-wider font-semibold cursor-pointer"
                 >
-                  {language === "fr" ? "Envoyer un autre message" : "Send Another Inquiry"}
+                  <span>{t("contact.form.sendAnother") || (language === "fr" ? "Envoyer un autre message" : "Send Another Inquiry")}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             ) : (

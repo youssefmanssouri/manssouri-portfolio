@@ -263,6 +263,7 @@
       "submitting": "Sending Inquiry...",
       "successTitle": "Message received.",
       "successMessage": "Thanks for reaching out. Your project details have been received.",
+      "sendAnother": "Send Another Inquiry",
       "errorTitle": "Something went wrong.",
       "errorMessage": "The form couldn't be submitted. Please try again or reach out directly at manssouriyoussef33@gmail.com."
     },
