@@ -2,15 +2,18 @@ import { PrismaClient } from "@prisma/client";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
+  schemaEnsured?: boolean;
 };
 
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
-    log: process.env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
+    log: process.env.NODE_ENV === "development" ? ["error", "warn"] : ["error"],
   });
 
 export async function ensureDbSchema() {
+  if (globalForPrisma.schemaEnsured) return;
+
   try {
     const dbUrl = process.env.DATABASE_URL || "";
     const isPostgres = dbUrl.startsWith("postgres://") || dbUrl.startsWith("postgresql://");
@@ -31,18 +34,7 @@ export async function ensureDbSchema() {
         "updatedAt" ${dateTimeType} NOT NULL DEFAULT CURRENT_TIMESTAMP
       );
     `);
-    await prisma.$executeRawUnsafe(`
-      CREATE TABLE IF NOT EXISTS "AdminUser" (
-        "id" TEXT NOT NULL PRIMARY KEY,
-        "email" TEXT NOT NULL UNIQUE,
-        "passwordHash" TEXT NOT NULL,
-        "name" TEXT NOT NULL,
-        "role" TEXT NOT NULL DEFAULT 'ADMIN',
-        "createdAt" ${dateTimeType} NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        "updatedAt" ${dateTimeType} NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        "lastLoginAt" ${dateTimeType}
-      );
-    `);
+
     await prisma.$executeRawUnsafe(`
       CREATE TABLE IF NOT EXISTS "AnalyticsEvent" (
         "id" TEXT NOT NULL PRIMARY KEY,
@@ -53,10 +45,13 @@ export async function ensureDbSchema() {
         "createdAt" ${dateTimeType} NOT NULL DEFAULT CURRENT_TIMESTAMP
       );
     `);
+
+    globalForPrisma.schemaEnsured = true;
   } catch (err) {
     console.warn("[Prisma Schema Init Notice]", err);
   }
 }
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
-
+if (process.env.NODE_ENV !== "production") {
+  globalForPrisma.prisma = prisma;
+}

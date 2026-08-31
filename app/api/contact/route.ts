@@ -42,10 +42,15 @@ export async function POST(request: Request) {
       );
     }
 
-    const body = await request.json();
+    let rawBody: any;
+    try {
+      rawBody = await request.json();
+    } catch {
+      return NextResponse.json({ error: "Invalid JSON request body." }, { status: 400 });
+    }
 
     // 2. Server-side Zod Validation
-    const validationResult = contactSchema.safeParse(body);
+    const validationResult = contactSchema.safeParse(rawBody);
     if (!validationResult.success) {
       const firstError = validationResult.error.issues[0]?.message || "Invalid contact form input.";
       return NextResponse.json({ error: firstError }, { status: 400 });
@@ -106,9 +111,9 @@ export async function POST(request: Request) {
       submittedAt: storedMessage.createdAt,
     });
 
-    // 7. Track analytics event non-blockingly
-    prisma.analyticsEvent
-      .create({
+    // 7. Track analytics event safely (isolated)
+    try {
+      await prisma.analyticsEvent.create({
         data: {
           event: "CONTACT_SUBMIT",
           path: "/#contact",
@@ -120,8 +125,10 @@ export async function POST(request: Request) {
             provider: notificationResult.provider || "none",
           }),
         },
-      })
-      .catch(() => {});
+      });
+    } catch {
+      // Analytics failure is non-blocking
+    }
 
     // 8. Reliability Guard: If both persistence AND notification failed, report error to user
     if (!storageResult.persisted && !notificationResult.delivered) {
