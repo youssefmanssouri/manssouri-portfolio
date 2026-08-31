@@ -158,6 +158,34 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
             </div>
           )}
 
+          {/* Personal Ownership & Build Scope Card */}
+          {((isFr ? project.buildScopeFr : project.buildScopeEn) || project.features) && (
+            <div className="p-6 sm:p-8 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] shadow-xs space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#DED6CC] pb-3">
+                <div className="space-y-0.5">
+                  <span className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-widest font-bold block">
+                    {t("caseStudy.buildScopeBadge")}
+                  </span>
+                  <h2 className="text-lg sm:text-xl font-bold text-[#242222] tracking-tight">
+                    {t("caseStudy.buildScopeTitle")}
+                  </h2>
+                </div>
+                <span className="inline-flex items-center px-2.5 py-1 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/15 text-[11px] font-mono text-[#3A171C] font-semibold">
+                  {t("caseStudy.buildScopeRole")}
+                </span>
+              </div>
+
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                {((isFr ? project.buildScopeFr : project.buildScopeEn) || (isFr ? project.featuresFr : project.features)).map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#242222]/90 leading-relaxed font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#A65F4B] mt-2 shrink-0" aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {/* Primary Hero Visual Showcase */}
           <div className="space-y-2">
             <button
@@ -341,29 +369,140 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
               ))}
             </div>
 
-            {/* Technologies Strip */}
-            <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3.5 shadow-md">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#A65F4B] uppercase tracking-wider font-bold">
-                <Layers className="w-4 h-4 text-[#A65F4B]" />
-                <span>{t("caseStudy.technologies")}</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 text-[#F3EFEA] font-mono text-xs"
-                  >
-                    {tech}
+            {/* Technologies Strip with Functional Implementation Purpose */}
+            {project.techStackDetails && project.techStackDetails.length > 0 ? (
+              <div className="p-6 sm:p-8 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-4 shadow-md">
+                <div className="flex items-center justify-between border-b border-[#DED6CC]/20 pb-3">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#A65F4B] uppercase tracking-wider font-bold">
+                    <Layers className="w-4 h-4 text-[#A65F4B]" />
+                    <span>{t("caseStudy.technologies")}</span>
+                  </div>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#DED6CC]/60 hidden sm:inline">
+                    {t("caseStudy.techPurposeBadge")}
                   </span>
-                ))}
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {project.techStackDetails.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3.5 rounded-xs bg-[#F3EFEA]/5 border border-[#DED6CC]/15 space-y-1"
+                    >
+                      <div className="text-xs font-mono font-bold text-[#F3EFEA]">
+                        {item.tech}
+                      </div>
+                      <div className="text-[11px] text-[#DED6CC]/75 leading-snug">
+                        {isFr ? item.purposeFr : item.purposeEn}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="p-6 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3.5 shadow-md">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#A65F4B] uppercase tracking-wider font-bold">
+                  <Layers className="w-4 h-4 text-[#A65F4B]" />
+                  <span>{t("caseStudy.technologies")}</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 rounded-xs bg-[#F3EFEA]/10 border border-[#DED6CC]/20 text-[#F3EFEA] font-mono text-xs"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </section>
         )}
 
-        {/* Section 6: Live Sandbox Demo Invitation */}
-        {project.hasLiveDemo && project.liveUrl && (
-          <section id="demo" className="scroll-mt-36">
+        {/* Section 6: Live Sandbox Demo & Verifiable Proof */}
+        <section id="demo" className="scroll-mt-36 space-y-8">
+          
+          {/* Verifiable Product Proof Micro-Strip */}
+          <div className="p-6 sm:p-8 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] shadow-xs space-y-4">
+            <div className="flex items-center justify-between border-b border-[#DED6CC] pb-3">
+              <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                {t("caseStudy.proofBadge")}
+              </span>
+              <span className="text-[11px] font-mono text-[#242222]/60 hidden sm:inline">
+                {t("caseStudy.proofTitle")}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
+              {/* Live Product */}
+              {project.hasLiveDemo && project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-xs bg-white border border-[#DED6CC] hover:border-[#A65F4B] transition-colors group space-y-1 block shadow-2xs"
+                >
+                  <div className="flex items-center justify-between text-xs font-mono font-bold text-[#242222]">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      <span>{t("caseStudy.proofLiveProduct")}</span>
+                    </div>
+                    <ExternalLink className="w-3.5 h-3.5 text-[#A65F4B] group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                  <p className="text-[11px] text-[#242222]/70 leading-snug">
+                    {t("caseStudy.proofLiveProductDesc")}
+                  </p>
+                </a>
+              ) : (
+                <div className="p-3.5 rounded-xs bg-white border border-[#DED6CC] space-y-1 shadow-2xs">
+                  <div className="text-xs font-mono font-bold text-[#242222]">
+                    {t("caseStudy.proofLiveProduct")}
+                  </div>
+                  <p className="text-[11px] text-[#242222]/70 leading-snug">
+                    {t("caseStudy.proofLiveProductDesc")}
+                  </p>
+                </div>
+              )}
+
+              {/* Source Code */}
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xs bg-white border border-[#DED6CC] hover:border-[#A65F4B] transition-colors group space-y-1 block shadow-2xs"
+              >
+                <div className="flex items-center justify-between text-xs font-mono font-bold text-[#242222]">
+                  <span>{t("caseStudy.proofSourceCode")}</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#A65F4B] group-hover:translate-x-0.5 transition-transform" />
+                </div>
+                <p className="text-[11px] text-[#242222]/70 leading-snug">
+                  {t("caseStudy.proofSourceCodeDesc")}
+                </p>
+              </a>
+
+              {/* Multi-Device Responsive */}
+              <div className="p-3.5 rounded-xs bg-white border border-[#DED6CC] space-y-1 shadow-2xs">
+                <div className="text-xs font-mono font-bold text-[#242222]">
+                  {t("caseStudy.proofResponsive")}
+                </div>
+                <p className="text-[11px] text-[#242222]/70 leading-snug">
+                  {t("caseStudy.proofResponsiveDesc")}
+                </p>
+              </div>
+
+              {/* Built From Scratch */}
+              <div className="p-3.5 rounded-xs bg-white border border-[#DED6CC] space-y-1 shadow-2xs">
+                <div className="text-xs font-mono font-bold text-[#242222]">
+                  {t("caseStudy.proofFromScratch")}
+                </div>
+                <p className="text-[11px] text-[#242222]/70 leading-snug">
+                  {t("caseStudy.proofFromScratchDesc")}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Live Sandbox Demo Invitation */}
+          {project.hasLiveDemo && project.liveUrl && (
             <div className="p-8 sm:p-10 rounded-xs bg-[#FAF7F2] border border-[#A65F4B]/50 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="max-w-xl space-y-2">
                 <span className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-widest font-bold block">
@@ -395,8 +534,8 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 </a>
               </div>
             </div>
-          </section>
-        )}
+          )}
+        </section>
 
         {/* 9. Lightbox Modal */}
         {lightboxIndex !== null && allImages.length > 0 && (

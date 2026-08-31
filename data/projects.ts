@@ -37,6 +37,12 @@ export interface EngineeringPoint {
   descFr: string;
 }
 
+export interface TechStackDetail {
+  tech: string;
+  purposeEn: string;
+  purposeFr: string;
+}
+
 export interface Project {
   id: string;
   slug: string;
@@ -62,6 +68,9 @@ export interface Project {
   capabilities: ProjectCapability[];
   engineeringPoints: EngineeringPoint[];
   technologies: string[];
+  techStackDetails?: TechStackDetail[];
+  buildScopeEn?: string[];
+  buildScopeFr?: string[];
   features: string[];
   featuresFr: string[];
   heroImage: string;
@@ -221,6 +230,47 @@ export const PROJECTS: Project[] = [
       "Server Actions",
       "Recharts Analytics",
       "Zod Validation"
+    ],
+    techStackDetails: [
+      {
+        tech: "Next.js 15 (App Router)",
+        purposeEn: "Full-stack server/client component architecture and optimized routing",
+        purposeFr: "Architecture full-stack composants serveur/client et routage optimisé"
+      },
+      {
+        tech: "TypeScript 5.7",
+        purposeEn: "Strict type definitions for business entities, state, and mutations",
+        purposeFr: "Typage strict des entités métiers, des formulaires et des états applicatifs"
+      },
+      {
+        tech: "PostgreSQL & Prisma ORM",
+        purposeEn: "Relational database schema with relational models and cascading constraints",
+        purposeFr: "Base de données relationnelle et requêtes typées avec contraintes d'intégrité"
+      },
+      {
+        tech: "Tailwind CSS",
+        purposeEn: "Custom responsive command-center interface and unified tokens",
+        purposeFr: "Système de design sur mesure et interface responsive pour centre de commande"
+      },
+      {
+        tech: "Recharts Analytics",
+        purposeEn: "Interactive financial trends, pipeline metrics, and telemetry charts",
+        purposeFr: "Graphiques interactifs de flux financiers et de progression commerciale"
+      }
+    ],
+    buildScopeEn: [
+      "Multi-module business operations architecture (CRM, Invoicing, Bookings, HR, Cash Flow)",
+      "Relational PostgreSQL database schema with Prisma ORM",
+      "Interactive financial telemetry & cash flow visualization with Recharts",
+      "Role-based access control (Admin, Manager, Staff) with server-side validation",
+      "Protected interactive sandbox with simulated enterprise data and mutation guards"
+    ],
+    buildScopeFr: [
+      "Architecture logicielle multi-modules (CRM, Facturation, Réservations, RH, Trésorerie)",
+      "Modèle de données relationnel PostgreSQL structuré avec Prisma ORM",
+      "Visualisation interactive de télémétrie financière et trésorerie (Recharts)",
+      "Structure de contrôle d'accès par rôle (Admin, Manager, Équipe) et validation serveur",
+      "Environnement de test interactif avec protection des écritures serveur et données de démo"
     ],
     features: [
       "Executive Dashboard with live revenue KPIs, activity logs, and Recharts telemetry",
@@ -394,6 +444,42 @@ export const PROJECTS: Project[] = [
       "React 19",
       "LocalStorage Persistence"
     ],
+    techStackDetails: [
+      {
+        tech: "Next.js (App Router)",
+        purposeEn: "High-performance storefront routing and metadata handling",
+        purposeFr: "Routage haute performance et structure de boutique"
+      },
+      {
+        tech: "TypeScript",
+        purposeEn: "Type-safe product catalog models, cart items, and olfactory structures",
+        purposeFr: "Typage sécurisé du catalogue, des articles du panier et des notes"
+      },
+      {
+        tech: "Tailwind CSS",
+        purposeEn: "Bespoke luxury editorial aesthetic, typography, and responsive grid",
+        purposeFr: "Direction artistique éditoriale et mise en page responsive"
+      },
+      {
+        tech: "LocalStorage Persistence",
+        purposeEn: "Seamless client-side cart retention across browsing sessions",
+        purposeFr: "Maintien de session fluide pour le panier client"
+      }
+    ],
+    buildScopeEn: [
+      "Custom e-commerce storefront with luxury brand storytelling layout",
+      "Multi-criteria fragrance discovery engine (olfactory families, accords, notes, gender)",
+      "Interactive scent pyramid breakdowns (top, heart, and base notes)",
+      "Client-side persistent slide-out shopping cart across browsing sessions",
+      "Store management dashboard for catalog pricing and inventory administration"
+    ],
+    buildScopeFr: [
+      "Boutique e-commerce sur mesure et mise en valeur éditoriale de la marque",
+      "Moteur de recherche multicritère (familles olfactives, accords, notes, genre)",
+      "Décomposition interactive des pyramides olfactives (notes de tête, cœur et fond)",
+      "Panier d'achat latéral persistant avec maintien de session sans rechargement",
+      "Interface d'administration pour la gestion du catalogue, des prix et des stocks"
+    ],
     features: [
       "Dynamic fragrance catalog with multi-attribute olfactive notes & accords filtering",
       "Editorial product presentations with top, heart, and base scent pyramid breakdowns",
@@ -565,6 +651,42 @@ export const PROJECTS: Project[] = [
       "Tailwind CSS",
       "Prisma ORM",
       "PostgreSQL"
+    ],
+    techStackDetails: [
+      {
+        tech: "Next.js",
+        purposeEn: "Front-desk operations portal with responsive views",
+        purposeFr: "Portail d'exploitation et interface d'accueil réactive"
+      },
+      {
+        tech: "TypeScript",
+        purposeEn: "Strict data typing for member profiles, attendance logs, and class rosters",
+        purposeFr: "Typage rigoureux des profils adhérents, pointages et cours"
+      },
+      {
+        tech: "PostgreSQL & Prisma ORM",
+        purposeEn: "Structured member records, plan tiers, and booking capacity models",
+        purposeFr: "Modélisation des adhérents, forfaits et jauges de cours"
+      },
+      {
+        tech: "Tailwind CSS",
+        purposeEn: "High-contrast front-desk terminal UI and quick status indicators",
+        purposeFr: "Interface d'accueil à fort contraste et indicateurs de statut visuels"
+      }
+    ],
+    buildScopeEn: [
+      "Reception desk attendance check-in terminal with instant search",
+      "Member directory with Active, Expired, and Frozen subscription badges",
+      "Group class scheduling matrix with trainer allocations & attendee capacity",
+      "Monthly recurring revenue (MRR) summaries & membership tier breakdown",
+      "Role-based operations interface designed for front-desk and management staff"
+    ],
+    buildScopeFr: [
+      "Borne de pointage d'accueil avec recherche instantanée d'adhérents",
+      "Annuaire des membres avec alertes visuelles (Actif, Expiré, Suspendu)",
+      "Grille de planification des cours collectifs avec jauges et affectation coachs",
+      "Suivi du chiffre d'affaires récurrent mensuel (MRR) et répartition des forfaits",
+      "Interface d'exploitation structurée pour le personnel d'accueil et la direction"
     ],
     features: [
       "Rapid ID & member name search for front-desk reception check-ins",
