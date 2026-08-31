@@ -1,6 +1,8 @@
 /**
- * Lightweight in-memory rate limiter for Next.js App Router / Vercel Serverless.
- * No external dependencies, no database persistence, zero raw IP storage.
+ * Production-minded rate limiter for Next.js App Router / Vercel Serverless.
+ * Prioritizes trusted edge headers (x-vercel-ip, x-real-ip) over untrusted client headers.
+ * Note: Uses per-instance in-memory cache; under horizontal multi-region serverless scaling,
+ * limits apply per runtime isolate.
  */
 
 interface RateLimitEntry {
@@ -10,7 +12,7 @@ interface RateLimitEntry {
 
 const rateLimitMap = new Map<string, RateLimitEntry>();
 
-// Cleanup expired entries every 5 minutes to prevent memory leaks
+// Cleanup expired entries periodically to prevent memory leaks
 if (typeof setInterval !== "undefined") {
   setInterval(() => {
     const now = Date.now();
@@ -23,18 +25,26 @@ if (typeof setInterval !== "undefined") {
 }
 
 /**
- * Extracts client IP address from proxy headers (x-forwarded-for, x-real-ip) safely.
+ * Extracts client IP address safely, prioritizing trusted edge infrastructure headers.
  */
 export function getClientIp(request: Request): string {
+  // 1. Vercel trusted edge IP header (injected by Vercel edge router, cannot be spoofed by client)
+  const vercelIp = request.headers.get("x-vercel-ip") || request.headers.get("x-vercel-forwarded-for");
+  if (vercelIp && vercelIp.trim()) {
+    return vercelIp.split(",")[0].trim();
+  }
+
+  // 2. Real IP from trusted reverse proxy
+  const xRealIp = request.headers.get("x-real-ip");
+  if (xRealIp && xRealIp.trim()) {
+    return xRealIp.trim();
+  }
+
+  // 3. Fallback standard Forwarded headers
   const xForwardedFor = request.headers.get("x-forwarded-for");
   if (xForwardedFor) {
     const firstIp = xForwardedFor.split(",")[0].trim();
     if (firstIp) return firstIp;
-  }
-
-  const xRealIp = request.headers.get("x-real-ip");
-  if (xRealIp && xRealIp.trim()) {
-    return xRealIp.trim();
   }
 
   return "127.0.0.1";

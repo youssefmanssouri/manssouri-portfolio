@@ -4,13 +4,13 @@ import crypto from "crypto";
 import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { createAdminSessionToken, setAdminSessionCookie } from "@/lib/auth";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { isOversized, validateOrigin } from "@/lib/security";
 
 function timingSafeEqual(a: string, b: string): boolean {
   try {
     const bufA = Buffer.from(a);
     const bufB = Buffer.from(b);
     if (bufA.length !== bufB.length) {
-      // Do constant-time dummy comparison to mitigate timing attacks
       crypto.timingSafeEqual(bufA, bufA);
       return false;
     }
@@ -28,6 +28,16 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  // 0. CSRF & Origin Validation
+  if (!validateOrigin(request)) {
+    return NextResponse.json({ error: "Invalid request origin." }, { status: 403 });
+  }
+
+  // 0. Payload Size Guard (max 16KB)
+  if (isOversized(request, 16384)) {
+    return NextResponse.json({ error: "Request payload too large." }, { status: 413 });
+  }
+
   const clientIp = getClientIp(request);
 
   try {

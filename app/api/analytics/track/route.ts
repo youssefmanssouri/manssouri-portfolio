@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { isOversized } from "@/lib/security";
 
 export async function GET() {
   return NextResponse.json(
@@ -9,8 +10,21 @@ export async function GET() {
   );
 }
 
+export async function PUT() {
+  return NextResponse.json({ error: "Method not allowed." }, { status: 405 });
+}
+
+export async function DELETE() {
+  return NextResponse.json({ error: "Method not allowed." }, { status: 405 });
+}
+
 export async function POST(request: Request) {
   try {
+    // Guard: max 8KB for analytics event
+    if (isOversized(request, 8192)) {
+      return NextResponse.json({ error: "Payload too large" }, { status: 413 });
+    }
+
     // Rate limit: max 60 tracking requests per minute per IP
     const { limited } = checkRateLimit(request, "analytics_track", 60, 60 * 1000);
     if (limited) {

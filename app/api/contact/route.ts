@@ -3,6 +3,7 @@ import { contactSchema } from "@/lib/validations/contact";
 import { persistContactMessage, logNotificationAudit } from "@/lib/contact-storage";
 import { sendContactNotificationEmail } from "@/lib/email";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { isOversized, validateOrigin } from "@/lib/security";
 import { prisma } from "@/lib/prisma";
 
 // In-memory deduplication cache: hash -> timestamp (expires after 30 seconds)
@@ -26,6 +27,16 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
+    // 0. CSRF & Origin Validation
+    if (!validateOrigin(request)) {
+      return NextResponse.json({ error: "Invalid request origin." }, { status: 403 });
+    }
+
+    // 0. Payload Size Guard (max 64KB)
+    if (isOversized(request, 65536)) {
+      return NextResponse.json({ error: "Request payload too large." }, { status: 413 });
+    }
+
     const clientIp = getClientIp(request);
 
     // 1. Rate Limiting: Max 5 submissions per 15 minutes per IP

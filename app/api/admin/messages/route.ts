@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { getAdminSessionFromCookie } from "@/lib/auth";
+import { validateOrigin, isOversized } from "@/lib/security";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -55,6 +56,14 @@ export async function GET(request: Request) {
 }
 
 export async function PATCH(request: Request) {
+  if (!validateOrigin(request)) {
+    return NextResponse.json({ error: "Invalid request origin." }, { status: 403 });
+  }
+
+  if (isOversized(request, 16384)) {
+    return NextResponse.json({ error: "Request payload too large." }, { status: 413 });
+  }
+
   const session = await getAdminSessionFromCookie(request);
   if (!session) {
     return NextResponse.json({ error: "Unauthorized access." }, { status: 401 });
@@ -94,6 +103,10 @@ export async function PATCH(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+  if (!validateOrigin(request)) {
+    return NextResponse.json({ error: "Invalid request origin." }, { status: 403 });
+  }
+
   const session = await getAdminSessionFromCookie(request);
   if (!session) {
     return NextResponse.json({ error: "Unauthorized access." }, { status: 401 });
@@ -114,4 +127,12 @@ export async function DELETE(request: Request) {
     console.error("[Admin API] Message delete error:", error);
     return NextResponse.json({ error: "Failed to delete message." }, { status: 500 });
   }
+}
+
+export async function POST() {
+  return NextResponse.json({ error: "Method not allowed." }, { status: 405 });
+}
+
+export async function PUT() {
+  return NextResponse.json({ error: "Method not allowed." }, { status: 405 });
 }
