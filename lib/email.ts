@@ -21,18 +21,37 @@ export interface NotificationResult {
   error?: string;
 }
 
+function sanitizeHeader(str: string): string {
+  return str.replace(/[\r\n\t]/g, " ").trim();
+}
+
+function escapeHtml(str: string): string {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 /**
- * Dispatches a notification for a new contact form inquiry.
- * Tries configured channels in order of priority:
- * 1. Resend API (if RESEND_API_KEY is provided)
- * 2. SMTP Transport (if SMTP credentials are provided)
- * 3. Webhook (if CONTACT_WEBHOOK_URL is provided)
+ * Dispatches an email/webhook notification for a new contact form inquiry.
+ * Tries configured channels in order:
+ * 1. Resend API (if RESEND_API_KEY is configured)
+ * 2. SMTP Transport (if SMTP credentials are configured)
+ * 3. Webhook (if CONTACT_WEBHOOK_URL is configured)
  */
 export async function sendContactNotificationEmail(
   data: ContactNotificationData
 ): Promise<NotificationResult> {
-  const contactDestination = (process.env.CONTACT_EMAIL || "manssouriyoussef33@gmail.com").trim();
-  const subject = `[Portfolio Inquiry] ${data.name} — ${data.projectType}`;
+  const contactDestination = sanitizeHeader(
+    process.env.CONTACT_EMAIL || "manssouriyoussef33@gmail.com"
+  );
+  const safeName = sanitizeHeader(data.name);
+  const safeProjectType = sanitizeHeader(data.projectType);
+  const safeEmail = sanitizeHeader(data.email);
+
+  const subject = `[Portfolio Inquiry] ${safeName} — ${safeProjectType}`;
   const dateFormatted = data.submittedAt.toLocaleString("en-US", {
     timeZone: "Africa/Casablanca",
     dateStyle: "full",
@@ -43,24 +62,24 @@ export async function sendContactNotificationEmail(
 NEW INQUIRY — YOUSSEF MANSSOURI PORTFOLIO
 ==================================================
 Date & Time:  ${dateFormatted} (Morocco Time)
-Inquiry ID:   ${data.id || "N/A"}
+Message ID:   ${data.id || "N/A"}
 Language:     ${data.language?.toUpperCase() || "EN"}
 
 CONTACT DETAILS:
-- Name:         ${data.name}
-- Email:        ${data.email}
-- Company:      ${data.company || "Not specified"}
-- Phone:        ${data.phone || "Not specified"}
+- Name:         ${safeName}
+- Email:        ${safeEmail}
+- Company:      ${data.company ? sanitizeHeader(data.company) : "Not specified"}
+- Phone:        ${data.phone ? sanitizeHeader(data.phone) : "Not specified"}
 
 PROJECT SCOPE:
-- Category:     ${data.projectType}
-- Budget Range: ${data.budgetRange || "Not specified"}
+- Category:     ${safeProjectType}
+- Budget Range: ${data.budgetRange ? sanitizeHeader(data.budgetRange) : "Not specified"}
 
 MESSAGE / PROJECT DETAILS:
 --------------------------------------------------
 ${data.message}
 --------------------------------------------------
-Reply directly to this email to reach: ${data.email}
+Reply directly to this email to reach: ${safeEmail}
 ==================================================
 `;
 
@@ -97,15 +116,15 @@ Reply directly to this email to reach: ${data.email}
       <div class="meta-grid">
         <div class="meta-item">
           <div class="meta-label">Client Name</div>
-          <div class="meta-value">${escapeHtml(data.name)}</div>
+          <div class="meta-value">${escapeHtml(safeName)}</div>
         </div>
         <div class="meta-item">
           <div class="meta-label">Email Address</div>
-          <div class="meta-value"><a href="mailto:${escapeHtml(data.email)}" style="color:#A65F4B;">${escapeHtml(data.email)}</a></div>
+          <div class="meta-value"><a href="mailto:${escapeHtml(safeEmail)}" style="color:#A65F4B;">${escapeHtml(safeEmail)}</a></div>
         </div>
         <div class="meta-item">
           <div class="meta-label">Project Category</div>
-          <div class="meta-value">${escapeHtml(data.projectType)}</div>
+          <div class="meta-value">${escapeHtml(safeProjectType)}</div>
         </div>
         <div class="meta-item">
           <div class="meta-label">Company / Org</div>
@@ -119,13 +138,13 @@ Reply directly to this email to reach: ${data.email}
       </div>
 
       <div style="text-align: center; margin-top: 20px;">
-        <a href="mailto:${escapeHtml(data.email)}?subject=Re:%20Inquiry%20from%20Youssef%20Manssouri%20Portfolio" class="button">
-          Reply to ${escapeHtml(data.name)} &rarr;
+        <a href="mailto:${escapeHtml(safeEmail)}?subject=Re:%20Inquiry%20from%20Youssef%20Manssouri%20Portfolio" class="button">
+          Reply to ${escapeHtml(safeName)} &rarr;
         </a>
       </div>
     </div>
     <div class="footer">
-      Inquiry ID: ${data.id || "N/A"} · Language: ${data.language?.toUpperCase() || "EN"} · Submission confirmed
+      Message ID: ${escapeHtml(data.id || "N/A")} · Language: ${data.language?.toUpperCase() || "EN"} · Direct Verified Submission
     </div>
   </div>
 </body>
@@ -142,21 +161,23 @@ Reply directly to this email to reach: ${data.email}
   if (resendApiKey) {
     try {
       const resend = new Resend(resendApiKey);
-      const emailFrom = process.env.EMAIL_FROM || "Portfolio Contact <onboarding@resend.dev>";
+      const emailFrom = sanitizeHeader(
+        process.env.EMAIL_FROM || "Portfolio Contact <onboarding@resend.dev>"
+      );
 
       const emailResult = await resend.emails.send({
         from: emailFrom,
         to: [contactDestination],
-        replyTo: data.email,
+        replyTo: safeEmail,
         subject,
         text: textBody,
         html: htmlBody,
       });
 
       if (emailResult.error) {
-        console.error("[Email:Resend API Error]", emailResult.error);
+        console.error("[Email:Resend API Error]", emailResult.error.message || emailResult.error);
       } else if (emailResult.data?.id) {
-        console.log(`[Email:Resend Success] Sent to ${contactDestination} (ID: ${emailResult.data.id})`);
+        console.log(`[Email:Resend Success] Delivered to ${contactDestination} (ID: ${emailResult.data.id})`);
         return {
           delivered: true,
           provider: "resend",
@@ -168,7 +189,7 @@ Reply directly to this email to reach: ${data.email}
     }
   }
 
-  // 2. Attempt SMTP Transport (e.g. Gmail / Brevo / Custom SMTP)
+  // 2. Attempt SMTP Transport (Nodemailer)
   const smtpHost = process.env.SMTP_HOST;
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
@@ -186,16 +207,16 @@ Reply directly to this email to reach: ${data.email}
       });
 
       const info = await transporter.sendMail({
-        from: `"${data.name} via Portfolio" <${smtpUser}>`,
+        from: `"${safeName} via Portfolio" <${smtpUser}>`,
         to: contactDestination,
-        replyTo: data.email,
+        replyTo: safeEmail,
         subject,
         text: textBody,
         html: htmlBody,
       });
 
       if (info.messageId) {
-        console.log(`[Email:SMTP Success] Sent to ${contactDestination} (ID: ${info.messageId})`);
+        console.log(`[Email:SMTP Success] Delivered to ${contactDestination} (ID: ${info.messageId})`);
         return {
           delivered: true,
           provider: "smtp",
@@ -207,7 +228,7 @@ Reply directly to this email to reach: ${data.email}
     }
   }
 
-  // 3. Attempt Webhook Notification (e.g. Discord / Telegram / Custom endpoint)
+  // 3. Attempt Webhook Notification
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
   if (webhookUrl && webhookUrl.startsWith("http")) {
     try {
@@ -215,16 +236,17 @@ Reply directly to this email to reach: ${data.email}
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          content: `📬 **New Portfolio Inquiry from ${data.name}**\n**Email:** ${data.email}\n**Category:** ${data.projectType}\n**Message:**\n${data.message}`,
+          content: `📬 **New Portfolio Inquiry from ${safeName}**\n**Email:** ${safeEmail}\n**Category:** ${safeProjectType}\n**Message ID:** ${data.id || "N/A"}\n**Message:**\n${data.message}`,
           embeds: [
             {
-              title: `New Inquiry: ${data.projectType}`,
+              title: `New Inquiry: ${safeProjectType}`,
               description: data.message,
-              color: 0x3A171C,
+              color: 0x3a171c,
               fields: [
-                { name: "Name", value: data.name, inline: true },
-                { name: "Email", value: data.email, inline: true },
+                { name: "Name", value: safeName, inline: true },
+                { name: "Email", value: safeEmail, inline: true },
                 { name: "Company", value: data.company || "N/A", inline: true },
+                { name: "Message ID", value: data.id || "N/A", inline: false },
                 { name: "Date", value: dateFormatted, inline: false },
               ],
             },
@@ -244,22 +266,12 @@ Reply directly to this email to reach: ${data.email}
     }
   }
 
-  // Fallback log for local development/diagnosis
   console.warn(
-    `[Email Warning] No external notification provider succeeded. Configure RESEND_API_KEY, SMTP credentials, or CONTACT_WEBHOOK_URL for automatic email alerts.\n${textBody}`
+    `[Email Notice] No active notification provider succeeded for inquiry ${data.id || "N/A"}. Database record preserved.`
   );
 
   return {
     delivered: false,
     error: "No active notification provider succeeded.",
   };
-}
-
-function escapeHtml(str: string): string {
-  return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
 }

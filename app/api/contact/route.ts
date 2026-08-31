@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validations/contact";
-import { persistContactMessage } from "@/lib/contact-storage";
+import { persistContactMessage, logNotificationAudit } from "@/lib/contact-storage";
 import { sendContactNotificationEmail } from "@/lib/email";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { prisma } from "@/lib/prisma";
@@ -97,6 +97,18 @@ export async function POST(request: Request) {
 
     const storedMessage = storageResult.message;
 
+    // Guard: If primary persistence failed, return error immediately
+    if (!storageResult.persisted) {
+      console.error("[Contact Failure] Primary database persistence failed.");
+      return NextResponse.json(
+        {
+          error:
+            "Unable to save your message. Please try again or reach out directly at manssouriyoussef33@gmail.com or via WhatsApp.",
+        },
+        { status: 500 }
+      );
+    }
+
     // 6. Notification Dispatch (Resend API -> SMTP Transport -> Webhook)
     const notificationResult = await sendContactNotificationEmail({
       id: storedMessage.id,
@@ -110,6 +122,13 @@ export async function POST(request: Request) {
       language: language || "en",
       submittedAt: storedMessage.createdAt,
     });
+
+    logNotificationAudit(
+      storedMessage.id,
+      notificationResult.delivered,
+      notificationResult.provider,
+      notificationResult.error
+    );
 
     // 7. Track analytics event safely (isolated)
     try {
@@ -130,25 +149,13 @@ export async function POST(request: Request) {
       // Analytics failure is non-blocking
     }
 
-    // 8. Reliability Guard: If both persistence AND notification failed, report error to user
-    if (!storageResult.persisted && !notificationResult.delivered) {
-      console.error("[Contact Failure] Neither database persistence nor email notification succeeded.");
-      return NextResponse.json(
-        {
-          error:
-            "Something went wrong while delivering your message. Please try again or reach out directly at manssouriyoussef33@gmail.com or via WhatsApp.",
-        },
-        { status: 500 }
-      );
-    }
-
-    // 9. Success Response
+    // 8. Success Response: Message is confirmed saved
     return NextResponse.json(
       {
         success: true,
         message: "Your inquiry has been received successfully.",
         id: storedMessage.id,
-        persisted: storageResult.persisted,
+        persisted: true,
         emailDelivered: notificationResult.delivered,
         storageType: storageResult.storageType,
       },

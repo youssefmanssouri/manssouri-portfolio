@@ -111,11 +111,25 @@ export async function persistContactMessage(
     }
   }
 
-  // If DB write failed and no backup endpoint was configured, we still retain in-memory representation for notification dispatch
   return {
     persisted: false,
     message: formattedRecord,
     storageType: "fallback_storage",
     error: "Database persistence failed.",
   };
+}
+
+export async function logNotificationAudit(
+  messageId: string,
+  delivered: boolean,
+  provider?: string,
+  error?: string
+) {
+  try {
+    console.log(
+      `[Notification Audit] Message ${messageId} | Delivered: ${delivered} | Provider: ${provider || "none"}${error ? ` | Error: ${error}` : ""}`
+    );
+  } catch {
+    // Non-blocking logging
+  }
 }
