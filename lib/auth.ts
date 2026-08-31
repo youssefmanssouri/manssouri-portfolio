@@ -1,10 +1,10 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-import crypto from "crypto";
 
-// Fallback in-memory key generated at server startup if no environment secret is provided
-const fallbackSecret = crypto.randomBytes(32);
-
+/**
+ * Retrieves the cryptographic signing key for admin JWT sessions.
+ * FAILS CLOSED in production if AUTH_SECRET is not configured or is too weak.
+ */
 function getSecretKey(): Uint8Array {
   const envSecret =
     process.env.AUTH_SECRET &&
@@ -12,6 +12,7 @@ function getSecretKey(): Uint8Array {
     !process.env.AUTH_SECRET.includes("[SENSITIVE]")
       ? process.env.AUTH_SECRET.trim()
       : null;
+
   const jwtSecret =
     process.env.JWT_SECRET &&
     process.env.JWT_SECRET.trim() !== "" &&
@@ -20,12 +21,19 @@ function getSecretKey(): Uint8Array {
       : null;
 
   const secret = envSecret || jwtSecret;
-  if (secret) {
+
+  if (process.env.NODE_ENV === "production") {
+    if (!secret || secret.length < 16) {
+      console.error(
+        "[Security:Auth] CRITICAL: AUTH_SECRET is missing or too short in production. Authentication operations failed closed."
+      );
+      throw new Error("Authentication configuration error: AUTH_SECRET required in production.");
+    }
     return new TextEncoder().encode(secret);
   }
 
-  // In production without an explicit secret, use ephemeral random bytes (prevents static secret forgery)
-  return fallbackSecret;
+  // Development-only isolated fallback (never active in production)
+  return new TextEncoder().encode(secret || "dev-only-local-secret-do-not-use-in-production-32chars");
 }
 
 const COOKIE_NAME = "ym_admin_session";
@@ -37,16 +45,18 @@ export interface SessionPayload {
 }
 
 export async function createAdminSessionToken(payload: SessionPayload): Promise<string> {
+  const key = getSecretKey();
   return new SignJWT({ ...payload })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("7d")
-    .sign(getSecretKey());
+    .sign(key);
 }
 
 export async function verifyAdminSessionToken(token: string): Promise<SessionPayload | null> {
   try {
-    const { payload } = await jwtVerify(token, getSecretKey());
+    const key = getSecretKey();
+    const { payload } = await jwtVerify(token, key);
     return payload as unknown as SessionPayload;
   } catch {
     return null;
