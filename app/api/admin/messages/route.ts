@@ -5,6 +5,8 @@ import { getAdminSessionFromCookie } from "@/lib/auth";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+const ALLOWED_STATUSES = new Set(["NEW", "READ", "REPLIED", "ARCHIVED"]);
+
 export async function GET(request: Request) {
   const session = await getAdminSessionFromCookie(request);
   if (!session) {
@@ -18,15 +20,16 @@ export async function GET(request: Request) {
   try {
     await ensureDbSchema();
     const whereClause: any = {};
-    if (status && status !== "ALL") {
+    if (status && status !== "ALL" && ALLOWED_STATUSES.has(status)) {
       whereClause.status = status;
     }
     if (search && search.trim() !== "") {
+      const sanitizedSearch = search.trim().slice(0, 100);
       whereClause.OR = [
-        { name: { contains: search } },
-        { email: { contains: search } },
-        { company: { contains: search } },
-        { message: { contains: search } },
+        { name: { contains: sanitizedSearch } },
+        { email: { contains: sanitizedSearch } },
+        { company: { contains: sanitizedSearch } },
+        { message: { contains: sanitizedSearch } },
       ];
     }
 
@@ -46,7 +49,7 @@ export async function GET(request: Request) {
       }
     );
   } catch (error) {
-    console.error("Admin messages fetch error:", error);
+    console.error("[Admin API] Messages fetch error:", error);
     return NextResponse.json({ error: "Failed to fetch messages." }, { status: 500 });
   }
 }
@@ -58,10 +61,24 @@ export async function PATCH(request: Request) {
   }
 
   try {
-    const { id, status } = await request.json();
+    let rawBody: any;
+    try {
+      rawBody = await request.json();
+    } catch {
+      return NextResponse.json({ error: "Invalid JSON request body." }, { status: 400 });
+    }
 
-    if (!id || !status) {
-      return NextResponse.json({ error: "Message ID and status are required." }, { status: 400 });
+    const { id, status } = rawBody;
+
+    if (!id || typeof id !== "string" || !status || typeof status !== "string") {
+      return NextResponse.json({ error: "Valid message ID and status are required." }, { status: 400 });
+    }
+
+    if (!ALLOWED_STATUSES.has(status)) {
+      return NextResponse.json(
+        { error: "Invalid status value. Allowed: NEW, READ, REPLIED, ARCHIVED." },
+        { status: 400 }
+      );
     }
 
     const updated = await prisma.contactMessage.update({
@@ -71,7 +88,7 @@ export async function PATCH(request: Request) {
 
     return NextResponse.json({ success: true, message: updated });
   } catch (error) {
-    console.error("Admin message update error:", error);
+    console.error("[Admin API] Message status update error:", error);
     return NextResponse.json({ error: "Failed to update message status." }, { status: 500 });
   }
 }
@@ -86,15 +103,15 @@ export async function DELETE(request: Request) {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
 
-    if (!id) {
-      return NextResponse.json({ error: "Message ID is required." }, { status: 400 });
+    if (!id || typeof id !== "string") {
+      return NextResponse.json({ error: "Valid message ID is required." }, { status: 400 });
     }
 
     await prisma.contactMessage.delete({ where: { id } });
 
     return NextResponse.json({ success: true, id });
   } catch (error) {
-    console.error("Admin message delete error:", error);
+    console.error("[Admin API] Message delete error:", error);
     return NextResponse.json({ error: "Failed to delete message." }, { status: 500 });
   }
 }

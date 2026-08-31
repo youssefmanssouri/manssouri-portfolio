@@ -1,15 +1,33 @@
 import { NextResponse } from "next/server";
 import { prisma, ensureDbSchema } from "@/lib/prisma";
+import { checkRateLimit } from "@/lib/rate-limit";
+
+export async function GET() {
+  return NextResponse.json(
+    { error: "Method not allowed. Use POST for telemetry tracking." },
+    { status: 405 }
+  );
+}
 
 export async function POST(request: Request) {
   try {
+    // Rate limit: max 60 tracking requests per minute per IP
+    const { limited } = checkRateLimit(request, "analytics_track", 60, 60 * 1000);
+    if (limited) {
+      return NextResponse.json({ success: false, error: "Rate limit exceeded" }, { status: 429 });
+    }
+
     await ensureDbSchema();
 
     let body: any = {};
     const contentType = request.headers.get("content-type") || "";
 
     if (contentType.includes("application/json")) {
-      body = await request.json();
+      try {
+        body = await request.json();
+      } catch {
+        return NextResponse.json({ error: "Invalid JSON request body." }, { status: 400 });
+      }
     } else {
       const text = await request.text();
       try {
@@ -31,7 +49,6 @@ export async function POST(request: Request) {
 
     const metaString = meta ? (typeof meta === "string" ? meta : JSON.stringify(meta)) : null;
 
-    // Hardened check: Reject oversized metadata payloads (> 2000 characters) cleanly with HTTP 400
     if (metaString && metaString.length > 2000) {
       return NextResponse.json({ error: "Oversized metadata payload." }, { status: 400 });
     }

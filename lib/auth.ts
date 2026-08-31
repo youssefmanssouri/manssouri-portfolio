@@ -1,5 +1,9 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
+import crypto from "crypto";
+
+// Fallback in-memory key generated at server startup if no environment secret is provided
+const fallbackSecret = crypto.randomBytes(32);
 
 function getSecretKey(): Uint8Array {
   const envSecret =
@@ -15,8 +19,13 @@ function getSecretKey(): Uint8Array {
       ? process.env.JWT_SECRET.trim()
       : null;
 
-  const secret = envSecret || jwtSecret || "super-secret-jwt-key-manssouri";
-  return new TextEncoder().encode(secret);
+  const secret = envSecret || jwtSecret;
+  if (secret) {
+    return new TextEncoder().encode(secret);
+  }
+
+  // In production without an explicit secret, use ephemeral random bytes (prevents static secret forgery)
+  return fallbackSecret;
 }
 
 const COOKIE_NAME = "ym_admin_session";
@@ -39,7 +48,7 @@ export async function verifyAdminSessionToken(token: string): Promise<SessionPay
   try {
     const { payload } = await jwtVerify(token, getSecretKey());
     return payload as unknown as SessionPayload;
-  } catch (error) {
+  } catch {
     return null;
   }
 }
