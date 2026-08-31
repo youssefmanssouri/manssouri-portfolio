@@ -76,8 +76,8 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       problemFr: "Les entreprises jonglent souvent entre des outils séparés pour le CRM, la facturation, la prise de rendez-vous et le suivi de trésorerie.",
       solutionEn: "A unified business management platform integrating client pipelines, itemized billing, calendar scheduling, team rosters, and cash flow tracking.",
       solutionFr: "Une plateforme d'opérations unifiée intégrant pipeline commercial, facturation détaillée, calendrier de réservation, annuaire RH et trésorerie.",
-      valueEn: "Centralizes daily operations into a single workspace, reducing software fragmentation with clear financial oversight.",
-      valueFr: "Centralise la gestion quotidienne dans un espace unique, réduisant la dispersion logicielle avec une visibilité financière claire.",
+      valueEn: "Centralizes core business workflows in a single operational workspace, giving teams clearer visibility across day-to-day activity and financial data.",
+      valueFr: "Centralise les flux métiers essentiels dans un espace opérationnel unique, offrant aux équipes une visibilité plus claire sur l'activité quotidienne et les données financières.",
       keyTechs: ["Next.js 15 (App Router)", "TypeScript", "PostgreSQL", "Prisma ORM", "Recharts"]
     },
     "lumiere-parfums": {
@@ -85,8 +85,8 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       problemFr: "Les clients ne pouvant pas sentir une fragrance à travers un écran, les grilles e-commerce classiques ne suffisent pas à guider le choix.",
       solutionEn: "A custom digital boutique featuring olfactory note and scent pyramid filtering, a persistent slide-out cart, and store inventory administration.",
       solutionFr: "Une boutique en ligne sur mesure avec filtrage par notes olfactives et pyramide de senteurs, panier latéral persistant et gestion des stocks.",
-      valueEn: "Supports online scent discovery, guides customer comparison through structured fragrance notes, and delivers a continuous checkout journey.",
-      valueFr: "Facilite la découverte olfactive, guide la comparaison grâce aux pyramides de notes et offre un parcours d'achat fluide.",
+      valueEn: "Makes fragrance discovery easier through structured scent information, clearer product comparison, and a continuous path from browsing to purchase.",
+      valueFr: "Facilite la découverte olfactive grâce à des informations de senteur structurées, une comparaison produit plus claire et un parcours continu de la visite à l'achat.",
       keyTechs: ["Next.js (App Router)", "TypeScript", "Tailwind CSS", "Persistent Cart", "Responsive UI"]
     },
     "gym-crm": {
@@ -94,8 +94,8 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       problemFr: "Les salles de sport font face à des ralentissements à l'accueil, des forfaits expirés non détectés et des plannings de cours dispersés.",
       solutionEn: "A dedicated gym operations application delivering rapid member lookups, visual renewal status indicators, class capacity planning, and recurring revenue summaries.",
       solutionFr: "Une application d'exploitation offrant des recherches rapides d'adhérents, des alertes de statut, la gestion des cours et le suivi des revenus.",
-      valueEn: "Streamlines front-desk check-ins, helps staff identify expired memberships, and provides visibility into class capacities and monthly recurring revenue.",
-      valueFr: "Fluidifie le pointage d'accueil, aide l'équipe à identifier les forfaits expirés et donne une visibilité sur les jauges de cours et les revenus récurrents.",
+      valueEn: "Helps staff manage member check-ins, identify expired memberships, organize class capacity, and monitor recurring revenue data from a centralized interface.",
+      valueFr: "Aide l'équipe à gérer les pointages des membres, identifier les forfaits expirés, organiser les jauges de cours et suivre les revenus récurrents depuis une interface centralisée.",
       keyTechs: ["Next.js", "TypeScript", "PostgreSQL", "Prisma ORM", "Role-Based Access"]
     }
   };
