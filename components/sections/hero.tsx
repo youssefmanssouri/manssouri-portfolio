@@ -40,18 +40,7 @@ export function Hero() {
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
-              <Link
-                href="/#contact"
-                prefetch={true}
-                onClick={(e) => {
-                  trackEvent("CTA_START_PROJECT", { source: "hero", destination: "contact" });
-                  handleNavClick(e, "contact");
-                }}
-                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-6 py-3.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] shadow-xs"
-              >
-                <span>{t("hero.startProject")}</span>
-                <ArrowRight className="w-4 h-4 text-[#A65F4B]" aria-hidden="true" />
-              </Link>
+              {/* Primary: View My Work (Proof first) */}
               <Link
                 href="/#work"
                 prefetch={true}
@@ -59,11 +48,39 @@ export function Hero() {
                   trackEvent("CTA_VIEW_WORK", { source: "hero", destination: "work" });
                   handleNavClick(e, "work");
                 }}
-                className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-6 py-3.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-6 py-3.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] shadow-xs"
               >
                 <span>{t("hero.viewWork")}</span>
+                <ArrowRight className="w-4 h-4 text-[#A65F4B]" aria-hidden="true" />
+              </Link>
+
+              {/* Secondary: Start a Project (Client path) */}
+              <Link
+                href="/#contact"
+                prefetch={true}
+                onClick={(e) => {
+                  trackEvent("CTA_START_PROJECT", { source: "hero", destination: "contact" });
+                  handleNavClick(e, "contact");
+                }}
+                className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-6 py-3.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+              >
+                <span>{t("hero.startProject")}</span>
                 <ArrowUpRight className="w-4 h-4 text-[#3A171C]/75" aria-hidden="true" />
               </Link>
+
+              {/* Recruiter Path: View CV */}
+              <a
+                href={t("hero.viewCV") ? (useLanguage().language === "fr" ? "/cv-fr.pdf" : "/cv-en.pdf") : "/cv-en.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent("CV_DOWNLOAD", { language: useLanguage().language, source: "hero" });
+                }}
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#242222]/75 hover:text-[#A65F4B] transition-colors py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] rounded-xs"
+              >
+                <span>{t("hero.viewCV")}</span>
+                <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+              </a>
             </div>
 
             <div className="pt-4 border-t border-[#DED6CC] flex items-center text-xs font-mono text-[#242222]/75">

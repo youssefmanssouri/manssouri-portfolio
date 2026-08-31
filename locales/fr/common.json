@@ -3,6 +3,7 @@
     "work": "Réalisations",
     "services": "Services",
     "about": "À propos",
+    "cv": "CV",
     "faq": "FAQ",
     "process": "Méthodologie",
     "contact": "Contact",
@@ -16,6 +17,7 @@
     "subheadline": "Des sites vitrines professionnels et boutiques e-commerce aux tableaux de bord, CRM et outils internes—je transforme vos besoins métiers en produits digitaux concrets et performants.",
     "viewWork": "Voir mes réalisations",
     "startProject": "Démarrer un projet",
+    "viewCV": "Consulter mon CV (PDF)",
     "location": "Basé à Agadir, Maroc · Disponible localement et à distance"
   },
   "work": {
@@ -266,10 +268,11 @@
     },
     "projectTypes": [
       { "label": "Site Web d'Entreprise", "value": "Business Website" },
-      { "label": "E-Commerce", "value": "E-Commerce" },
-      { "label": "Application Métier sur Mesure", "value": "Custom Business Application" },
-      { "label": "Tableau de Bord / Outil Interne", "value": "Dashboard / Internal Tool" },
-      { "label": "Autre", "value": "Other" }
+      { "label": "Boutique E-Commerce", "value": "E-Commerce" },
+      { "label": "Application Web sur Mesure", "value": "Custom Business Application" },
+      { "label": "Tableau de Bord / Outil d'Analyse", "value": "Dashboard / Internal Tool" },
+      { "label": "Stage / Opportunité Professionnelle", "value": "Professional Opportunity" },
+      { "label": "Collaboration / Autre Demande", "value": "Collaboration" }
     ],
     "directContact": "Coordonnées directes",
     "email": "E-mail",

@@ -27,10 +27,11 @@ export function Contact() {
 
   const projectTypeOptions = dictionary?.contact?.projectTypes || [
     { label: language === "fr" ? "Site Web d'Entreprise" : "Business Website", value: "Business Website" },
-    { label: language === "fr" ? "E-Commerce" : "E-Commerce", value: "E-Commerce" },
-    { label: language === "fr" ? "Application Métier sur Mesure" : "Custom Business Application", value: "Custom Business Application" },
-    { label: language === "fr" ? "Tableau de Bord / Outil Interne" : "Dashboard / Internal Tool", value: "Dashboard / Internal Tool" },
-    { label: language === "fr" ? "Autre" : "Other", value: "Other" }
+    { label: language === "fr" ? "Boutique E-Commerce" : "E-Commerce Storefront", value: "E-Commerce" },
+    { label: language === "fr" ? "Application Web sur Mesure" : "Custom Web Application", value: "Custom Business Application" },
+    { label: language === "fr" ? "Tableau de Bord / Outil d'Analyse" : "Dashboard / Analytics Tool", value: "Dashboard / Internal Tool" },
+    { label: language === "fr" ? "Stage / Opportunité Professionnelle" : "Internship / Professional Opportunity", value: "Professional Opportunity" },
+    { label: language === "fr" ? "Collaboration / Autre Demande" : "General Inquiry / Collaboration", value: "Collaboration" }
   ];
 
   const validate = () => {

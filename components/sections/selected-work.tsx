@@ -143,16 +143,14 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
   if (isDarkCard) {
     return (
       <div className={`rounded-xs bg-[#3A171C] text-[#F3EFEA] border p-5 sm:p-8 lg:p-12 shadow-xl space-y-6 sm:space-y-8 transition-all ${isFlagship ? 'border-[#A65F4B]/60 ring-1 ring-[#A65F4B]/30' : 'border-[#DED6CC]/20'}`}>
-        {isFlagship && (
-          <div className="flex items-center justify-between border-b border-[#DED6CC]/20 pb-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#A65F4B]/20 border border-[#A65F4B]/40 text-[#F3EFEA] text-[11px] font-mono uppercase tracking-widest font-semibold">
-              <span>★ {isFr ? "Projet Phare" : "Flagship Project"}</span>
-            </div>
-            <span className="text-xs font-mono text-[#DED6CC]/70 hidden sm:inline font-medium">
-              {isFr ? "Plateforme Métier Complète" : "Complete Business Operations Suite"}
-            </span>
+        <div className="flex items-center justify-between border-b border-[#DED6CC]/20 pb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#A65F4B]/20 border border-[#A65F4B]/40 text-[#F3EFEA] text-[11px] font-mono uppercase tracking-widest font-semibold">
+            <span>{isFlagship ? (isFr ? "★ Projet Phare" : "★ Flagship Project") : (isFr ? "Application Métier" : "Operations Web App")}</span>
           </div>
-        )}
+          <span className="text-[11px] font-mono text-[#DED6CC]/70 hidden sm:inline font-medium">
+            {isFr ? "Développement Indépendant · Démo Interactive · Code Source" : "Personal Build · Interactive Demo · Source Code"}
+          </span>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
@@ -306,6 +304,15 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
   // Light Editorial Card (Lumière Parfums)
   return (
     <div className="border border-[#DED6CC] bg-[#FAF7F2] p-5 sm:p-8 lg:p-12 rounded-xs shadow-sm space-y-6 sm:space-y-8">
+      <div className="flex items-center justify-between border-b border-[#DED6CC] pb-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/15 text-[#3A171C] text-[11px] font-mono uppercase tracking-widest font-semibold">
+          <span>{isFr ? "Boutique E-Commerce" : "E-Commerce Experience"}</span>
+        </div>
+        <span className="text-[11px] font-mono text-[#242222]/60 hidden sm:inline font-medium">
+          {isFr ? "Développement Indépendant · Démo Interactive · Code Source" : "Personal Build · Interactive Demo · Source Code"}
+        </span>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         
         {/* Real Product Image Showcase */}

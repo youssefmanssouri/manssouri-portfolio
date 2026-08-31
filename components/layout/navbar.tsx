@@ -62,6 +62,7 @@ export function Navbar() {
     { name: t("nav.work"), href: "/#work" },
     { name: t("nav.services"), href: "/#services" },
     { name: t("nav.about"), href: "/#about" },
+    { name: t("nav.cv"), href: language === "fr" ? "/cv-fr.pdf" : "/cv-en.pdf", isExternal: true },
     { name: t("nav.faq"), href: "/#faq" }
   ];
 
@@ -85,17 +86,33 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-[#242222]/80">
+        <nav className="hidden md:flex items-center gap-7 text-xs font-medium uppercase tracking-wider text-[#242222]/80">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              prefetch={true}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="hover:text-[#A65F4B] transition-colors py-1 active:scale-95"
-            >
-              {link.name}
-            </Link>
+            link.isExternal ? (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent("CV_DOWNLOAD", { language, source: "navbar" });
+                }}
+                className="hover:text-[#A65F4B] transition-colors py-1 inline-flex items-center gap-0.5 active:scale-95 text-[#A65F4B] font-semibold"
+              >
+                <span>{link.name}</span>
+                <ArrowUpRight className="w-3 h-3 text-[#A65F4B]" />
+              </a>
+            ) : (
+              <Link
+                key={link.name}
+                href={link.href}
+                prefetch={true}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="hover:text-[#A65F4B] transition-colors py-1 active:scale-95"
+              >
+                {link.name}
+              </Link>
+            )
           ))}
         </nav>
 
@@ -178,15 +195,32 @@ export function Navbar() {
           >
             <nav className="flex flex-col gap-3 text-xs font-medium uppercase tracking-wider">
               {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  prefetch={true}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-[#242222] hover:text-[#A65F4B] py-2"
-                >
-                  {link.name}
-                </Link>
+                link.isExternal ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackEvent("CV_DOWNLOAD", { language, source: "navbar_mobile" });
+                      setMobileMenuOpen(false);
+                    }}
+                    className="text-[#A65F4B] font-semibold py-2 inline-flex items-center gap-1.5"
+                  >
+                    <span>{link.name}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    prefetch={true}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-[#242222] hover:text-[#A65F4B] py-2"
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
               <div className="pt-3 border-t border-[#DED6CC] mt-2">
                 <Link

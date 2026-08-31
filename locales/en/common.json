@@ -1,8 +1,9 @@
 {
   "nav": {
     "work": "Work",
-    "services": "Services",
+    "services": "Capabilities",
     "about": "About",
+    "cv": "CV",
     "faq": "FAQ",
     "process": "Process",
     "contact": "Contact",
@@ -16,6 +17,7 @@
     "subheadline": "From professional business websites and e-commerce storefronts to custom dashboards, CRMs, and internal tools—I turn business requirements into practical, responsive digital products.",
     "viewWork": "View My Work",
     "startProject": "Start a Project",
+    "viewCV": "View CV (PDF)",
     "location": "Based in Agadir, Morocco · Working with clients locally and remotely"
   },
   "work": {
@@ -266,10 +268,11 @@
     },
     "projectTypes": [
       { "label": "Business Website", "value": "Business Website" },
-      { "label": "E-Commerce", "value": "E-Commerce" },
-      { "label": "Custom Business Application", "value": "Custom Business Application" },
-      { "label": "Dashboard / Internal Tool", "value": "Dashboard / Internal Tool" },
-      { "label": "Other", "value": "Other" }
+      { "label": "E-Commerce Storefront", "value": "E-Commerce" },
+      { "label": "Custom Web Application", "value": "Custom Business Application" },
+      { "label": "Dashboard / Analytics Tool", "value": "Dashboard / Internal Tool" },
+      { "label": "Internship / Professional Opportunity", "value": "Professional Opportunity" },
+      { "label": "General Inquiry / Collaboration", "value": "Collaboration" }
     ],
     "directContact": "Direct Channels",
     "email": "Email",
