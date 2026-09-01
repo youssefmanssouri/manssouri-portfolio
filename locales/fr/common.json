@@ -1,29 +1,29 @@
 {
   "nav": {
     "work": "Réalisations",
-    "services": "Services",
+    "services": "Compétences",
     "about": "À propos",
     "cv": "CV",
     "faq": "FAQ",
     "process": "Méthodologie",
     "contact": "Contact",
     "talk": "Me Contacter",
-    "startProject": "Démarrer un projet"
+    "startProject": "Échangeons"
   },
   "hero": {
     "title": "YOUSSEF MANSSOURI",
     "badge": "ÉTUDIANT EN BUSINESS ANALYTICS & IA · CONCEPTEUR DE PRODUITS DIGITAUX",
-    "headline": "Je conçois des sites web et des applications sur mesure pour aider les entreprises à présenter leur activité et structurer leurs opérations.",
-    "subheadline": "Des sites vitrines professionnels et boutiques e-commerce aux tableaux de bord, CRM et outils internes—je transforme vos besoins métiers en produits digitaux concrets et performants.",
+    "headline": "Je conçois des produits digitaux concrets en combinant vision métier, analyse rigoureuse et technologies web modernes.",
+    "subheadline": "Des applications web sur mesure aux tableaux de bord opérationnels et boutiques e-commerce—je traduis les besoins métiers et fonctionnels en produits digitaux concrets, réactifs et déployés.",
     "viewWork": "Voir mes réalisations",
-    "startProject": "Démarrer un projet",
+    "startProject": "Échangeons",
     "viewCV": "Consulter mon CV (PDF)",
-    "location": "Basé à Agadir, Maroc · Disponible localement et à distance"
+    "location": "Basé à Agadir, Maroc · Ouvert aux opportunités locales et à distance"
   },
   "work": {
     "badge": "RÉALISATIONS",
-    "heading": "Des produits digitaux conçus pour répondre à de vrais besoins d'entreprise.",
-    "subheading": "Une sélection de sites web et d'applications conçus pour résoudre des problèmes concrets—du renforcement de la présence en ligne à l'organisation des opérations métiers.",
+    "heading": "Des produits indépendants conçus autour de besoins métiers réels.",
+    "subheading": "Une sélection d'applications web et de produits digitaux développés en autonomie pour répondre à des problématiques opérationnelles concrètes—du cadrage et design d'interface au développement, à la sécurité, à l'optimisation et au déploiement.",
     "viewCaseStudy": "Consulter l'étude de cas",
     "visitLive": "Voir la démo en direct",
     "github": "Code source GitHub ↗"
@@ -36,6 +36,8 @@
       "solution": "La Solution",
       "capabilities": "Fonctionnalités",
       "engineering": "Ingénierie",
+      "decisions": "Décisions",
+      "learnings": "Enseignements",
       "demo": "Démo Live"
     },
     "overview": "Présentation du projet",
@@ -64,32 +66,37 @@
     "proofResponsive": "Entièrement Responsive",
     "proofResponsiveDesc": "Interface testée sur mobile, tablette et grand écran",
     "proofFromScratch": "Développé sur Mesure",
-    "proofFromScratchDesc": "Architecture propre sans template préfabriqué",
+    "proofFromScratchDesc": "Architecture sur mesure développée en toute autonomie",
+    "decisionsBadge": "DÉCISIONS TECHNIQUES",
+    "decisionsTitle": "Choix d'Architecture & Justifications",
+    "decisionRationale": "Justification technique :",
+    "learningsBadge": "ENSEIGNEMENTS & RETOUR D'EXPÉRIENCE",
+    "learningsTitle": "Ce que ce projet a démontré",
     "gallery": "Visuels du projet",
     "nextProject": "PROJET SUIVANT",
     "backToWork": "Retour aux réalisations",
     "practicalOutcome": "Valeur Pratique :",
     "expandImage": "Cliquer pour agrandir l'interface",
     "nextStepsBadge": "PROCHAINE ÉTAPE",
-    "nextStepsHeading": "Un projet similaire en tête ?",
-    "nextStepsSubheading": "Discutons de ce que vous souhaitez créer.",
-    "startProject": "Démarrer un projet",
+    "nextStepsHeading": "Intéressé par ce projet ou vous souhaitez échanger sur une opportunité ?",
+    "nextStepsSubheading": "Échangeons sur l'implémentation technique, l'architecture du produit ou de futures opportunités de collaboration.",
+    "startProject": "Échangeons",
     "orDirect": "Ou contactez-moi directement :"
   },
   "capabilities": {
-    "badge": "CE QUE JE DÉVELOPPE",
-    "itemPrefix": "CAPACITÉ",
-    "heading": "Des produits digitaux concrets, conçus pour vos opérations réelles.",
-    "subheading": "Du site d'entreprise à la boutique en ligne sur mesure, jusqu'aux applications de gestion et tableaux de bord opérationnels—je traduis vos besoins en produits digitaux fiables et utilisables.",
+    "badge": "CE QUE JE CONÇOIS",
+    "itemPrefix": "COMPÉTENCE",
+    "heading": "Des produits digitaux concrets, conçus autour de flux opérationnels réels.",
+    "subheading": "Des sites d'entreprise aux boutiques e-commerce sur mesure, jusqu'aux plateformes de gestion multi-modules et tableaux de bord opérationnels—je conçois et développe des solutions digitales fiables et fonctionnelles.",
     "items": [
       {
         "title": "Sites Web d'Entreprise",
-        "description": "Des sites web professionnels et responsives conçus autour de l'identité de votre entreprise, d'un contenu structuré et d'un parcours visiteur clair.",
+        "description": "Des sites web professionnels et responsives conçus autour d'un contenu structuré, d'un parcours visiteur clair et des standards actuels de performance.",
         "listLabel": "Domaines clés :",
         "features": [
           "Design responsive & soigné",
-          "Présentation de l'activité",
-          "Formulaires de contact clairs",
+          "Structure éditoriale claire",
+          "Formulaires de contact optimisés",
           "Performance & accessibilité"
         ]
       },
@@ -106,7 +113,7 @@
       },
       {
         "title": "Applications Métier",
-        "description": "Des applications web sur mesure pour structurer vos flux opérationnels : pipeline CRM, facturation détaillée, prise de rendez-vous, suivi des adhérents et administration interne.",
+        "description": "Des applications web sur mesure pour structurer les flux opérationnels : pipeline CRM, facturation détaillée, prise de rendez-vous, suivi des adhérents et administration interne.",
         "listLabel": "Domaines clés :",
         "features": [
           "Gestion CRM & dossiers clients",
@@ -117,10 +124,10 @@
       },
       {
         "title": "Données & Tableaux de Bord",
-        "description": "Des tableaux de bord opérationnels, métriques financières et interfaces de données pour centraliser et visualiser clairement l'activité de l'entreprise.",
+        "description": "Des tableaux de bord opérationnels, métriques financières et interfaces de données pour centraliser et visualiser clairement l'activité.",
         "listLabel": "Domaines clés :",
         "features": [
-          "Télémétrie financière (Recharts)",
+          "Indicateurs financiers (Recharts)",
           "Indicateurs de performance (KPI)",
           "Modélisation relationnelle",
           "Filtres & graphiques interactifs"
@@ -128,152 +135,175 @@
       }
     ],
     "consultation": {
-      "title": "VOUS AVEZ UN BESOIN SPÉCIFIQUE ?",
-      "text": "Que vous ayez besoin d'un nouveau site web, d'un outil de gestion sur mesure ou d'un tableau de bord analytique—partagez votre contexte pour définir l'approche adaptée.",
-      "cta": "Démarrer un projet"
+      "title": "VOUS AVEZ UN PROJET OU UNE OPPORTUNITÉ À DISCUTER ?",
+      "text": "Que vous recherchiez un profil capable de concevoir une application sur mesure, un outil opérationnel ou une opportunité de stage—échangeons sur vos besoins et objectifs.",
+      "cta": "Échangeons"
     }
   },
   "whyWorkWithMe": {
-    "badge": "POURQUOI ME CONFIER VOTRE PROJET",
-    "heading": "Une approche guidée par le besoin métier, pas seulement par le code.",
-    "intro": "J'aborde chaque projet numérique sous un double angle : comprendre d'abord le besoin opérationnel, puis bâtir la solution technique adaptée.",
+    "badge": "APPROCHE & VALEUR",
+    "heading": "Conçu avec une vision analytique et métier, pas seulement du code.",
+    "intro": "J'aborde chaque produit sous un double angle : analyser en profondeur le problème opérationnel d'abord, puis concevoir l'architecture technique adaptée.",
     "points": [
       {
         "number": "01",
-        "title": "Priorité aux objectifs métier",
-        "description": "Je pars de l'objectif, du parcours et des utilisateurs finaux—pas d'un empilement technologique. Le produit est conçu pour répondre aux besoins réels de votre activité."
+        "title": "Vision métier & analytique",
+        "description": "Je pars de l'objectif, du parcours utilisateur et de la modélisation des données—pas simplement des technologies. Le produit est pensé pour son utilité réelle."
       },
       {
         "number": "02",
         "title": "Conçu pour vos flux réels",
-        "description": "Qu'il s'agisse d'un site vitrine, d'un CRM ou d'un outil interne, mon attention se porte sur la clarté et l'efficacité des tâches essentielles."
+        "description": "Qu'il s'agisse d'un CRM, d'un outil de planification, d'un tableau de bord ou d'une boutique en ligne, mon attention se porte sur la clarté et l'efficacité au quotidien."
       },
       {
         "number": "03",
         "title": "Développement moderne et robuste",
-        "description": "Je crée des interfaces réactives et des applications fiables selon les standards de production actuels, avec une exigence de performance, de maintenabilité et de sécurité."
+        "description": "Je crée des interfaces réactives et des applications fiables selon les standards de production actuels, avec une exigence de typage strict, de performance et de sécurité."
       },
       {
         "number": "04",
-        "title": "Collaboration Directe & Transparente",
-        "description": "Un périmètre clair, des échanges directs et des avancées concrètes tout au long du projet—pour que vous sachiez toujours ce qui est développé et pourquoi."
+        "title": "Communication directe & engagement",
+        "description": "Un périmètre clair, des choix d'architecture transparents et une communication suivie tout au long du projet—de la conception au déploiement."
       }
     ],
+    "proofBadge": "PREUVES & MÉTRIQUES VÉRIFIABLES",
+    "proofSubtitle": "Mesuré et validé sur le code source et le déploiement de production",
     "proof": [
-      { "label": "Réalisations", "value": "3 Produits sur Mesure" },
-      { "label": "Démonstrations", "value": "Démos Déployées en Ligne" },
-      { "label": "Compatibilité", "value": "Interfaces 100% Réactives" },
-      { "label": "Ingénierie", "value": "Standards Orientés Production" }
+      {
+        "value": "98/100",
+        "tag": "SCORE QA",
+        "label": "Assurance Qualité Production",
+        "detail": "Score mesuré sur la conformité fonctionnelle, la réactivité mobile et les sécurités défensives."
+      },
+      {
+        "value": "103 kB",
+        "tag": "MÉTRIQUE BUNDLE",
+        "label": "JS Initial Partagé",
+        "detail": "Charge utile JS partagée mesurée en production sur Vercel après optimisation et découpage."
+      },
+      {
+        "value": "50%",
+        "tag": "OPTIMISATION",
+        "label": "Réduction Requêtes Polices",
+        "detail": "Optimisation obtenue par la consolidation des sous-ensembles de polices et la suppression des requêtes distantes."
+      },
+      {
+        "value": "3",
+        "tag": "FAIT PROJET",
+        "label": "Produits Indépendants",
+        "detail": "Applications complètes conçues, développées et déployées en autonomie avec code source public."
+      }
     ],
     "cta": {
-      "prompt": "PRÊT À CONSTRUIRE UN OUTIL UTILE ET PERFORMANT ?",
-      "action": "Démarrer un projet"
+      "prompt": "OUVERT AUX OPPORTUNITÉS, STAGES & COLLABORATIONS",
+      "action": "Discuter d'une opportunité"
     }
   },
   "process": {
-    "badge": "MÉTHODE DE TRAVAIL",
-    "heading": "Une approche orientée métier pour concevoir des produits digitaux.",
-    "subheading": "Je ne me contente pas de coder—j'analyse le besoin opérationnel, structure l'architecture du produit et développe une solution concrète et fonctionnelle.",
+    "badge": "MÉTHODOLOGIE",
+    "heading": "Une démarche structurée, du problème à la solution déployée.",
+    "subheading": "Je ne me contente pas de coder—j'analyse le besoin opérationnel, structure l'architecture du produit et développe une solution concrète et fonctionnelle de bout en bout.",
     "steps": [
       {
         "number": "01",
         "title": "Comprendre",
-        "description": "Comprendre le contexte opérationnel, les flux utilisateurs et les besoins métier avant tout développement."
+        "description": "Analyser le contexte opérationnel, les flux utilisateurs et les besoins fonctionnels avant tout développement."
       },
       {
         "number": "02",
         "title": "Structurer",
-        "description": "Traduire les besoins en flux produit clairs, modèles de données relationnels et choix techniques adaptés."
+        "description": "Traduire les besoins en parcours produits clairs, modèles de données relationnels et choix d'architecture solides."
       },
       {
         "number": "03",
         "title": "Développer",
-        "description": "Développer le produit digital avec un code propre, des technologies web modernes et des itérations ciblées."
+        "description": "Développer le produit digital avec un code TypeScript propre, des frameworks modernes et des itérations ciblées."
       },
       {
         "number": "04",
-        "title": "Affiner",
-        "description": "Tester l'expérience sur tous les écrans, fiabiliser les cas limites et préparer le déploiement en production."
+        "title": "Affiner & Déployer",
+        "description": "Vérifier l'expérience sur tous les écrans, fiabiliser les cas limites et déployer une application prête pour la production."
       }
     ],
-    "note": "Chaque réalisation est adaptée aux besoins opérationnels et au périmètre technique de votre projet.",
-    "startProjectLink": "Démarrer un projet →"
+    "note": "Chaque réalisation démontre un cycle produit complet : cadrage du besoin, modélisation des données, développement et mise en production.",
+    "startProjectLink": "Discuter d'une opportunité →"
   },
   "faq": {
     "badge": "FAQ",
     "heading": "Foire Aux Questions",
-    "subheading": "Réponses claires aux questions fréquentes concernant les types de projets, le lancement, les coûts, les délais et la collaboration à distance.",
+    "subheading": "Réponses détaillées sur mon parcours, la réalisation des projets, mes compétences full-stack et les modalités de collaboration.",
     "items": [
       {
-        "question": "Quels types de projets développez-vous ?",
-        "answer": "Je développe des sites web professionnels, des boutiques e-commerce, des applications métier sur mesure, des tableaux de bord, des systèmes CRM et des outils internes. La solution retenue dépend de votre besoin métier et du périmètre du projet."
+        "question": "Les projets de votre portfolio ont-ils été développés en autonomie, et quel était votre rôle exact ?",
+        "answer": "Oui, tous les projets présentés—notamment BusinessOS, Lumière Parfums et Gym CRM—sont des produits que j'ai conçus, développés et déployés en autonomie. Pour chaque projet, j'ai pris en charge l'ensemble du périmètre : définition du problème opérationnel, structuration des parcours utilisateurs, conception d'interfaces responsives avec Tailwind CSS, développement en TypeScript et déploiement en production sur Vercel. Pour les plateformes full-stack comme BusinessOS, cela comprend également la modélisation relationnelle avec Prisma et PostgreSQL. Des démos interactives et les dépôts GitHub publics sont accessibles pour chaque projet."
       },
       {
-        "question": "Comment démarre un projet ?",
-        "answer": "Nous commençons par un échange sur vos objectifs, le problème à résoudre et vos attentes. À partir de là, je vous aide à définir un périmètre clair et les prochaines étapes."
+        "question": "Quelles technologies maîtrisez-vous et couvrez-vous à la fois le frontend et le backend ?",
+        "answer": "Je travaille principalement dans l'écosystème TypeScript et Next.js. Côté frontend, je développe des interfaces modulaires et responsives avec Next.js (App Router), React et Tailwind CSS, en veillant à la légèreté du code (comme les 103 kB de JS initial partagé mesurés sur ce portfolio). Côté backend, je conçois des modèles de données relationnels, des Server Actions et des routes API avec Prisma ORM, PostgreSQL et SQLite, tout en intégrant Recharts pour la visualisation de données et Zod pour la validation stricte des formulaires."
       },
       {
-        "question": "Combien coûte un projet ?",
-        "answer": "Il n'y a pas de tarif fixe car le périmètre varie grandement d'un projet à l'autre. Après avoir compris vos besoins, je peux vous fournir une estimation claire basée sur le travail à réaliser."
+        "question": "Comment abordez-vous la sécurité, la validation et la qualité de production dans vos applications ?",
+        "answer": "J'applique des principes d'ingénierie défensive adaptés aux exigences de chaque projet. Sur mes applications web, j'intègre la validation stricte des schémas avec Zod, la sécurisation des entrées et la limitation de débit (rate limiting) sur les routes sensibles. Sur des plateformes full-stack comme BusinessOS, j'ai mis en place un contrôle d'accès par rôles (RBAC) et un garde-fou serveur (DEMO_MODE) permettant d'explorer l'interface d'administration tout en bloquant les modifications destructives en base de données. Chaque projet est vérifié pour assurer sa réactivité sur tous les écrans."
       },
       {
-        "question": "Combien de temps prend un projet ?",
-        "answer": "Les délais dépendent du périmètre, de la complexité et des fonctionnalités requises. Un site vitrine professionnel et une application métier sur mesure ont des exigences de développement très différentes."
+        "question": "Comment votre formation en Business Analytics & IA influence-t-elle votre manière de concevoir des logiciels ?",
+        "answer": "Mon cursus en Business Analytics & IA à l'EMAA Business School me forme à appréhender les outils numériques sous l'angle des flux organisationnels, de la structure des données et de l'aide à la décision. Avant de coder, j'analyse la circulation de l'information, les points de friction opérationnels et la modélisation des données relationnelles. Cette approche analytique—renforcée par l'observation concrète des flux administratifs lors de mon stage à la Wilaya de la Région Souss-Massa—me guide pour concevoir des logiciels axés sur l'utilité métier et la clarté des indicateurs."
       },
       {
-        "question": "Pouvez-vous travailler sur un site ou une application existante ?",
-        "answer": "Oui. Selon vos besoins, je peux améliorer, refondre, étendre ou reconstruire un produit digital existant plutôt que de repartir de zéro."
+        "question": "Quels types d'opportunités professionnelles, de stages ou de collaborations recherchez-vous ?",
+        "answer": "En tant qu'étudiant et jeune profil technique, je suis ouvert aux offres de stage, aux postes juniors en développement logiciel ou en analyse de données, aux collaborations avec des porteurs de projets et à des missions ciblées de développement digital. Je m'intéresse particulièrement aux environnements où je peux mettre à profit ma rigueur analytique, mes compétences en Next.js/TypeScript et ma capacité d'exécution pour concevoir des outils fiables et répondre à des besoins opérationnels concrets."
       },
       {
-        "question": "Travaillez-vous avec des clients à distance ?",
-        "answer": "Oui. Les projets peuvent être cadrés et pilotés à distance, avec une communication régulière et des livrables partagés tout au long du développement."
+        "question": "Comment initier un échange ou discuter d'une opportunité de collaboration ?",
+        "answer": "Vous pouvez me contacter via le formulaire de contact ci-dessous ou par e-mail direct à manssouriyoussef33@gmail.com. Qu'il s'agisse d'échanger sur une opportunité de stage, d'un poste junior ou de cadrer un projet numérique spécifique, nous pouvons organiser un premier échange pour clarifier vos objectifs, le périmètre technique et les prochaines étapes."
       }
     ]
   },
   "about": {
     "badge": "À PROPOS",
-    "heading": "Concevoir des produits digitaux utiles à la croisée du commerce et de la technologie.",
-    "lead": "Je suis Youssef Manssouri, étudiant en Business Analytics & IA à l'EMAA Business School et concepteur de produits digitaux axé sur le développement d'expériences pratiques pour les entreprises.",
-    "p1": "Mon approche associe la vision métier au développement web moderne. J'aime comprendre le fonctionnement d'une activité, identifier les leviers où la technologie peut optimiser un parcours ou simplifier un flux, et traduire cette compréhension en un produit digital ciblé.",
-    "p2": "Mes réalisations couvrent les sites vitrines professionnels, les boutiques e-commerce, les applications métier, les tableaux de bord et les outils internes.",
+    "heading": "Concevoir des produits digitaux concrets à la croisée de l'analyse métier, des données et de la technologie.",
+    "lead": "Je suis Youssef Manssouri, étudiant en Business Analytics & IA à l'EMAA Business School et concepteur de produits digitaux.",
+    "p1": "Mon approche associe la réflexion métier au développement web moderne. Mon intérêt pour la création logicielle n'est pas purement technique : il est né de l'observation des processus organisationnels, de l'identification des frictions au quotidien et de la volonté de concevoir des outils adaptés aux flux réels.",
+    "p2": "Lors de mon stage à la Wilaya de la Région Souss-Massa, j'ai appréhendé concrètement le déroulement des flux administratifs et la circulation des demandes internes. Cette immersion a renforcé ma démarche pour concevoir des produits concrets—tels que BusinessOS, Lumière Parfums et Gym CRM—qui structurent les données et fluidifient les opérations.",
     "educationLabel": "Formation & Fondations",
     "school": "Business Analytics & IA",
     "institution": "EMAA Business School (2025–Présent)",
     "internshipLabel": "Expérience de Stage",
     "internshipOrg": "Wilaya de la Région Souss-Massa",
-    "internshipRole": "Flux Administratifs & Opérations",
+    "internshipDept": "Préfecture d'Agadir Ida Outanane",
+    "internshipRole": "Flux administratifs, circulation des demandes internes et observation des processus organisationnels.",
     "focusLabel": "Domaines Clés",
     "focusItems": ["Business Analytics", "IA Appliquée", "Next.js & TypeScript", "Modélisation de Données"],
     "downloadCV": "Télécharger le CV (PDF)"
   },
   "contact": {
     "badge": "ÉCHANGEONS",
-    "heading": "Vous avez un projet ou une opportunité en tête ?",
-    "subheading": "Que vous souhaitiez concevoir un nouveau produit digital, améliorer un site existant ou explorer une collaboration—partagez vos besoins et je vous répondrai rapidement.",
+    "heading": "Vous avez une opportunité, une collaboration ou un projet en tête ?",
+    "subheading": "Que vous souhaitiez échanger sur une opportunité de stage, recruter un profil technique & analytique, collaborer sur un produit digital ou discuter d'un projet—n'hésitez pas à me contacter.",
     "form": {
       "name": "Votre nom complet *",
       "namePlaceholder": "Jean Dupont",
       "email": "Adresse e-mail *",
       "emailPlaceholder": "jean@entreprise.com",
-      "projectType": "Que souhaitez-vous créer ? *",
-      "selectProjectType": "Sélectionnez une catégorie de projet...",
-      "message": "Détails / Description du projet *",
-      "messagePlaceholder": "Décrivez votre projet, vos objectifs, vos fonctionnalités clés ou votre site existant...",
-      "submit": "Envoyer la demande",
+      "projectType": "Type de demande / d'opportunité *",
+      "selectProjectType": "Sélectionnez un type de demande...",
+      "message": "Message / Détails *",
+      "messagePlaceholder": "Précisez les détails du poste, du projet, des besoins ou de la collaboration...",
+      "submit": "Envoyer le message",
       "submitting": "Envoi en cours...",
       "successTitle": "Message reçu.",
-      "successMessage": "Merci pour votre prise de contact. Les détails de votre projet ont bien été reçus.",
+      "successMessage": "Merci pour votre prise de contact. Votre message a bien été transmis.",
       "sendAnother": "Envoyer un autre message",
       "errorTitle": "Une erreur est survenue.",
       "errorMessage": "Le formulaire n'a pas pu être envoyé. Vous pouvez me contacter directement à manssouriyoussef33@gmail.com."
     },
     "projectTypes": [
-      { "label": "Site Web d'Entreprise", "value": "Business Website" },
+      { "label": "Application Web Full-Stack", "value": "Custom Business Application" },
+      { "label": "Site Web / Page d'Atterrissage", "value": "Business Website" },
+      { "label": "Tableau de Bord & Données Analytiques", "value": "Dashboard / Internal Tool" },
       { "label": "Boutique E-Commerce", "value": "E-Commerce" },
-      { "label": "Application Web sur Mesure", "value": "Custom Business Application" },
-      { "label": "Tableau de Bord / Outil d'Analyse", "value": "Dashboard / Internal Tool" },
       { "label": "Stage / Opportunité Professionnelle", "value": "Professional Opportunity" },
-      { "label": "Collaboration / Autre Demande", "value": "Collaboration" }
+      { "label": "Collaboration / Autre Échange", "value": "Collaboration" }
     ],
     "directContact": "Coordonnées directes",
     "email": "E-mail",
@@ -281,11 +311,11 @@
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "whatsAppCTA": "Discuter sur WhatsApp",
-    "whatsAppMessage": "Bonjour Youssef, j'ai une demande de projet et je souhaiterais en discuter avec vous."
+    "whatsAppMessage": "Bonjour Youssef, j'ai consulté votre portfolio et je souhaiterais échanger avec vous."
   },
   "footer": {
-    "tagline": "Création de produits numériques utiles à la croisée de l'analyse métier, du développement web, des données et de l'IA.",
-    "location": "Agadir, Maroc · Local & À distance",
+    "tagline": "Conception de produits digitaux concrets à la croisée de l'analyse métier, de l'IA appliquée et du développement web moderne.",
+    "location": "Agadir, Maroc · Ouvert aux opportunités locales et à distance",
     "rights": "Tous droits réservés.",
     "backToTop": "Haut de page"
   }

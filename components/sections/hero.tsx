@@ -8,7 +8,7 @@ import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     const elem = document.getElementById(targetId);
@@ -70,11 +70,16 @@ export function Hero() {
 
               {/* Recruiter Path: View CV */}
               <a
-                href={t("hero.viewCV") ? (useLanguage().language === "fr" ? "/cv-fr.pdf" : "/cv-en.pdf") : "/cv-en.pdf"}
+                href={language === "fr" ? "/cv-fr.pdf" : "/cv-en.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
+                download={language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf"}
                 onClick={() => {
-                  trackEvent("CV_DOWNLOAD", { language: useLanguage().language, source: "hero" });
+                  trackEvent("CV_DOWNLOAD", {
+                    language,
+                    source: "hero",
+                    file: language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf",
+                  });
                 }}
                 className="inline-flex items-center gap-1.5 text-xs font-mono text-[#242222]/75 hover:text-[#A65F4B] transition-colors py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] rounded-xs"
               >

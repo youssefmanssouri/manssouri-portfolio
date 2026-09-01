@@ -84,13 +84,13 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
         { title: "CRM", subtitle: "Client pipeline" },
         { title: "Invoicing", subtitle: "Billing & quotes" },
         { title: "Scheduling", subtitle: "Calendar bookings" },
-        { title: "Analytics", subtitle: "Financial telemetry" }
+        { title: "Analytics", subtitle: "Financial metrics" }
       ],
       scopeIndicatorsFr: [
         { title: "CRM", subtitle: "Pipeline commercial" },
         { title: "Facturation", subtitle: "Devis & paiements" },
         { title: "Planification", subtitle: "Réservations & agenda" },
-        { title: "Analyse", subtitle: "Télémétrie financière" }
+        { title: "Analyse", subtitle: "Indicateurs financiers" }
       ],
       keyTechs: ["Next.js 15 (App Router)", "TypeScript", "PostgreSQL", "Prisma ORM", "Recharts"]
     },
@@ -148,7 +148,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
             <span>{isFlagship ? (isFr ? "★ Projet Phare" : "★ Flagship Project") : (isFr ? "Application Métier" : "Operations Web App")}</span>
           </div>
           <span className="text-[11px] font-mono text-[#DED6CC]/70 hidden sm:inline font-medium">
-            {isFr ? "Développement Indépendant · Démo Interactive · Code Source" : "Personal Build · Interactive Demo · Source Code"}
+            {isFr ? "Produit Indépendant · Démo Interactive · Code Source" : "Independent Product · Interactive Demo · Source Code"}
           </span>
         </div>
 
@@ -309,7 +309,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
           <span>{isFr ? "Boutique E-Commerce" : "E-Commerce Experience"}</span>
         </div>
         <span className="text-[11px] font-mono text-[#242222]/60 hidden sm:inline font-medium">
-          {isFr ? "Développement Indépendant · Démo Interactive · Code Source" : "Personal Build · Interactive Demo · Source Code"}
+          {isFr ? "Produit Indépendant · Démo Interactive · Code Source" : "Independent Product · Interactive Demo · Source Code"}
         </span>
       </div>
 

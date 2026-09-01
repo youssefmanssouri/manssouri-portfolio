@@ -46,7 +46,7 @@ This document provides a factual, unambiguous reference for understanding the id
 - **Security & Authorization**: Role-Based Access Control (RBAC), Zod schema input validation, server-side demo guards (`DEMO_MODE=true` mutation barriers)
 
 ### Analytics, Data & AI
-- **Telemetry & Visualization**: Recharts analytics, KPI dashboard design, multi-dimensional business reports
+- **Data Visualization & Analytics**: Recharts analytics, KPI dashboard design, multi-dimensional business reports
 - **AI Integrations**: Google Gemini API for predictive insights and operational summaries
 
 ---
@@ -55,13 +55,13 @@ This document provides a factual, unambiguous reference for understanding the id
 
 ### 4.1. BusinessOS — Flagship Business Operations Platform
 - **Project URL**: https://www.youssefmanssouri.site/projects/businessos
-- **Live Demo**: https://business-os-manssouri.vercel.app
-- **Source Code**: https://github.com/youssefmanssouri/business-os
+- **Live Demo**: https://business-os-one.vercel.app/
+- **Source Code**: https://github.com/youssefmanssouri/BusinessOS
 - **Category**: Flagship Case Study · SaaS Architecture
 - **Problem Solved**: Small and mid-sized enterprises often struggle with fragmented SaaS stacks—running separate unlinked subscriptions for CRM, invoicing, client appointments, employee rosters, and cash flow tracking.
-- **Solution**: A unified multi-tenant command center integrating 7 operational modules in a single interface backed by a 15-model relational database schema.
+- **Solution**: A unified multi-tenant command center integrating core operational modules in a single interface backed by a type-safe relational database schema.
 - **Key Modules**:
-  1. *Executive Command Center*: Real-time revenue metrics, active pipeline telemetry, and audit logging.
+  1. *Executive Command Center*: Real-time revenue metrics, active pipeline indicators, and audit logging.
   2. *CRM & Sales Pipeline*: Multi-stage deal tracking and customer record lookups.
   3. *Itemized Billing & Invoicing*: Automated tax and subtotal calculations with PDF-style layouts.
   4. *Resource Booking Calendar*: Appointment scheduling with staff capacity and duration matrices.
@@ -81,11 +81,11 @@ This document provides a factual, unambiguous reference for understanding the id
 
 ### 4.3. Gym CRM — Gym Operations & Member Management Platform
 - **Project URL**: https://www.youssefmanssouri.site/projects/gym-crm
-- **Live Demo**: https://gym-crm-gules.vercel.app
-- **Source Code**: https://github.com/youssefmanssouri/gym-crm
+- **Live Demo**: https://gym-crm-mauve.vercel.app/
+- **Source Code**: https://github.com/youssefmanssouri/Gym-CRM
 - **Category**: Gym Management & Operations · Web Application
 - **Problem Solved**: Fitness facilities experience reception bottlenecks during peak hours, unverified entries from lapsed memberships, manual attendance records, and disjointed class scheduling.
-- **Solution**: A dedicated gym operations platform combining instant member lookup, clear subscription status badges (Active, Expired, Frozen), class capacity planning, and recurring revenue telemetry.
+- **Solution**: A dedicated gym operations platform combining instant member lookup, clear subscription status badges (Active, Expired, Frozen), class capacity planning, and recurring revenue metrics.
 - **Tech Stack**: Next.js, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Recharts.
 
 ---

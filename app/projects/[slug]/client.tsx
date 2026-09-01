@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Project } from "@/data/projects";
-import { ArrowLeft, ArrowRight, ExternalLink, Mail, ShieldCheck, Layers, Eye } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Mail, ShieldCheck, Layers, Eye, GitBranch, Lightbulb } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
 import { CaseStudyNav } from "@/components/projects/case-study-nav";
@@ -73,7 +73,11 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
   return (
     <article className="min-h-screen pt-24 sm:pt-28 pb-20 sm:pb-28 bg-[#F3EFEA] text-[#242222]">
       {/* Sticky Table of Contents Sub-Navigation */}
-      <CaseStudyNav hasLiveDemo={project.hasLiveDemo && Boolean(project.liveUrl)} />
+      <CaseStudyNav
+        hasLiveDemo={project.hasLiveDemo && Boolean(project.liveUrl)}
+        hasDecisions={Boolean(project.decisions && project.decisions.length > 0)}
+        hasLearnings={Boolean(project.learnings && project.learnings.length > 0)}
+      />
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 space-y-12 sm:space-y-16">
         
@@ -415,6 +419,85 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 </div>
               </div>
             )}
+          </section>
+        )}
+
+        {/* Section: Architectural Decisions & Rationale */}
+        {project.decisions && project.decisions.length > 0 && (
+          <section id="decisions" className="scroll-mt-36 space-y-8 pt-8 border-t border-[#DED6CC]">
+            <div className="max-w-2xl space-y-2">
+              <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                05 / {t("caseStudy.decisionsBadge")}
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#242222]">
+                {t("caseStudy.decisionsTitle")}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {project.decisions.map((dec, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] space-y-3.5 shadow-xs flex flex-col justify-between"
+                >
+                  <div className="space-y-2.5">
+                    <div className="flex items-center gap-2 text-xs font-mono text-[#A65F4B] font-bold">
+                      <GitBranch className="w-4 h-4 text-[#A65F4B]" />
+                      <span>DECISION 0{idx + 1}</span>
+                    </div>
+                    <h3 className="text-base font-bold text-[#242222] tracking-tight">
+                      {isFr ? dec.titleFr : dec.titleEn}
+                    </h3>
+                    <p className="text-xs text-[#242222]/85 leading-relaxed font-sans">
+                      {isFr ? dec.decisionFr : dec.decisionEn}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-[#DED6CC]/70 space-y-1">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#A65F4B] font-bold block">
+                      {t("caseStudy.decisionRationale")}
+                    </span>
+                    <p className="text-[11px] text-[#242222]/75 leading-relaxed font-sans">
+                      {isFr ? dec.rationaleFr : dec.rationaleEn}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Section: Key Learnings & Demonstrated Outcomes */}
+        {project.learnings && project.learnings.length > 0 && (
+          <section id="learnings" className="scroll-mt-36 space-y-8 pt-8 border-t border-[#DED6CC]">
+            <div className="max-w-2xl space-y-2">
+              <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                06 / {t("caseStudy.learningsBadge")}
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#242222]">
+                {t("caseStudy.learningsTitle")}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {project.learnings.map((learn, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 sm:p-7 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-3 shadow-md"
+                >
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#A65F4B] font-bold">
+                    <Lightbulb className="w-4 h-4 text-[#A65F4B]" />
+                    <span>INSIGHT 0{idx + 1}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#F3EFEA] tracking-tight">
+                    {isFr ? learn.titleFr : learn.titleEn}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#DED6CC]/85 leading-relaxed font-sans">
+                    {isFr ? learn.descFr : learn.descEn}
+                  </p>
+                </div>
+              ))}
+            </div>
           </section>
         )}
 

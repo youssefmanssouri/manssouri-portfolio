@@ -64,18 +64,37 @@ export function WhyWorkWithMe() {
           })}
         </div>
 
-        {/* Verifiable Proof Row */}
+        {/* Verifiable Proof & Performance Evidence */}
         {proofItems.length > 0 && (
-          <div className="mt-12 sm:mt-16 p-5 sm:p-7 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] shadow-xs">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-left">
+          <div className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] shadow-xs space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#DED6CC] pb-3">
+              <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                {t("whyWorkWithMe.proofBadge") || "VERIFIABLE METRICS & EVIDENCE"}
+              </span>
+              <span className="text-[11px] font-mono text-[#242222]/60">
+                {t("whyWorkWithMe.proofSubtitle") || "Measured & verified in production"}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
               {proofItems.map((item: any, idx: number) => (
-                <div key={idx} className="space-y-1.5 break-words">
-                  <span className="text-[10px] sm:text-[11px] font-mono text-[#A65F4B] uppercase tracking-wider font-semibold block">
-                    {item.label}
-                  </span>
-                  <p className="text-sm sm:text-base font-bold text-[#242222] tracking-tight leading-snug">
-                    {item.value}
-                  </p>
+                <div key={idx} className="space-y-2 border-l-2 border-[#A65F4B] pl-3.5 flex flex-col justify-between">
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-mono text-[#A65F4B] uppercase tracking-wider font-bold block">
+                      {item.tag}
+                    </span>
+                    <div className="text-2xl sm:text-3xl font-bold font-mono text-[#3A171C] tracking-tight leading-none">
+                      {item.value}
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-[#242222] leading-snug pt-0.5">
+                      {item.label}
+                    </div>
+                  </div>
+                  {item.detail && (
+                    <p className="text-[11px] text-[#242222]/75 leading-relaxed font-sans pt-1">
+                      {item.detail}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>

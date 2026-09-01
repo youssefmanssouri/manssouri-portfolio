@@ -10,73 +10,61 @@ export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: "01",
     title: "Discover",
-    subtitle: "Understanding business & goals",
+    subtitle: "Understanding the problem & requirements",
     description:
-      "We begin by defining your business objectives, target audience, core features, and project scope to ensure every decision aligns with your business goals.",
+      "Begin by analyzing the operational context, user workflows, core requirements, and technical scope to ensure a solid foundation.",
     details: [
-      "Requirements gathering & goal alignment",
-      "Target audience definition",
-      "Feature prioritization & technical scoping"
+      "Operational context & problem definition",
+      "User workflow and journey analysis",
+      "Technical scoping & feature prioritization"
     ]
   },
   {
     step: "02",
-    title: "Plan",
-    subtitle: "Architecture & structure",
+    title: "Structure",
+    subtitle: "Architecture & data modeling",
     description:
-      "Map out site architecture, user journeys, navigation flow, database schemas, and technical stack selection before writing code.",
+      "Map out product flows, database schemas, API contracts, and user interactions before writing code.",
     details: [
-      "Sitemap & user journey mapping",
-      "Database schema & API planning",
-      "Content strategy & structural layout"
+      "Relational schema & data modeling",
+      "API endpoints & state architecture",
+      "Interface structure & visual hierarchy"
     ]
   },
   {
     step: "03",
-    title: "Design",
-    subtitle: "Visual direction & UI",
+    title: "Build",
+    subtitle: "Full-stack implementation",
     description:
-      "Create high-fidelity interfaces, component design systems, typography hierarchy, and interactive states tailored to your brand personality.",
+      "Engineer the digital product using modern technologies like Next.js, React, TypeScript, Tailwind CSS, and Prisma ORM.",
     details: [
-      "Modern dark/light interface concepts",
-      "Component library & typography system",
-      "Interactive prototype review"
+      "Type-safe component engineering",
+      "Backend, database & auth integration",
+      "Interaction polish & responsive styling"
     ]
   },
   {
     step: "04",
-    title: "Develop",
-    subtitle: "Clean code & integration",
+    title: "Refine",
+    subtitle: "Testing & verification",
     description:
-      "Build the web solution using modern technologies like Next.js, React, TypeScript, and Tailwind CSS. Clean, maintainable, modular codebase.",
+      "Thoroughly inspect functionality, cross-device responsiveness, security barriers, performance metrics, and edge cases.",
     details: [
-      "Responsive frontend component engineering",
-      "Backend & database API integration",
-      "Smooth animation & interaction polish"
+      "Cross-device mobile & tablet verification",
+      "Input validation & defensive safeguards",
+      "Performance & SEO vitals audit"
     ]
   },
   {
     step: "05",
-    title: "Test",
-    subtitle: "Quality & responsiveness",
+    title: "Deploy",
+    subtitle: "Production release & monitoring",
     description:
-      "Rigorously inspect functionality, cross-browser compatibility, mobile responsiveness, accessibility standards, and page loading speed.",
-    details: [
-      "Cross-device mobile & tablet verification",
-      "Form validation & edge-case testing",
-      "Performance & SEO web vitals audit"
-    ]
-  },
-  {
-    step: "06",
-    title: "Launch",
-    subtitle: "Deployment & delivery",
-    description:
-      "Configure production hosting, domain DNS, SSL certificates, analytics tracking, and deliver full documentation for effortless operation.",
+      "Configure production hosting on Vercel, domain DNS, SSL security, analytics telemetry, and verify live application health.",
     details: [
       "Production deployment configuration",
-      "Domain DNS & security setup",
-      "Handover documentation & walkthrough"
+      "DNS, SSL & security header validation",
+      "Telemetry & analytics verification"
     ]
   }
 ];

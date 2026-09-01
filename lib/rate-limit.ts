@@ -32,8 +32,8 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicy, RateLimitPolicyConfig>
     prefix: "portfolio:ratelimit:contact",
   },
   login: {
-    limit: 5,
-    windowMs: 15 * 60 * 1000,
+    limit: process.env.NODE_ENV === "production" ? 5 : 100,
+    windowMs: process.env.NODE_ENV === "production" ? 15 * 60 * 1000 : 60 * 1000,
     windowStr: "15 m",
     prefix: "portfolio:ratelimit:login",
   },

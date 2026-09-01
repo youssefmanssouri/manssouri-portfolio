@@ -115,7 +115,7 @@ Reply directly to this email to reach: ${safeEmail}
     <div class="content">
       <div class="meta-grid">
         <div class="meta-item">
-          <div class="meta-label">Client Name</div>
+          <div class="meta-label">Sender Name</div>
           <div class="meta-value">${escapeHtml(safeName)}</div>
         </div>
         <div class="meta-item">

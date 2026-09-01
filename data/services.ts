@@ -13,40 +13,40 @@ export const SERVICES: Service[] = [
     id: "business-websites",
     number: "01",
     title: "Business Websites",
-    tagline: "High-impact digital front doors engineered for credibility and conversion.",
+    tagline: "High-impact digital front doors engineered for clarity and performance.",
     description:
-      "Modern, responsive websites tailored for restaurants, cafés, local businesses, professional agencies, and growing startups looking to stand out.",
+      "Modern, responsive websites with structured content, clear navigation, and performance-optimized architecture.",
     bullets: [
-      "Tailored UI/UX design matching your brand identity",
+      "Tailored UI/UX design matching organizational identity",
       "Mobile-first responsive architecture across all screen sizes",
       "Fast page load performance & core web vitals optimization",
-      "Search Engine Optimization (SEO) setup & meta tags",
-      "Content structure designed to guide visitors into leads"
+      "Search Engine Optimization (SEO) setup & semantic meta tags",
+      "Content structure designed to guide visitors intuitively"
     ],
     deliverables: [
       "Custom Multi-page Website",
       "Mobile Responsive Layouts",
       "SEO & Analytics Integration",
-      "CMS / Content Management"
+      "Structured Content Architecture"
     ]
   },
   {
     id: "landing-pages",
     number: "02",
     title: "Landing Pages",
-    tagline: "Laser-focused single-page experiences built to drive specific user actions.",
+    tagline: "Laser-focused single-page experiences built around clear product narratives.",
     description:
-      "High-converting landing pages built for product launches, targeted services, marketing campaigns, and personal brands.",
+      "Engaging landing pages built for digital products, service presentations, and focused marketing initiatives.",
     bullets: [
-      "Persuasive visual structure emphasizing core value propositions",
-      "Strategic CTA placement for maximum conversion rate",
-      "Subtle animations and micro-interactions that keep users engaged",
-      "Lightning-fast load speed for ad campaigns & social traffic",
-      "Form integration with lead capture & email notifications"
+      "Structured visual hierarchy emphasizing core value propositions",
+      "Strategic CTA placement for clear user interaction",
+      "Subtle animations and micro-interactions that elevate engagement",
+      "Fast load speed across desktop, tablet, and mobile devices",
+      "Form handling with client validation & automated notification"
     ],
     deliverables: [
-      "Single-page Conversion Funnel",
-      "Interactive Product Displays",
+      "Single-page Product Showcase",
+      "Interactive Interface Displays",
       "Lead Capture & Form Handling",
       "Speed & Performance Audit"
     ]
@@ -55,19 +55,19 @@ export const SERVICES: Service[] = [
     id: "web-applications",
     number: "03",
     title: "Web Applications",
-    tagline: "Custom digital tools and platforms designed around complex business operations.",
+    tagline: "Custom digital tools and platforms designed around operational workflows.",
     description:
-      "Tailored web systems including administrative dashboards, client portals, internal management tools, and booking engines.",
+      "Tailored web systems including administrative dashboards, member management portals, and scheduling workflows.",
     bullets: [
-      "Custom database design and backend architecture",
-      "Role-based access control (Admin, Staff, Client views)",
+      "Custom relational database schemas and backend architecture",
+      "Role-based access control (Admin, Staff, Member views)",
       "Interactive data visualizations, charts, and report generation",
-      "RESTful API integration & third-party service connections",
-      "Intuitive UI created for high daily productivity"
+      "RESTful API endpoints & third-party service connections",
+      "Intuitive UI engineered for high daily usability"
     ],
     deliverables: [
-      "Custom Dashboard / Portal",
-      "Database Architecture",
+      "Custom Operational Dashboard",
+      "Relational Database Architecture",
       "User Authentication System",
       "Interactive Reports & Charts"
     ]
@@ -76,20 +76,20 @@ export const SERVICES: Service[] = [
     id: "e-commerce",
     number: "04",
     title: "E-commerce Solutions",
-    tagline: "Seamless online shopping platforms engineered for frictionless buying.",
+    tagline: "Seamless online shopping experiences engineered for exploration and conversion.",
     description:
-      "Full-stack online stores equipped with rich product catalogs, custom cart workflows, checkout integrations, and admin inventory control.",
+      "Full-stack digital storefronts equipped with rich product catalogs, multi-attribute discovery, persistent carts, and admin controls.",
     bullets: [
       "Custom product catalog layouts with multi-attribute filtering",
-      "Frictionless cart & checkout user experience",
-      "Admin inventory management and order tracking portal",
-      "Customer account portals with past purchase records",
-      "Secure payment processing integration & tax workflows"
+      "Frictionless persistent cart & checkout user experience",
+      "Admin catalog management and order overview portal",
+      "Responsive interface optimized for touch devices",
+      "Modern state management ensuring session continuity"
     ],
     deliverables: [
       "Online Storefront",
       "Product Catalog & Filtering",
-      "Shopping Cart & Checkout",
+      "Persistent Shopping Cart",
       "Store Administration Panel"
     ]
   }

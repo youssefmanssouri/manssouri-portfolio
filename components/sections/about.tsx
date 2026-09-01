@@ -69,14 +69,21 @@ export function About() {
               </div>
 
               {/* Internship Experience */}
-              <div className="border-t border-[#DED6CC]/15 pt-4 space-y-1">
+              <div className="border-t border-[#DED6CC]/15 pt-4 space-y-1.5">
                 <p className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
                   {t("about.internshipLabel")}
                 </p>
-                <h4 className="text-sm font-bold text-[#F3EFEA]">
-                  {t("about.internshipOrg")}
-                </h4>
-                <p className="text-xs text-[#DED6CC]/80 font-mono">
+                <div className="space-y-0.5">
+                  <h4 className="text-sm font-bold text-[#F3EFEA]">
+                    {t("about.internshipOrg")}
+                  </h4>
+                  {dictionary?.about?.internshipDept && (
+                    <p className="text-[11px] text-[#DED6CC]/70 font-mono">
+                      {dictionary.about.internshipDept}
+                    </p>
+                  )}
+                </div>
+                <p className="text-xs text-[#DED6CC]/85 leading-relaxed pt-0.5">
                   {t("about.internshipRole")}
                 </p>
               </div>
@@ -106,7 +113,7 @@ export function About() {
                   rel="noopener noreferrer"
                   download={cvDownloadName}
                   onClick={() => {
-                    trackEvent("CV_DOWNLOAD", { language, source: "about" });
+                    trackEvent("CV_DOWNLOAD", { language, source: "about", file: cvDownloadName });
                   }}
                   className="inline-flex items-center justify-center gap-2 w-full bg-[#F3EFEA] text-[#3A171C] px-4 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-white transition-colors active:scale-95"
                 >

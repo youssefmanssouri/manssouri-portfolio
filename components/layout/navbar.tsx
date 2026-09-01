@@ -94,8 +94,13 @@ export function Navbar() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                download={language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf"}
                 onClick={() => {
-                  trackEvent("CV_DOWNLOAD", { language, source: "navbar" });
+                  trackEvent("CV_DOWNLOAD", {
+                    language,
+                    source: "navbar",
+                    file: language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf",
+                  });
                 }}
                 className="hover:text-[#A65F4B] transition-colors py-1 inline-flex items-center gap-0.5 active:scale-95 text-[#A65F4B] font-semibold"
               >
@@ -201,8 +206,13 @@ export function Navbar() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    download={language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf"}
                     onClick={() => {
-                      trackEvent("CV_DOWNLOAD", { language, source: "navbar_mobile" });
+                      trackEvent("CV_DOWNLOAD", {
+                        language,
+                        source: "navbar_mobile",
+                        file: language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf",
+                      });
                       setMobileMenuOpen(false);
                     }}
                     className="text-[#A65F4B] font-semibold py-2 inline-flex items-center gap-1.5"

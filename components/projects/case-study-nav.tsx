@@ -10,9 +10,15 @@ interface NavItem {
 
 interface CaseStudyNavProps {
   hasLiveDemo?: boolean;
+  hasDecisions?: boolean;
+  hasLearnings?: boolean;
 }
 
-export function CaseStudyNav({ hasLiveDemo = true }: CaseStudyNavProps) {
+export function CaseStudyNav({
+  hasLiveDemo = true,
+  hasDecisions = false,
+  hasLearnings = false,
+}: CaseStudyNavProps) {
   const { t } = useLanguage();
   const [activeId, setActiveId] = useState<string>("overview");
   const navRef = useRef<HTMLDivElement>(null);
@@ -23,6 +29,8 @@ export function CaseStudyNav({ hasLiveDemo = true }: CaseStudyNavProps) {
     { id: "solution", label: t("caseStudy.nav.solution") || "The Solution" },
     { id: "capabilities", label: t("caseStudy.nav.capabilities") || "Capabilities" },
     { id: "engineering", label: t("caseStudy.nav.engineering") || "Engineering" },
+    ...(hasDecisions ? [{ id: "decisions", label: t("caseStudy.nav.decisions") || "Decisions" }] : []),
+    ...(hasLearnings ? [{ id: "learnings", label: t("caseStudy.nav.learnings") || "Learnings" }] : []),
     ...(hasLiveDemo ? [{ id: "demo", label: t("caseStudy.nav.demo") || "Live Demo" }] : []),
   ];
 

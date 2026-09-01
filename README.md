@@ -15,19 +15,19 @@
 
 ## 📌 Featured Projects & Case Studies
 
-### 1. [BusinessOS](https://www.youssefmanssouri.site/projects/businessos) · [GitHub](https://github.com/youssefmanssouri/business-os) · [Live Demo](https://business-os-manssouri.vercel.app)
+### 1. [BusinessOS](https://www.youssefmanssouri.site/projects/businessos) · [GitHub](https://github.com/youssefmanssouri/BusinessOS) · [Live Demo](https://business-os-one.vercel.app/)
 - **Domain**: SaaS Business Operations Platform
-- **Scope**: Multi-module architecture integrating CRM client pipelines, itemized billing/invoicing, appointment scheduling, HR directory, and real-time cash flow telemetry with Recharts.
+- **Scope**: Multi-module architecture integrating CRM client pipelines, itemized billing/invoicing, appointment scheduling, HR directory, and real-time cash flow tracking with Recharts.
 - **Stack**: Next.js 15 (App Router), TypeScript 5.7, PostgreSQL, Prisma ORM, Tailwind CSS, Recharts.
 
-### 2. [Lumière Parfums](https://www.youssefmanssouri.site/projects/lumiere-parfums) · [GitHub](https://github.com/youssefmanssouri/lumiere-parfums) · [Live Demo](https://lumiere-parfums-mu.vercel.app)
+### 2. [Lumière Parfums](https://www.youssefmanssouri.site/projects/lumiere-parfums) · [GitHub](https://github.com/youssefmanssouri/lumiere-parfums) · [Live Demo](https://lumiere-parfums-mu.vercel.app/)
 - **Domain**: Luxury Fragrance E-Commerce & Scent Discovery
 - **Scope**: Digital boutique exploring domain-specific fragrance discovery (olfactory notes & scent pyramids), persistent slide-out shopping cart, and catalog pricing administration.
 - **Stack**: Next.js (App Router), TypeScript, Tailwind CSS, LocalStorage Session State.
 
-### 3. [Gym CRM](https://www.youssefmanssouri.site/projects/gym-crm) · [GitHub](https://github.com/youssefmanssouri/gym-crm) · [Live Demo](https://gym-crm-gules.vercel.app)
+### 3. [Gym CRM](https://www.youssefmanssouri.site/projects/gym-crm) · [GitHub](https://github.com/youssefmanssouri/Gym-CRM) · [Live Demo](https://gym-crm-mauve.vercel.app/)
 - **Domain**: Fitness Facility & Member Management Platform
-- **Scope**: Front-desk check-in verification terminal, member directory with visual renewal statuses, group class capacity planning, and recurring revenue telemetry.
+- **Scope**: Front-desk check-in verification terminal, member directory with visual renewal statuses, group class capacity planning, and recurring revenue metrics.
 - **Stack**: Next.js, TypeScript, PostgreSQL, Prisma ORM, Tailwind CSS.
 
 ---

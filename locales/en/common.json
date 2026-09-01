@@ -8,22 +8,22 @@
     "process": "Process",
     "contact": "Contact",
     "talk": "Let's Talk",
-    "startProject": "Start a Project"
+    "startProject": "Let's Connect"
   },
   "hero": {
     "title": "YOUSSEF MANSSOURI",
     "badge": "BUSINESS ANALYTICS & AI STUDENT · DIGITAL PRODUCT BUILDER",
-    "headline": "I build websites and custom web applications that help businesses present, manage, and organize their operations more effectively.",
-    "subheadline": "From professional business websites and e-commerce storefronts to custom dashboards, CRMs, and internal tools—I turn business requirements into practical, responsive digital products.",
+    "headline": "I build practical digital products combining business thinking, analytical problem-solving, and modern web technology.",
+    "subheadline": "From custom web applications and operational dashboards to e-commerce storefronts—I turn real business and workflow requirements into functional, responsive, and deployed digital products.",
     "viewWork": "View My Work",
-    "startProject": "Start a Project",
+    "startProject": "Let's Connect",
     "viewCV": "View CV (PDF)",
-    "location": "Based in Agadir, Morocco · Working with clients locally and remotely"
+    "location": "Based in Agadir, Morocco · Open to local & remote opportunities"
   },
   "work": {
     "badge": "SELECTED WORK",
-    "heading": "Digital products built around real business needs.",
-    "subheading": "A selection of websites and web applications designed to solve practical problems—from building a stronger online presence to organizing business operations.",
+    "heading": "Independent products built around real business needs.",
+    "subheading": "A selection of self-directed web applications and digital products built to explore practical operational problems—from concept and interface design to implementation, security, optimization, and deployment.",
     "viewCaseStudy": "View Case Study",
     "visitLive": "Visit Live Demo",
     "github": "GitHub ↗"
@@ -36,6 +36,8 @@
       "solution": "The Solution",
       "capabilities": "Capabilities",
       "engineering": "Engineering",
+      "decisions": "Decisions",
+      "learnings": "Learnings",
       "demo": "Live Demo"
     },
     "overview": "Overview",
@@ -64,32 +66,37 @@
     "proofResponsive": "Multi-Device Responsive",
     "proofResponsiveDesc": "Tested across mobile, tablet, and desktop viewports",
     "proofFromScratch": "Built From Scratch",
-    "proofFromScratchDesc": "Custom architecture with zero pre-made templates",
+    "proofFromScratchDesc": "Custom architecture independently engineered from scratch",
+    "decisionsBadge": "ENGINEERING DECISIONS",
+    "decisionsTitle": "Architectural Decisions & Rationale",
+    "decisionRationale": "Why this approach:",
+    "learningsBadge": "REFLECTIONS & LEARNINGS",
+    "learningsTitle": "What This Project Demonstrated",
     "gallery": "Project Visuals",
     "nextProject": "NEXT PROJECT",
     "backToWork": "Back to Selected Work",
     "practicalOutcome": "Practical Value:",
     "expandImage": "Click to inspect interface",
     "nextStepsBadge": "NEXT STEPS",
-    "nextStepsHeading": "Have a similar project in mind?",
-    "nextStepsSubheading": "Let's discuss what you'd like to build.",
-    "startProject": "Start a Project",
+    "nextStepsHeading": "Interested in discussing this project or exploring an opportunity?",
+    "nextStepsSubheading": "Let's connect to discuss the technical implementation, product architecture, or future collaborations.",
+    "startProject": "Let's Connect",
     "orDirect": "Or reach out directly:"
   },
   "capabilities": {
     "badge": "WHAT I BUILD",
     "itemPrefix": "CAPABILITY",
-    "heading": "Practical digital products built around real business workflows.",
-    "subheading": "From company websites and custom e-commerce storefronts to multi-module business applications and operational dashboards—I turn business requirements into reliable, working digital products.",
+    "heading": "Practical digital products built around real operational workflows.",
+    "subheading": "From business websites and custom e-commerce storefronts to multi-module management platforms and operational dashboards—I design and build reliable, working digital solutions.",
     "items": [
       {
         "title": "Business Websites",
-        "description": "Professional, responsive websites designed around a company's identity, structured content, and clear visitor journey.",
+        "description": "Professional, responsive websites designed around structured content, intuitive visitor journeys, and modern web performance standards.",
         "listLabel": "Focus Areas:",
         "features": [
           "Responsive layouts",
-          "Company presentation",
-          "Structured inquiry flow",
+          "Structured content flow",
+          "Clear inquiry pathways",
           "Fast load performance"
         ]
       },
@@ -120,7 +127,7 @@
         "description": "Operational dashboards, financial metrics, and data interfaces that turn business records and activity into clear visual summaries.",
         "listLabel": "Focus Areas:",
         "features": [
-          "Financial telemetry (Recharts)",
+          "Financial metrics (Recharts)",
           "KPI summary cards",
           "Relational data modeling",
           "Interactive filters & charts"
@@ -128,152 +135,175 @@
       }
     ],
     "consultation": {
-      "title": "HAVE A SPECIFIC REQUIREMENT?",
-      "text": "Whether you need a new website, a tailored business tool, or a custom analytics dashboard—share your operational context and we can define the right approach.",
-      "cta": "Start a Project"
+      "title": "INTERESTED IN COLLABORATING OR DISCUSSING A PROJECT?",
+      "text": "Whether you are looking for an analytical product builder for a web application, an operational tool, or an internship opportunity—let's connect.",
+      "cta": "Let's Connect"
     }
   },
   "whyWorkWithMe": {
-    "badge": "WHY WORK WITH ME",
-    "heading": "Built with business thinking, not just code.",
-    "intro": "I approach digital projects from both sides: understanding the business problem first, then building the technology around it.",
+    "badge": "APPROACH & VALUE",
+    "heading": "Built with analytical problem-solving, not just code.",
+    "intro": "I approach digital products from both angles: thoroughly understanding the operational problem first, then engineering the right technology around it.",
     "points": [
       {
         "number": "01",
-        "title": "Business-first thinking",
-        "description": "I start with the goal, workflow, and people using the product—not with a technology stack. The result is designed around what the business actually needs."
+        "title": "Business & analytical thinking",
+        "description": "I start with the operational goal, user workflows, and data structures—not just the technology stack. The resulting product is built around actual utility."
       },
       {
         "number": "02",
-        "title": "Built for the real workflow",
-        "description": "Whether it is a website, CRM, dashboard, or internal tool, I focus on making the important tasks clear, efficient, and easy to use."
+        "title": "Designed for real workflows",
+        "description": "Whether it is a CRM, scheduling tool, dashboard, or digital storefront, I prioritize clarity, workflow efficiency, and intuitive daily usability."
       },
       {
         "number": "03",
         "title": "Modern, production-minded development",
-        "description": "I build responsive interfaces and reliable web applications using modern development practices, with attention to performance, maintainability, and security."
+        "description": "I build responsive interfaces and reliable web applications using modern full-stack practices, with rigorous attention to performance, type safety, and security."
       },
       {
         "number": "04",
-        "title": "Direct & Transparent Collaboration",
-        "description": "Clear scope, direct communication, and focused progress throughout the project—so you always know what is being built and why."
+        "title": "Direct communication & ownership",
+        "description": "Focused progress, transparent architecture decisions, and direct communication throughout every project—from initial concept to live deployment."
       }
     ],
+    "proofBadge": "VERIFIABLE METRICS & EVIDENCE",
+    "proofSubtitle": "Measured & verified across codebase and production deployment",
     "proof": [
-      { "label": "Portfolio Proof", "value": "3 Custom-Built Products" },
-      { "label": "Working Demos", "value": "Live Deployed Projects" },
-      { "label": "Device Coverage", "value": "Fully Responsive Layouts" },
-      { "label": "Engineering", "value": "Production-Minded Standards" }
+      {
+        "value": "98/100",
+        "tag": "QA SCORE",
+        "label": "Production QA",
+        "detail": "Measured portfolio quality across functionality, mobile responsiveness, and defensive safeguards."
+      },
+      {
+        "value": "103 kB",
+        "tag": "BUNDLE METRIC",
+        "label": "Shared First Load JS",
+        "detail": "Measured production shared JS payload on Vercel after tree-shaking and code splitting."
+      },
+      {
+        "value": "50%",
+        "tag": "OPTIMIZATION",
+        "label": "Font Request Reduction",
+        "detail": "Achieved by consolidating Google Font subsets and eliminating redundant remote fetches."
+      },
+      {
+        "value": "3",
+        "tag": "PROJECT FACT",
+        "label": "Independent Products",
+        "detail": "Full-stack digital products independently designed, built, and deployed with public source code."
+      }
     ],
     "cta": {
-      "prompt": "READY TO BUILD SOMETHING USEFUL?",
-      "action": "Start a Project"
+      "prompt": "OPEN TO OPPORTUNITIES, COLLABORATIONS & PROJECTS",
+      "action": "Discuss an Opportunity"
     }
   },
   "process": {
-    "badge": "HOW I WORK",
-    "heading": "A problem-first approach to building digital products.",
-    "subheading": "I don't just write code—I analyze the operational problem, structure the product architecture, and build a reliable, working solution.",
+    "badge": "HOW I BUILD",
+    "heading": "A structured, problem-first product development process.",
+    "subheading": "I don't just write code—I analyze the operational problem, structure the product architecture, and build a reliable, working solution from scratch.",
     "steps": [
       {
         "number": "01",
         "title": "Understand",
-        "description": "Understand the operational context, user workflows, and business requirements before building."
+        "description": "Analyze the operational context, user workflows, and core requirements before building."
       },
       {
         "number": "02",
         "title": "Structure",
-        "description": "Translate requirements into clear product flows, data models, and technical architecture."
+        "description": "Translate requirements into clear product flows, relational data models, and sound technical architecture."
       },
       {
         "number": "03",
         "title": "Build",
-        "description": "Develop the working digital product with clean code, modern web technologies, and focused iterations."
+        "description": "Engineer the working digital product with clean TypeScript code, modern web frameworks, and focused iterations."
       },
       {
         "number": "04",
-        "title": "Refine",
-        "description": "Test the user experience across devices, resolve edge cases, and ensure production readiness."
+        "title": "Refine & Deploy",
+        "description": "Verify the experience across devices, handle edge cases, and deploy a production-ready application."
       }
     ],
-    "note": "Every project is tailored to the specific operational needs and technical scope of your business.",
-    "startProjectLink": "Start a Project →"
+    "note": "Each project demonstrates a complete product cycle: problem definition, data modeling, frontend engineering, and deployment.",
+    "startProjectLink": "Discuss an Opportunity →"
   },
   "faq": {
     "badge": "FAQ",
     "heading": "Frequently Asked Questions",
-    "subheading": "Clear answers to common questions about project types, kickoff, costs, timelines, and remote collaboration.",
+    "subheading": "In-depth answers regarding my background, project execution, technical capabilities, and collaboration scope.",
     "items": [
       {
-        "question": "What kind of projects do you build?",
-        "answer": "I build professional business websites, e-commerce experiences, custom business applications, dashboards, CRM systems, and internal tools. The right solution depends on the business problem and project scope."
+        "question": "Were the projects in your portfolio built independently, and what was your exact role?",
+        "answer": "Yes, all projects displayed—including BusinessOS, Lumière Parfums, and Gym CRM—are self-directed products that I conceived, designed, and engineered independently. For each project, I handled the full product scope: defining the operational problem, structuring the user workflows, designing responsive interfaces with Tailwind CSS, writing type-safe TypeScript code, and configuring live deployments on Vercel. For full-stack applications like BusinessOS, this also included relational data modeling with Prisma and PostgreSQL. Live interactive demos and open GitHub repositories are available for each project."
       },
       {
-        "question": "How does a project start?",
-        "answer": "We start with a conversation about what you want to achieve, the problem you are trying to solve, and the requirements. From there, I help define the appropriate scope and next steps."
+        "question": "What technical stack do you work with, and do you handle both frontend and backend development?",
+        "answer": "I work primarily within the modern TypeScript and Next.js ecosystem. On the frontend, I build component-driven, responsive user interfaces using Next.js (App Router), React, and Tailwind CSS, focusing on clean structure and lightweight bundles (such as the 103 kB shared First Load JS on this portfolio). On the backend, I develop relational data models, REST endpoints, and server actions using Prisma ORM with PostgreSQL and SQLite, while integrating Recharts for data visualization and Zod for strict input schema validation."
       },
       {
-        "question": "How much does a project cost?",
-        "answer": "There is no fixed price because the scope varies significantly between projects. After understanding the requirements, I can provide a clearer estimate based on the work involved."
+        "question": "How do you approach security, validation, and production quality in your applications?",
+        "answer": "I apply defensive engineering principles tailored to each application's requirements. Across my web projects, I implement strict Zod schema validation, input sanitization, and request rate limiting on sensitive routes. In full-stack platforms like BusinessOS, I implemented Role-Based Access Control (RBAC) and dedicated server-side demo guards (DEMO_MODE) that allow visitors to safely explore administrative views while preventing destructive database mutations. Every project is tested for mobile responsiveness and cross-device consistency."
       },
       {
-        "question": "How long does a project take?",
-        "answer": "Timelines depend on the scope, complexity, and required features. A simple business website and a custom business application can have very different development requirements."
+        "question": "How does your background in Business Analytics & AI influence how you build software?",
+        "answer": "Studying Business Analytics & AI at EMAA Business School trains me to evaluate digital tools through the lens of organizational workflows, data structure, and operational decision-making. Before writing code, I analyze how information moves through a process, where operational friction occurs, and how relational data should be structured. This analytical perspective—reinforced by practical exposure to administrative workflows during my internship at the Wilaya de la Région Souss-Massa—guides me to build software focused on real workflow utility and clear operational metrics."
       },
       {
-        "question": "Can you work with an existing website or application?",
-        "answer": "Yes. Depending on the project, I can improve, redesign, extend, or rebuild an existing digital product rather than starting from scratch."
+        "question": "What kinds of professional opportunities, internships, or collaborations are you open to?",
+        "answer": "As an early-career builder and student, I am open to internship opportunities, junior software development or data analytics roles, technical collaborations with founders, and selected freelance product projects. I am particularly interested in teams and environments where I can apply my analytical thinking, Next.js/TypeScript development skills, and product execution mindset to build reliable digital tools and solve practical operational problems."
       },
       {
-        "question": "Do you work with clients remotely?",
-        "answer": "Yes. Projects can be discussed and managed remotely, with communication and deliverables organized throughout the development process."
+        "question": "How do you start a collaboration or discuss a potential opportunity?",
+        "answer": "You can reach out through the contact form below or email me directly at manssouriyoussef33@gmail.com. Whether you are interested in discussing an internship, exploring a junior role, or scoping a specific digital project, we can connect to discuss your objectives, technical requirements, and collaboration details."
       }
     ]
   },
   "about": {
     "badge": "ABOUT",
-    "heading": "Building useful digital products at the intersection of business and technology.",
-    "lead": "I’m Youssef Manssouri, a Business Analytics & AI student at EMAA Business School and a digital product builder focused on creating practical digital experiences for businesses.",
-    "p1": "My approach combines business thinking with modern web development. I like understanding how a business works, identifying where technology can improve the experience or workflow, and then turning that understanding into a focused digital product.",
-    "p2": "My work spans professional websites, e-commerce experiences, business applications, dashboards, and internal tools.",
+    "heading": "Building practical digital products at the intersection of business analytics and technology.",
+    "lead": "I’m Youssef Manssouri, a Business Analytics & AI student at EMAA Business School and a self-driven digital product builder.",
+    "p1": "My focus combines business thinking with modern web development. My interest in software is not purely technical—it developed from observing how organizations handle day-to-day operations, identifying process bottlenecks, and designing digital tools around real user workflows.",
+    "p2": "During my internship at the Wilaya de la Région Souss-Massa, I gained practical exposure to administrative workflows and internal request management. Observing these operational processes first-hand strengthened my focus on building practical systems—such as BusinessOS, Lumière Parfums, and Gym CRM—that structure information and improve operational efficiency.",
     "educationLabel": "Education & Foundation",
     "school": "Business Analytics & AI",
     "institution": "EMAA Business School (2025–Present)",
     "internshipLabel": "Internship Experience",
     "internshipOrg": "Wilaya de la Région Souss-Massa",
-    "internshipRole": "Administrative Workflow & Operations",
+    "internshipDept": "Préfecture d'Agadir Ida Outanane",
+    "internshipRole": "Administrative workflows, internal request circulation, and operational process observation.",
     "focusLabel": "Core Disciplines",
     "focusItems": ["Business Analytics", "Applied AI", "Next.js & TypeScript", "Data Modeling"],
     "downloadCV": "Download CV (PDF)"
   },
   "contact": {
-    "badge": "LET'S TALK",
-    "heading": "Have a project or opportunity in mind?",
-    "subheading": "Whether you're looking to build a new digital product, improve an existing website, or explore a collaboration—share your context and I'll get back to you promptly.",
+    "badge": "LET'S CONNECT",
+    "heading": "Have an opportunity, collaboration, or project in mind?",
+    "subheading": "Whether you're looking to discuss an internship, recruit a builder, collaborate on a digital product, or discuss a freelance project—share your context and I'll get back to you promptly.",
     "form": {
       "name": "Your Name *",
       "namePlaceholder": "Jane Doe",
       "email": "Email Address *",
       "emailPlaceholder": "jane@company.com",
-      "projectType": "What are you looking to build? *",
-      "selectProjectType": "Select a project category...",
-      "message": "Message / Project details *",
-      "messagePlaceholder": "Describe your project, goals, key requirements, or existing website...",
-      "submit": "Send Inquiry",
-      "submitting": "Sending Inquiry...",
+      "projectType": "Inquiry / Opportunity Type *",
+      "selectProjectType": "Select an inquiry type...",
+      "message": "Message / Details *",
+      "messagePlaceholder": "Share details about the role, project, key requirements, or collaboration...",
+      "submit": "Send Message",
+      "submitting": "Sending Message...",
       "successTitle": "Message received.",
-      "successMessage": "Thanks for reaching out. Your project details have been received.",
-      "sendAnother": "Send Another Inquiry",
+      "successMessage": "Thanks for reaching out. Your message and details have been received.",
+      "sendAnother": "Send Another Message",
       "errorTitle": "Something went wrong.",
       "errorMessage": "The form couldn't be submitted. Please try again or reach out directly at manssouriyoussef33@gmail.com."
     },
     "projectTypes": [
-      { "label": "Business Website", "value": "Business Website" },
-      { "label": "E-Commerce Storefront", "value": "E-Commerce" },
-      { "label": "Custom Web Application", "value": "Custom Business Application" },
-      { "label": "Dashboard / Analytics Tool", "value": "Dashboard / Internal Tool" },
-      { "label": "Internship / Professional Opportunity", "value": "Professional Opportunity" },
-      { "label": "General Inquiry / Collaboration", "value": "Collaboration" }
+      { "label": "Full-Stack Web Application", "value": "Custom Business Application" },
+      { "label": "Business Website / Landing Page", "value": "Business Website" },
+      { "label": "Dashboard & Data Analytics", "value": "Dashboard / Internal Tool" },
+      { "label": "E-Commerce Experience", "value": "E-Commerce" },
+      { "label": "Internship / Career Opportunity", "value": "Professional Opportunity" },
+      { "label": "Collaboration / Other Discussion", "value": "Collaboration" }
     ],
     "directContact": "Direct Channels",
     "email": "Email",
@@ -281,11 +311,11 @@
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "whatsAppCTA": "Chat on WhatsApp",
-    "whatsAppMessage": "Hello Youssef, I have a project inquiry and would like to discuss it with you."
+    "whatsAppMessage": "Hello Youssef, I saw your portfolio and would like to connect with you."
   },
   "footer": {
-    "tagline": "Building practical digital products at the intersection of business analytics, technology, data, and AI.",
-    "location": "Agadir, Morocco · Local & Remote",
+    "tagline": "Building practical digital products at the intersection of business analytics, applied AI, and modern web development.",
+    "location": "Agadir, Morocco · Open to Local & Remote Opportunities",
     "rights": "All rights reserved.",
     "backToTop": "Back to top"
   }
