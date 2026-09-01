@@ -7,8 +7,10 @@ async function main() {
   console.log("Starting database seed...");
 
   // 1. Seed Admin User
-  const adminEmail = process.env.ADMIN_EMAIL || "manssouriyoussef33@gmail.com";
-  const adminPassword = process.env.ADMIN_PASSWORD || "admin_ym_portfolio_2026";
+  const rawEmail = process.env.ADMIN_EMAIL?.trim();
+  const rawPassword = process.env.ADMIN_PASSWORD?.trim();
+  const adminEmail = (rawEmail && !rawEmail.includes("[SENSITIVE]")) ? rawEmail.toLowerCase() : "manssouriyoussef33@gmail.com";
+  const adminPassword = (rawPassword && !rawPassword.includes("[SENSITIVE]")) ? rawPassword : "portfolio-admin";
   const passwordHash = await bcrypt.hash(adminPassword, 10);
 
   const admin = await prisma.adminUser.upsert({
