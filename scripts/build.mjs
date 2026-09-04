@@ -22,6 +22,18 @@ console.log(`[Build] Environment: VERCEL_ENV=${vercelEnv || "(not set)"}`);
 // 1. Database Migrations (Vercel Production Only)
 if (vercelEnv === "production") {
   console.log("[Build] Vercel Production deployment detected. Applying pending Prisma migrations...");
+  if (!process.env.DATABASE_URL || !process.env.DATABASE_URL.startsWith("postgres")) {
+    const fallbackUrl =
+      process.env.DATABASE_URL_POSTGRES_PRISMA_URL ||
+      process.env.DATABASE_URL_DATABASE_URL ||
+      process.env.DATABASE_URL_POSTGRES_URL ||
+      process.env.POSTGRES_PRISMA_URL ||
+      process.env.POSTGRES_URL;
+    if (fallbackUrl) {
+      console.log("[Build] Resolved PostgreSQL connection string from Vercel Storage integration.");
+      process.env.DATABASE_URL = fallbackUrl;
+    }
+  }
   run("npx prisma migrate deploy", "Prisma database migrations deployment");
 } else if (vercelEnv === "preview") {
   console.log("[Build] Vercel Preview deployment detected. Skipping database migrations.");
