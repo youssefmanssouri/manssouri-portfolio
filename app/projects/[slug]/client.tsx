@@ -110,8 +110,23 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
               {shortDesc}
             </p>
 
-            {/* Action CTAs: Live Demo (Primary) vs GitHub (Secondary) */}
+            {/* Action CTAs: Inquiry (Conversion) vs Live Demo vs GitHub (Proof) */}
             <div className="flex flex-wrap items-center gap-3 pt-3">
+              <Link
+                href="/#contact"
+                onClick={() => {
+                  trackEvent("CTA_START_PROJECT", {
+                    source: "case_study_top",
+                    destination: "contact",
+                    project: project.slug,
+                  });
+                }}
+                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+              >
+                <span>{t("caseStudy.discussSimilar")}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#A65F4B]" aria-hidden="true" />
+              </Link>
+
               {project.hasLiveDemo && project.liveUrl && (
                 <a
                   href={project.liveUrl}

@@ -8,15 +8,15 @@
     "process": "Méthodologie",
     "contact": "Contact",
     "talk": "Me Contacter",
-    "startProject": "Échangeons"
+    "startProject": "Discuter d'un projet"
   },
   "hero": {
     "title": "YOUSSEF MANSSOURI",
-    "badge": "ÉTUDIANT EN BUSINESS ANALYTICS & IA · CONCEPTEUR DE PRODUITS DIGITAUX",
-    "headline": "Je conçois des produits digitaux concrets en combinant vision métier, analyse rigoureuse et technologies web modernes.",
+    "badge": "CONCEPTEUR FULL-STACK & ANALYSTE MÉTIER · PRODUITS DIGITAUX",
+    "headline": "Je conçois des applications web sur mesure et des outils opérationnels qui fluidifient les processus métiers et transforment des besoins complexes en produits digitaux concrets.",
     "subheadline": "Des applications web sur mesure aux tableaux de bord opérationnels et boutiques e-commerce—je traduis les besoins métiers et fonctionnels en produits digitaux concrets, réactifs et déployés.",
     "viewWork": "Voir mes réalisations",
-    "startProject": "Échangeons",
+    "startProject": "Discuter d'un projet",
     "viewCV": "Consulter mon CV (PDF)",
     "location": "Basé à Agadir, Maroc · Ouvert aux opportunités locales et à distance"
   },
@@ -80,7 +80,8 @@
     "nextStepsBadge": "PROCHAINE ÉTAPE",
     "nextStepsHeading": "Intéressé par ce projet ou vous souhaitez échanger sur une opportunité ?",
     "nextStepsSubheading": "Échangeons sur l'implémentation technique, l'architecture du produit ou de futures opportunités de collaboration.",
-    "startProject": "Échangeons",
+    "startProject": "Discuter d'un projet",
+    "discussSimilar": "Discuter d'un projet similaire",
     "orDirect": "Ou contactez-moi directement :"
   },
   "capabilities": {
@@ -137,7 +138,7 @@
     "consultation": {
       "title": "VOUS AVEZ UN PROJET OU UNE OPPORTUNITÉ À DISCUTER ?",
       "text": "Que vous recherchiez un profil capable de concevoir une application sur mesure, un outil opérationnel ou une opportunité de stage—échangeons sur vos besoins et objectifs.",
-      "cta": "Échangeons"
+      "cta": "Discuter d'un projet"
     }
   },
   "whyWorkWithMe": {
@@ -277,9 +278,14 @@
     "downloadCV": "Télécharger le CV (PDF)"
   },
   "contact": {
-    "badge": "ÉCHANGEONS",
+    "badge": "DISCUTER D'UN PROJET",
     "heading": "Vous avez une opportunité, une collaboration ou un projet en tête ?",
     "subheading": "Que vous souhaitiez échanger sur une opportunité de stage, recruter un profil technique & analytique, collaborer sur un produit digital ou discuter d'un projet—n'hésitez pas à me contacter.",
+    "reassurance": {
+      "fastResponse": "Réponse rapide — Généralement sous 24 heures",
+      "confidential": "Confidentiel — Vos informations et vos idées restent privées",
+      "directAccess": "Échange direct — Vous échangez directement avec Youssef"
+    },
     "form": {
       "name": "Votre nom complet *",
       "namePlaceholder": "Jean Dupont",

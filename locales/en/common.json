@@ -8,15 +8,15 @@
     "process": "Process",
     "contact": "Contact",
     "talk": "Let's Talk",
-    "startProject": "Let's Connect"
+    "startProject": "Discuss a Project"
   },
   "hero": {
     "title": "YOUSSEF MANSSOURI",
-    "badge": "BUSINESS ANALYTICS & AI STUDENT · DIGITAL PRODUCT BUILDER",
-    "headline": "I build practical digital products combining business thinking, analytical problem-solving, and modern web technology.",
+    "badge": "FULL-STACK BUILDER & BUSINESS ANALYST · DIGITAL PRODUCTS",
+    "headline": "I build custom web applications and operational tools that streamline business workflows and turn complex requirements into practical digital products.",
     "subheadline": "From custom web applications and operational dashboards to e-commerce storefronts—I turn real business and workflow requirements into functional, responsive, and deployed digital products.",
     "viewWork": "View My Work",
-    "startProject": "Let's Connect",
+    "startProject": "Discuss a Project",
     "viewCV": "View CV (PDF)",
     "location": "Based in Agadir, Morocco · Open to local & remote opportunities"
   },
@@ -80,7 +80,8 @@
     "nextStepsBadge": "NEXT STEPS",
     "nextStepsHeading": "Interested in discussing this project or exploring an opportunity?",
     "nextStepsSubheading": "Let's connect to discuss the technical implementation, product architecture, or future collaborations.",
-    "startProject": "Let's Connect",
+    "startProject": "Discuss a Project",
+    "discussSimilar": "Discuss a Similar Project",
     "orDirect": "Or reach out directly:"
   },
   "capabilities": {
@@ -137,7 +138,7 @@
     "consultation": {
       "title": "INTERESTED IN COLLABORATING OR DISCUSSING A PROJECT?",
       "text": "Whether you are looking for an analytical product builder for a web application, an operational tool, or an internship opportunity—let's connect.",
-      "cta": "Let's Connect"
+      "cta": "Discuss a Project"
     }
   },
   "whyWorkWithMe": {
@@ -277,9 +278,14 @@
     "downloadCV": "Download CV (PDF)"
   },
   "contact": {
-    "badge": "LET'S CONNECT",
+    "badge": "DISCUSS A PROJECT",
     "heading": "Have an opportunity, collaboration, or project in mind?",
     "subheading": "Whether you're looking to discuss an internship, recruit a builder, collaborate on a digital product, or discuss a freelance project—share your context and I'll get back to you promptly.",
+    "reassurance": {
+      "fastResponse": "Fast Response — Typically within 24 hours",
+      "confidential": "Confidential — Your details and ideas stay private",
+      "directAccess": "Direct Access — You communicate directly with Youssef"
+    },
     "form": {
       "name": "Your Name *",
       "namePlaceholder": "Jane Doe",

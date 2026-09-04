@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
-import { ArrowUpRight, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, AlertCircle, Loader2, Clock, ShieldCheck, UserCheck } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
 
@@ -272,6 +272,22 @@ export function Contact() {
                     </>
                   )}
                 </button>
+
+                {/* Contact Form Reassurance */}
+                <div className="pt-4 border-t border-[#DED6CC]/60 grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px] font-mono text-[#242222]/75">
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-3.5 h-3.5 text-[#A65F4B] shrink-0" aria-hidden="true" />
+                    <span>{t("contact.reassurance.fastResponse")}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#A65F4B] shrink-0" aria-hidden="true" />
+                    <span>{t("contact.reassurance.confidential")}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <UserCheck className="w-3.5 h-3.5 text-[#A65F4B] shrink-0" aria-hidden="true" />
+                    <span>{t("contact.reassurance.directAccess")}</span>
+                  </div>
+                </div>
               </form>
             )}
           </div>
