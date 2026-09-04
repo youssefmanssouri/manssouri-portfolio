@@ -65,7 +65,9 @@ export interface Project {
   name: string;
   title: string;
   seoTitle?: string;
+  seoTitleFr?: string;
   seoDescription?: string;
+  seoDescriptionFr?: string;
   lastModified?: string;
   category: string;
   categoryFr: string;
@@ -108,8 +110,10 @@ export const PROJECTS: Project[] = [
     slug: "businessos",
     name: "BusinessOS",
     title: "BusinessOS — Flagship Business Operations Platform",
-    seoTitle: "BusinessOS — SaaS Business Operations Platform Case Study",
-    seoDescription: "BusinessOS is a full-stack SaaS operations platform built with Next.js 15, TypeScript, PostgreSQL, and Prisma ORM, unifying CRM, invoicing, bookings, HR directory, and Recharts analytics.",
+    seoTitle: "BusinessOS — Custom Business Management & CRM Platform | Case Study",
+    seoTitleFr: "BusinessOS — Plateforme de Gestion & CRM Sur Mesure | Étude de Cas",
+    seoDescription: "BusinessOS is a custom business operations platform combining CRM, invoicing, scheduling, analytics, and workflow management in one web application.",
+    seoDescriptionFr: "BusinessOS est une plateforme de gestion métier sur mesure réunissant CRM, facturation, planning, analytics et suivi des opérations.",
     lastModified: "2026-08-20",
     category: "CUSTOM BUSINESS PLATFORM",
     categoryFr: "PLATEFORME MÉTIER SUR MESURE",
@@ -373,8 +377,10 @@ export const PROJECTS: Project[] = [
     slug: "lumiere-parfums",
     name: "Lumière Parfums",
     title: "Lumière Parfums — Custom Fragrance E-Commerce Boutique",
-    seoTitle: "Lumière Parfums — Fragrance E-Commerce Case Study",
-    seoDescription: "Lumière Parfums is a custom e-commerce web application engineered for fragrance discovery, olfactory pyramid breakdowns, persistent cart interaction, and store administration.",
+    seoTitle: "Lumière Parfums — Custom E-Commerce Experience | Case Study",
+    seoTitleFr: "Lumière Parfums — Boutique E-Commerce Sur Mesure | Étude de Cas",
+    seoDescription: "An interactive e-commerce concept built with a custom product catalog, fragrance discovery experience, product storytelling, and persistent cart.",
+    seoDescriptionFr: "Concept e-commerce interactif avec catalogue produit sur mesure, découverte des fragrances, storytelling produit et panier persistant.",
     lastModified: "2026-08-15",
     category: "CUSTOM E-COMMERCE EXPERIENCE",
     categoryFr: "EXPÉRIENCE E-COMMERCE SUR MESURE",
@@ -621,8 +627,10 @@ export const PROJECTS: Project[] = [
     slug: "gym-crm",
     name: "Gym CRM",
     title: "Gym CRM — Operations & Member Management Platform",
-    seoTitle: "Gym CRM — Fitness Facility & Member Management Case Study",
-    seoDescription: "Gym CRM is a dedicated fitness management web application designed for front-desk check-in verification, membership status tracking, class scheduling, and recurring revenue metrics.",
+    seoTitle: "Gym CRM — Gym Management & Member Operations System | Case Study",
+    seoTitleFr: "Gym CRM — Logiciel de Gestion pour Salle de Sport | Étude de Cas",
+    seoDescription: "A web-based gym management system for member search, subscription status, reception check-in, class capacity, and operational analytics.",
+    seoDescriptionFr: "Application web de gestion pour salle de sport avec recherche des adhérents, suivi des abonnements, pointage à l'accueil, capacité des cours et analytics opérationnels.",
     lastModified: "2026-08-10",
     category: "GYM MANAGEMENT & OPERATIONS",
     categoryFr: "GESTION DE SALLE & OPÉRATIONS",

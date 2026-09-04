@@ -27,22 +27,24 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
   },
   title: {
-    default: "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
+    default: "Youssef Manssouri — Web Developer & Custom Web Applications | Agadir",
     template: "%s | Youssef Manssouri",
   },
   description:
-    "Business Analytics & AI student at EMAA Business School building practical web applications, e-commerce storefronts, and operational SaaS tools with Next.js, TypeScript, and Prisma.",
+    "Web developer based in Agadir, Morocco, building custom websites, web applications, business tools, dashboards, and digital products for businesses.",
   keywords: [
     "Youssef Manssouri",
-    "Business Analytics & AI Student",
-    "Digital Product Builder",
-    "BusinessOS",
+    "Web Developer Agadir",
+    "Custom Web Applications",
+    "Business Websites",
+    "Business Tools",
+    "Dashboards",
+    "Agadir Morocco Developer",
+    "Développeur Web Agadir",
+    "Application Web Sur Mesure Maroc",
     "Next.js Developer",
     "TypeScript Developer",
-    "Prisma ORM",
-    "Agadir Morocco Developer",
-    "EMAA Business School",
-    "SaaS Architecture"
+    "BusinessOS"
   ],
   authors: [{ name: "Youssef Manssouri", url: "https://www.youssefmanssouri.site" }],
   creator: "Youssef Manssouri",
@@ -55,9 +57,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["fr_FR"],
     url: "https://www.youssefmanssouri.site",
-    title: "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
+    title: "Youssef Manssouri — Web Developer & Custom Web Applications | Agadir",
     description:
-      "Business Analytics & AI student at EMAA Business School building practical web applications, e-commerce storefronts, and operational SaaS tools with Next.js, TypeScript, and Prisma.",
+      "Web developer based in Agadir, Morocco, building custom websites, web applications, business tools, dashboards, and digital products for businesses.",
     siteName: "Youssef Manssouri",
     images: [
       {
@@ -70,9 +72,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
+    title: "Youssef Manssouri — Web Developer & Custom Web Applications | Agadir",
     description:
-      "Business Analytics & AI student at EMAA Business School building practical digital products with Next.js, TypeScript, and Prisma.",
+      "Web developer based in Agadir, Morocco, building custom websites, web applications, business tools, dashboards, and digital products for businesses.",
     images: ["/images/projects/businessos-main.jpg"],
   },
   robots: {
@@ -165,11 +167,11 @@ const rootGraphJsonLd = {
       "@type": "ProfilePage",
       "@id": "https://www.youssefmanssouri.site/#webpage",
       "url": "https://www.youssefmanssouri.site",
-      "name": "Youssef Manssouri — Business Analytics & AI Student · Digital Product Builder",
+      "name": "Youssef Manssouri — Web Developer & Custom Web Applications | Agadir",
       "isPartOf": { "@id": "https://www.youssefmanssouri.site/#website" },
       "about": { "@id": "https://www.youssefmanssouri.site/#identity" },
       "mainEntity": { "@id": "https://www.youssefmanssouri.site/#identity" },
-      "description": "Personal portfolio and case studies of Youssef Manssouri.",
+      "description": "Portfolio and engineering case studies of Youssef Manssouri, web developer based in Agadir, Morocco.",
       "inLanguage": "en-US"
     }
   ]
