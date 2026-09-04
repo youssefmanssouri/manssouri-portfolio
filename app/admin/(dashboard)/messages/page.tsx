@@ -10,6 +10,7 @@ interface ContactMessage {
   name: string;
   email: string;
   company: string | null;
+  phone?: string | null;
   projectType: string;
   budgetRange: string | null;
   message: string;
@@ -25,7 +26,7 @@ export default function AdminMessagesPage() {
   const [search, setSearch] = useState<string>("");
   const [selectedMessage, setSelectedMessage] = useState<ContactMessage | null>(null);
 
-  const fetchMessages = () => {
+  const fetchMessages = React.useCallback(() => {
     setLoading(true);
     const query = new URLSearchParams();
     if (statusFilter !== "ALL") query.set("status", statusFilter);
@@ -46,11 +47,11 @@ export default function AdminMessagesPage() {
         console.error(err);
         setLoading(false);
       });
-  };
+  }, [statusFilter, search]);
 
   useEffect(() => {
     fetchMessages();
-  }, [statusFilter]);
+  }, [fetchMessages]);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -241,7 +242,12 @@ export default function AdminMessagesPage() {
                 INQUIRY DETAILS · ID #{selectedMessage.id.slice(-6)}
               </span>
               <h2 className="text-xl font-bold text-white">{selectedMessage.name}</h2>
-              <p className="text-xs text-slate-400">{selectedMessage.email}</p>
+              <p className="text-xs text-slate-400">
+                {selectedMessage.email}
+                {selectedMessage.phone && (
+                  <span className="text-emerald-400 font-mono ml-2">· {selectedMessage.phone}</span>
+                )}
+              </p>
             </div>
 
             {/* Grid Attributes */}

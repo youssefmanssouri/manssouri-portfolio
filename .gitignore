@@ -13,10 +13,13 @@
 # production
 /build
 
-# sqlite / local databases
+# sqlite / local databases & data backups
 *.db
 *.db-journal
 dev.db
+prisma/data-backup.json
+*-backup.json
+prisma/*.backup.json
 
 # debug
 npm-debug.log*

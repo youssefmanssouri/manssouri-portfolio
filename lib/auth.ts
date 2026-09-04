@@ -1,27 +1,16 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
+import { env } from "@/lib/env";
 
 /**
  * Retrieves the cryptographic signing key for admin JWT sessions.
- * FAILS CLOSED in production if AUTH_SECRET is not configured or is too weak.
+ * Strictly FAILS CLOSED in production if AUTH_SECRET / JWT_SECRET is not configured or too weak.
  */
-function getSecretKey(): Uint8Array {
-  const envSecret =
-    process.env.AUTH_SECRET &&
-    process.env.AUTH_SECRET.trim() !== "" &&
-    !process.env.AUTH_SECRET.includes("[SENSITIVE]")
-      ? process.env.AUTH_SECRET.trim()
-      : null;
-
-  const jwtSecret =
-    process.env.JWT_SECRET &&
-    process.env.JWT_SECRET.trim() !== "" &&
-    !process.env.JWT_SECRET.includes("[SENSITIVE]")
-      ? process.env.JWT_SECRET.trim()
-      : null;
-
-  const secret = envSecret || jwtSecret || "ym-portfolio-auth-secure-signing-secret-2026-key-32chars";
-
+function getSecretKey(): Uint8Array | null {
+  const secret = env.getAuthSecret();
+  if (!secret) {
+    return null;
+  }
   return new TextEncoder().encode(secret);
 }
 
@@ -35,6 +24,9 @@ export interface SessionPayload {
 
 export async function createAdminSessionToken(payload: SessionPayload): Promise<string> {
   const key = getSecretKey();
+  if (!key) {
+    throw new Error("Admin session signing key is not configured or insecure.");
+  }
   return new SignJWT({ ...payload })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
@@ -45,6 +37,7 @@ export async function createAdminSessionToken(payload: SessionPayload): Promise<
 export async function verifyAdminSessionToken(token: string): Promise<SessionPayload | null> {
   try {
     const key = getSecretKey();
+    if (!key) return null;
     const { payload } = await jwtVerify(token, key);
     return payload as unknown as SessionPayload;
   } catch {
@@ -53,14 +46,18 @@ export async function verifyAdminSessionToken(token: string): Promise<SessionPay
 }
 
 export async function setAdminSessionCookie(token: string) {
-  const cookieStore = await cookies();
-  cookieStore.set(COOKIE_NAME, token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-    maxAge: 7 * 24 * 60 * 60, // 7 days
-  });
+  try {
+    const cookieStore = await cookies();
+    cookieStore.set(COOKIE_NAME, token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: 7 * 24 * 60 * 60, // 7 days
+    });
+  } catch {
+    // Outside active Next.js request context (e.g. test environment)
+  }
 }
 
 export async function getAdminSessionFromCookie(req?: Request): Promise<SessionPayload | null> {
@@ -88,12 +85,16 @@ export async function getAdminSessionFromCookie(req?: Request): Promise<SessionP
 }
 
 export async function clearAdminSessionCookie() {
-  const cookieStore = await cookies();
-  cookieStore.set(COOKIE_NAME, "", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-    maxAge: 0,
-  });
+  try {
+    const cookieStore = await cookies();
+    cookieStore.set(COOKIE_NAME, "", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: 0,
+    });
+  } catch {
+    // Outside active Next.js request context (e.g. test environment)
+  }
 }

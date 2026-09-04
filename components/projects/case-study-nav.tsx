@@ -23,7 +23,7 @@ export function CaseStudyNav({
   const [activeId, setActiveId] = useState<string>("overview");
   const navRef = useRef<HTMLDivElement>(null);
 
-  const navItems: NavItem[] = [
+  const navItems: NavItem[] = React.useMemo(() => [
     { id: "overview", label: t("caseStudy.nav.overview") || "Overview" },
     { id: "problem", label: t("caseStudy.nav.problem") || "The Problem" },
     { id: "solution", label: t("caseStudy.nav.solution") || "The Solution" },
@@ -32,7 +32,7 @@ export function CaseStudyNav({
     ...(hasDecisions ? [{ id: "decisions", label: t("caseStudy.nav.decisions") || "Decisions" }] : []),
     ...(hasLearnings ? [{ id: "learnings", label: t("caseStudy.nav.learnings") || "Learnings" }] : []),
     ...(hasLiveDemo ? [{ id: "demo", label: t("caseStudy.nav.demo") || "Live Demo" }] : []),
-  ];
+  ], [t, hasDecisions, hasLearnings, hasLiveDemo]);
 
   // Smooth scroll handler with accessible state update
   const scrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {

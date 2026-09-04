@@ -1,4 +1,5 @@
 import { prisma, ensureDbSchema } from "@/lib/prisma";
+import { env } from "@/lib/env";
 import crypto from "crypto";
 
 export interface SaveContactMessageParams {
@@ -61,6 +62,7 @@ export async function persistContactMessage(
         name: params.name,
         email: params.email,
         company: params.company || null,
+        phone: params.phone || null,
         projectType: params.projectType,
         budgetRange: params.budgetRange || null,
         message: params.message,
@@ -77,7 +79,7 @@ export async function persistContactMessage(
         name: created.name,
         email: created.email,
         company: created.company,
-        phone: params.phone || null,
+        phone: created.phone ?? params.phone ?? null,
         projectType: created.projectType,
         budgetRange: created.budgetRange,
         message: created.message,
@@ -91,13 +93,13 @@ export async function persistContactMessage(
   }
 
   // 2. Secondary fallback: Cloud Webhook or JSON Storage if configured
-  const backupEndpoint = process.env.CONTACT_STORAGE_WEBHOOK;
-  if (backupEndpoint && backupEndpoint.startsWith("http")) {
+  if (env.contactStorageWebhook && env.contactStorageWebhook.startsWith("http")) {
     try {
-      const res = await fetch(backupEndpoint, {
+      const res = await fetch(env.contactStorageWebhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formattedRecord),
+        signal: AbortSignal.timeout(5000),
       });
       if (res.ok) {
         return {

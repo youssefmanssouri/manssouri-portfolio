@@ -2,6 +2,13 @@ import { NextResponse } from "next/server";
 import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { isOversized } from "@/lib/security";
+import { z } from "zod";
+
+const analyticsSchema = z.object({
+  event: z.string().trim().min(1, "Event name is required").max(100, "Event name too long"),
+  path: z.string().trim().max(200).optional().nullable(),
+  meta: z.union([z.string().max(2000), z.record(z.string(), z.any())]).optional().nullable(),
+});
 
 export async function GET() {
   return NextResponse.json(
@@ -41,8 +48,6 @@ export async function POST(request: Request) {
       );
     }
 
-    await ensureDbSchema();
-
     let body: any = {};
     const contentType = request.headers.get("content-type") || "";
 
@@ -61,32 +66,25 @@ export async function POST(request: Request) {
       }
     }
 
-    const { event, path, meta } = body;
-
-    if (!event || typeof event !== "string" || event.trim().length === 0) {
-      return NextResponse.json({ error: "Event name is required." }, { status: 400 });
+    const validation = analyticsSchema.safeParse(body);
+    if (!validation.success) {
+      return NextResponse.json({ error: validation.error.issues[0]?.message || "Invalid analytics event." }, { status: 400 });
     }
 
-    if (event.length > 100) {
-      return NextResponse.json({ error: "Event name too long." }, { status: 400 });
-    }
-
+    const { event, path, meta } = validation.data;
     const metaString = meta ? (typeof meta === "string" ? meta : JSON.stringify(meta)) : null;
 
-    if (metaString && metaString.length > 2000) {
-      return NextResponse.json({ error: "Oversized metadata payload." }, { status: 400 });
-    }
-
+    await ensureDbSchema();
     const createdEvent = await prisma.analyticsEvent.create({
       data: {
-        event: event.substring(0, 50),
-        path: path ? String(path).substring(0, 200) : null,
-        meta: metaString ? metaString.substring(0, 500) : null,
+        event: event.slice(0, 50),
+        path: path ? path.slice(0, 200) : null,
+        meta: metaString ? metaString.slice(0, 500) : null,
       },
     });
 
     return NextResponse.json({ success: true, id: createdEvent.id });
-  } catch (error) {
+  } catch {
     // Fail quietly without throwing 500 to frontend for non-critical analytics
     return NextResponse.json({ success: false }, { status: 200 });
   }

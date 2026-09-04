@@ -66,6 +66,11 @@ export function Navbar() {
     { name: t("nav.faq"), href: "/#faq" }
   ];
 
+  // Prevent rendering public navbar on admin routes
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${

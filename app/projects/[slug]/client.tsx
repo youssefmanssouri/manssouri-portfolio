@@ -279,7 +279,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     
                     {/* Capability Narrative */}
-                    <div className={`lg:col-span-5 space-y-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                    <div className={`${cap.image ? "lg:col-span-5" : "lg:col-span-12 max-w-3xl"} space-y-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
                       <div className="space-y-2">
                         <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-wider font-bold">
                           MODULE 0{idx + 1}

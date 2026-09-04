@@ -39,7 +39,7 @@ export default function AdminSettingsPage() {
         <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
           <div>
             <span className="font-semibold text-white text-sm block">Freelance Availability</span>
-            <span className="text-xs text-slate-400">Controls the "Available for freelance projects" status pill on the hero section</span>
+            <span className="text-xs text-slate-400">Controls the &quot;Available for freelance projects&quot; status pill on the hero section</span>
           </div>
           <button
             type="button"
@@ -72,7 +72,7 @@ export default function AdminSettingsPage() {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-mono text-slate-300">Phone & WhatsApp Number</label>
+            <label className="text-xs font-mono text-slate-300">Phone &amp; WhatsApp Number</label>
             <div className="relative">
               <Phone className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
               <input

@@ -709,8 +709,8 @@ export const PROJECTS: Project[] = [
         summaryFr: "Une grille de planning pour les cours collectifs affichant les créneaux, les capacités de salle, les coachs assignés et le nombre d'inscrits.",
         practicalOutcomeEn: "Structures group class capacities to prevent overcrowding and allows trainers to review attendee rosters in advance.",
         practicalOutcomeFr: "Structure les capacités d'accueil des cours collectifs pour éviter la saturation et permet aux coachs de consulter les listes d'inscrits.",
-        image: "/images/projects/gymcrm-calendar.jpg",
-        imageCaptionEn: "Weekly class calendar matrix with trainer allocations and participant capacity limits",
+        image: "/images/projects/gymcrm-classes.jpg",
+        imageCaptionEn: "Weekly class schedule matrix with trainer allocations and participant capacity limits",
         imageCaptionFr: "Planning hebdomadaire des cours avec assignation des coachs et limites de capacité"
       },
       {
@@ -720,10 +720,7 @@ export const PROJECTS: Project[] = [
         summaryEn: "Visual charts detailing revenue distribution across subscription tiers (Monthly, Annual, VIP) and member retention trends over time.",
         summaryFr: "Graphiques visuels détaillant la répartition du chiffre d'affaires par formule d'adhésion (Mensuel, Annuel, VIP) et l'évolution des abonnements.",
         practicalOutcomeEn: "Provides facility operators with clear metrics to evaluate which membership tiers generate revenue and when renewal cycles occur.",
-        practicalOutcomeFr: "Fournit aux gestionnaires des indicateurs clairs pour évaluer les formules les plus actives et anticiper les cycles de renouvellement.",
-        image: "/images/projects/gymcrm-analytics.jpg",
-        imageCaptionEn: "Revenue analytics view showing subscription tier distributions and recurring cash flow trends",
-        imageCaptionFr: "Vue analytique affichant la répartition des formules d'adhésion et les tendances de revenus"
+        practicalOutcomeFr: "Fournit aux gestionnaires des indicateurs clairs pour évaluer les formules les plus actives et anticiper les cycles de renouvellement."
       }
     ],
     engineeringPoints: [
@@ -849,8 +846,7 @@ export const PROJECTS: Project[] = [
     galleryImages: [
       "/images/projects/gymcrm-main.jpg",
       "/images/projects/gymcrm-members.jpg",
-      "/images/projects/gymcrm-calendar.jpg",
-      "/images/projects/gymcrm-analytics.jpg"
+      "/images/projects/gymcrm-classes.jpg"
     ],
     githubUrl: "https://github.com/youssefmanssouri/Gym-CRM",
     liveUrl: "https://gym-crm-mauve.vercel.app/",

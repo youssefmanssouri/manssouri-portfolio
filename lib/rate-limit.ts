@@ -1,5 +1,6 @@
 import { Redis } from "@upstash/redis";
 import { Ratelimit } from "@upstash/ratelimit";
+import { env } from "@/lib/env";
 
 /**
  * Distributed Rate Limiter for Next.js App Router on Vercel Serverless.
@@ -112,10 +113,10 @@ const ratelimitInstances = new Map<RateLimitPolicy, Ratelimit>();
 function getRedisClient(): Redis | null {
   if (redisInstance) return redisInstance;
 
-  const url = process.env.UPSTASH_REDIS_REST_URL?.trim();
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN?.trim();
+  const url = env.upstashRedisRestUrl;
+  const token = env.upstashRedisRestToken;
 
-  if (url && token && !url.includes("[SENSITIVE]") && !token.includes("[SENSITIVE]")) {
+  if (url && token) {
     try {
       redisInstance = new Redis({
         url,

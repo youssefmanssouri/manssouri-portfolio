@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { YMLogo } from "@/components/ui/logo";
@@ -9,6 +10,12 @@ import { trackEvent } from "@/lib/analytics";
 
 export function Footer() {
   const { t, language, setLanguage } = useLanguage();
+  const pathname = usePathname();
+
+  // Prevent rendering public footer on admin routes
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <footer className="bg-[#3A171C] border-t border-[#DED6CC]/20 text-[#DED6CC] py-12 text-xs">

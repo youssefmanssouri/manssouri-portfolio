@@ -87,9 +87,9 @@ export default async function AdminDashboardLayout({ children }: { children: Rea
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-grow p-6 md:p-10 overflow-y-auto">
+      <div className="flex-grow p-6 md:p-10 overflow-y-auto" role="region" aria-label="Admin content">
         {children}
-      </main>
+      </div>
     </div>
   );
 }

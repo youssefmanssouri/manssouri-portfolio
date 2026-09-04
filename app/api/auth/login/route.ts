@@ -5,6 +5,7 @@ import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { createAdminSessionToken, setAdminSessionCookie } from "@/lib/auth";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { isOversized, validateOrigin } from "@/lib/security";
+import { env } from "@/lib/env";
 
 function timingSafeEqual(a: string, b: string): boolean {
   try {
@@ -77,16 +78,8 @@ export async function POST(request: Request) {
     const inputEmail = email.toLowerCase().trim();
     const inputPassword = password;
 
-    const rawEmail = process.env.ADMIN_EMAIL?.trim();
-    const rawPassword = process.env.ADMIN_PASSWORD?.trim();
-
-    const envAdminEmail = (rawEmail && !rawEmail.includes("[SENSITIVE]"))
-      ? rawEmail.toLowerCase()
-      : "manssouriyoussef33@gmail.com";
-
-    const envAdminPassword = (rawPassword && !rawPassword.includes("[SENSITIVE]"))
-      ? rawPassword
-      : "portfolio-admin";
+    const envAdminEmail = env.getAdminEmail();
+    const envAdminPassword = env.getAdminPassword();
 
     let isValid = false;
     let userId = "admin_default";
@@ -112,7 +105,11 @@ export async function POST(request: Request) {
             where: { id: admin.id },
             data: { lastLoginAt: new Date() },
           }).catch(() => {});
-        } else if (inputEmail === envAdminEmail && timingSafeEqual(inputPassword, envAdminPassword)) {
+        } else if (
+          envAdminPassword &&
+          inputEmail === envAdminEmail &&
+          timingSafeEqual(inputPassword, envAdminPassword)
+        ) {
           // Self-heal: Password matches current env config, update stale DB hash
           isValid = true;
           userId = admin.id;
@@ -133,7 +130,7 @@ export async function POST(request: Request) {
       console.warn("[Security:Auth] Database user query notice:", dbErr?.message || dbErr);
     }
 
-    // 2. Fallback to Environment Variables (strictly using configured/sanitized ADMIN_PASSWORD)
+    // 2. Fallback to Environment Variables (only if securely configured)
     if (!isValid && envAdminPassword) {
       const isEmailMatch = inputEmail === envAdminEmail;
       const isPasswordMatch = timingSafeEqual(inputPassword, envAdminPassword);
@@ -163,10 +160,6 @@ export async function POST(request: Request) {
       }
     }
 
-    console.log(
-      `[Security:Auth] Login verification: email='${inputEmail}', envAdminEmail='${envAdminEmail}', envPasswordConfigured=${Boolean(envAdminPassword)}, result=${isValid ? "SUCCESS" : "FAILED"}`
-    );
-
     // 3. Reject if not valid (Generic error to prevent username enumeration)
     if (!isValid) {
       console.warn(`[Security:Auth] Failed login attempt for user '${inputEmail}' from IP ${clientIp}`);
@@ -176,26 +169,32 @@ export async function POST(request: Request) {
       );
     }
 
-    // 4. Issue authenticated session token
-    const token = await createAdminSessionToken({
-      userId,
-      email: inputEmail,
-      role: userRole,
-    });
-
-    await setAdminSessionCookie(token);
-
-    console.log(`[Security:Auth] Successful admin login for '${inputEmail}' from IP ${clientIp}`);
-
-    return NextResponse.json({
-      success: true,
-      user: {
-        id: userId,
+    // 4. Issue authenticated session token (fails closed if secret missing)
+    try {
+      const token = await createAdminSessionToken({
+        userId,
         email: inputEmail,
-        name: userName,
         role: userRole,
-      },
-    });
+      });
+
+      await setAdminSessionCookie(token);
+
+      return NextResponse.json({
+        success: true,
+        user: {
+          id: userId,
+          email: inputEmail,
+          name: userName,
+          role: userRole,
+        },
+      });
+    } catch (tokenErr: any) {
+      console.error("[Security:Auth] Session issuance failed:", tokenErr?.message || tokenErr);
+      return NextResponse.json(
+        { error: "Authentication system is not properly configured. Please contact administrator." },
+        { status: 500 }
+      );
+    }
   } catch (err: any) {
     console.error("[Security:Auth] Login error:", err?.message || err);
     return NextResponse.json(

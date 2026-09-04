@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import nodemailer from "nodemailer";
+import { env } from "@/lib/env";
 
 export interface ContactNotificationData {
   id?: string;
@@ -44,9 +45,7 @@ function escapeHtml(str: string): string {
 export async function sendContactNotificationEmail(
   data: ContactNotificationData
 ): Promise<NotificationResult> {
-  const contactDestination = sanitizeHeader(
-    process.env.CONTACT_EMAIL || "manssouriyoussef33@gmail.com"
-  );
+  const contactDestination = sanitizeHeader(env.contactEmail);
   const safeName = sanitizeHeader(data.name);
   const safeProjectType = sanitizeHeader(data.projectType);
   const safeEmail = sanitizeHeader(data.email);
@@ -152,21 +151,11 @@ Reply directly to this email to reach: ${safeEmail}
 `;
 
   // 1. Attempt Resend API
-  const rawResendKey = process.env.RESEND_API_KEY;
-  const resendApiKey =
-    rawResendKey && rawResendKey.trim() !== "" && !rawResendKey.includes("[SENSITIVE]")
-      ? rawResendKey.trim()
-      : null;
-
-  if (resendApiKey) {
+  if (env.resendApiKey) {
     try {
-      const resend = new Resend(resendApiKey);
-      const emailFrom = sanitizeHeader(
-        process.env.EMAIL_FROM || "Portfolio Contact <onboarding@resend.dev>"
-      );
-
+      const resend = new Resend(env.resendApiKey);
       const emailResult = await resend.emails.send({
-        from: emailFrom,
+        from: sanitizeHeader(env.emailFrom),
         to: [contactDestination],
         replyTo: safeEmail,
         subject,
@@ -190,24 +179,20 @@ Reply directly to this email to reach: ${safeEmail}
   }
 
   // 2. Attempt SMTP Transport (Nodemailer)
-  const smtpHost = process.env.SMTP_HOST;
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
-
-  if ((smtpHost || smtpUser) && smtpPass) {
+  if ((env.smtpHost || env.smtpUser) && env.smtpPass) {
     try {
       const transporter = nodemailer.createTransport({
-        host: smtpHost || "smtp.gmail.com",
-        port: Number(process.env.SMTP_PORT) || 465,
-        secure: (process.env.SMTP_SECURE || "true") === "true",
+        host: env.smtpHost || "smtp.gmail.com",
+        port: env.smtpPort,
+        secure: env.smtpSecure,
         auth: {
-          user: smtpUser,
-          pass: smtpPass,
+          user: env.smtpUser,
+          pass: env.smtpPass,
         },
-      });
+      } as any);
 
       const info = await transporter.sendMail({
-        from: `"${safeName} via Portfolio" <${smtpUser}>`,
+        from: `"${safeName} via Portfolio" <${env.smtpUser}>`,
         to: contactDestination,
         replyTo: safeEmail,
         subject,
@@ -228,11 +213,10 @@ Reply directly to this email to reach: ${safeEmail}
     }
   }
 
-  // 3. Attempt Webhook Notification
-  const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
-  if (webhookUrl && webhookUrl.startsWith("http")) {
+  // 3. Attempt Webhook Notification (with 5-second timeout guard)
+  if (env.contactWebhookUrl && env.contactWebhookUrl.startsWith("http")) {
     try {
-      const webhookRes = await fetch(webhookUrl, {
+      const webhookRes = await fetch(env.contactWebhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -252,6 +236,7 @@ Reply directly to this email to reach: ${safeEmail}
             },
           ],
         }),
+        signal: AbortSignal.timeout(5000),
       });
 
       if (webhookRes.ok) {

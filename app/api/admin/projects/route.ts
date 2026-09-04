@@ -3,6 +3,7 @@ import { prisma, ensureDbSchema } from "@/lib/prisma";
 import { getAdminSessionFromCookie } from "@/lib/auth";
 import { validateOrigin, isOversized } from "@/lib/security";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { createProjectSchema, updateProjectSchema } from "@/lib/validations/project";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -69,77 +70,59 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid JSON request body." }, { status: 400 });
     }
 
-    const {
-      slug,
-      title,
-      category,
-      type,
-      taglineEn,
-      taglineFr,
-      descriptionEn,
-      descriptionFr,
-      overviewEn,
-      overviewFr,
-      objectiveEn,
-      objectiveFr,
-      outcomeEn,
-      outcomeFr,
-      featured,
-      published,
-      editorialVariant,
-      githubUrl,
-      liveUrl,
-      heroImage,
-      technologies,
-      features,
-      challenges,
-    } = body;
-
-    if (!slug || !title || !descriptionEn || !descriptionFr) {
-      return NextResponse.json(
-        { error: "Slug, Title, and English & French Descriptions are required." },
-        { status: 400 }
-      );
+    const validation = createProjectSchema.safeParse(body);
+    if (!validation.success) {
+      const errorMsg = validation.error.issues[0]?.message || "Invalid project data.";
+      return NextResponse.json({ error: errorMsg }, { status: 400 });
     }
 
+    const data = validation.data;
+
     await ensureDbSchema();
+
+    // Check slug uniqueness
+    const existing = await prisma.project.findUnique({ where: { slug: data.slug } });
+    if (existing) {
+      return NextResponse.json({ error: "A project with this slug already exists." }, { status: 400 });
+    }
+
     const createdProject = await prisma.project.create({
       data: {
-        slug: String(slug).trim().slice(0, 100),
-        title: String(title).trim().slice(0, 200),
-        category: category ? String(category).trim().slice(0, 100) : "WEB DEVELOPMENT",
-        type: type ? String(type).trim().slice(0, 100) : "PERSONAL PROJECT",
-        taglineEn: taglineEn ? String(taglineEn).trim().slice(0, 300) : "",
-        taglineFr: taglineFr ? String(taglineFr).trim().slice(0, 300) : "",
-        descriptionEn: String(descriptionEn).trim(),
-        descriptionFr: String(descriptionFr).trim(),
-        overviewEn: overviewEn ? String(overviewEn).trim() : "",
-        overviewFr: overviewFr ? String(overviewFr).trim() : "",
-        objectiveEn: objectiveEn ? String(objectiveEn).trim() : "",
-        objectiveFr: objectiveFr ? String(objectiveFr).trim() : "",
-        outcomeEn: outcomeEn ? String(outcomeEn).trim() : "",
-        outcomeFr: outcomeFr ? String(outcomeFr).trim() : "",
-        featured: featured ?? true,
-        published: published ?? true,
-        editorialVariant: editorialVariant || "featured-large",
-        githubUrl: githubUrl || "https://github.com/youssefmanssouri",
-        liveUrl: liveUrl || null,
-        heroImage: heroImage || "/images/projects/businessos-main.jpg",
+        slug: data.slug,
+        title: data.title,
+        category: data.category,
+        type: data.type,
+        taglineEn: data.taglineEn,
+        taglineFr: data.taglineFr,
+        descriptionEn: data.descriptionEn,
+        descriptionFr: data.descriptionFr,
+        overviewEn: data.overviewEn,
+        overviewFr: data.overviewFr,
+        objectiveEn: data.objectiveEn,
+        objectiveFr: data.objectiveFr,
+        outcomeEn: data.outcomeEn,
+        outcomeFr: data.outcomeFr,
+        featured: data.featured,
+        published: data.published,
+        editorialVariant: data.editorialVariant,
+        githubUrl: data.githubUrl,
+        liveUrl: data.liveUrl || null,
+        heroImage: data.heroImage,
         technologies: {
-          create: (technologies || []).map((name: string) => ({ name: String(name).trim().slice(0, 50) })),
+          create: data.technologies.map((name: string) => ({ name })),
         },
         features: {
-          create: (features || []).map((f: any) => ({
-            titleEn: String(f.titleEn || f).slice(0, 200),
-            titleFr: String(f.titleFr || f).slice(0, 200),
-            descriptionEn: f.descriptionEn ? String(f.descriptionEn).slice(0, 1000) : null,
-            descriptionFr: f.descriptionFr ? String(f.descriptionFr).slice(0, 1000) : null,
+          create: data.features.map((f) => ({
+            titleEn: f.titleEn,
+            titleFr: f.titleFr,
+            descriptionEn: f.descriptionEn || null,
+            descriptionFr: f.descriptionFr || null,
           })),
         },
         challenges: {
-          create: (challenges || []).map((c: any) => ({
-            textEn: String(c.textEn || c).slice(0, 500),
-            textFr: String(c.textFr || c).slice(0, 500),
+          create: data.challenges.map((c) => ({
+            textEn: c.textEn,
+            textFr: c.textFr,
           })),
         },
       },
@@ -195,14 +178,13 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: "Invalid JSON request body." }, { status: 400 });
     }
 
-    const { id, ...updateData } = body;
-
-    if (!id || typeof id !== "string") {
-      return NextResponse.json({ error: "Valid Project ID is required." }, { status: 400 });
+    const validation = updateProjectSchema.safeParse(body);
+    if (!validation.success) {
+      const errorMsg = validation.error.issues[0]?.message || "Invalid project update payload.";
+      return NextResponse.json({ error: errorMsg }, { status: 400 });
     }
 
-    // Extract nested arrays if provided
-    const { technologies, features, challenges, ...fieldsToUpdate } = updateData;
+    const { id, ...fieldsToUpdate } = validation.data;
 
     await ensureDbSchema();
     const updated = await prisma.project.update({
