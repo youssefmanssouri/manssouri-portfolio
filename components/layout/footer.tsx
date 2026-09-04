@@ -66,6 +66,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/services/gym-management-software" className="hover:text-[#F3EFEA] transition-colors">
+                  Gym Management Software
+                </Link>
+              </li>
+              <li>
                 <Link href="/#contact" className="hover:text-[#F3EFEA] transition-colors">
                   {t("contact.badge")}
                 </Link>

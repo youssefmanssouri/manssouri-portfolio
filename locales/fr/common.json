@@ -110,7 +110,9 @@
           "Découverte produit guidée",
           "Panier latéral persistant",
           "Gestion des stocks & commandes"
-        ]
+        ],
+        "linkHref": "/projects/lumiere-parfums",
+        "linkLabel": "Explorer l'étude de cas e-commerce Lumière Parfums"
       },
       {
         "title": "Applications Métier",
@@ -121,7 +123,9 @@
           "Facturation & devis détaillés",
           "Réservations & calendrier",
           "Contrôle d'accès par rôles (RBAC)"
-        ]
+        ],
+        "linkHref": "/projects/businessos",
+        "linkLabel": "Explorer l'étude de cas BusinessOS"
       },
       {
         "title": "Données & Tableaux de Bord",
@@ -132,7 +136,9 @@
           "Indicateurs de performance (KPI)",
           "Modélisation relationnelle",
           "Filtres & graphiques interactifs"
-        ]
+        ],
+        "linkHref": "/services/gym-management-software",
+        "linkLabel": "Découvrir le système de gestion pour salle de sport"
       }
     ],
     "consultation": {
@@ -324,5 +330,191 @@
     "location": "Agadir, Maroc · Ouvert aux opportunités locales et à distance",
     "rights": "Tous droits réservés.",
     "backToTop": "Haut de page"
+  },
+  "gymService": {
+    "breadcrumb": {
+      "home": "Accueil",
+      "services": "Compétences",
+      "current": "Logiciel Salle de Sport"
+    },
+    "hero": {
+      "badge": "SOLUTIONS MÉTIER · GESTION DE SALLE DE SPORT",
+      "headline": "Logiciel de Gestion Sur Mesure pour Salles de Sport au Maroc",
+      "subheadline": "Une application web conçue pour aider les salles de sport et studios à fluidifier le pointage d'accueil, vérifier clairement la validité des abonnements, exploiter des rapports d'activité et suivre la fréquentation.",
+      "location": "Disponible pour les établissements de fitness à Agadir et partout au Maroc · Adapté à votre fonctionnement",
+      "ctaPrimary": "Discuter d'un projet pour votre salle",
+      "ctaDemo": "Tester la démo Gym CRM",
+      "ctaCaseStudy": "Consulter l'étude de cas technique"
+    },
+    "problems": {
+      "badge": "DÉFIS OPÉRATIONNELS",
+      "heading": "Des flux quotidiens qui se complexifient avec la croissance de la salle",
+      "subheading": "Gérer une salle de sport exige rapidité et clarté. Lorsque la réception s'appuie sur des registres papier ou des tableurs dispersés, des ralentissements apparaissent :",
+      "items": [
+        {
+          "title": "Ralentissements à l'accueil aux heures de pointe",
+          "description": "L'attente se prolonge au comptoir lorsque l'équipe doit chercher manuellement dans des classeurs ou des tableurs lents lors des arrivées denses."
+        },
+        {
+          "title": "Abonnements expirés non identifiés",
+          "description": "Sans indicateurs visuels immédiats, des forfaits expirés ou suspendus peuvent passer l'accueil sans être remarqués."
+        },
+        {
+          "title": "Suivi d'activité et plannings cloisonnés",
+          "description": "Le suivi de la fréquentation et de l'activité devient inefficace lorsque les pointages et les plannings sont tenus de manière isolée."
+        },
+        {
+          "title": "Données financières et fiches adhérents cloisonnées",
+          "description": "Savoir quels membres doivent renouveler ou ont un retard de paiement devient fastidieux lorsque coordonnées et règlements sont dispersés."
+        }
+      ]
+    },
+    "capabilities": {
+      "badge": "FONCTIONNALITÉS DÉMONTRÉES",
+      "heading": "Des fonctionnalités conçues pour la rapidité d'accueil et la lisibilité des statuts",
+      "subheading": "Chaque module ci-dessous est issu de l'architecture fonctionnelle de Gym CRM, pensée pour la simplicité et la réactivité au comptoir :",
+      "items": [
+        {
+          "title": "Terminal de pointage d'accueil",
+          "description": "Recherche rapide par nom ou identifiant du pass membre / QR code avec enregistrement immédiat des entrées pour maintenir la fluidité du comptoir.",
+          "tag": "Accueil"
+        },
+        {
+          "title": "Indicateurs visuels de statut d'adhésion",
+          "description": "Badges de couleur explicites (Actif, Expiré, Suspendu) permettant au personnel de vérifier la validité de l'accès en un seul coup d'œil.",
+          "tag": "Adhérents"
+        },
+        {
+          "title": "Rapports & export de données",
+          "description": "Rapports opérationnels avec export de données CSV pour les états financiers, la rétention des membres et les journaux de pointage.",
+          "tag": "Rapports"
+        },
+        {
+          "title": "Formules d’abonnement et rapports de revenus",
+          "description": "Visualisations des revenus et de la fréquentation mettant en avant les formules d’adhésion et les plages horaires de pointe.",
+          "tag": "Analytics"
+        }
+      ]
+    },
+    "proof": {
+      "badge": "PREUVE PRODUIT CONCRÈTE",
+      "heading": "Gym CRM : Un système opérationnel développé en toute indépendance",
+      "description": "Gym CRM n'est pas une simple maquette visuelle ou une présentation théorique. C'est une application web fonctionnelle et déployée, conçue avec Next.js et TypeScript, que vous pouvez tester directement en ligne. Elle constitue la base technique adaptable aux besoins de votre établissement.",
+      "caseStudyLink": "Consulter l'étude de cas technique Gym CRM",
+      "demoLink": "Tester la démo interactive en ligne",
+      "sourceCodeLink": "Examiner le code source public sur GitHub",
+      "disclaimer": "Produit de démonstration fonctionnel · Prêt pour adaptation et déploiement sur mesure"
+    },
+    "target": {
+      "badge": "ÉTABLISSEMENTS CONCERNÉS",
+      "heading": "Conçu pour les clubs et studios fonctionnant sur abonnement",
+      "subheading": "L'architecture du système s'adapte à différents formats d'établissements :",
+      "items": [
+        {
+          "title": "Salles de fitness indépendantes",
+          "description": "Établissements recherchant un accueil fiable et un suivi des renouvellements sans frais mensuels d'abonnement logiciel excessifs."
+        },
+        {
+          "title": "Box de CrossFit & Functional Training",
+          "description": "Studios recherchant un pointage rapide à l'accueil, la vérification des pass et le suivi des présences."
+        },
+        {
+          "title": "Clubs d'arts martiaux & sports de combat",
+          "description": "Clubs gérant des formules d'adhésion, des carnets de séances et des plannings d'entraînements multi-disciplines."
+        },
+        {
+          "title": "Studios de yoga, Pilates & danse",
+          "description": "Espaces privilégiant une gestion fluide de l'annuaire adhérents, le suivi des abonnements et un accueil simplifié."
+        }
+      ]
+    },
+    "customization": {
+      "badge": "ADAPTATION SUR MESURE",
+      "heading": "Distinction claire : fonctionnalités existantes vs extensions sur mesure",
+      "subheading": "Contrairement aux logiciels SaaS rigides, une solution sur mesure peut évoluer selon vos préférences opérationnelles :",
+      "col1Title": "Démontré dans la version actuelle (Gym CRM)",
+      "col2Title": "Possibilités d'extensions sur mesure (Sur demande)",
+      "col1Items": [
+        "Pointage d'accueil avec recherche et journal des entrées",
+        "Badges de statut d'adhésion : Actif, Expiré, Suspendu",
+        "Rapports d'activité et export de données CSV",
+        "Visualisations des revenus et de la fréquentation",
+        "Interface entièrement responsive sur grand écran, tablette et mobile"
+      ],
+      "col2Items": [
+        "Planification des cours collectifs et gestion des capacités",
+        "Lecture par code-barres, QR code ou carte d'adhérent",
+        "Alertes WhatsApp automatisées pour les rappels de renouvellement",
+        "Formules de forfaits spécifiques (carnets, pass saisonniers)",
+        "Passerelle avec tourniquets ou tripodes d'accès selon compatibilité"
+      ]
+    },
+    "process": {
+      "badge": "MÉTHODOLOGIE DE DÉPLOIEMENT",
+      "heading": "Un déploiement pragmatique et transparent",
+      "subheading": "Les étapes pour passer de vos besoins à un outil opérationnel :",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Cadrage des flux",
+          "description": "Nous échangeons sur vos routines d'accueil, vos formules d'abonnement, vos flux d'activité et vos contraintes spécifiques."
+        },
+        {
+          "step": "02",
+          "title": "Configuration du système",
+          "description": "L'application est configurée avec votre identité visuelle, vos formules d'adhésion et vos règles d'accès."
+        },
+        {
+          "step": "03",
+          "title": "Migration assistée des données",
+          "description": "Vos fichiers adhérents existants (tableurs ou registres) sont nettoyés, préparés et migrés vers votre base de données dans le cadre de la mise en place."
+        },
+        {
+          "step": "04",
+          "title": "Vérification au comptoir",
+          "description": "Nous testons la rapidité de recherche et de pointage sur vos écrans d'accueil pour assurer une prise en main fluide."
+        },
+        {
+          "step": "05",
+          "title": "Mise en service & suivi",
+          "description": "Le système est mis en ligne sur votre adresse web dédiée, avec un accompagnement direct en continu."
+        }
+      ]
+    },
+    "faq": {
+      "badge": "QUESTIONS FRÉQUENTES",
+      "heading": "Questions fréquentes sur le logiciel de gestion de salle",
+      "subheading": "Des réponses claires pour les dirigeants et gérants souhaitant s'équiper d'un outil dédié :",
+      "items": [
+        {
+          "question": "Qu'est-ce qu'un logiciel de gestion de salle sur mesure ?",
+          "answer": "C'est une application web conçue spécifiquement pour l'accueil, le suivi des adhérents et les opérations quotidiennes de votre établissement, sans les options superflues ni les coûts par utilisateur des logiciels génériques."
+        },
+        {
+          "question": "Le système peut-il s'adapter aux règles de ma salle ?",
+          "answer": "Oui. Étant configuré à partir d'une base modulaire, les durées d'adhésion, périodes de tolérance, règles d'accès et profils d'utilisateurs peuvent être ajustés selon vos règles exactes."
+        },
+        {
+          "question": "Pouvez-vous migrer nos données existantes depuis Excel ?",
+          "answer": "Les données existantes des membres provenant d’Excel ou de CSV peuvent être préparées et migrées vers une version personnalisée dans le cadre d’un accompagnement à la mise en place. Le prototype actuel propose l’export CSV, et non une interface d’import autonome."
+        },
+        {
+          "question": "Le personnel peut-il utiliser le système sur tablette ou smartphone ?",
+          "answer": "Oui. L'interface utilise les standards web responsives et fonctionne sur grand écran de réception, ordinateur portable, tablette ou téléphone sans nécessiter d'installation via un store."
+        },
+        {
+          "question": "Combien coûte un logiciel de gestion de salle de sport au Maroc ?",
+          "answer": "Le coût dépend du nombre de modules, des besoins d'intégration, de la migration des données et du niveau de personnalisation. Contactez-moi pour échanger sur votre périmètre."
+        }
+      ]
+    },
+    "cta": {
+      "badge": "VOTRE ÉTABLISSEMENT",
+      "heading": "Besoin d'un système adapté au fonctionnement de votre salle ?",
+      "subheading": "Échangeons sur la manière de fluidifier votre accueil et de clarifier le suivi de vos abonnements.",
+      "primary": "Discuter d'un projet pour votre salle",
+      "demo": "Tester la démo Gym CRM",
+      "whatsAppDirect": "Ou contactez-moi directement sur WhatsApp (+212 6 56 68 28 13)"
+    }
   }
 }

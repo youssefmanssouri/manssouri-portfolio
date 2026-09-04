@@ -84,6 +84,19 @@ export function Services() {
                     </ul>
                   </div>
                 )}
+
+                {/* Contextual Case Study Link */}
+                {item.linkHref && item.linkLabel && (
+                  <div className="pt-3 border-t border-[#DED6CC]/40">
+                    <Link
+                      href={item.linkHref}
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A65F4B] hover:text-[#3A171C] font-semibold tracking-wider transition-colors group/link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] rounded-xs"
+                    >
+                      <span>{item.linkLabel}</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5" aria-hidden="true" />
+                    </Link>
+                  </div>
+                )}
               </div>
             );
           })}

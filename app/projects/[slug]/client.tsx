@@ -740,8 +740,8 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
             </div>
           </div>
 
-          {/* Next Project Footer Navigation Link */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4">
+          {/* Next Project & Contextual Related Solution Link */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pt-4">
             <div>
               <span className="text-xs font-mono text-[#242222]/70 uppercase tracking-widest block mb-1">
                 {t("caseStudy.nextProject")}
@@ -754,6 +754,69 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 <span>{nextProject.name}</span>
                 <ArrowRight className="w-5 h-5 text-[#A65F4B] group-hover:translate-x-1 transition-transform" />
               </Link>
+            </div>
+
+            {/* Contextual Case Study Cross-Connection */}
+            <div className="text-xs text-[#242222]/80 max-w-md md:text-right font-sans">
+              {project.slug === "businessos" && (
+                <p>
+                  {isFr ? (
+                    <>
+                      Vous recherchez spécifiquement un outil de pointage et de suivi d&apos;adhérents ?{" "}
+                      <Link href="/projects/gym-crm" className="text-[#A65F4B] hover:underline font-semibold font-mono">
+                        Voir le système de gestion Gym CRM →
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      Looking specifically for member management or reception check-in software?{" "}
+                      <Link href="/projects/gym-crm" className="text-[#A65F4B] hover:underline font-semibold font-mono">
+                        See the Gym CRM management system →
+                      </Link>
+                    </>
+                  )}
+                </p>
+              )}
+
+              {project.slug === "gym-crm" && (
+                <p>
+                  {isFr ? (
+                    <>
+                      Vous souhaitez adapter un système similaire pour votre établissement ?{" "}
+                      <Link href="/services/gym-management-software" className="text-[#A65F4B] hover:underline font-semibold font-mono">
+                        Découvrir notre offre de logiciel pour salle de sport →
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      Looking to adapt a similar system for your facility?{" "}
+                      <Link href="/services/gym-management-software" className="text-[#A65F4B] hover:underline font-semibold font-mono">
+                        Explore the custom gym management software service →
+                      </Link>
+                    </>
+                  )}
+                </p>
+              )}
+
+              {project.slug === "lumiere-parfums" && (
+                <p>
+                  {isFr ? (
+                    <>
+                      Intéressé par le développement d&apos;applications web ou d&apos;outils métiers ?{" "}
+                      <Link href="/#services" className="text-[#A65F4B] hover:underline font-semibold font-mono">
+                        Découvrir les compétences & services →
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      Looking for custom web application or digital product development?{" "}
+                      <Link href="/#services" className="text-[#A65F4B] hover:underline font-semibold font-mono">
+                        Explore full services & capabilities →
+                      </Link>
+                    </>
+                  )}
+                </p>
+              )}
             </div>
           </div>
         </div>

@@ -110,7 +110,9 @@
           "Structured discovery",
           "Persistent cart drawer",
           "Store administration"
-        ]
+        ],
+        "linkHref": "/projects/lumiere-parfums",
+        "linkLabel": "Explore the Lumière Parfums e-commerce case study"
       },
       {
         "title": "Business Applications",
@@ -121,7 +123,9 @@
           "Itemized billing & invoicing",
           "Calendar scheduling",
           "Role-based access (RBAC)"
-        ]
+        ],
+        "linkHref": "/projects/businessos",
+        "linkLabel": "Explore the BusinessOS case study"
       },
       {
         "title": "Data & Analytics",
@@ -132,7 +136,9 @@
           "KPI summary cards",
           "Relational data modeling",
           "Interactive filters & charts"
-        ]
+        ],
+        "linkHref": "/services/gym-management-software",
+        "linkLabel": "See the Gym Management System"
       }
     ],
     "consultation": {
@@ -324,5 +330,191 @@
     "location": "Agadir, Morocco · Open to Local & Remote Opportunities",
     "rights": "All rights reserved.",
     "backToTop": "Back to top"
+  },
+  "gymService": {
+    "breadcrumb": {
+      "home": "Home",
+      "services": "Capabilities",
+      "current": "Gym Management Software"
+    },
+    "hero": {
+      "badge": "OPERATIONAL SOLUTIONS · GYM & FITNESS MANAGEMENT",
+      "headline": "Custom Gym Management Software for Gyms in Morocco",
+      "subheadline": "A dedicated web application designed to help fitness facilities manage front-desk check-ins, verify member subscriptions with visual clarity, review operational reports, and track facility attendance.",
+      "location": "Available for fitness facilities in Agadir and across Morocco · Adapted to your facility's workflow",
+      "ctaPrimary": "Discuss a System for Your Gym",
+      "ctaDemo": "Explore the Gym CRM Demo",
+      "ctaCaseStudy": "Read the Technical Case Study"
+    },
+    "problems": {
+      "badge": "OPERATIONAL CHALLENGES",
+      "heading": "Common workflows that become difficult to manage as a gym grows",
+      "subheading": "Managing a fitness facility requires daily speed and status accuracy. When operations rely on manual registers or disconnected spreadsheets, friction often appears in key areas:",
+      "items": [
+        {
+          "title": "Peak-Hour Front-Desk Bottlenecks",
+          "description": "Reception queues build up when staff must manually search through paper binders or slow spreadsheets during arrival rushes."
+        },
+        {
+          "title": "Unverified Lapsed Memberships",
+          "description": "Without high-contrast status alerts, expired or suspended memberships can pass through reception unnoticed."
+        },
+        {
+          "title": "Disjointed Activity & Schedule Tracking",
+          "description": "Tracking daily facility usage and staff schedules becomes inefficient when member sign-ins and trainer rosters are maintained separately."
+        },
+        {
+          "title": "Disconnected Financial & Member Records",
+          "description": "Tracking which members are up for renewal or overdue becomes tedious when contact info and payment history live in separate files."
+        }
+      ]
+    },
+    "capabilities": {
+      "badge": "VERIFIED DEMONSTRATED MODULES",
+      "heading": "Core capabilities engineered for front-desk speed and status clarity",
+      "subheading": "Every module below is based on the working Gym CRM architecture, tested for rapid lookup and straightforward operational usability:",
+      "items": [
+        {
+          "title": "Front-Desk Check-In Terminal",
+          "description": "Fast member search by name or Member Pass ID / QR code with immediate attendance logging to keep reception moving smoothly.",
+          "tag": "Front Desk"
+        },
+        {
+          "title": "Visual Subscription Status Tracking",
+          "description": "High-contrast visual badges (Active, Expired, Suspended) allowing reception staff to verify membership validity at a single glance.",
+          "tag": "Members"
+        },
+        {
+          "title": "Reports & Data Export",
+          "description": "Operational reports with exportable CSV datasets for financial records, member retention summaries, and facility check-in logs.",
+          "tag": "Reports"
+        },
+        {
+          "title": "Membership Tiers & Revenue Reporting",
+          "description": "Visual dashboard charts tracking demonstration revenue metrics, membership tiers, and peak arrival windows throughout the day.",
+          "tag": "Analytics"
+        }
+      ]
+    },
+    "proof": {
+      "badge": "WORKING PORTFOLIO PROOF",
+      "heading": "Gym CRM: An independently engineered working system",
+      "description": "Gym CRM is not a conceptual mockup or slide deck. It is a fully functioning, deployed web application built with Next.js, TypeScript, and responsive UI components that you can test right now. It serves as the foundation that can be adapted and customized around your gym's specific operations.",
+      "caseStudyLink": "Read the Gym CRM engineering case study",
+      "demoLink": "Test the live working demo sandbox",
+      "sourceCodeLink": "Inspect the public source code repository",
+      "disclaimer": "Working portfolio software · Ready for custom adaptation and deployment"
+    },
+    "target": {
+      "badge": "FACILITY TYPES",
+      "heading": "Designed for membership-based fitness and sports facilities",
+      "subheading": "The system architecture can be configured for various facility models:",
+      "items": [
+        {
+          "title": "Independent Fitness Clubs",
+          "description": "Facilities needing reliable front-desk check-in and active membership renewals without heavy corporate software fees."
+        },
+        {
+          "title": "CrossFit & Functional Training Boxes",
+          "description": "Studios requiring rapid reception check-in, active pass verification, and member attendance tracking."
+        },
+        {
+          "title": "Martial Arts & Combat Sports Gyms",
+          "description": "Clubs managing membership tiers, training passes, and multi-discipline training schedules."
+        },
+        {
+          "title": "Boutique Yoga, Pilates & Dance Studios",
+          "description": "Studios prioritizing streamlined member directory oversight, subscription tracking, and seamless front-desk check-in."
+        }
+      ]
+    },
+    "customization": {
+      "badge": "FLEXIBLE ADAPTATION",
+      "heading": "Clear distinction: What is demonstrated vs. custom additions",
+      "subheading": "Unlike rigid one-size-fits-all SaaS platforms, custom software is adaptable to your operational preferences:",
+      "col1Title": "Currently Demonstrated in Gym CRM",
+      "col2Title": "Potential Custom Additions (Upon Request)",
+      "col1Items": [
+        "Front-desk check-in search & attendance logging",
+        "Active, Expired, and Suspended subscription indicators",
+        "Operational reporting and CSV data export",
+        "Revenue and attendance dashboard visualizations",
+        "Full desktop, tablet, and mobile responsive layout"
+      ],
+      "col2Items": [
+        "Group class scheduling & capacity management",
+        "Barcode, QR code, or membership card scanner workflows",
+        "Automated WhatsApp message alerts for renewal reminders",
+        "Custom multi-session passes or seasonal subscription formulas",
+        "Hardware integration with turnstile access gates where supported"
+      ]
+    },
+    "process": {
+      "badge": "IMPLEMENTATION PROCESS",
+      "heading": "A straightforward, hands-on implementation approach",
+      "subheading": "How we go from understanding your facility's routine to a working operational system:",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Workflow Scoping",
+          "description": "We discuss your reception routines, membership plans, operational workflows, and specific pain points."
+        },
+        {
+          "step": "02",
+          "title": "System Configuration",
+          "description": "The application is configured with your facility's branding, membership formulas, and operating rules."
+        },
+        {
+          "step": "03",
+          "title": "Assisted Data Migration",
+          "description": "Existing member records from spreadsheets or paper files are cleaned, formatted, and imported into your database as part of assisted onboarding."
+        },
+        {
+          "step": "04",
+          "title": "Front-Desk Verification",
+          "description": "We test the check-in speed and search functionality on your reception devices to ensure smooth staff adoption."
+        },
+        {
+          "step": "05",
+          "title": "Deployment & Support",
+          "description": "The system goes live on your dedicated web address, backed by direct personal support."
+        }
+      ]
+    },
+    "faq": {
+      "badge": "COMMERCIAL FAQ",
+      "heading": "Frequently asked questions regarding custom gym software",
+      "subheading": "Practical answers for facility owners and managers considering a dedicated management system:",
+      "items": [
+        {
+          "question": "What is custom gym management software?",
+          "answer": "It is a web application tailored specifically to your facility's reception, member tracking, and daily operations, without the unnecessary complexity or monthly per-user fees of generic mass-market tools."
+        },
+        {
+          "question": "Can the system be customized for my gym's specific rules?",
+          "answer": "Yes. Because each installation is configured from a modular codebase, membership durations, grace periods, access rules, and staff roles can be adjusted to match your exact rules."
+        },
+        {
+          "question": "Can you migrate existing member data from Excel spreadsheets?",
+          "answer": "Existing member data from Excel or CSV can be prepared and migrated into a customized deployment as part of assisted onboarding. The current prototype provides CSV export rather than a self-service spreadsheet import interface."
+        },
+        {
+          "question": "Can reception staff use the system on a tablet or phone?",
+          "answer": "Yes. The entire system is built with responsive web standards and works seamlessly on reception desktop monitors, laptops, tablets, and smartphones without requiring app store installations."
+        },
+        {
+          "question": "How much does custom gym management software cost in Morocco?",
+          "answer": "The cost depends on the number of modules, integrations, data migration requirements, and customization level. Contact me to discuss the scope."
+        }
+      ]
+    },
+    "cta": {
+      "badge": "DISCUSS YOUR FACILITY",
+      "heading": "Need a system built around your gym's workflow?",
+      "subheading": "Let's discuss how your reception and membership operations can run faster and with complete status clarity.",
+      "primary": "Discuss a System for Your Gym",
+      "demo": "Explore the Gym CRM Demo",
+      "whatsAppDirect": "Or message directly on WhatsApp (+212 6 56 68 28 13)"
+    }
   }
 }
