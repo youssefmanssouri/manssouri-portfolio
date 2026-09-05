@@ -116,7 +116,7 @@
       },
       {
         "title": "Applications Métier",
-        "description": "Des applications web sur mesure pour structurer les flux opérationnels : pipeline CRM, facturation détaillée, prise de rendez-vous, suivi des adhérents et administration interne.",
+        "description": "Des applications web sur mesure pour structurer les flux opérationnels : pipeline CRM, facturation détaillée, prise de rendez-vous, gestion d'équipe et administration interne.",
         "listLabel": "Domaines clés :",
         "features": [
           "Gestion CRM & dossiers clients",

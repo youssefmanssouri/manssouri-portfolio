@@ -116,7 +116,7 @@
       },
       {
         "title": "Business Applications",
-        "description": "Custom web applications for operational workflows such as CRM pipelines, itemized invoicing, appointment scheduling, member tracking, and internal administration.",
+        "description": "Custom web applications for operational workflows such as CRM pipelines, itemized invoicing, appointment scheduling, team management, and internal administration.",
         "listLabel": "Focus Areas:",
         "features": [
           "CRM & client records",
