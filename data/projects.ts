@@ -828,26 +828,26 @@ export const PROJECTS: Project[] = [
     ],
     buildScopeEn: [
       "Front-desk check-in interface with rapid member lookup and attendance logs",
-      "Member directory with Active, Expired, and Frozen subscription status indicators",
-      "Weekly group class scheduling matrix with trainer assignments and capacity limits",
+      "Member directory with Active, Expired, and Suspended subscription status indicators",
+      "Operational reporting interface and CSV data export",
       "Operational metrics dashboard for monthly recurring revenue (MRR) and attendance trends"
     ],
     buildScopeFr: [
       "Interface de pointage d'accueil avec recherche rapide et journal des entrées",
       "Annuaire des adhérents avec statuts visuels d'abonnement (Actif, Expiré, Suspendu)",
-      "Planning hebdomadaire des cours collectifs avec coachs et jauges de capacité",
+      "Interface de rapports d'exploitation et exportation de données CSV",
       "Tableau de bord d'indicateurs opérationnels pour le suivi du MRR et de la fréquentation"
     ],
     features: [
       "Front-desk check-in terminal with member search and attendance logging",
       "Searchable member directory with visual subscription status badges",
-      "Group class capacity planning with trainer allocations and participant rosters",
+      "Operational reporting and CSV data export",
       "Monthly recurring revenue (MRR) and facility attendance charts"
     ],
     featuresFr: [
       "Terminal de pointage d'accueil avec recherche et suivi des présences",
       "Annuaire des adhérents avec badges visuels pour statuts d'abonnement",
-      "Planning des cours collectifs avec jauges de capacité et assignation des coachs",
+      "Rapports d'exploitation et exportation de données CSV",
       "Graphiques pour le chiffre d'affaires récurrent (MRR) et l'affluence"
     ],
     heroImage: "/images/projects/gymcrm-main.jpg",
