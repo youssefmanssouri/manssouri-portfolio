@@ -77,6 +77,7 @@
     "backToWork": "Retour aux réalisations",
     "practicalOutcome": "Valeur Pratique :",
     "expandImage": "Cliquer pour agrandir l'interface",
+    "prototypeNotice": "Conçu comme une démonstration fonctionnelle pouvant servir de base à une solution métier personnalisée.",
     "nextStepsBadge": "PROCHAINE ÉTAPE",
     "nextStepsHeading": "Intéressé par ce projet ou vous souhaitez échanger sur une opportunité ?",
     "nextStepsSubheading": "Échangeons sur l'implémentation technique, l'architecture du produit ou de futures opportunités de collaboration.",
@@ -253,36 +254,60 @@
       }
     ],
     "note": "Chaque réalisation démontre un cycle produit complet : cadrage du besoin, modélisation des données, développement et mise en production.",
+    "timelines": {
+      "badge": "DÉLAIS INDICATIFS DE RÉALISATION",
+      "indicativeLabel": "Repères indicatifs · Sans engagement",
+      "websites": {
+        "title": "Sites Web d'Entreprise & Vitrines",
+        "range": "Généralement 1 à 2 semaines",
+        "description": "Structure éditoriale, design responsive et parcours clair."
+      },
+      "ecommerce": {
+        "title": "E-Commerce Sur Mesure & Marques",
+        "range": "Généralement 2 à 4 semaines",
+        "description": "Boutiques personnalisées, catalogue et univers de marque."
+      },
+      "webapps": {
+        "title": "Applications Web & Outils Métiers",
+        "range": "Généralement 4 à 8+ semaines",
+        "description": "Flux opérationnels, tableaux de bord et bases relationnelles."
+      },
+      "disclaimer": "Délais indicatifs uniquement. La durée réelle dépend du périmètre, des intégrations, de la disponibilité des contenus, des révisions et des retours."
+    },
     "startProjectLink": "Discuter d'un projet →"
   },
   "faq": {
     "badge": "FAQ",
     "heading": "Foire Aux Questions",
-    "subheading": "Réponses détaillées sur mon parcours, la réalisation des projets, mes compétences full-stack et les modalités de collaboration.",
+    "subheading": "Réponses concrètes sur la conduite des projets, les délais indicatifs, les compétences techniques et les modalités de collaboration.",
     "items": [
       {
+        "question": "Quel est le délai habituel pour réaliser un projet ?",
+        "answer": "Les délais dépendent du périmètre et des exigences spécifiques du projet. À titre indicatif, un site vitrine ou une page d'atterrissage nécessite généralement 1 à 2 semaines, une boutique e-commerce sur mesure environ 2 à 4 semaines, et une application métier ou un outil opérationnel plus complet environ 4 à 8+ semaines. Le calendrier prévisionnel est fixé une fois le périmètre et les livrables convenus."
+      },
+      {
+        "question": "À qui appartiennent le code et les livrables à la fin du projet ?",
+        "answer": "Les modalités de propriété et de transmission sont convenues dans le cadre du périmètre du projet. L'accord final peut couvrir le code source, les éléments graphiques, les accès au déploiement et la documentation nécessaire, vous assurant le contrôle de votre produit."
+      },
+      {
+        "question": "Comment sont organisés les règlements d'un projet ?",
+        "answer": "Les modalités de règlement sont convenues avant le démarrage du développement et peuvent être structurées par jalons selon le périmètre et la durée du projet. Les étapes et les livrables associés sont précisés dans la proposition."
+      },
+      {
+        "question": "Assurez-vous un suivi et du support après la mise en ligne ?",
+        "answer": "Oui. Un accompagnement après la mise en ligne peut être défini selon vos besoins et le périmètre convenu. Il peut inclure une aide au déploiement, des vérifications post-lancement, la correction d'anomalies, des mises à jour ou des évolutions futures."
+      },
+      {
         "question": "Les projets de votre portfolio ont-ils été développés en autonomie, et quel était votre rôle exact ?",
-        "answer": "Oui, tous les projets présentés—notamment BusinessOS, Lumière Parfums et Gym CRM—sont des produits que j'ai conçus, développés et déployés en autonomie. Pour chaque projet, j'ai pris en charge l'ensemble du périmètre : définition du problème opérationnel, structuration des parcours utilisateurs, conception d'interfaces responsives avec Tailwind CSS, développement en TypeScript et déploiement en production sur Vercel. Pour les plateformes full-stack comme BusinessOS, cela comprend également la modélisation relationnelle avec Prisma et PostgreSQL. Des démos interactives et les dépôts GitHub publics sont accessibles pour chaque projet."
-      },
-      {
-        "question": "Quelles technologies maîtrisez-vous et couvrez-vous à la fois le frontend et le backend ?",
-        "answer": "Je travaille principalement dans l'écosystème TypeScript et Next.js. Côté frontend, je développe des interfaces modulaires et responsives avec Next.js (App Router), React et Tailwind CSS, en veillant à la légèreté du code (comme les 103 kB de JS initial partagé mesurés sur ce portfolio). Côté backend, je conçois des modèles de données relationnels, des Server Actions et des routes API avec Prisma ORM, PostgreSQL et SQLite, tout en intégrant Recharts pour la visualisation de données et Zod pour la validation stricte des formulaires."
-      },
-      {
-        "question": "Comment abordez-vous la sécurité, la validation et la qualité de production dans vos applications ?",
-        "answer": "J'applique des principes d'ingénierie défensive adaptés aux exigences de chaque projet. Sur mes applications web, j'intègre la validation stricte des schémas avec Zod, la sécurisation des entrées et la limitation de débit (rate limiting) sur les routes sensibles. Sur des plateformes full-stack comme BusinessOS, j'ai mis en place un contrôle d'accès par rôles (RBAC) et un garde-fou serveur (DEMO_MODE) permettant d'explorer l'interface d'administration tout en bloquant les modifications destructives en base de données. Chaque projet est vérifié pour assurer sa réactivité sur tous les écrans."
+        "answer": "Oui, tous les projets présentés—notamment BusinessOS, Lumière Parfums et Gym CRM—sont des produits que j'ai conçus, développés et déployés en autonomie. Pour chaque projet, j'ai pris en charge l'ensemble du cycle : cadrage du besoin opérationnel, structuration des parcours utilisateurs, conception d'interfaces responsives avec Tailwind CSS, développement en TypeScript typé, modélisation relationnelle avec Prisma et PostgreSQL, et déploiement en production sur Vercel. Des démos interactives et les dépôts GitHub publics sont accessibles pour chaque projet."
       },
       {
         "question": "Comment votre formation en Business Analytics & IA influence-t-elle votre manière de concevoir des logiciels ?",
-        "answer": "Mon cursus en Business Analytics & IA à l'EMAA Business School me forme à appréhender les outils numériques sous l'angle des flux organisationnels, de la structure des données et de l'aide à la décision. Avant de coder, j'analyse la circulation de l'information, les points de friction opérationnels et la modélisation des données relationnelles. Cette approche analytique—renforcée par l'observation concrète des flux administratifs lors de mon stage à la Wilaya de la Région Souss-Massa—me guide pour concevoir des logiciels axés sur l'utilité métier et la clarté des indicateurs."
-      },
-      {
-        "question": "Quels types d'opportunités professionnelles, de stages ou de collaborations recherchez-vous ?",
-        "answer": "En tant qu'étudiant et jeune profil technique, je suis ouvert aux offres de stage, aux postes juniors en développement logiciel ou en analyse de données, aux collaborations avec des porteurs de projets et à des missions ciblées de développement digital. Je m'intéresse particulièrement aux environnements où je peux mettre à profit ma rigueur analytique, mes compétences en Next.js/TypeScript et ma capacité d'exécution pour concevoir des outils fiables et répondre à des besoins opérationnels concrets."
+        "answer": "Mon cursus en Business Analytics & IA à l'EMAA Business School me forme à appréhender les outils numériques sous l'angle des flux organisationnels, de la circulation des données et de l'aide à la décision. Cette approche analytique—renforcée par l'observation concrète des processus administratifs lors de mon stage à la Wilaya de la Région Souss-Massa—me guide pour concevoir des logiciels axés sur l'utilité métier, la clarté des indicateurs et la simplification du travail quotidien."
       },
       {
         "question": "Comment démarrer un projet ou initier une collaboration ?",
-        "answer": "Vous pouvez me contacter via le formulaire ci-dessous ou par e-mail direct à manssouriyoussef33@gmail.com. Détaillez vos objectifs, vos besoins fonctionnels ou votre calendrier, et nous organiserons un premier échange pour cadrer l'approche technique et les étapes du projet."
+        "answer": "Vous pouvez me contacter via le formulaire ci-dessous ou directement par WhatsApp et e-mail. Je suis disponible pour des projets clients locaux et à distance. Partagez vos objectifs, vos besoins essentiels ou votre calendrier indicatif, et nous échangerons sur le périmètre et les prochaines étapes."
       }
     ]
   },
@@ -307,8 +332,26 @@
     "badge": "DISCUTER D'UN PROJET",
     "heading": "Vous avez un projet de site ou d'application web en tête ?",
     "subheading": "Que vous ayez besoin d'une application métier sur mesure, d'un outil opérationnel, d'une boutique e-commerce ou d'un site d'entreprise—détaillez votre besoin et je vous répondrai rapidement.",
+    "nextSteps": {
+      "badge": "LES PROCHAINES ÉTAPES",
+      "step1": {
+        "number": "01",
+        "title": "Examen du besoin",
+        "description": "Examen de vos objectifs, du périmètre attendu et du contexte du projet."
+      },
+      "step2": {
+        "number": "02",
+        "title": "Cadrage technique",
+        "description": "Échange sur les fonctionnalités requises, l'approche technique et les priorités."
+      },
+      "step3": {
+        "number": "03",
+        "title": "Proposition & Lancement",
+        "description": "Validation du périmètre et des étapes clés avant le démarrage du développement."
+      }
+    },
     "reassurance": {
-      "fastResponse": "Réponse rapide — Généralement sous 24 heures",
+      "fastResponse": "Réponse rapide — Examen direct de votre demande",
       "confidential": "Confidentiel — Vos informations et vos idées restent privées",
       "directAccess": "Échange direct — Vous échangez directement avec Youssef"
     },
@@ -334,7 +377,7 @@
       { "label": "Site Web / Page d'Atterrissage", "value": "Business Website" },
       { "label": "Tableau de Bord & Données Analytiques", "value": "Dashboard / Internal Tool" },
       { "label": "Boutique E-Commerce", "value": "E-Commerce" },
-      { "label": "Stage / Opportunité Professionnelle", "value": "Professional Opportunity" },
+      { "label": "Autre demande professionnelle", "value": "Other Business Inquiry" },
       { "label": "Collaboration / Autre Échange", "value": "Collaboration" }
     ],
     "directContact": "Coordonnées directes",

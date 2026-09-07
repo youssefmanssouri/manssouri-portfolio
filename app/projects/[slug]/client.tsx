@@ -115,7 +115,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
             <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
               <span>{category}</span>
               <span>·</span>
-              <span className="text-[#242222]/60 font-medium lowercase tracking-normal">{role}</span>
+              <span className="text-[#242222]/60 font-medium tracking-normal">{role}</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#242222] leading-[1.15]">
@@ -124,6 +124,10 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
 
             <p className="text-[#242222]/85 text-base sm:text-lg max-w-3xl leading-relaxed">
               {shortDesc}
+            </p>
+
+            <p className="text-xs font-mono text-[#A65F4B] font-medium leading-relaxed max-w-3xl">
+              {t("caseStudy.prototypeNotice")}
             </p>
 
             {/* Action CTAs: Inquiry (Conversion) vs Live Demo vs GitHub (Proof) */}

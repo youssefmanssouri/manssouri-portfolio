@@ -117,8 +117,8 @@ export const PROJECTS: Project[] = [
     lastModified: "2026-08-20",
     category: "CUSTOM BUSINESS PLATFORM",
     categoryFr: "PLATEFORME MÉTIER SUR MESURE",
-    role: "Designed & Developed (Independent Project)",
-    roleFr: "Conception & Développement (Projet Indépendant)",
+    role: "Independent project · Fully functional prototype",
+    roleFr: "Projet indépendant · Prototype entièrement fonctionnel",
     shortDescription: "A full-stack business management platform that centralizes operational workflows, CRM client records, itemized invoicing, appointment bookings, and financial tracking into a unified workspace.",
     shortDescriptionFr: "Une plateforme de gestion d'entreprise full-stack qui centralise les flux opérationnels, le CRM clients, la facturation, les réservations et le suivi financier dans un espace unique.",
     longDescription: "BusinessOS was built to address the confusion and overhead of fragmented SaaS tools. It unifies daily client management, billing, scheduling, team rosters, and real-time cash flow into one responsive command center.",
@@ -139,14 +139,14 @@ export const PROJECTS: Project[] = [
     },
     metrics: [
       {
-        value: "4 Modules",
+        value: "4 Operational Modules",
         label: "Integrated Operations",
         labelFr: "Opérations Intégrées",
         detail: "CRM, Invoicing, Bookings, Cash Flow",
         detailFr: "CRM, Facturation, Plannings, Trésorerie"
       },
       {
-        value: "PostgreSQL",
+        value: "PostgreSQL Database",
         label: "Relational Persistence",
         labelFr: "Persistance Relationnelle",
         detail: "Prisma schema with cascading constraints",
@@ -160,7 +160,7 @@ export const PROJECTS: Project[] = [
         detailFr: "Taille mesurée du bundle de production"
       },
       {
-        value: "RBAC",
+        value: "Role-Based Access",
         label: "Access Security",
         labelFr: "Sécurité des Accès",
         detail: "Role permissions & server demo guards",
@@ -384,8 +384,8 @@ export const PROJECTS: Project[] = [
     lastModified: "2026-08-15",
     category: "CUSTOM E-COMMERCE EXPERIENCE",
     categoryFr: "EXPÉRIENCE E-COMMERCE SUR MESURE",
-    role: "Designed & Developed (Independent Project)",
-    roleFr: "Conception & Développement (Projet Indépendant)",
+    role: "Independent project · Fully functional prototype",
+    roleFr: "Projet indépendant · Prototype entièrement fonctionnel",
     shortDescription: "A custom e-commerce experience designed to present fragrance products through visual storytelling, guide online discovery with accord filtering, and provide a smooth journey from exploration to purchase.",
     shortDescriptionFr: "Une expérience e-commerce sur mesure conçue pour valoriser des créations olfactives par le récit visuel, guider la découverte par les accords et offrir un parcours fluide de la visite à la commande.",
     longDescription: "Lumière Parfums translates the nuances of fragrance discovery into a structured digital boutique. It pairs olfactory accord filtering and scent pyramid breakdowns with persistent cart state management and store data administration.",
@@ -406,29 +406,29 @@ export const PROJECTS: Project[] = [
     },
     metrics: [
       {
-        value: "Discovery",
+        value: "Olfactory Discovery",
         label: "Scent Filtering",
         labelFr: "Découverte Olfactive",
         detail: "Olfactory families, accords, notes, price",
         detailFr: "Familles olfactives, accords, notes, budget"
       },
       {
-        value: "Storytelling",
-        label: "Product Detail",
+        value: "Product Presentation",
+        label: "Scent Breakdown",
         labelFr: "Présentation Produit",
         detail: "Top, heart, and base pyramid note breakdowns",
         detailFr: "Profils détaillés avec notes de tête, cœur et fond"
       },
       {
-        value: "Cart",
-        label: "Persistent Drawer",
+        value: "Persistent Cart",
+        label: "Client-Side Drawer",
         labelFr: "Panier Persistant",
         detail: "LocalStorage state across page navigation",
         detailFr: "Maintient les sélections du visiteur durant la session"
       },
       {
-        value: "Admin",
-        label: "Store Control",
+        value: "Store Administration",
+        label: "Catalog Oversight",
         labelFr: "Administration Boutique",
         detail: "Catalog pricing and inventory oversight",
         detailFr: "Gestion du catalogue, prix et stocks"
@@ -634,8 +634,8 @@ export const PROJECTS: Project[] = [
     lastModified: "2026-08-10",
     category: "GYM MANAGEMENT & OPERATIONS",
     categoryFr: "GESTION DE SALLE & OPÉRATIONS",
-    role: "Designed & Developed (Independent Project)",
-    roleFr: "Conception & Développement (Projet Indépendant)",
+    role: "Independent project · Fully functional prototype",
+    roleFr: "Projet indépendant · Prototype entièrement fonctionnel",
     shortDescription: "A gym operations platform designed to help fitness centers manage front-desk check-ins, track membership renewal statuses, organize group class schedules, and monitor recurring facility revenue.",
     shortDescriptionFr: "Une plateforme d'exploitation pour salles de sport conçue pour fluidifier le pointage d'accueil, suivre les statuts d'adhésion, organiser les plannings de cours et suivre les revenus récurrents.",
     longDescription: "Gym CRM addresses front-desk congestion and membership tracking for fitness facilities. It digitizes member lookups, highlights active versus expired subscription states, organizes class capacities, and provides recurring revenue visibility.",
@@ -656,28 +656,28 @@ export const PROJECTS: Project[] = [
     },
     metrics: [
       {
-        value: "Members",
-        label: "Member Management",
+        value: "Member Management",
+        label: "Subscription Tracking",
         labelFr: "Gestion des Adhérents",
         detail: "Profiles with Active, Expired, and Frozen states",
         detailFr: "Profils et statuts : Actif, Expiré, Suspendu"
       },
       {
-        value: "Check-In",
-        label: "Front-Desk Terminal",
+        value: "Front-Desk Check-In",
+        label: "Reception Terminal",
         labelFr: "Pointage d'Accueil",
         detail: "Rapid member lookup and attendance logs",
         detailFr: "Recherche instantanée et historique de pointage"
       },
       {
-        value: "Classes",
-        label: "Capacity Planning",
+        value: "Class Scheduling",
+        label: "Capacity Matrix",
         labelFr: "Planning des Cours",
         detail: "Group class capacity matrix and trainer schedules",
         detailFr: "Jauges de cours collectifs et plannings"
       },
       {
-        value: "Revenue",
+        value: "Operational Analytics",
         label: "MRR & Attendance",
         labelFr: "Revenus & Fréquentation",
         detail: "Monthly recurring revenue and usage charts",

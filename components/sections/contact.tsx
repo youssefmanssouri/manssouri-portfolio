@@ -30,7 +30,7 @@ export function Contact() {
     { label: language === "fr" ? "Boutique E-Commerce" : "E-Commerce Storefront", value: "E-Commerce" },
     { label: language === "fr" ? "Application Web sur Mesure" : "Custom Web Application", value: "Custom Business Application" },
     { label: language === "fr" ? "Tableau de Bord / Outil d'Analyse" : "Dashboard / Analytics Tool", value: "Dashboard / Internal Tool" },
-    { label: language === "fr" ? "Stage / Opportunité Professionnelle" : "Internship / Professional Opportunity", value: "Professional Opportunity" },
+    { label: language === "fr" ? "Autre demande professionnelle" : "Other Business Inquiry", value: "Other Business Inquiry" },
     { label: language === "fr" ? "Collaboration / Autre Demande" : "General Inquiry / Collaboration", value: "Collaboration" }
   ];
 
@@ -120,7 +120,7 @@ export function Contact() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16 pb-6 border-b border-[#DED6CC]">
+        <div className="max-w-3xl mb-10 sm:mb-12 pb-6 border-b border-[#DED6CC]">
           <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest mb-2 font-semibold">
             07 / {t("contact.badge")}
           </p>
@@ -130,6 +130,50 @@ export function Contact() {
           <p className="text-base sm:text-lg text-[#242222]/80 font-normal leading-relaxed">
             {t("contact.subheading")}
           </p>
+        </div>
+
+        {/* 3-Step Process: What Happens Next */}
+        <div className="mb-10 sm:mb-12 p-6 sm:p-8 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] shadow-xs">
+          <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest mb-5 font-bold">
+            {t("contact.nextSteps.badge")}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="space-y-2 border-l-2 border-[#A65F4B] pl-4">
+              <span className="text-xs font-mono text-[#A65F4B] font-bold">
+                {t("contact.nextSteps.step1.number") || "01"}
+              </span>
+              <h3 className="text-base font-bold text-[#242222] tracking-tight">
+                {t("contact.nextSteps.step1.title")}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#242222]/80 leading-relaxed">
+                {t("contact.nextSteps.step1.description")}
+              </p>
+            </div>
+
+            <div className="space-y-2 border-l-2 border-[#A65F4B] pl-4">
+              <span className="text-xs font-mono text-[#A65F4B] font-bold">
+                {t("contact.nextSteps.step2.number") || "02"}
+              </span>
+              <h3 className="text-base font-bold text-[#242222] tracking-tight">
+                {t("contact.nextSteps.step2.title")}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#242222]/80 leading-relaxed">
+                {t("contact.nextSteps.step2.description")}
+              </p>
+            </div>
+
+            <div className="space-y-2 border-l-2 border-[#A65F4B] pl-4">
+              <span className="text-xs font-mono text-[#A65F4B] font-bold">
+                {t("contact.nextSteps.step3.number") || "03"}
+              </span>
+              <h3 className="text-base font-bold text-[#242222] tracking-tight">
+                {t("contact.nextSteps.step3.title")}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#242222]/80 leading-relaxed">
+                {t("contact.nextSteps.step3.description")}
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">

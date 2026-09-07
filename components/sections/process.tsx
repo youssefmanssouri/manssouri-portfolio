@@ -64,6 +64,60 @@ export function Process() {
           ))}
         </div>
 
+        {/* Indicative Project Timelines Card */}
+        <div className="mt-10 p-6 sm:p-7 rounded-xs bg-[#FAF7F2] border border-[#DED6CC] shadow-xs space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#DED6CC] pb-3">
+            <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+              {t("process.timelines.badge")}
+            </span>
+            <span className="text-[11px] font-mono text-[#242222]/60">
+              {t("process.timelines.indicativeLabel")}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="space-y-1.5 p-4 rounded-xs bg-[#F3EFEA]/60 border border-[#DED6CC]/70">
+              <span className="text-xs font-semibold text-[#242222] block">
+                {t("process.timelines.websites.title")}
+              </span>
+              <span className="text-sm font-mono font-bold text-[#A65F4B] block">
+                {t("process.timelines.websites.range")}
+              </span>
+              <span className="text-xs text-[#242222]/70 block leading-snug">
+                {t("process.timelines.websites.description")}
+              </span>
+            </div>
+
+            <div className="space-y-1.5 p-4 rounded-xs bg-[#F3EFEA]/60 border border-[#DED6CC]/70">
+              <span className="text-xs font-semibold text-[#242222] block">
+                {t("process.timelines.ecommerce.title")}
+              </span>
+              <span className="text-sm font-mono font-bold text-[#A65F4B] block">
+                {t("process.timelines.ecommerce.range")}
+              </span>
+              <span className="text-xs text-[#242222]/70 block leading-snug">
+                {t("process.timelines.ecommerce.description")}
+              </span>
+            </div>
+
+            <div className="space-y-1.5 p-4 rounded-xs bg-[#F3EFEA]/60 border border-[#DED6CC]/70">
+              <span className="text-xs font-semibold text-[#242222] block">
+                {t("process.timelines.webapps.title")}
+              </span>
+              <span className="text-sm font-mono font-bold text-[#A65F4B] block">
+                {t("process.timelines.webapps.range")}
+              </span>
+              <span className="text-xs text-[#242222]/70 block leading-snug">
+                {t("process.timelines.webapps.description")}
+              </span>
+            </div>
+          </div>
+
+          <p className="text-[11px] font-mono text-[#242222]/65 leading-relaxed pt-1">
+            * {t("process.timelines.disclaimer")}
+          </p>
+        </div>
+
         {/* Bottom Note & Subtle Text Link */}
         <div className="mt-10 pt-6 border-t border-[#DED6CC]/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <p className="text-xs font-mono text-[#242222]/70 leading-relaxed">

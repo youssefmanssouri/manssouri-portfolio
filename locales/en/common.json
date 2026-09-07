@@ -77,6 +77,7 @@
     "backToWork": "Back to Selected Work",
     "practicalOutcome": "Practical Value:",
     "expandImage": "Click to inspect interface",
+    "prototypeNotice": "Built as a working showcase that can serve as a foundation for a customized business implementation.",
     "nextStepsBadge": "NEXT STEPS",
     "nextStepsHeading": "Interested in discussing this project or exploring an opportunity?",
     "nextStepsSubheading": "Let's connect to discuss the technical implementation, product architecture, or future collaborations.",
@@ -253,36 +254,60 @@
       }
     ],
     "note": "Each project demonstrates a complete product cycle: problem definition, data modeling, frontend engineering, and deployment.",
+    "timelines": {
+      "badge": "INDICATIVE PROJECT TIMELINES",
+      "indicativeLabel": "Planning references · Non-binding",
+      "websites": {
+        "title": "Business Websites & Landing Pages",
+        "range": "Typically 1–2 weeks",
+        "description": "Structured content, responsive layout, clear visitor pathways."
+      },
+      "ecommerce": {
+        "title": "Custom E-Commerce & Brand Websites",
+        "range": "Typically 2–4 weeks",
+        "description": "Bespoke storefronts, product discovery, and brand presentation."
+      },
+      "webapps": {
+        "title": "Custom Web Applications & Tools",
+        "range": "Typically 4–8+ weeks",
+        "description": "Relational workflows, operational dashboards, and database integrations."
+      },
+      "disclaimer": "Typical ranges only. Actual timing depends on project scope, integrations, content readiness, revisions, and feedback."
+    },
     "startProjectLink": "Discuss a Project →"
   },
   "faq": {
     "badge": "FAQ",
     "heading": "Frequently Asked Questions",
-    "subheading": "In-depth answers regarding my background, project execution, technical capabilities, and collaboration scope.",
+    "subheading": "Practical answers regarding project execution, timelines, technical capabilities, and working arrangements.",
     "items": [
       {
+        "question": "What is the typical timeline for a project?",
+        "answer": "Typical timelines depend on project scope and requirements. As a general reference, business websites and landing pages can often be completed in around 1–2 weeks, custom e-commerce or brand websites in around 2–4 weeks, and larger web applications or operational tools in around 4–8+ weeks. The final timeline is established after the project scope is understood."
+      },
+      {
+        "question": "Who owns the website or application after the project?",
+        "answer": "Ownership and handover terms are agreed as part of the project scope. The final arrangement can cover the source code, project assets, deployment access, and any required documentation, ensuring you have full control over your digital product."
+      },
+      {
+        "question": "How are project payments handled?",
+        "answer": "Payment terms are agreed before development begins and can be structured around project milestones depending on the scope. The proposal defines the agreed payment schedule, deliverables, and milestones."
+      },
+      {
+        "question": "Do you provide support after launch?",
+        "answer": "Yes. Post-launch support can be discussed as part of the project and may include deployment assistance, bug fixes, updates, and future improvements depending on the agreed scope."
+      },
+      {
         "question": "Were the projects in your portfolio built independently, and what was your exact role?",
-        "answer": "Yes, all projects displayed—including BusinessOS, Lumière Parfums, and Gym CRM—are self-directed products that I conceived, designed, and engineered independently. For each project, I handled the full product scope: defining the operational problem, structuring the user workflows, designing responsive interfaces with Tailwind CSS, writing type-safe TypeScript code, and configuring live deployments on Vercel. For full-stack applications like BusinessOS, this also included relational data modeling with Prisma and PostgreSQL. Live interactive demos and open GitHub repositories are available for each project."
-      },
-      {
-        "question": "What technical stack do you work with, and do you handle both frontend and backend development?",
-        "answer": "I work primarily within the modern TypeScript and Next.js ecosystem. On the frontend, I build component-driven, responsive user interfaces using Next.js (App Router), React, and Tailwind CSS, focusing on clean structure and lightweight bundles (such as the 103 kB shared First Load JS on this portfolio). On the backend, I develop relational data models, REST endpoints, and server actions using Prisma ORM with PostgreSQL and SQLite, while integrating Recharts for data visualization and Zod for strict input schema validation."
-      },
-      {
-        "question": "How do you approach security, validation, and production quality in your applications?",
-        "answer": "I apply defensive engineering principles tailored to each application's requirements. Across my web projects, I implement strict Zod schema validation, input sanitization, and request rate limiting on sensitive routes. In full-stack platforms like BusinessOS, I implemented Role-Based Access Control (RBAC) and dedicated server-side demo guards (DEMO_MODE) that allow visitors to safely explore administrative views while preventing destructive database mutations. Every project is tested for mobile responsiveness and cross-device consistency."
+        "answer": "Yes, all projects displayed—including BusinessOS, Lumière Parfums, and Gym CRM—are self-directed products that I conceived, designed, and engineered independently. For each project, I handled the full product scope: defining the operational problem, structuring user workflows, designing responsive interfaces with Tailwind CSS, writing type-safe TypeScript code, and configuring live deployments on Vercel. For full-stack applications like BusinessOS, this also included relational data modeling with Prisma and PostgreSQL. Live interactive demos and open GitHub repositories are available for each project."
       },
       {
         "question": "How does your background in Business Analytics & AI influence how you build software?",
         "answer": "Studying Business Analytics & AI at EMAA Business School trains me to evaluate digital tools through the lens of organizational workflows, data structure, and operational decision-making. Before writing code, I analyze how information moves through a process, where operational friction occurs, and how relational data should be structured. This analytical perspective—reinforced by practical exposure to administrative workflows during my internship at the Wilaya de la Région Souss-Massa—guides me to build software focused on real workflow utility and clear operational metrics."
       },
       {
-        "question": "What kinds of professional opportunities, internships, or collaborations are you open to?",
-        "answer": "As an early-career builder and student, I am open to internship opportunities, junior software development or data analytics roles, technical collaborations with founders, and selected freelance product projects. I am particularly interested in teams and environments where I can apply my analytical thinking, Next.js/TypeScript development skills, and product execution mindset to build reliable digital tools and solve practical operational problems."
-      },
-      {
-        "question": "How do we get started on a project or collaboration?",
-        "answer": "You can reach out through the contact form below or email me directly at manssouriyoussef33@gmail.com. Share your project objectives, functional requirements, or timeline, and we can connect to discuss the technical approach, scope, and next steps."
+        "question": "How do we get started on a project?",
+        "answer": "You can reach out through the contact form below or connect directly via WhatsApp and email. I am available for local and remote client projects. Simply share your goals, key requirements, or timeline, and we can discuss the scope and next steps."
       }
     ]
   },
@@ -307,8 +332,26 @@
     "badge": "DISCUSS A PROJECT",
     "heading": "Have a project or web application in mind?",
     "subheading": "Whether you need a custom business application, an operational tool, an e-commerce storefront, or a business website—share your requirements and I'll get back to you promptly.",
+    "nextSteps": {
+      "badge": "WHAT HAPPENS NEXT",
+      "step1": {
+        "number": "01",
+        "title": "Review",
+        "description": "Review the project requirements, goals, and existing context."
+      },
+      "step2": {
+        "number": "02",
+        "title": "Scope",
+        "description": "Discuss the required functionality, technical approach, scope, and priorities."
+      },
+      "step3": {
+        "number": "03",
+        "title": "Proposal & Build",
+        "description": "Agree on the project scope and next steps before development begins."
+      }
+    },
     "reassurance": {
-      "fastResponse": "Fast Response — Typically within 24 hours",
+      "fastResponse": "Prompt Response — Direct review of your inquiry",
       "confidential": "Confidential — Your details and ideas stay private",
       "directAccess": "Direct Access — You communicate directly with Youssef"
     },
@@ -334,7 +377,7 @@
       { "label": "Business Website / Landing Page", "value": "Business Website" },
       { "label": "Dashboard & Data Analytics", "value": "Dashboard / Internal Tool" },
       { "label": "E-Commerce Experience", "value": "E-Commerce" },
-      { "label": "Internship / Career Opportunity", "value": "Professional Opportunity" },
+      { "label": "Other Business Inquiry", "value": "Other Business Inquiry" },
       { "label": "Collaboration / Other Discussion", "value": "Collaboration" }
     ],
     "directContact": "Direct Channels",
