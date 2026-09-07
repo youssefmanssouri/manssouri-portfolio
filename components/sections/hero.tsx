@@ -8,7 +8,7 @@ import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
 
 export function Hero() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     const elem = document.getElementById(targetId);
@@ -67,25 +67,6 @@ export function Hero() {
                 <span>{t("hero.startProject")}</span>
                 <ArrowUpRight className="w-4 h-4 text-[#3A171C]/75" aria-hidden="true" />
               </Link>
-
-              {/* Recruiter Path: View CV */}
-              <a
-                href={language === "fr" ? "/cv-fr.pdf" : "/cv-en.pdf"}
-                target="_blank"
-                rel="noopener noreferrer"
-                download={language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf"}
-                onClick={() => {
-                  trackEvent("CV_DOWNLOAD", {
-                    language,
-                    source: "hero",
-                    file: language === "fr" ? "Manssouri_Youssef_CV_FR.pdf" : "Youssef_Manssouri_CV_EN.pdf",
-                  });
-                }}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#242222]/75 hover:text-[#A65F4B] transition-colors py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] rounded-xs"
-              >
-                <span>{t("hero.viewCV")}</span>
-                <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
-              </a>
             </div>
 
             <div className="pt-4 border-t border-[#DED6CC] flex items-center text-xs font-mono text-[#242222]/75">

@@ -82,7 +82,27 @@
     "nextStepsSubheading": "Échangeons sur l'implémentation technique, l'architecture du produit ou de futures opportunités de collaboration.",
     "startProject": "Discuter d'un projet",
     "discussSimilar": "Discuter d'un projet similaire",
-    "orDirect": "Ou contactez-moi directement :"
+    "orDirect": "Ou contactez-moi directement :",
+    "closingCtas": {
+      "businessos": {
+        "badge": "APPLICATION MÉTIER SUR MESURE",
+        "heading": "Besoin d'une application métier sur mesure ?",
+        "subheading": "Échangeons sur la façon dont une application web unifiée peut structurer vos flux de travail, la gestion clients et vos opérations.",
+        "button": "Parlons de votre projet"
+      },
+      "lumiere-parfums": {
+        "badge": "EXPÉRIENCE WEB PREMIUM",
+        "heading": "Besoin d'un site premium pour votre marque ?",
+        "subheading": "Concevons ensemble une expérience web distinctive et responsive, pensée pour valoriser vos produits, renforcer votre image de marque et fluidifier la navigation.",
+        "button": "Construisons-le ensemble"
+      },
+      "gym-crm": {
+        "badge": "SYSTÈME DE GESTION OPÉRATIONNELLE",
+        "heading": "Besoin d'un système sur mesure pour votre activité ?",
+        "subheading": "Échangeons pour adapter un système de gestion rapide et fiable, configuré selon les besoins de pointage, de suivi des adhérents et de fonctionnement de votre établissement.",
+        "button": "Parlons de votre projet"
+      }
+    }
   },
   "capabilities": {
     "badge": "CE QUE JE CONÇOIS",

@@ -35,6 +35,22 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
   const solutionTitle = isFr ? ps.solutionTitleFr : ps.solutionTitleEn;
   const solutionDesc = isFr ? ps.solutionDescFr : ps.solutionDescEn;
 
+  // Contextual Closing CTA
+  const ctaBadgeKey = `caseStudy.closingCtas.${project.slug}.badge`;
+  const ctaHeadingKey = `caseStudy.closingCtas.${project.slug}.heading`;
+  const ctaSubheadingKey = `caseStudy.closingCtas.${project.slug}.subheading`;
+  const ctaButtonKey = `caseStudy.closingCtas.${project.slug}.button`;
+
+  const ctaBadge = t(ctaBadgeKey);
+  const ctaHeading = t(ctaHeadingKey);
+  const ctaSubheading = t(ctaSubheadingKey);
+  const ctaButton = t(ctaButtonKey);
+
+  const finalCtaBadge = ctaBadge !== ctaBadgeKey ? ctaBadge : t("caseStudy.nextStepsBadge");
+  const finalCtaHeading = ctaHeading !== ctaHeadingKey ? ctaHeading : t("caseStudy.nextStepsHeading");
+  const finalCtaSubheading = ctaSubheading !== ctaSubheadingKey ? ctaSubheading : t("caseStudy.nextStepsSubheading");
+  const finalCtaButton = ctaButton !== ctaButtonKey ? ctaButton : t("caseStudy.startProject");
+
   // Lightbox modal index
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -663,13 +679,13 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-2 max-w-xl">
                 <p className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
-                  {t("caseStudy.nextStepsBadge")}
+                  {finalCtaBadge}
                 </p>
                 <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#F3EFEA]">
-                  {t("caseStudy.nextStepsHeading")}
+                  {finalCtaHeading}
                 </h3>
                 <p className="text-sm sm:text-base text-[#DED6CC]/80 leading-relaxed font-sans">
-                  {t("caseStudy.nextStepsSubheading")}
+                  {finalCtaSubheading}
                 </p>
               </div>
 
@@ -685,7 +701,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                   }}
                   className="inline-flex items-center justify-center gap-2 bg-[#F3EFEA] text-[#3A171C] px-6 py-3 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-white transition-all active:scale-[0.98]"
                 >
-                  <span>{t("caseStudy.startProject")}</span>
+                  <span>{finalCtaButton}</span>
                   <ArrowRight className="w-4 h-4 text-[#A65F4B]" />
                 </Link>
               </div>

@@ -82,7 +82,27 @@
     "nextStepsSubheading": "Let's connect to discuss the technical implementation, product architecture, or future collaborations.",
     "startProject": "Discuss a Project",
     "discussSimilar": "Discuss a Similar Project",
-    "orDirect": "Or reach out directly:"
+    "orDirect": "Or reach out directly:",
+    "closingCtas": {
+      "businessos": {
+        "badge": "CUSTOM BUSINESS APPLICATION",
+        "heading": "Need a custom business application?",
+        "subheading": "Let's discuss how a unified web application can streamline your team's workflows, client records, and daily operations.",
+        "button": "Let's discuss your project"
+      },
+      "lumiere-parfums": {
+        "badge": "PREMIUM WEB EXPERIENCE",
+        "heading": "Need a premium website for your brand?",
+        "subheading": "Let's build a distinctive, responsive web experience designed around structured product discovery, brand storytelling, and smooth navigation.",
+        "button": "Let's build it"
+      },
+      "gym-crm": {
+        "badge": "OPERATIONAL MANAGEMENT SYSTEM",
+        "heading": "Need a custom system for your business?",
+        "subheading": "Let's discuss adapting a fast, reliable management system tailored to your facility's check-in routines, member tracking, and daily workflows.",
+        "button": "Let's discuss your project"
+      }
+    }
   },
   "capabilities": {
     "badge": "WHAT I BUILD",
