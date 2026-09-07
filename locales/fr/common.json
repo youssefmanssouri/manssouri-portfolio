@@ -18,7 +18,7 @@
     "viewWork": "Voir mes réalisations",
     "startProject": "Discuter d'un projet",
     "viewCV": "Consulter mon CV (PDF)",
-    "location": "Basé à Agadir, Maroc · Ouvert aux opportunités locales et à distance"
+    "location": "Basé à Agadir, Maroc · Disponible pour des projets locaux et à distance"
   },
   "work": {
     "badge": "RÉALISATIONS",
@@ -162,8 +162,8 @@
       }
     ],
     "consultation": {
-      "title": "VOUS AVEZ UN PROJET OU UNE OPPORTUNITÉ À DISCUTER ?",
-      "text": "Que vous recherchiez un profil capable de concevoir une application sur mesure, un outil opérationnel ou une opportunité de stage—échangeons sur vos besoins et objectifs.",
+      "title": "UN PROJET EN TÊTE OU UN BESOIN SUR MESURE ?",
+      "text": "Que vous ayez besoin d'une application web sur mesure, d'un tableau de bord opérationnel ou d'un site d'entreprise adapté à vos flux de travail—échangeons sur votre projet.",
       "cta": "Discuter d'un projet"
     }
   },
@@ -222,8 +222,8 @@
       }
     ],
     "cta": {
-      "prompt": "OUVERT AUX OPPORTUNITÉS, STAGES & COLLABORATIONS",
-      "action": "Discuter d'une opportunité"
+      "prompt": "PRÊT À DÉVELOPPER OU STRUCTURER VOS OUTILS ?",
+      "action": "Discuter d'un projet"
     }
   },
   "process": {
@@ -253,7 +253,7 @@
       }
     ],
     "note": "Chaque réalisation démontre un cycle produit complet : cadrage du besoin, modélisation des données, développement et mise en production.",
-    "startProjectLink": "Discuter d'une opportunité →"
+    "startProjectLink": "Discuter d'un projet →"
   },
   "faq": {
     "badge": "FAQ",
@@ -281,8 +281,8 @@
         "answer": "En tant qu'étudiant et jeune profil technique, je suis ouvert aux offres de stage, aux postes juniors en développement logiciel ou en analyse de données, aux collaborations avec des porteurs de projets et à des missions ciblées de développement digital. Je m'intéresse particulièrement aux environnements où je peux mettre à profit ma rigueur analytique, mes compétences en Next.js/TypeScript et ma capacité d'exécution pour concevoir des outils fiables et répondre à des besoins opérationnels concrets."
       },
       {
-        "question": "Comment initier un échange ou discuter d'une opportunité de collaboration ?",
-        "answer": "Vous pouvez me contacter via le formulaire de contact ci-dessous ou par e-mail direct à manssouriyoussef33@gmail.com. Qu'il s'agisse d'échanger sur une opportunité de stage, d'un poste junior ou de cadrer un projet numérique spécifique, nous pouvons organiser un premier échange pour clarifier vos objectifs, le périmètre technique et les prochaines étapes."
+        "question": "Comment démarrer un projet ou initier une collaboration ?",
+        "answer": "Vous pouvez me contacter via le formulaire ci-dessous ou par e-mail direct à manssouriyoussef33@gmail.com. Détaillez vos objectifs, vos besoins fonctionnels ou votre calendrier, et nous organiserons un premier échange pour cadrer l'approche technique et les étapes du projet."
       }
     ]
   },
@@ -305,8 +305,8 @@
   },
   "contact": {
     "badge": "DISCUTER D'UN PROJET",
-    "heading": "Vous avez une opportunité, une collaboration ou un projet en tête ?",
-    "subheading": "Que vous souhaitiez échanger sur une opportunité de stage, recruter un profil technique & analytique, collaborer sur un produit digital ou discuter d'un projet—n'hésitez pas à me contacter.",
+    "heading": "Vous avez un projet de site ou d'application web en tête ?",
+    "subheading": "Que vous ayez besoin d'une application métier sur mesure, d'un outil opérationnel, d'une boutique e-commerce ou d'un site d'entreprise—détaillez votre besoin et je vous répondrai rapidement.",
     "reassurance": {
       "fastResponse": "Réponse rapide — Généralement sous 24 heures",
       "confidential": "Confidentiel — Vos informations et vos idées restent privées",
@@ -317,10 +317,10 @@
       "namePlaceholder": "Jean Dupont",
       "email": "Adresse e-mail *",
       "emailPlaceholder": "jean@entreprise.com",
-      "projectType": "Type de demande / d'opportunité *",
-      "selectProjectType": "Sélectionnez un type de demande...",
+      "projectType": "Type de projet / demande *",
+      "selectProjectType": "Sélectionnez un type de projet...",
       "message": "Message / Détails *",
-      "messagePlaceholder": "Précisez les détails du poste, du projet, des besoins ou de la collaboration...",
+      "messagePlaceholder": "Précisez votre projet, les fonctionnalités souhaitées ou votre calendrier...",
       "submit": "Envoyer le message",
       "submitting": "Envoi en cours...",
       "successTitle": "Message reçu.",
@@ -347,7 +347,7 @@
   },
   "footer": {
     "tagline": "Conception de produits digitaux concrets à la croisée de l'analyse métier, de l'IA appliquée et du développement web moderne.",
-    "location": "Agadir, Maroc · Ouvert aux opportunités locales et à distance",
+    "location": "Agadir, Maroc · Disponible pour des projets locaux et à distance",
     "rights": "Tous droits réservés.",
     "backToTop": "Haut de page"
   },

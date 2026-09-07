@@ -18,7 +18,7 @@
     "viewWork": "View My Work",
     "startProject": "Discuss a Project",
     "viewCV": "View CV (PDF)",
-    "location": "Based in Agadir, Morocco · Open to local & remote opportunities"
+    "location": "Based in Agadir, Morocco · Available for local & remote projects"
   },
   "work": {
     "badge": "SELECTED WORK",
@@ -162,8 +162,8 @@
       }
     ],
     "consultation": {
-      "title": "INTERESTED IN COLLABORATING OR DISCUSSING A PROJECT?",
-      "text": "Whether you are looking for an analytical product builder for a web application, an operational tool, or an internship opportunity—let's connect.",
+      "title": "HAVE A PROJECT IN MIND OR NEED A CUSTOM BUILD?",
+      "text": "Whether you need a custom web application, an operational dashboard, or a business website tailored to your workflows—let's discuss your requirements.",
       "cta": "Discuss a Project"
     }
   },
@@ -222,8 +222,8 @@
       }
     ],
     "cta": {
-      "prompt": "OPEN TO OPPORTUNITIES, COLLABORATIONS & PROJECTS",
-      "action": "Discuss an Opportunity"
+      "prompt": "READY TO BUILD OR STREAMLINE YOUR WORKFLOWS?",
+      "action": "Discuss a Project"
     }
   },
   "process": {
@@ -253,7 +253,7 @@
       }
     ],
     "note": "Each project demonstrates a complete product cycle: problem definition, data modeling, frontend engineering, and deployment.",
-    "startProjectLink": "Discuss an Opportunity →"
+    "startProjectLink": "Discuss a Project →"
   },
   "faq": {
     "badge": "FAQ",
@@ -281,8 +281,8 @@
         "answer": "As an early-career builder and student, I am open to internship opportunities, junior software development or data analytics roles, technical collaborations with founders, and selected freelance product projects. I am particularly interested in teams and environments where I can apply my analytical thinking, Next.js/TypeScript development skills, and product execution mindset to build reliable digital tools and solve practical operational problems."
       },
       {
-        "question": "How do you start a collaboration or discuss a potential opportunity?",
-        "answer": "You can reach out through the contact form below or email me directly at manssouriyoussef33@gmail.com. Whether you are interested in discussing an internship, exploring a junior role, or scoping a specific digital project, we can connect to discuss your objectives, technical requirements, and collaboration details."
+        "question": "How do we get started on a project or collaboration?",
+        "answer": "You can reach out through the contact form below or email me directly at manssouriyoussef33@gmail.com. Share your project objectives, functional requirements, or timeline, and we can connect to discuss the technical approach, scope, and next steps."
       }
     ]
   },
@@ -305,8 +305,8 @@
   },
   "contact": {
     "badge": "DISCUSS A PROJECT",
-    "heading": "Have an opportunity, collaboration, or project in mind?",
-    "subheading": "Whether you're looking to discuss an internship, recruit a builder, collaborate on a digital product, or discuss a freelance project—share your context and I'll get back to you promptly.",
+    "heading": "Have a project or web application in mind?",
+    "subheading": "Whether you need a custom business application, an operational tool, an e-commerce storefront, or a business website—share your requirements and I'll get back to you promptly.",
     "reassurance": {
       "fastResponse": "Fast Response — Typically within 24 hours",
       "confidential": "Confidential — Your details and ideas stay private",
@@ -317,10 +317,10 @@
       "namePlaceholder": "Jane Doe",
       "email": "Email Address *",
       "emailPlaceholder": "jane@company.com",
-      "projectType": "Inquiry / Opportunity Type *",
-      "selectProjectType": "Select an inquiry type...",
+      "projectType": "Project / Inquiry Type *",
+      "selectProjectType": "Select a project type...",
       "message": "Message / Details *",
-      "messagePlaceholder": "Share details about the role, project, key requirements, or collaboration...",
+      "messagePlaceholder": "Share details about your project, key requirements, or timeline...",
       "submit": "Send Message",
       "submitting": "Sending Message...",
       "successTitle": "Message received.",
@@ -347,7 +347,7 @@
   },
   "footer": {
     "tagline": "Building practical digital products at the intersection of business analytics, applied AI, and modern web development.",
-    "location": "Agadir, Morocco · Open to Local & Remote Opportunities",
+    "location": "Agadir, Morocco · Available for Local & Remote Projects",
     "rights": "All rights reserved.",
     "backToTop": "Back to top"
   },
