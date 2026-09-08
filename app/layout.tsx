@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
   },
   title: {
-    default: "Youssef Manssouri — Web Developer & Custom Web Applications | Agadir",
+    default: "Youssef Manssouri",
     template: "%s | Youssef Manssouri",
   },
   description:
