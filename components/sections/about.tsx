@@ -57,7 +57,7 @@ export function About() {
               
               {/* Education Block */}
               <div className="space-y-1">
-                <p className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
+                <p className="text-[11px] font-mono text-[#C47D68] uppercase tracking-wider font-semibold">
                   {t("about.educationLabel")}
                 </p>
                 <h4 className="text-base font-bold text-[#F3EFEA]">
@@ -70,7 +70,7 @@ export function About() {
 
               {/* Internship Experience */}
               <div className="border-t border-[#DED6CC]/15 pt-4 space-y-1.5">
-                <p className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
+                <p className="text-[11px] font-mono text-[#C47D68] uppercase tracking-wider font-semibold">
                   {t("about.internshipLabel")}
                 </p>
                 <div className="space-y-0.5">
@@ -90,7 +90,7 @@ export function About() {
 
               {/* Core Focus Pills */}
               <div className="border-t border-[#DED6CC]/15 pt-4 space-y-2">
-                <p className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-wider font-semibold">
+                <p className="text-[11px] font-mono text-[#C47D68] uppercase tracking-wider font-semibold">
                   {t("about.focusLabel")}
                 </p>
                 <div className="flex flex-wrap gap-1.5">

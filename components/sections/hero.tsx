@@ -40,31 +40,31 @@ export function Hero() {
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
-              {/* Primary: View My Work (Proof first) */}
-              <Link
-                href="/#work"
-                prefetch={true}
-                onClick={(e) => {
-                  trackEvent("CTA_VIEW_WORK", { source: "hero", destination: "work" });
-                  handleNavClick(e, "work");
-                }}
-                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-6 py-3.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] shadow-xs"
-              >
-                <span>{t("hero.viewWork")}</span>
-                <ArrowRight className="w-4 h-4 text-[#A65F4B]" aria-hidden="true" />
-              </Link>
-
-              {/* Secondary: Start a Project (Client path) */}
+              {/* Primary: Discuss a Project (Client conversion path) */}
               <Link
                 href="/#contact"
                 prefetch={true}
                 onClick={(e) => {
-                  trackEvent("CTA_START_PROJECT", { source: "hero", destination: "contact" });
+                  trackEvent("CTA_DISCUSS_PROJECT", { source: "hero", destination: "contact" });
                   handleNavClick(e, "contact");
+                }}
+                className="inline-flex items-center gap-2 bg-[#3A171C] text-[#F3EFEA] px-6 py-3.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#2D1216] transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] shadow-xs"
+              >
+                <span>{t("hero.startProject")}</span>
+                <ArrowRight className="w-4 h-4 text-[#A65F4B]" aria-hidden="true" />
+              </Link>
+
+              {/* Secondary: Explore Case Studies (Proof path) */}
+              <Link
+                href="/#work"
+                prefetch={true}
+                onClick={(e) => {
+                  trackEvent("CTA_EXPLORE_CASE_STUDIES", { source: "hero", destination: "work" });
+                  handleNavClick(e, "work");
                 }}
                 className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-6 py-3.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
               >
-                <span>{t("hero.startProject")}</span>
+                <span>{t("hero.viewWork")}</span>
                 <ArrowUpRight className="w-4 h-4 text-[#3A171C]/75" aria-hidden="true" />
               </Link>
             </div>

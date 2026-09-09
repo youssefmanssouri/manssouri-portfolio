@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Copy, Check } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { YMLogo } from "@/components/ui/logo";
 import { trackEvent } from "@/lib/analytics";
@@ -11,6 +11,26 @@ import { trackEvent } from "@/lib/analytics";
 export function Footer() {
   const { t, language, setLanguage } = useLanguage();
   const pathname = usePathname();
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText("manssouriyoussef33@gmail.com");
+      setCopiedEmail(true);
+      trackEvent("EMAIL_COPY", { source: "footer" });
+      setTimeout(() => setCopiedEmail(false), 2500);
+    } catch {
+      const el = document.createElement("textarea");
+      el.value = "manssouriyoussef33@gmail.com";
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+      setCopiedEmail(true);
+      trackEvent("EMAIL_COPY", { source: "footer" });
+      setTimeout(() => setCopiedEmail(false), 2500);
+    }
+  };
 
   // Prevent rendering public footer on admin routes
   if (pathname?.startsWith("/admin")) {
@@ -84,17 +104,37 @@ export function Footer() {
               {t("contact.directContact")}
             </h4>
             <ul className="space-y-1.5 text-xs text-[#DED6CC]">
-              <li>
+              <li className="flex items-center gap-2 flex-wrap">
                 <a
                   href="mailto:manssouriyoussef33@gmail.com"
                   aria-label="Send email to Youssef Manssouri"
                   onClick={() => {
                     trackEvent("EMAIL_CLICK", { source: "footer", destination: "email" });
                   }}
-                  className="hover:text-[#F3EFEA] transition-colors inline-flex items-center gap-1 break-all"
+                  className="hover:text-[#F3EFEA] transition-colors inline-flex items-center gap-1 break-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#A65F4B] rounded-xs"
                 >
                   manssouriyoussef33@gmail.com
                 </a>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  aria-label={copiedEmail ? (language === "fr" ? "Adresse e-mail copiée dans le presse-papiers" : "Email address copied to clipboard") : (language === "fr" ? "Copier l'adresse e-mail" : "Copy email address")}
+                  className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-xs bg-[#F3EFEA]/10 hover:bg-[#F3EFEA]/20 text-[10px] font-mono text-[#DED6CC] hover:text-[#F3EFEA] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#A65F4B]"
+                >
+                  {copiedEmail ? (
+                    <>
+                      <Check className="w-2.5 h-2.5 text-[#A65F4B]" aria-hidden="true" />
+                      <span className="text-[#A65F4B] font-bold" role="status" aria-live="polite">
+                        {language === "fr" ? "Copié !" : "Copied!"}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-2.5 h-2.5 text-[#DED6CC]/70" aria-hidden="true" />
+                      <span>{language === "fr" ? "Copier" : "Copy"}</span>
+                    </>
+                  )}
+                </button>
               </li>
               <li>
                 <a

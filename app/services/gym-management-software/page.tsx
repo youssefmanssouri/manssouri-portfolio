@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { GymManagementLandingClient } from "./client";
 
 export const metadata: Metadata = {
-  title: "Gym Management Software Morocco — Member & Reception System | Youssef Manssouri",
+  title: "Gym Management Software Morocco — Member & Reception System",
   description:
     "Custom gym management software for fitness clubs in Morocco. Member management, reception check-in, subscription tracking, attendance tracking, and operational tools.",
   keywords: [

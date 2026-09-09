@@ -14,7 +14,11 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-[#F3EFEA] text-[#242222] px-4">
+    <div
+      role="region"
+      aria-label="Page Not Found"
+      className="min-h-[75vh] flex items-center justify-center bg-[#F3EFEA] text-[#242222] px-4 py-16"
+    >
       <div className="max-w-md w-full text-center space-y-6 p-8 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 shadow-2xl">
         <div className="w-16 h-16 rounded-xs bg-[#A65F4B]/20 border border-[#A65F4B] flex items-center justify-center mx-auto text-[#A65F4B] font-mono text-2xl font-bold">
           404
@@ -38,6 +42,6 @@ export default function NotFound() {
           </Button>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

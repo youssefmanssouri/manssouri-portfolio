@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
-import { ArrowUpRight, CheckCircle2, AlertCircle, Loader2, Clock, ShieldCheck, UserCheck } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, AlertCircle, Loader2, Clock, ShieldCheck, UserCheck, Copy, Check } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
 
@@ -24,6 +24,7 @@ export function Contact() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [serverErrorMsg, setServerErrorMsg] = useState<string | null>(null);
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
   const projectTypeOptions = dictionary?.contact?.projectTypes || [
     { label: language === "fr" ? "Site Web d'Entreprise" : "Business Website", value: "Business Website" },
@@ -38,6 +39,8 @@ export function Contact() {
     const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) {
       newErrors.name = language === "fr" ? "Le nom est requis" : "Name is required";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = language === "fr" ? "Le nom doit comporter au moins 2 caractères" : "Name must be at least 2 characters";
     }
     if (!formData.email.trim()) {
       newErrors.email = language === "fr" ? "L'adresse e-mail est requise" : "Email address is required";
@@ -110,6 +113,25 @@ export function Contact() {
     setErrors({});
     setStatus("idle");
     setServerErrorMsg(null);
+  };
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText("manssouriyoussef33@gmail.com");
+      setCopiedEmail(true);
+      trackEvent("EMAIL_COPY", { source: "contact_direct" });
+      setTimeout(() => setCopiedEmail(false), 2500);
+    } catch {
+      const el = document.createElement("textarea");
+      el.value = "manssouriyoussef33@gmail.com";
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+      setCopiedEmail(true);
+      trackEvent("EMAIL_COPY", { source: "contact_direct" });
+      setTimeout(() => setCopiedEmail(false), 2500);
+    }
   };
 
   const whatsAppPrefilledMsg = encodeURIComponent(t("contact.whatsAppMessage"));
@@ -213,9 +235,13 @@ export function Contact() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <Input
+                    id="contact-name"
+                    name="name"
                     label={t("contact.form.name")}
                     placeholder={t("contact.form.namePlaceholder")}
                     value={formData.name}
+                    required
+                    aria-required="true"
                     onChange={(e) => {
                       setFormData({ ...formData, name: e.target.value });
                       if (errors.name) {
@@ -230,10 +256,14 @@ export function Contact() {
                     disabled={status === "submitting"}
                   />
                   <Input
+                    id="contact-email"
+                    name="email"
                     label={t("contact.form.email")}
                     type="email"
                     placeholder={t("contact.form.emailPlaceholder")}
                     value={formData.email}
+                    required
+                    aria-required="true"
                     onChange={(e) => {
                       setFormData({ ...formData, email: e.target.value });
                       if (errors.email) {
@@ -250,10 +280,14 @@ export function Contact() {
                 </div>
 
                 <Select
+                  id="contact-project-type"
+                  name="projectType"
                   label={t("contact.form.projectType")}
                   placeholder={t("contact.form.selectProjectType")}
                   options={projectTypeOptions}
                   value={formData.projectType}
+                  required
+                  aria-required="true"
                   onChange={(e) => {
                     setFormData({ ...formData, projectType: e.target.value });
                     if (errors.projectType) {
@@ -269,9 +303,13 @@ export function Contact() {
                 />
 
                 <Textarea
+                  id="contact-message"
+                  name="message"
                   label={t("contact.form.message")}
                   placeholder={t("contact.form.messagePlaceholder")}
                   value={formData.message}
+                  required
+                  aria-required="true"
                   onChange={(e) => {
                     setFormData({ ...formData, message: e.target.value });
                     if (errors.message) {
@@ -339,7 +377,7 @@ export function Contact() {
           {/* Direct Channels Highlight Card (Secondary) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="p-6 sm:p-8 rounded-xs bg-[#3A171C] text-[#F3EFEA] border border-[#DED6CC]/20 space-y-6 shadow-xl">
-              <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#A65F4B]">
+              <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#C47D68]">
                 {t("contact.directContact")}
               </h3>
 
@@ -362,16 +400,39 @@ export function Contact() {
 
                 <div>
                   <span className="text-[#DED6CC]/70 block uppercase font-mono font-medium mb-1">{t("contact.email")}</span>
-                  <a
-                    href="mailto:manssouriyoussef33@gmail.com"
-                    onClick={() => {
-                      trackEvent("EMAIL_CLICK", { source: "contact_direct", destination: "email" });
-                    }}
-                    className="text-[#F3EFEA] hover:text-[#A65F4B] font-bold text-sm transition-colors break-all inline-flex items-center gap-1.5"
-                  >
-                    manssouriyoussef33@gmail.com
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#A65F4B]" />
-                  </a>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <a
+                      href="mailto:manssouriyoussef33@gmail.com"
+                      aria-label="Send email to manssouriyoussef33@gmail.com"
+                      onClick={() => {
+                        trackEvent("EMAIL_CLICK", { source: "contact_direct", destination: "email" });
+                      }}
+                      className="text-[#F3EFEA] hover:text-[#A65F4B] font-bold text-sm transition-colors break-all inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] rounded-xs"
+                    >
+                      manssouriyoussef33@gmail.com
+                      <ArrowUpRight className="w-3.5 h-3.5 text-[#A65F4B]" aria-hidden="true" />
+                    </a>
+                    <button
+                      type="button"
+                      onClick={handleCopyEmail}
+                      aria-label={copiedEmail ? (language === "fr" ? "Adresse e-mail copiée dans le presse-papiers" : "Email address copied to clipboard") : (language === "fr" ? "Copier l'adresse e-mail" : "Copy email address")}
+                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-xs bg-[#F3EFEA]/10 hover:bg-[#F3EFEA]/20 border border-[#DED6CC]/20 text-[11px] font-mono font-medium text-[#DED6CC] hover:text-[#F3EFEA] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+                    >
+                      {copiedEmail ? (
+                        <>
+                          <Check className="w-3 h-3 text-[#C47D68]" aria-hidden="true" />
+                          <span className="text-[#C47D68] font-bold" role="status" aria-live="polite">
+                            {language === "fr" ? "Copié !" : "Copied!"}
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3 h-3 text-[#DED6CC]/80" aria-hidden="true" />
+                          <span>{language === "fr" ? "Copier" : "Copy"}</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </div>
 
                 <div className="pt-3 border-t border-[#DED6CC]/15">

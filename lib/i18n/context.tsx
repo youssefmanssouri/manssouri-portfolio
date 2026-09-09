@@ -26,6 +26,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>("en");
 
   useEffect(() => {
+    // Synchronize HTML lang attribute for screen readers & browser parsing
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = language;
+    }
+  }, [language]);
+
+  useEffect(() => {
     // 1. Check URL param or stored cookie / localStorage
     const savedLanguage = localStorage.getItem("ym_portfolio_lang") as Language;
     if (savedLanguage && (savedLanguage === "en" || savedLanguage === "fr")) {
