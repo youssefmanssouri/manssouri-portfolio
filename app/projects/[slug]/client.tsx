@@ -162,18 +162,20 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 </a>
               )}
 
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
-                  trackEvent("GITHUB_CLICK", { slug: project.slug, source: "case_study_top" });
-                }}
-                className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
-              >
-                <span>{t("work.github")}</span>
-              </a>
-            </div>
+                {!project.isPrivateRepo && project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackEvent("GITHUB_CLICK", { slug: project.slug, source: "case_study_top" });
+                    }}
+                    className="inline-flex items-center gap-2 bg-transparent border border-[#3A171C] text-[#3A171C] px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+                  >
+                    <span>{t("work.github")}</span>
+                  </a>
+                )}
+              </div>
           </div>
 
           {/* Product Scope Strip */}
@@ -581,21 +583,34 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                 </div>
               )}
 
-              {/* Source Code */}
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3.5 rounded-xs bg-white border border-[#DED6CC] hover:border-[#A65F4B] transition-colors group space-y-1 block shadow-2xs"
-              >
-                <div className="flex items-center justify-between text-xs font-mono font-bold text-[#242222]">
-                  <span>{t("caseStudy.proofSourceCode")}</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-[#A65F4B] group-hover:translate-x-0.5 transition-transform" />
+              {/* Source Code / Private Codebase */}
+              {project.isPrivateRepo ? (
+                <div className="p-3.5 rounded-xs bg-white border border-[#DED6CC] space-y-1 shadow-2xs">
+                  <div className="text-xs font-mono font-bold text-[#242222]">
+                    {isFr ? "Codebase Privée" : "Private Codebase"}
+                  </div>
+                  <p className="text-[11px] text-[#242222]/70 leading-snug">
+                    {isFr
+                      ? "L'implémentation est maintenue dans un dépôt privé ; l'architecture et les choix techniques sont documentés dans cette étude de cas."
+                      : "The implementation is maintained in a private repository; the architecture and engineering decisions are documented throughout this case study."}
+                  </p>
                 </div>
-                <p className="text-[11px] text-[#242222]/70 leading-snug">
-                  {t("caseStudy.proofSourceCodeDesc")}
-                </p>
-              </a>
+              ) : (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-xs bg-white border border-[#DED6CC] hover:border-[#A65F4B] transition-colors group space-y-1 block shadow-2xs"
+                >
+                  <div className="flex items-center justify-between text-xs font-mono font-bold text-[#242222]">
+                    <span>{t("caseStudy.proofSourceCode")}</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-[#A65F4B] group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                  <p className="text-[11px] text-[#242222]/70 leading-snug">
+                    {t("caseStudy.proofSourceCodeDesc")}
+                  </p>
+                </a>
+              )}
 
               {/* Multi-Device Responsive */}
               <div className="p-3.5 rounded-xs bg-white border border-[#DED6CC] space-y-1 shadow-2xs">
@@ -832,6 +847,26 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                       Looking for custom web application or digital product development?{" "}
                       <Link href="/#services" className="text-[#A65F4B] hover:underline font-semibold font-mono">
                         Explore full services & capabilities →
+                      </Link>
+                    </>
+                  )}
+                </p>
+              )}
+
+              {project.slug === "atelier-noura" && (
+                <p>
+                  {isFr ? (
+                    <>
+                      Vous envisagez un site vitrine ou une plateforme pour votre agence ?{" "}
+                      <Link href="/#contact" className="text-[#A65F4B] hover:underline font-semibold font-mono">
+                        Discuter d&apos;un projet de site web →
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      Planning a refined website for your studio or business?{" "}
+                      <Link href="/#contact" className="text-[#A65F4B] hover:underline font-semibold font-mono">
+                        Discuss a business website project →
                       </Link>
                     </>
                   )}

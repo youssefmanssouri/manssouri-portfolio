@@ -102,6 +102,12 @@
         "heading": "Need a custom system for your business?",
         "subheading": "Let's discuss adapting a fast, reliable management system tailored to your facility's check-in routines, member tracking, and daily workflows.",
         "button": "Let's discuss your project"
+      },
+      "atelier-noura": {
+        "badge": "STUDIO & BUSINESS WEBSITES",
+        "heading": "Need a distinctive website for your studio or business?",
+        "subheading": "Let's discuss designing and engineering a refined, responsive web presence tailored to your projects, brand identity, services, and inquiry workflow.",
+        "button": "Let's discuss your project"
       }
     }
   },
@@ -120,7 +126,9 @@
           "Structured content flow",
           "Clear inquiry pathways",
           "Fast load performance"
-        ]
+        ],
+        "linkHref": "/projects/atelier-noura",
+        "linkLabel": "Explore the Atelier Noura studio case study"
       },
       {
         "title": "E-Commerce Experiences",

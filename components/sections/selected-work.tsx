@@ -135,6 +135,27 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
         { title: "Suivi des revenus", subtitle: "Synthèses mensuelles" }
       ],
       keyTechs: ["Next.js", "TypeScript", "PostgreSQL", "Prisma ORM", "Role-Based Access"]
+    },
+    "atelier-noura": {
+      problemEn: "Architecture and design practices need a digital presence that communicates their spatial identity, showcases projects in depth, and guides prospective client inquiries.",
+      problemFr: "Les studios d'architecture ont besoin d'une vitrine numérique affirmant leur identité spatiale, détaillant leurs réalisations et guidant les demandes de contact.",
+      solutionEn: "A responsive studio website featuring curated architectural case studies, studio and services presentation, a structured inquiry flow, and an administrative management layer.",
+      solutionFr: "Un site d'agence responsive associant études de cas architecturales, présentation des services, parcours de contact qualifié et espace de gestion administrative.",
+      valueEn: "Presents architectural works with editorial clarity and structures incoming project requirements upfront, simplifying consultation assessment.",
+      valueFr: "Valorise les réalisations avec une clarté éditoriale et cadre les demandes de projet dès l'amont pour faciliter l'étude préalable.",
+      scopeIndicatorsEn: [
+        { title: "Project Showcase", subtitle: "Categorized portfolio" },
+        { title: "Studio & Services", subtitle: "Design methodology" },
+        { title: "Inquiry Pathway", subtitle: "Client qualification" },
+        { title: "Admin Architecture", subtitle: "Inquiry management" }
+      ],
+      scopeIndicatorsFr: [
+        { title: "Présentation Projets", subtitle: "Réalisations par type" },
+        { title: "Studio & Services", subtitle: "Démarche & prestations" },
+        { title: "Parcours de Contact", subtitle: "Qualification des besoins" },
+        { title: "Architecture Admin", subtitle: "Suivi des demandes" }
+      ],
+      keyTechs: ["Next.js (App Router)", "TypeScript", "Tailwind CSS", "Prisma ORM", "PostgreSQL"]
     }
   };
 
@@ -257,18 +278,20 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                   </a>
                 )}
 
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${project.name} ${t("work.github")}`}
-                  onClick={() => {
-                    trackEvent("GITHUB_CLICK", { slug: project.slug, source: "selected_work" });
-                  }}
-                  className="inline-flex items-center gap-1.5 bg-transparent border border-[#DED6CC]/40 text-[#F3EFEA] px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#F3EFEA]/10 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
-                >
-                  {t("work.github")}
-                </a>
+                {!project.isPrivateRepo && project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.name} ${t("work.github")}`}
+                    onClick={() => {
+                      trackEvent("GITHUB_CLICK", { slug: project.slug, source: "selected_work" });
+                    }}
+                    className="inline-flex items-center gap-1.5 bg-transparent border border-[#DED6CC]/40 text-[#F3EFEA] px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#F3EFEA]/10 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+                  >
+                    {t("work.github")}
+                  </a>
+                )}
               </div>
 
               {(isFlagship || project.id === "gym-crm") && project.hasLiveDemo && (
@@ -306,10 +329,16 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
     <div className="border border-[#DED6CC] bg-[#FAF7F2] p-5 sm:p-8 lg:p-12 rounded-xs shadow-sm space-y-6 sm:space-y-8">
       <div className="flex items-center justify-between border-b border-[#DED6CC] pb-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#3A171C]/5 border border-[#3A171C]/15 text-[#3A171C] text-[11px] font-mono uppercase tracking-widest font-semibold">
-          <span>{isFr ? "Boutique E-Commerce" : "E-Commerce Experience"}</span>
+          <span>
+            {project.id === "atelier-noura"
+              ? (isFr ? "Site de Studio d'Architecture" : "Studio Business Website")
+              : (isFr ? "Boutique E-Commerce" : "E-Commerce Experience")}
+          </span>
         </div>
         <span className="text-[11px] font-mono text-[#242222]/60 hidden sm:inline font-medium">
-          {isFr ? "Produit Indépendant · Démo Interactive · Code Source" : "Independent Product · Interactive Demo · Source Code"}
+          {project.isPrivateRepo
+            ? (isFr ? "Projet Indépendant · Démo Interactive · Codebase Privée" : "Independent Project · Interactive Demo · Private Codebase")
+            : (isFr ? "Produit Indépendant · Démo Interactive · Code Source" : "Independent Product · Interactive Demo · Source Code")}
         </span>
       </div>
 
@@ -437,18 +466,20 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
                 </a>
               )}
 
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${project.name} ${t("work.github")}`}
-                onClick={() => {
-                  trackEvent("GITHUB_CLICK", { slug: project.slug, source: "selected_work" });
-                }}
-                className="inline-flex items-center gap-1.5 bg-transparent border border-[#3A171C] text-[#3A171C] px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
-              >
-                {t("work.github")}
-              </a>
+              {!project.isPrivateRepo && project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.name} ${t("work.github")}`}
+                  onClick={() => {
+                    trackEvent("GITHUB_CLICK", { slug: project.slug, source: "selected_work" });
+                  }}
+                  className="inline-flex items-center gap-1.5 bg-transparent border border-[#3A171C] text-[#3A171C] px-4 py-2.5 rounded-xs text-xs font-medium uppercase tracking-wider hover:bg-[#3A171C]/5 transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
+                >
+                  {t("work.github")}
+                </a>
+              )}
             </div>
           </div>
         </div>

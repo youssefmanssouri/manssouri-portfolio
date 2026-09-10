@@ -32,6 +32,8 @@ Youssef Manssouri is a full-stack digital product builder and business analytics
 - [Gym CRM](https://www.youssefmanssouri.site/projects/gym-crm): Gym operations platform designed to streamline front-desk check-ins, track membership renewal statuses (Active, Expired, Frozen), organize group class schedules, and monitor recurring facility revenue.
   - Live Application: https://gym-crm-mauve.vercel.app/
   - Source Code: https://github.com/youssefmanssouri/Gym-CRM
+- [Atelier Noura](https://www.youssefmanssouri.site/projects/atelier-noura): Architecture and interior design studio website featuring editorial project presentations, studio and services overviews, structured prospective-client inquiries, and an administrative management layer.
+  - Live Application: https://atelier-noura-lac.vercel.app/
 
 ## Detailed Context
 

@@ -140,7 +140,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
           "name": "Youssef Manssouri",
           "url": "https://www.youssefmanssouri.site"
         },
-        ...(project.githubUrl ? { "codeRepository": project.githubUrl } : {}),
+        ...(!project.isPrivateRepo && project.githubUrl ? { "codeRepository": project.githubUrl } : {}),
         ...(project.liveUrl && project.hasLiveDemo ? { "sameAs": project.liveUrl } : {}),
         "programmingLanguage": project.technologies,
         "featureList": project.features

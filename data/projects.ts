@@ -95,7 +95,8 @@ export interface Project {
   featuresFr: string[];
   heroImage: string;
   galleryImages: string[];
-  githubUrl: string;
+  githubUrl?: string;
+  isPrivateRepo?: boolean;
   liveUrl?: string;
   hasLiveDemo: boolean;
   featured: boolean;
@@ -861,6 +862,275 @@ export const PROJECTS: Project[] = [
     hasLiveDemo: true,
     featured: true,
     order: 3,
+    schemaType: "WebApplication",
+    applicationCategory: "BusinessApplication"
+  },
+  {
+    id: "atelier-noura",
+    slug: "atelier-noura",
+    name: "Atelier Noura",
+    title: "Atelier Noura — Architecture & Interior Design Studio Website",
+    seoTitle: "Atelier Noura — Architecture & Interior Design Studio Website | Case Study",
+    seoTitleFr: "Atelier Noura — Site de Studio d'Architecture & Design | Étude de Cas",
+    seoDescription: "A responsive architecture and interior-design studio website featuring editorial project presentation, services, studio content, and a structured client inquiry experience.",
+    seoDescriptionFr: "Un site responsive pour un studio d'architecture et de design d'intérieur, avec présentation éditoriale des projets, services, contenu du studio et parcours structuré de prise de contact.",
+    lastModified: "2026-09-08",
+    category: "ARCHITECTURE & DESIGN STUDIO WEBSITE",
+    categoryFr: "SITE DE STUDIO D'ARCHITECTURE & DESIGN",
+    role: "Independent project · Business website & lead-generation build",
+    roleFr: "Projet indépendant · Site d'entreprise & génération de contacts",
+    shortDescription: "A responsive architecture and interior-design studio website engineered for editorial project storytelling, services presentation, structured prospective-client inquiries, and administrative inquiry management.",
+    shortDescriptionFr: "Un site d'entreprise responsive pour un studio d'architecture et de design d'intérieur, conçu pour la valorisation éditoriale des réalisations, la présentation des services, les demandes de devis et la gestion administrative.",
+    longDescription: "Atelier Noura was engineered as a professional studio website combining bespoke editorial aesthetics with full-stack capability. It pairs architectural case studies and service overviews with a structured client consultation inquiry flow and a protected administrative management layer.",
+    longDescriptionFr: "Atelier Noura a été développé comme un site d'entreprise pour studio d'architecture, alliant direction artistique éditoriale et socle technique full-stack. Il réunit des études de cas de réalisations, une présentation des prestations, un formulaire de prise de contact qualifié et un espace d'administration sécurisé.",
+    overview: "An architecture and interior design practice requires a digital presence that reflects its spatial sensibility, communicates design philosophy, and presents completed works with rich materiality. Atelier Noura translates these requirements into a responsive, content-rich studio website with clear pathways for prospective client inquiries.",
+    overviewFr: "Une agence d'architecture et de design d'intérieur a besoin d'une présence en ligne reflétant sa sensibilité spatiale, affirmant sa philosophie de conception et mettant en valeur ses réalisations. Atelier Noura répond à ces exigences à travers un site d'entreprise responsive, structuré et propice à la prise de contact.",
+    objective: "Architect a refined, responsive studio website that presents architectural works with editorial clarity while providing an intuitive, validated inquiry workflow backed by an administrative data foundation.",
+    objectiveFr: "Concevoir un site de studio épuré et responsive valorisant les réalisations architecturales avec clarté, tout en offrant un parcours de contact qualifié appuyé par un socle administratif sécurisé.",
+    problemSolution: {
+      problemTitleEn: "A Refined Studio Needs More Than a Gallery",
+      problemTitleFr: "Une Agence d'Architecture a Besoin de Plus Qu'une Simple Galerie",
+      problemDescEn: "Architecture and interior design practices frequently rely on uncurated image galleries or generic templates that fail to communicate project context, materials, and services. Without structured presentation and dedicated inquiry pathways, prospective clients struggle to assess capabilities or initiate relevant project discussions.",
+      problemDescFr: "Les agences d'architecture s'appuient souvent sur de simples galeries d'images ou des modèles génériques qui n'expliquent ni le contexte des projets, ni les matériaux, ni les prestations. Sans parcours structuré, les prospects peinent à appréhender l'expertise du studio et à formuler une demande adaptée.",
+      solutionTitleEn: "Editorial Presentation & Structured Inquiry Experience",
+      solutionTitleFr: "Présentation Éditoriale & Parcours de Contact Qualifié",
+      solutionDescEn: "Atelier Noura unites editorial project case studies, studio philosophy, and structured service breakdowns with an intuitive consultation inquiry experience and an administrative inquiry-management foundation built with Next.js, Prisma ORM, and Tailwind CSS.",
+      solutionDescFr: "Atelier Noura associe des fiches projets éditoriales, la philosophie du studio et le détail des prestations à une expérience de prise de contact fluide et une interface administrative de gestion développées avec Next.js, Prisma ORM et Tailwind CSS."
+    },
+    metrics: [
+      {
+        value: "9 Pages",
+        label: "Studio Architecture",
+        labelFr: "Architecture du Site",
+        detail: "Homepage, Projects index, 4 project details, Studio, Services, Contact",
+        detailFr: "Accueil, Répertoire projets, 4 fiches détaillées, Studio, Services, Contact"
+      },
+      {
+        value: "4 Showcase Projects",
+        label: "Curated Portfolio",
+        labelFr: "Réalisations Mises en Avant",
+        detail: "Villa Targa, Riad Agdal, Coastal Residence, Café N°7",
+        detailFr: "Villa Targa, Riad Agdal, Résidence Côtière, Café N°7"
+      },
+      {
+        value: "Prisma Schema",
+        label: "Data Architecture",
+        labelFr: "Architecture de Données",
+        detail: "7 models for projects, images, services, inquiries & audit logs",
+        detailFr: "7 modèles pour projets, médias, prestations, demandes et audit"
+      },
+      {
+        value: "Protected Admin",
+        label: "Inquiry Management",
+        labelFr: "Gestion des Demandes",
+        detail: "Session authentication, Zod validation & inquiry status tracking",
+        detailFr: "Authentification par session, validation Zod & suivi des statuts"
+      }
+    ],
+    capabilities: [
+      {
+        id: "editorial-portfolio",
+        titleEn: "Editorial Project Presentation & Filtering",
+        titleFr: "Présentation Éditoriale des Réalisations & Filtres",
+        summaryEn: "A dedicated project showcase organizing architectural works with category filtering (Residential, Hospitality, Cultural), project metadata (location, year, scale), and narrative case-study pages.",
+        summaryFr: "Un répertoire de projets structuré organisant les réalisations avec filtrage par catégorie (Résidentiel, Hôtellerie, Culturel), métadonnées détaillées (lieu, année, typologie) et fiches narratives.",
+        practicalOutcomeEn: "Enables visitors to explore architectural works within context, highlighting design philosophy, structural decisions, and photography.",
+        practicalOutcomeFr: "Permet aux visiteurs de découvrir les réalisations dans leur contexte, mettant en valeur la vision architecturale, les choix de conception et la photographie.",
+        image: "/images/projects/atelier-noura-portfolio.jpg",
+        imageCaptionEn: "Project showcase index featuring categorized architectural case studies and metadata tags",
+        imageCaptionFr: "Répertoire des projets présentant les études de cas architecturales et métadonnées"
+      },
+      {
+        id: "project-storytelling",
+        titleEn: "Individual Case Study Pages & Spatial Context",
+        titleFr: "Fiches Projets Détaillées & Storytelling Spatial",
+        summaryEn: "Dedicated project detail pages pairing architectural photography with descriptive narrative, project location, year, and materiality insights.",
+        summaryFr: "Des pages de détail dédiées associant visuels immersifs, descriptions de conception, localisation, année de réalisation et détails des matières.",
+        practicalOutcomeEn: "Provides prospective clients with an in-depth view of how the studio resolves spatial challenges and material details.",
+        practicalOutcomeFr: "Offre aux clients potentiels une vision approfondie de la manière dont le studio traite l'espace, la lumière et les matériaux.",
+        image: "/images/projects/atelier-noura-interior.jpg",
+        imageCaptionEn: "Case study view highlighting architectural interior spatial flow and materials",
+        imageCaptionFr: "Vue d'une étude de cas illustrant la circulation spatiale et les matières"
+      },
+      {
+        id: "client-inquiry",
+        titleEn: "Prospective-Client Inquiry Pathway",
+        titleFr: "Parcours de Demande de Projet Qualifié",
+        summaryEn: "A structured inquiry form collecting project typology, project location, approximate scale, timeline expectations, and client brief details with client-side and server-side Zod validation.",
+        summaryFr: "Un formulaire de contact structuré recueillant la typologie de projet, la localisation, la surface estimée, le calendrier souhaité et le message client avec validation Zod.",
+        practicalOutcomeEn: "Designed to guide prospective clients to provide actionable project specifications upfront, simplifying initial consultation assessment.",
+        practicalOutcomeFr: "Conçu pour inciter les porteurs de projet à préciser leurs besoins dès la prise de contact, facilitant ainsi l'étude préalable.",
+        image: "/images/projects/atelier-noura-inquiry.jpg",
+        imageCaptionEn: "Inquiry flow designed to capture structured architectural requirements",
+        imageCaptionFr: "Interface de prise de contact conçue pour qualifier les besoins du projet"
+      },
+      {
+        id: "inquiry-management",
+        titleEn: "Administrative Inquiry Foundation",
+        titleFr: "Socle Administratif de Suivi des Demandes",
+        summaryEn: "A protected administrative area with session-based authentication, audit logging, and status transitions for submitted inquiries (New, In Review, Contacted, Closed).",
+        summaryFr: "Un espace d'administration sécurisé avec authentification par session, journal d'audit et suivi des statuts des demandes (Nouveau, En revue, Contacté, Clôturé).",
+        practicalOutcomeEn: "Provides an organized foundation for studio teams to review, triage, and follow up on client inquiries within a single administrative workspace.",
+        practicalOutcomeFr: "Offre une structure organisée permettant à l'équipe du studio de consulter, qualifier et suivre les prises de contact dans un espace dédié.",
+        image: "/images/projects/atelier-noura-main.jpg",
+        imageCaptionEn: "Studio presentation and administrative management architecture",
+        imageCaptionFr: "Présentation du studio et architecture de gestion administrative"
+      }
+    ],
+    engineeringPoints: [
+      {
+        titleEn: "Next.js App Router Architecture",
+        titleFr: "Architecture Next.js App Router",
+        descEn: "Structured with Next.js App Router and TypeScript, separating public server-rendered presentation routes from interactive client elements and protected routes.",
+        descFr: "Conçu avec Next.js App Router et TypeScript, séparant les pages publiques rendues côté serveur des composants interactifs et des routes protégées."
+      },
+      {
+        titleEn: "Prisma Relational Data Modeling",
+        titleFr: "Modélisation Relationnelle Prisma",
+        descEn: "Relational schema modeling projects, ordered media galleries, services, inquiries with status enumeration, sessions, and audit logs.",
+        descFr: "Schéma relationnel modélisant projets, galeries d'images ordonnées, services, demandes de contact avec statuts, sessions et journaux d'audit."
+      },
+      {
+        titleEn: "Strict Input Validation with Zod",
+        titleFr: "Validation Stricte des Données avec Zod",
+        descEn: "All inquiry submissions undergo strict schema validation and sanitization on both client and server boundaries before processing.",
+        descFr: "Toutes les soumissions de formulaires sont validées et assainies par schémas Zod côté client et serveur avant traitement."
+      },
+      {
+        titleEn: "Session Security & Protected Boundaries",
+        titleFr: "Sécurisation des Sessions & Espaces Protégés",
+        descEn: "Hashed session tokens, role enumeration (Owner, Staff), security headers, and isolated administrative route middleware.",
+        descFr: "Jetons de session hachés, contrôle des rôles (Owner, Staff), en-têtes de sécurité et isolation des routes administratives."
+      }
+    ],
+    decisions: [
+      {
+        titleEn: "Editorial Aesthetics within Next.js Architecture",
+        titleFr: "Direction Artistique Éditoriale sous Next.js",
+        decisionEn: "Implemented a minimalist editorial design system with bespoke typography and layout pacing using Tailwind CSS.",
+        decisionFr: "Mise en place d'un design épuré et éditorial avec une typographie soignée et une mise en page aérée via Tailwind CSS.",
+        rationaleEn: "Architecture and design studios require a digital aesthetic that mirrors physical editorial publications rather than generic tech SaaS layouts.",
+        rationaleFr: "Les studios d'architecture et de design requièrent une identité visuelle proche de l'édition d'art plutôt qu'un modèle SaaS standardisé."
+      },
+      {
+        titleEn: "Prisma ORM for Structured Inquiries & Content",
+        titleFr: "Prisma ORM pour les Demandes et le Contenu",
+        decisionEn: "Modeled structured inquiries with status lifecycles (NEW, IN_REVIEW, CONTACTED, CLOSED) and audit records directly in Prisma.",
+        decisionFr: "Modélisation des demandes avec cycle de vie (NEW, IN_REVIEW, CONTACTED, CLOSED) et historique d'audit directement sous Prisma.",
+        rationaleEn: "Treating prospective inquiries as relational database entities ensures incoming project leads are retained, trackable, and manageable over time.",
+        rationaleFr: "Traiter les prises de contact comme des entités relationnelles permet de conserver, qualifier et suivre chaque opportunité avec rigueur."
+      },
+      {
+        titleEn: "Decoupled Public Presentation and Administration",
+        titleFr: "Découplage Espace Public & Administration",
+        decisionEn: "Separated public high-performance presentation routes from authenticated session-based management views.",
+        decisionFr: "Séparation stricte des pages publiques haute performance et de l'interface d'administration sous session sécurisée.",
+        rationaleEn: "Public visitors enjoy fast, optimized static and server-rendered pages without administrative bundles impacting storefront performance.",
+        rationaleFr: "Les visiteurs bénéficient d'un chargement rapide et optimisé sans que les modules administratifs n'alourdissent la consultation publique."
+      }
+    ],
+    learnings: [
+      {
+        titleEn: "Designing for Spatial and Material Communication",
+        titleFr: "Conception pour la Valorisation Spatiale et Matérielle",
+        descEn: "Atelier Noura highlighted how digital layouts can translate physical architectural materiality—textures, proportion, and light—through generous whitespace and typography.",
+        descFr: "Ce projet a montré comment la mise en page web peut retranscrire la matérialité architecturale—textures, proportions et lumière—par le vide et la typographie."
+      },
+      {
+        titleEn: "Structuring Inquiries as Business Workflows",
+        titleFr: "Structuration des Prises de Contact en Processus Métier",
+        descEn: "Designing a dedicated inquiry structure reinforced that contact forms are more effective when they collect essential project parameters upfront rather than open-ended text alone.",
+        descFr: "La conception de ce parcours a confirmé qu'un formulaire est bien plus efficace lorsqu'il cadre les paramètres clés du projet dès l'amont plutôt qu'un simple champ libre."
+      }
+    ],
+    technologies: [
+      "Next.js (App Router)",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma ORM",
+      "PostgreSQL",
+      "Zod Validation"
+    ],
+    techStackDetails: [
+      {
+        tech: "Next.js (App Router)",
+        purposeEn: "Server-rendered architecture, optimized image handling, and dynamic routing",
+        purposeFr: "Architecture serveur optimisée, gestion des images et routage dynamique"
+      },
+      {
+        tech: "TypeScript",
+        purposeEn: "Strict typing for project data, inquiry models, and administrative state",
+        purposeFr: "Typage strict pour les données de projets, les demandes et l'administration"
+      },
+      {
+        tech: "Tailwind CSS",
+        purposeEn: "Refined editorial aesthetic, responsive layouts, and clean typographic hierarchy",
+        purposeFr: "Direction artistique éditoriale, mise en page responsive et hiérarchie typographique"
+      },
+      {
+        tech: "Prisma ORM & PostgreSQL",
+        purposeEn: "Relational persistence for projects, services, inquiries, sessions, and audit logs",
+        purposeFr: "Persistance relationnelle pour projets, prestations, demandes, sessions et audit"
+      },
+      {
+        tech: "Zod Schema Validation",
+        purposeEn: "Type-safe validation and sanitization for client inquiry form submissions",
+        purposeFr: "Validation et assainissement typés pour les soumissions de formulaires"
+      }
+    ],
+    buildScopeEn: [
+      "Responsive studio homepage with architectural project highlights",
+      "Categorized project index with typology filtering (Residential, Hospitality, Cultural)",
+      "Four dedicated project case-study pages with spatial context and photography",
+      "Studio presentation page communicating design philosophy and methodology",
+      "Services page detailing architecture, interior design, and master planning scope",
+      "Structured prospective-client inquiry form with multi-field project scoping",
+      "Client and server-side Zod input validation and sanitization",
+      "Relational Prisma schema for projects, services, inquiries, and audit records",
+      "Protected administrative area with session authentication and inquiry status tracking",
+      "Automated sitemap, semantic metadata, and security header configurations"
+    ],
+    buildScopeFr: [
+      "Page d'accueil responsive avec mise en valeur des réalisations phares",
+      "Répertoire de projets avec filtres typologiques (Résidentiel, Hôtellerie, Culturel)",
+      "Quatre fiches d'études de cas détaillées avec contexte spatial et visuels",
+      "Page de présentation du studio affirmant la philosophie et la démarche",
+      "Page des prestations détaillant architecture, design d'intérieur et maîtrise d'œuvre",
+      "Formulaire de contact qualifié avec sélection des paramètres de projet",
+      "Validation et assainissement Zod côté client et serveur",
+      "Schéma relationnel Prisma pour projets, prestations, demandes et audit",
+      "Espace d'administration sécurisé avec sessions et suivi des statuts de contact",
+      "Sitemap automatisé, métadonnées sémantiques et en-têtes de sécurité"
+    ],
+    features: [
+      "Editorial portfolio index with category filtering and project metadata",
+      "Dedicated architectural case studies detailing location, year, and spatial intent",
+      "Studio profile page presenting architectural philosophy and leadership",
+      "Services overview detailing architectural and interior design offerings",
+      "Structured inquiry experience capturing project type, location, size, and timeline",
+      "Protected administrative interface for inquiry status management and review"
+    ],
+    featuresFr: [
+      "Répertoire de réalisations éditorial avec filtrage par catégorie et métadonnées",
+      "Études de cas architecturales détaillant lieu, année et parti pris spatial",
+      "Présentation du studio détaillant la vision de conception et la méthodologie",
+      "Présentation détaillée des prestations d'architecture et de design d'intérieur",
+      "Formulaire de contact qualifiant type de projet, lieu, échelle et calendrier",
+      "Interface d'administration protégée pour le suivi et la qualification des demandes"
+    ],
+    heroImage: "/images/projects/atelier-noura-main.jpg",
+    galleryImages: [
+      "/images/projects/atelier-noura-main.jpg",
+      "/images/projects/atelier-noura-portfolio.jpg",
+      "/images/projects/atelier-noura-interior.jpg",
+      "/images/projects/atelier-noura-inquiry.jpg",
+      "/images/projects/atelier-noura-coastal.jpg"
+    ],
+    isPrivateRepo: true,
+    liveUrl: "https://atelier-noura-lac.vercel.app/",
+    hasLiveDemo: true,
+    featured: true,
+    order: 4,
     schemaType: "WebApplication",
     applicationCategory: "BusinessApplication"
   }

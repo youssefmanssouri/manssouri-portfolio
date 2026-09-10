@@ -102,6 +102,12 @@
         "heading": "Besoin d'un système sur mesure pour votre activité ?",
         "subheading": "Échangeons pour adapter un système de gestion rapide et fiable, configuré selon les besoins de pointage, de suivi des adhérents et de fonctionnement de votre établissement.",
         "button": "Parlons de votre projet"
+      },
+      "atelier-noura": {
+        "badge": "SITES VITRINES & STUDIOS SUR MESURE",
+        "heading": "Besoin d'un site sur mesure pour votre studio ou votre activité ?",
+        "subheading": "Échangeons pour concevoir et développer une présence web épurée et responsive, pensée pour valoriser vos réalisations, votre identité et vos demandes de devis.",
+        "button": "Parlons de votre projet"
       }
     }
   },
@@ -120,7 +126,9 @@
           "Structure éditoriale claire",
           "Formulaires de contact optimisés",
           "Performance & accessibilité"
-        ]
+        ],
+        "linkHref": "/projects/atelier-noura",
+        "linkLabel": "Découvrir l'étude de cas du studio Atelier Noura"
       },
       {
         "title": "Boutiques E-Commerce",

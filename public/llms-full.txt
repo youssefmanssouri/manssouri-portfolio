@@ -51,7 +51,7 @@ This document provides a factual, unambiguous reference for understanding the id
 
 ---
 
-## 4. In-Depth Project Case Studies (3 Projects)
+## 4. In-Depth Project Case Studies (4 Projects)
 
 ### 4.1. BusinessOS — Flagship Business Operations Platform
 - **Project URL**: https://www.youssefmanssouri.site/projects/businessos
@@ -87,6 +87,19 @@ This document provides a factual, unambiguous reference for understanding the id
 - **Problem Solved**: Fitness facilities experience reception bottlenecks during peak hours, unverified entries from lapsed memberships, manual attendance records, and disjointed class scheduling.
 - **Solution**: A dedicated gym operations platform combining instant member lookup, clear subscription status badges (Active, Expired, Frozen), class capacity planning, and recurring revenue metrics.
 - **Tech Stack**: Next.js, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Recharts.
+
+### 4.4. Atelier Noura — Architecture & Interior Design Studio Website
+- **Project URL**: https://www.youssefmanssouri.site/projects/atelier-noura
+- **Live Demo**: https://atelier-noura-lac.vercel.app/
+- **Category**: Architecture & Design Studio Website · Web Application
+- **Problem Solved**: Architecture and interior design practices frequently rely on uncurated image galleries that fail to communicate project context, materials, and comprehensive services, leaving prospective clients without structured pathways to initiate inquiries.
+- **Solution**: A responsive studio website pairing editorial project presentations, studio design philosophy, and structured service overviews with a validated client consultation inquiry flow and an administrative inquiry-management foundation.
+- **Key Modules**:
+  1. *Editorial Portfolio*: Categorized architectural showcase with typology filtering (Residential, Hospitality, Cultural) and scale metadata.
+  2. *Project Storytelling*: Dedicated case-study pages detailing location, year, and materiality insights.
+  3. *Client Inquiry Pathway*: Multi-field consultation form capturing typology, location, scale, and timeline with Zod validation.
+  4. *Administrative Foundation*: Protected area with session authentication, audit logging, and inquiry status management.
+- **Tech Stack**: Next.js (App Router), TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Zod Validation.
 
 ---
 
