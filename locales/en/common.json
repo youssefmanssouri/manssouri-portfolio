@@ -14,7 +14,7 @@
     "title": "YOUSSEF MANSSOURI",
     "badge": "FULL-STACK BUILDER & BUSINESS ANALYST · DIGITAL PRODUCTS",
     "headline": "I build custom web applications and operational tools that streamline business workflows and turn complex requirements into practical digital products.",
-    "subheadline": "From custom web applications and operational dashboards to e-commerce storefronts—I turn real business and workflow requirements into functional, responsive, and deployed digital products.",
+    "subheadline": "Modern web engineering informed by business analytics and operational thinking—focused on building reliable digital products that solve real workflow bottlenecks and customer needs.",
     "viewWork": "Explore Case Studies",
     "startProject": "Discuss a Project",
     "viewCV": "View CV (PDF)",
@@ -224,10 +224,10 @@
         "detail": "Achieved by consolidating Google Font subsets and eliminating redundant remote fetches."
       },
       {
-        "value": "3",
+        "value": "4",
         "tag": "PROJECT FACT",
         "label": "Independent Products",
-        "detail": "Full-stack digital products independently designed, built, and deployed with public source code."
+        "detail": "Full-stack digital products and business websites independently designed, built, and deployed."
       }
     ],
     "cta": {
@@ -307,7 +307,7 @@
       },
       {
         "question": "Were the projects in your portfolio built independently, and what was your exact role?",
-        "answer": "Yes, all projects displayed—including BusinessOS, Lumière Parfums, and Gym CRM—are self-directed products that I conceived, designed, and engineered independently. For each project, I handled the full product scope: defining the operational problem, structuring user workflows, designing responsive interfaces with Tailwind CSS, writing type-safe TypeScript code, and configuring live deployments on Vercel. For full-stack applications like BusinessOS, this also included relational data modeling with Prisma and PostgreSQL. Live interactive demos and open GitHub repositories are available for each project."
+        "answer": "Yes, all projects displayed—including BusinessOS, Lumière Parfums, Gym CRM, and Atelier Noura—are self-directed builds that I conceived, designed, and engineered independently. For each project, I handled the full product scope: defining the operational problem, structuring user workflows, designing responsive interfaces with Tailwind CSS, writing type-safe TypeScript code, and configuring live deployments on Vercel. For full-stack applications like BusinessOS, this also included relational data modeling with Prisma and PostgreSQL. Live interactive demos are available for each project."
       },
       {
         "question": "How does your background in Business Analytics & AI influence how you build software?",

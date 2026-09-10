@@ -14,7 +14,7 @@
     "title": "YOUSSEF MANSSOURI",
     "badge": "CONCEPTEUR FULL-STACK & ANALYSTE MÉTIER · PRODUITS DIGITAUX",
     "headline": "Je conçois des applications web sur mesure et des outils opérationnels qui fluidifient les processus métiers et transforment des besoins complexes en produits digitaux concrets.",
-    "subheadline": "Des applications web sur mesure aux tableaux de bord opérationnels et boutiques e-commerce—je traduis les besoins métiers et fonctionnels en produits digitaux concrets, réactifs et déployés.",
+    "subheadline": "Une ingénierie web moderne nourrie par l'analyse métier et la réflexion opérationnelle—axée sur la création de produits digitaux fiables répondant à de réels défis d'organisation et d'usage client.",
     "viewWork": "Explorer les études de cas",
     "startProject": "Discuter d'un projet",
     "viewCV": "Consulter mon CV (PDF)",
@@ -224,10 +224,10 @@
         "detail": "Optimisation obtenue par la consolidation des sous-ensembles de polices et la suppression des requêtes distantes."
       },
       {
-        "value": "3",
+        "value": "4",
         "tag": "FAIT PROJET",
         "label": "Produits Indépendants",
-        "detail": "Applications complètes conçues, développées et déployées en autonomie avec code source public."
+        "detail": "Applications web complètes et sites d'entreprise conçus, développés et déployés en autonomie."
       }
     ],
     "cta": {
@@ -237,65 +237,65 @@
   },
   "process": {
     "badge": "MÉTHODOLOGIE",
-    "heading": "Une démarche structurée, du problème à la solution déployée.",
-    "subheading": "Je ne me contente pas de coder—j'analyse le besoin opérationnel, structure l'architecture du produit et développe une solution concrète et fonctionnelle de bout en bout.",
+    "heading": "Une démarche de développement structurée, centrée sur le problème.",
+    "subheading": "Je ne me contente pas d'écrire du code—j'analyse le besoin opérationnel, je structure l'architecture produit et je conçois une solution fonctionnelle et fiable sur mesure.",
     "steps": [
       {
         "number": "01",
         "title": "Comprendre",
-        "description": "Analyser le contexte opérationnel, les flux utilisateurs et les besoins fonctionnels avant tout développement."
+        "description": "Analyser le contexte opérationnel, les parcours utilisateurs et les exigences clés avant de construire."
       },
       {
         "number": "02",
         "title": "Structurer",
-        "description": "Traduire les besoins en parcours produits clairs, modèles de données relationnels et choix d'architecture solides."
+        "description": "Traduire les besoins en parcours fluides, modèles de données relationnels et architecture technique solide."
       },
       {
         "number": "03",
         "title": "Développer",
-        "description": "Développer le produit digital avec un code TypeScript propre, des frameworks modernes et des itérations ciblées."
+        "description": "Développer le produit fonctionnel avec un code TypeScript propre, des frameworks modernes et des itérations ciblées."
       },
       {
         "number": "04",
-        "title": "Affiner & Déployer",
-        "description": "Vérifier l'expérience sur tous les écrans, fiabiliser les cas limites et déployer une application prête pour la production."
+        "title": "Ajuster & Déployer",
+        "description": "Valider l'expérience sur tous les écrans, fiabiliser les cas limites et déployer une application prête pour la production."
       }
     ],
-    "note": "Chaque réalisation démontre un cycle produit complet : cadrage du besoin, modélisation des données, développement et mise en production.",
+    "note": "Chaque projet démontre un cycle produit complet : définition du problème, modélisation des données, développement front-end et déploiement.",
     "timelines": {
-      "badge": "DÉLAIS INDICATIFS DE RÉALISATION",
-      "indicativeLabel": "Repères indicatifs · Sans engagement",
+      "badge": "DÉLAIS INDICATIFS DE PROJET",
+      "indicativeLabel": "Repères indicatifs · Non contractuels",
       "websites": {
-        "title": "Sites Web d'Entreprise & Vitrines",
+        "title": "Sites d'Entreprise & Pages de Présentation",
         "range": "Généralement 1 à 2 semaines",
-        "description": "Structure éditoriale, design responsive et parcours clair."
+        "description": "Contenu structuré, mise en page responsive, parcours visiteur clair."
       },
       "ecommerce": {
-        "title": "E-Commerce Sur Mesure & Marques",
+        "title": "Boutiques E-Commerce & Sites de Marque",
         "range": "Généralement 2 à 4 semaines",
-        "description": "Boutiques personnalisées, catalogue et univers de marque."
+        "description": "Boutiques sur mesure, découverte produit et valorisation de marque."
       },
       "webapps": {
-        "title": "Applications Web & Outils Métiers",
+        "title": "Applications Web & Outils Métier",
         "range": "Généralement 4 à 8+ semaines",
-        "description": "Flux opérationnels, tableaux de bord et bases relationnelles."
+        "description": "Workflows relationnels, tableaux de bord opérationnels et intégrations de bases de données."
       },
-      "disclaimer": "Délais indicatifs uniquement. La durée réelle dépend du périmètre, des intégrations, de la disponibilité des contenus, des révisions et des retours."
+      "disclaimer": "Délais indicatifs uniquement. La durée réelle varie selon le périmètre du projet, les intégrations nécessaires, la disponibilité des contenus et les allers-retours de validation."
     },
     "startProjectLink": "Discuter d'un projet →"
   },
   "faq": {
     "badge": "FAQ",
     "heading": "Foire Aux Questions",
-    "subheading": "Réponses concrètes sur la conduite des projets, les délais indicatifs, les compétences techniques et les modalités de collaboration.",
+    "subheading": "Des réponses claires sur le déroulement des projets, les délais, les compétences techniques et les modalités de collaboration.",
     "items": [
       {
-        "question": "Quel est le délai habituel pour réaliser un projet ?",
-        "answer": "Les délais dépendent du périmètre et des exigences spécifiques du projet. À titre indicatif, un site vitrine ou une page d'atterrissage nécessite généralement 1 à 2 semaines, une boutique e-commerce sur mesure environ 2 à 4 semaines, et une application métier ou un outil opérationnel plus complet environ 4 à 8+ semaines. Le calendrier prévisionnel est fixé une fois le périmètre et les livrables convenus."
+        "question": "Quel est le délai moyen pour un projet ?",
+        "answer": "Les délais dépendent du périmètre et de la complexité du projet. À titre indicatif, un site d'entreprise ou une page de présentation est généralement réalisé en 1 à 2 semaines, une boutique e-commerce ou un site de marque en 2 à 4 semaines, et une application métier ou un outil opérationnel en 4 à 8 semaines ou plus. Le calendrier définitif est établi après cadrage des besoins."
       },
       {
-        "question": "À qui appartiennent le code et les livrables à la fin du projet ?",
-        "answer": "Les modalités de propriété et de transmission sont convenues dans le cadre du périmètre du projet. L'accord final peut couvrir le code source, les éléments graphiques, les accès au déploiement et la documentation nécessaire, vous assurant le contrôle de votre produit."
+        "question": "Qui est propriétaire du site ou de l'application à la livraison ?",
+        "answer": "La propriété et les conditions de transmission sont définies dans le cadre du projet. La livraison peut inclure le code source, les éléments graphiques, les accès aux déploiements et la documentation utile, vous garantissant un contrôle total sur votre produit digital."
       },
       {
         "question": "Comment sont organisés les règlements d'un projet ?",
@@ -307,7 +307,7 @@
       },
       {
         "question": "Les projets de votre portfolio ont-ils été développés en autonomie, et quel était votre rôle exact ?",
-        "answer": "Oui, tous les projets présentés—notamment BusinessOS, Lumière Parfums et Gym CRM—sont des produits que j'ai conçus, développés et déployés en autonomie. Pour chaque projet, j'ai pris en charge l'ensemble du cycle : cadrage du besoin opérationnel, structuration des parcours utilisateurs, conception d'interfaces responsives avec Tailwind CSS, développement en TypeScript typé, modélisation relationnelle avec Prisma et PostgreSQL, et déploiement en production sur Vercel. Des démos interactives et les dépôts GitHub publics sont accessibles pour chaque projet."
+        "answer": "Oui, tous les projets présentés—notamment BusinessOS, Lumière Parfums, Gym CRM et Atelier Noura—sont des réalisations que j'ai conçues, développées et déployées en autonomie. Pour chaque projet, j'ai pris en charge l'ensemble du cycle : cadrage du besoin opérationnel, structuration des parcours utilisateurs, conception d'interfaces responsives avec Tailwind CSS, développement en TypeScript typé, modélisation relationnelle avec Prisma et PostgreSQL, et déploiement en production sur Vercel. Des démos interactives sont accessibles pour chaque projet."
       },
       {
         "question": "Comment votre formation en Business Analytics & IA influence-t-elle votre manière de concevoir des logiciels ?",
