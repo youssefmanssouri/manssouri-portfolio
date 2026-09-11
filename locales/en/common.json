@@ -280,7 +280,7 @@
         "range": "Typically 4–8+ weeks",
         "description": "Relational workflows, operational dashboards, and database integrations."
       },
-      "disclaimer": "Typical ranges only. Actual timing depends on project scope, integrations, content readiness, revisions, and feedback."
+      "disclaimer": "Indicative planning ranges only, not fixed delivery guarantees. Actual duration varies with agreed project scope, technical complexity, content readiness, and revision rounds."
     },
     "startProjectLink": "Discuss a Project →"
   },
@@ -291,7 +291,7 @@
     "items": [
       {
         "question": "What is the typical timeline for a project?",
-        "answer": "Typical timelines depend on project scope and requirements. As a general reference, business websites and landing pages can often be completed in around 1–2 weeks, custom e-commerce or brand websites in around 2–4 weeks, and larger web applications or operational tools in around 4–8+ weeks. The final timeline is established after the project scope is understood."
+        "answer": "Project timelines are indicative estimates rather than fixed delivery commitments. As a general planning reference, business websites and landing pages often take around 1–2 weeks, custom e-commerce or brand websites around 2–4 weeks, and custom web applications or operational tools around 4–8+ weeks. The actual schedule is agreed once project scope, complexity, and content readiness are clearly defined."
       },
       {
         "question": "Who owns the website or application after the project?",
@@ -334,7 +334,9 @@
     "internshipRole": "Administrative workflows, internal request circulation, and operational process observation.",
     "focusLabel": "Core Disciplines",
     "focusItems": ["Business Analytics", "Applied AI", "Next.js & TypeScript", "Data Modeling"],
-    "downloadCV": "Download CV (PDF)"
+    "downloadCV": "View / Download CV (PDF)",
+    "viewDownloadCV": "View / Download CV",
+    "cvActionAria": "View or download Youssef Manssouri's CV (PDF)"
   },
   "contact": {
     "badge": "DISCUSS A PROJECT",

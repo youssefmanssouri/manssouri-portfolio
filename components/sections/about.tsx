@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FileText } from "lucide-react";
+import { FileText, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { trackEvent } from "@/lib/analytics";
 
@@ -47,6 +47,25 @@ export function About() {
             <p className="text-sm sm:text-base text-[#242222]/85 leading-relaxed">
               {t("about.p2")}
             </p>
+
+            {/* Contextual CV Action for Recruiters */}
+            <div className="pt-2">
+              <a
+                href={cvHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                download={cvDownloadName}
+                aria-label={dictionary?.about?.cvActionAria || "View or download Youssef Manssouri's CV (PDF)"}
+                onClick={() => {
+                  trackEvent("CV_DOWNLOAD", { language, source: "about_narrative", file: cvDownloadName });
+                }}
+                className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#A65F4B] hover:text-[#3A171C] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B] rounded-xs group"
+              >
+                <FileText className="w-4 h-4 text-[#A65F4B] group-hover:text-[#3A171C] transition-colors" aria-hidden="true" />
+                <span>{t("about.viewDownloadCV")}</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#A65F4B] group-hover:text-[#3A171C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+              </a>
+            </div>
           </div>
 
           {/* Sidebar Highlights: Education, Internship & Focus Cards */}

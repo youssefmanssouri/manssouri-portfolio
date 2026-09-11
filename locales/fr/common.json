@@ -198,7 +198,7 @@
       },
       {
         "number": "04",
-        "title": "Communication directe & engagement",
+        "title": "Communication directe & suivi",
         "description": "Un périmètre clair, des choix d'architecture transparents et une communication suivie tout au long du projet—de la conception au déploiement."
       }
     ],
@@ -280,7 +280,7 @@
         "range": "Généralement 4 à 8+ semaines",
         "description": "Workflows relationnels, tableaux de bord opérationnels et intégrations de bases de données."
       },
-      "disclaimer": "Délais indicatifs uniquement. La durée réelle varie selon le périmètre du projet, les intégrations nécessaires, la disponibilité des contenus et les allers-retours de validation."
+      "disclaimer": "Fourchettes données à titre indicatif, sans engagement de délai fixe. La durée réelle dépend du périmètre convenu, de la complexité technique, de la préparation des contenus et des étapes de validation."
     },
     "startProjectLink": "Discuter d'un projet →"
   },
@@ -291,11 +291,11 @@
     "items": [
       {
         "question": "Quel est le délai moyen pour un projet ?",
-        "answer": "Les délais dépendent du périmètre et de la complexité du projet. À titre indicatif, un site d'entreprise ou une page de présentation est généralement réalisé en 1 à 2 semaines, une boutique e-commerce ou un site de marque en 2 à 4 semaines, et une application métier ou un outil opérationnel en 4 à 8 semaines ou plus. Le calendrier définitif est établi après cadrage des besoins."
+        "answer": "Les durées indiquées constituent des repères de planification indicatifs et non des engagements de livraison fixes. À titre de référence, un site d'entreprise ou une page de présentation requiert généralement 1 à 2 semaines, une boutique e-commerce ou un site de marque 2 à 4 semaines, et une application métier sur mesure 4 à 8 semaines ou plus. Le calendrier réel est arrêté d'un commun accord une fois le périmètre, la complexité technique et la disponibilité des contenus clairement définis."
       },
       {
         "question": "Qui est propriétaire du site ou de l'application à la livraison ?",
-        "answer": "La propriété et les conditions de transmission sont définies dans le cadre du projet. La livraison peut inclure le code source, les éléments graphiques, les accès aux déploiements et la documentation utile, vous garantissant un contrôle total sur votre produit digital."
+        "answer": "La propriété et les conditions de transmission sont définies dans le cadre du projet. La livraison peut inclure le code source, les éléments graphiques, les accès aux déploiements et la documentation utile, afin de vous assurer un contrôle total sur votre produit digital."
       },
       {
         "question": "Comment sont organisés les règlements d'un projet ?",
@@ -334,7 +334,9 @@
     "internshipRole": "Flux administratifs, circulation des demandes internes et observation des processus organisationnels.",
     "focusLabel": "Domaines Clés",
     "focusItems": ["Business Analytics", "IA Appliquée", "Next.js & TypeScript", "Modélisation de Données"],
-    "downloadCV": "Télécharger le CV (PDF)"
+    "downloadCV": "Voir / Télécharger le CV (PDF)",
+    "viewDownloadCV": "Voir / Télécharger le CV",
+    "cvActionAria": "Consulter ou télécharger le CV de Youssef Manssouri (PDF)"
   },
   "contact": {
     "badge": "DISCUTER D'UN PROJET",

@@ -78,19 +78,19 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       problemFr: "Les entreprises jonglent souvent entre des outils séparés pour le CRM, la facturation, la prise de rendez-vous et le suivi de trésorerie.",
       solutionEn: "A unified business management platform integrating client pipelines, itemized billing, calendar scheduling, team rosters, and cash flow tracking.",
       solutionFr: "Une plateforme d'opérations unifiée intégrant pipeline commercial, facturation détaillée, calendrier de réservation, annuaire RH et trésorerie.",
-      valueEn: "Centralizes core business workflows in a single operational workspace, giving teams clearer visibility across day-to-day activity and financial data.",
-      valueFr: "Centralise les flux métiers essentiels dans un espace opérationnel unique, offrant aux équipes une visibilité plus claire sur l'activité quotidienne et les données financières.",
+      valueEn: "Streamlines invoice management, client bookings, and pipeline tracking in a single operational workspace, giving teams clearer visibility across daily activity.",
+      valueFr: "Fluidifie la gestion des factures, le suivi des réservations et le pipeline commercial dans un espace unique, offrant aux équipes une visibilité claire sur l'activité quotidienne.",
       scopeIndicatorsEn: [
-        { title: "CRM", subtitle: "Client pipeline" },
-        { title: "Invoicing", subtitle: "Billing & quotes" },
+        { title: "CRM Pipeline", subtitle: "Client & lead tracking" },
+        { title: "Invoicing", subtitle: "Streamlined billing" },
         { title: "Scheduling", subtitle: "Calendar bookings" },
-        { title: "Analytics", subtitle: "Financial metrics" }
+        { title: "Analytics", subtitle: "Cash flow metrics" }
       ],
       scopeIndicatorsFr: [
-        { title: "CRM", subtitle: "Pipeline commercial" },
-        { title: "Facturation", subtitle: "Devis & paiements" },
+        { title: "Pipeline CRM", subtitle: "Suivi prospects & clients" },
+        { title: "Facturation", subtitle: "Devis & factures clairs" },
         { title: "Planification", subtitle: "Réservations & agenda" },
-        { title: "Analyse", subtitle: "Indicateurs financiers" }
+        { title: "Trésorerie", subtitle: "Indicateurs financiers" }
       ],
       keyTechs: ["Next.js 15 (App Router)", "TypeScript", "PostgreSQL", "Prisma ORM", "Recharts"]
     },
@@ -99,18 +99,18 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       problemFr: "Les clients ne pouvant pas sentir une fragrance à travers un écran, les grilles e-commerce classiques ne suffisent pas à guider le choix.",
       solutionEn: "A custom digital boutique featuring olfactory note and scent pyramid filtering, a persistent slide-out cart, and store inventory administration.",
       solutionFr: "Une boutique en ligne sur mesure avec filtrage par notes olfactives et pyramide de senteurs, panier latéral persistant et gestion des stocks.",
-      valueEn: "Makes fragrance discovery easier through structured scent information, clearer product comparison, and a continuous path from browsing to purchase.",
-      valueFr: "Facilite la découverte olfactive grâce à des informations de senteur structurées, une comparaison produit plus claire et un parcours continu de la visite à l'achat.",
+      valueEn: "Simplifies scent discovery through structured fragrance notes, clearer product comparisons, and a continuous path from browsing to checkout.",
+      valueFr: "Simplifie la découverte olfactive grâce à des notes de senteur structurées, une comparaison claire des fragrances et un parcours d'achat fluide.",
       scopeIndicatorsEn: [
         { title: "Scent Discovery", subtitle: "Accord & note filters" },
-        { title: "Product Storytelling", subtitle: "Scent pyramids" },
-        { title: "Persistent Cart", subtitle: "Slide-out drawer" },
+        { title: "Product Story", subtitle: "Scent pyramid details" },
+        { title: "Slide-Out Cart", subtitle: "Preserved bag state" },
         { title: "Store Admin", subtitle: "Catalog management" }
       ],
       scopeIndicatorsFr: [
         { title: "Découverte olfactive", subtitle: "Filtres de notes" },
-        { title: "Présentation produit", subtitle: "Pyramides olfactives" },
-        { title: "Panier persistant", subtitle: "Tiroir latéral" },
+        { title: "Récit produit", subtitle: "Pyramides olfactives" },
+        { title: "Panier latéral", subtitle: "Sauvegarde du panier" },
         { title: "Administration boutique", subtitle: "Gestion catalogue" }
       ],
       keyTechs: ["Next.js (App Router)", "TypeScript", "Tailwind CSS", "Persistent Cart", "Responsive UI"]
@@ -120,17 +120,17 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       problemFr: "Les salles de sport font face à des ralentissements à l'accueil, des forfaits expirés non détectés et des plannings de cours dispersés.",
       solutionEn: "A dedicated gym operations application delivering rapid member lookups, visual renewal status indicators, class capacity planning, and recurring revenue summaries.",
       solutionFr: "Une application d'exploitation offrant des recherches rapides d'adhérents, des alertes de statut, la gestion des cours et le suivi des revenus.",
-      valueEn: "Helps staff manage member check-ins, identify expired memberships, organize class capacity, and monitor recurring revenue data from a centralized interface.",
-      valueFr: "Aide l'équipe à gérer les pointages des membres, identifier les forfaits expirés, organiser les jauges de cours et suivre les revenus récurrents depuis une interface centralisée.",
+      valueEn: "Centralizes member check-ins, surfaces membership renewal alerts, organizes class schedules, and provides clean monthly revenue tracking from a single interface.",
+      valueFr: "Centralise le pointage des adhérents, signale les renouvellements d'abonnements, organise les plannings de cours et assure le suivi des revenus mensuels depuis une interface unique.",
       scopeIndicatorsEn: [
-        { title: "Member Management", subtitle: "Directory & profiles" },
-        { title: "Check-In", subtitle: "Front-desk terminal" },
-        { title: "Class Scheduling", subtitle: "Capacity matrix" },
+        { title: "Member Directory", subtitle: "Profiles & status" },
+        { title: "Rapid Check-In", subtitle: "Front-desk terminal" },
+        { title: "Class Rosters", subtitle: "Capacity matrix" },
         { title: "Revenue Tracking", subtitle: "Monthly summaries" }
       ],
       scopeIndicatorsFr: [
         { title: "Gestion des adhérents", subtitle: "Fiches & profils" },
-        { title: "Pointage", subtitle: "Borne d'accueil" },
+        { title: "Pointage rapide", subtitle: "Borne d'accueil" },
         { title: "Planification des cours", subtitle: "Jauges & plannings" },
         { title: "Suivi des revenus", subtitle: "Synthèses mensuelles" }
       ],
@@ -141,19 +141,19 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       problemFr: "Les studios d'architecture ont besoin d'une vitrine numérique affirmant leur identité spatiale, détaillant leurs réalisations et guidant les demandes de contact.",
       solutionEn: "A responsive studio website featuring curated architectural case studies, studio and services presentation, a structured inquiry flow, and an administrative management layer.",
       solutionFr: "Un site d'agence responsive associant études de cas architecturales, présentation des services, parcours de contact qualifié et espace de gestion administrative.",
-      valueEn: "Presents architectural works with editorial clarity and structures incoming project requirements upfront, simplifying consultation assessment.",
-      valueFr: "Valorise les réalisations avec une clarté éditoriale et cadre les demandes de projet dès l'amont pour faciliter l'étude préalable.",
+      valueEn: "Presents architectural works with editorial clarity and structures client inquiries upfront, helping the studio evaluate project briefs and consultation requests efficiently.",
+      valueFr: "Valorise les réalisations architecturales avec une clarté éditoriale et structure les demandes clients dès l'amont pour faciliter l'évaluation des projets et des consultations.",
       scopeIndicatorsEn: [
         { title: "Project Showcase", subtitle: "Categorized portfolio" },
-        { title: "Studio & Services", subtitle: "Design methodology" },
-        { title: "Inquiry Pathway", subtitle: "Client qualification" },
-        { title: "Admin Architecture", subtitle: "Inquiry management" }
+        { title: "Studio Practice", subtitle: "Design methodology" },
+        { title: "Inquiry Pathway", subtitle: "Structured qualification" },
+        { title: "Admin Architecture", subtitle: "Inquiry triage" }
       ],
       scopeIndicatorsFr: [
         { title: "Présentation Projets", subtitle: "Réalisations par type" },
-        { title: "Studio & Services", subtitle: "Démarche & prestations" },
-        { title: "Parcours de Contact", subtitle: "Qualification des besoins" },
-        { title: "Architecture Admin", subtitle: "Suivi des demandes" }
+        { title: "Pratique Studio", subtitle: "Démarche & prestations" },
+        { title: "Parcours Contact", subtitle: "Qualification structurée" },
+        { title: "Architecture Admin", subtitle: "Tri & suivi des demandes" }
       ],
       keyTechs: ["Next.js (App Router)", "TypeScript", "Tailwind CSS", "Prisma ORM", "PostgreSQL"]
     }
