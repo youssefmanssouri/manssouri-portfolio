@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validations/contact";
 import { persistContactMessage, logNotificationAudit } from "@/lib/contact-storage";
-import { sendContactNotificationEmail } from "@/lib/email";
+import { sendContactNotificationEmail, NotificationResult } from "@/lib/email";
+import { sendNtfyNotification } from "@/lib/notifications/ntfy";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { isOversized, validateOrigin } from "@/lib/security";
 import { prisma } from "@/lib/prisma";
@@ -122,19 +123,38 @@ export async function POST(request: Request) {
       );
     }
 
-    // 6. Notification Dispatch (Resend API -> SMTP Transport -> Webhook)
-    const notificationResult = await sendContactNotificationEmail({
-      id: storedMessage.id,
-      name,
-      email,
-      company: company || undefined,
-      phone: phone || undefined,
-      projectType,
-      budgetRange: budget || undefined,
-      message,
-      language: language || "en",
-      submittedAt: storedMessage.createdAt,
-    });
+    // 6. Post-Persistence Notifications (Email & ntfy Push in parallel)
+    const [emailResultSettled, ntfyResultSettled] = await Promise.allSettled([
+      sendContactNotificationEmail({
+        id: storedMessage.id,
+        name,
+        email,
+        company: company || undefined,
+        phone: phone || undefined,
+        projectType,
+        budgetRange: budget || undefined,
+        message,
+        language: language || "en",
+        submittedAt: storedMessage.createdAt,
+      }),
+      sendNtfyNotification({
+        name,
+        projectType,
+        budgetRange: budget || null,
+        message,
+        submittedAt: storedMessage.createdAt,
+      }),
+    ]);
+
+    const notificationResult: NotificationResult =
+      emailResultSettled.status === "fulfilled"
+        ? emailResultSettled.value
+        : { delivered: false, error: emailResultSettled.reason?.message || "Email dispatch failed" };
+
+    const ntfyResult =
+      ntfyResultSettled.status === "fulfilled"
+        ? ntfyResultSettled.value
+        : { sent: false, error: ntfyResultSettled.reason?.message || "ntfy dispatch failed" };
 
     logNotificationAudit(
       storedMessage.id,
@@ -142,6 +162,12 @@ export async function POST(request: Request) {
       notificationResult.provider,
       notificationResult.error
     );
+
+    if (ntfyResult.sent) {
+      console.log(`[Notification Audit] Message ${storedMessage.id} | ntfy push delivered`);
+    } else if (ntfyResult.error) {
+      console.log(`[Notification Audit] Message ${storedMessage.id} | ntfy push failed: ${ntfyResult.error}`);
+    }
 
     // 7. Track analytics event safely (isolated)
     try {
@@ -154,6 +180,7 @@ export async function POST(request: Request) {
             language,
             persisted: storageResult.persisted,
             emailDelivered: notificationResult.delivered,
+            ntfySent: ntfyResult.sent,
             provider: notificationResult.provider || "none",
           }),
         },

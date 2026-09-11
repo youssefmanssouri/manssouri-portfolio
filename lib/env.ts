@@ -84,6 +84,12 @@ export const env = {
   contactWebhookUrl: sanitizeEnvValue(process.env.CONTACT_WEBHOOK_URL) || null,
   contactStorageWebhook: sanitizeEnvValue(process.env.CONTACT_STORAGE_WEBHOOK) || null,
 
+  // ntfy Push Notifications
+  ntfyEnabled: (sanitizeEnvValue(process.env.NTFY_ENABLED) || "false").toLowerCase() === "true",
+  ntfyServerUrl: sanitizeEnvValue(process.env.NTFY_SERVER_URL) || "https://ntfy.sh",
+  ntfyTopic: sanitizeEnvValue(process.env.NTFY_TOPIC) || null,
+  ntfyToken: sanitizeEnvValue(process.env.NTFY_TOKEN) || null,
+
   // Upstash Redis
   upstashRedisRestUrl: sanitizeEnvValue(process.env.UPSTASH_REDIS_REST_URL) || null,
   upstashRedisRestToken: sanitizeEnvValue(process.env.UPSTASH_REDIS_REST_TOKEN) || null,
