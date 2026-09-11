@@ -77,41 +77,19 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Deep Burgundy Interface Frame (Proof of Built Products) */}
-          <div className="lg:col-span-5">
-            <Link
-              href="/projects/businessos"
-              prefetch={true}
-              aria-label="View BusinessOS Case Study — Custom Web Application by Youssef Manssouri"
-              onClick={() => {
-                trackEvent("LIVE_DEMO_CLICK", { slug: "businessos", name: "BusinessOS", source: "hero" });
-              }}
-              className="block relative rounded-xs border border-[#DED6CC]/30 bg-[#3A171C] overflow-hidden shadow-xl group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
-            >
-              {/* Header Bar */}
-              <div className="px-4 py-2.5 bg-[#2D1216] border-b border-[#DED6CC]/20 flex items-center justify-between">
-                <div className="flex items-center gap-1.5" aria-hidden="true">
-                  <div className="w-2 h-2 rounded-full bg-[#DED6CC]/30" />
-                  <div className="w-2 h-2 rounded-full bg-[#DED6CC]/30" />
-                  <div className="w-2 h-2 rounded-full bg-[#DED6CC]/30" />
-                </div>
-                <span className="text-[10px] font-mono text-[#DED6CC]/80 uppercase tracking-wider">
-                  Featured Project · BusinessOS
-                </span>
-              </div>
-
-              {/* Real Project Interface */}
-              <div className="relative aspect-[16/10] bg-[#3A171C]">
-                <Image
-                  src="/images/projects/businessos-main.jpg"
-                  alt="BusinessOS Dashboard Interface - Deployed Full-Stack Web Application"
-                  fill
-                  className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                />
-              </div>
-            </Link>
+          {/* Right Column: Digital Product Architecture & Multi-Device Workspace Visual */}
+          <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end">
+            <div className="relative w-full max-w-[460px] sm:max-w-[520px] lg:max-w-none select-none">
+              <Image
+                src="/images/hero-visual.png"
+                alt="Digital product architecture and multi-device interface showcase"
+                width={904}
+                height={856}
+                priority
+                className="w-full h-auto object-contain"
+                sizes="(max-width: 640px) 92vw, (max-width: 1024px) 75vw, 42vw"
+              />
+            </div>
           </div>
 
         </div>
