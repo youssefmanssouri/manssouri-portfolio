@@ -59,7 +59,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
   const itemNum = `0${index + 1}`;
 
   const isFlagship = project.id === "businessos";
-  const isDarkCard = isFlagship || project.id === "gym-crm";
+  const isDarkCard = isFlagship || project.id === "gym-crm" || project.id === "wealthflow";
 
   // Business value and problem/solution data derived from actual project implementations
   const projectDetails: Record<string, {
@@ -136,6 +136,27 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       ],
       keyTechs: ["Next.js", "TypeScript", "PostgreSQL", "Prisma ORM", "Role-Based Access"]
     },
+    wealthflow: {
+      problemEn: "Managing personal finances often means switching between disconnected records, budget calculations, and manual tracking. WealthFlow brings these workflows into one focused mobile experience.",
+      problemFr: "La gestion des finances personnelles implique souvent plusieurs outils, des calculs budgétaires et un suivi manuel. WealthFlow rassemble ces usages dans une expérience mobile centralisée.",
+      solutionEn: "WealthFlow combines transaction management, budgets, savings goals, analytics, authentication, and persistent user sessions in a single mobile product backed by Supabase and PostgreSQL.",
+      solutionFr: "WealthFlow réunit la gestion des transactions, les budgets, les objectifs d’épargne, l’analyse financière, l’authentification et la persistance des sessions dans une seule application mobile reposant sur Supabase et PostgreSQL.",
+      valueEn: "A focused mobile product that demonstrates practical product design alongside authentication, data modeling, authorization, persistence, and analytics.",
+      valueFr: "Un produit mobile ciblé qui démontre à la fois une conception produit pragmatique et la mise en œuvre de l’authentification, de la modélisation des données, de l’autorisation, de la persistance et de l’analyse.",
+      scopeIndicatorsEn: [
+        { title: "Transaction Management", subtitle: "Income, expenses, categories and search" },
+        { title: "Budget Planning", subtitle: "Monthly limits and progress tracking" },
+        { title: "Savings Goals", subtitle: "Targets, contributions and progress" },
+        { title: "Financial Analytics", subtitle: "Savings rate and category insights" }
+      ],
+      scopeIndicatorsFr: [
+        { title: "Gestion des Transactions", subtitle: "Revenus, dépenses, catégories et recherche" },
+        { title: "Planification Budgétaire", subtitle: "Plafonds mensuels et suivi d'avancement" },
+        { title: "Objectifs d'Épargne", subtitle: "Cibles, versements et progression" },
+        { title: "Analyse Financière", subtitle: "Taux d'épargne et répartition des dépenses" }
+      ],
+      keyTechs: ["React Native", "Expo SDK 52", "TypeScript", "Supabase", "PostgreSQL"]
+    },
     "atelier-noura": {
       problemEn: "Architecture and design practices need a digital presence that communicates their spatial identity, showcases projects in depth, and guides prospective client inquiries.",
       problemFr: "Les studios d'architecture ont besoin d'une vitrine numérique affirmant leur identité spatiale, détaillant leurs réalisations et guidant les demandes de contact.",
@@ -166,7 +187,7 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
       <div className={`rounded-xs bg-[#3A171C] text-[#F3EFEA] border p-5 sm:p-8 lg:p-12 shadow-xl space-y-6 sm:space-y-8 transition-all ${isFlagship ? 'border-[#A65F4B]/60 ring-1 ring-[#A65F4B]/30' : 'border-[#DED6CC]/20'}`}>
         <div className="flex items-center justify-between border-b border-[#DED6CC]/20 pb-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#A65F4B]/20 border border-[#A65F4B]/40 text-[#F3EFEA] text-[11px] font-mono uppercase tracking-widest font-semibold">
-            <span>{isFlagship ? (isFr ? "★ Projet Phare" : "★ Flagship Project") : (isFr ? "Application Métier" : "Operations Web App")}</span>
+            <span>{isFlagship ? (isFr ? "★ Projet Phare" : "★ Flagship Project") : (project.id === "wealthflow" ? (isFr ? "Application Mobile" : "Mobile Application") : (isFr ? "Application Métier" : "Operations Web App"))}</span>
           </div>
           <span className="text-[11px] font-mono text-[#DED6CC]/70 hidden sm:inline font-medium">
             {isFr ? "Produit Indépendant · Démo Interactive · Code Source" : "Independent Product · Interactive Demo · Source Code"}
@@ -309,13 +330,45 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
               aria-label={`Explore the ${project.name} case study`}
               className="block relative aspect-[16/10] rounded-xs overflow-hidden border border-[#DED6CC]/20 bg-[#2D1216] group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
             >
-              <Image
-                src={project.heroImage}
-                alt={`${project.name} — ${shortDesc}`}
-                fill
-                className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
-                sizes="(max-width: 1024px) 100vw, 55vw"
-              />
+              {project.heroImage ? (
+                <Image
+                  src={project.heroImage}
+                  alt={`${project.name} — ${shortDesc}`}
+                  fill
+                  className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                />
+              ) : (
+                <div className="w-full h-full flex flex-col justify-between p-6 sm:p-8 bg-[#2D1216] text-[#F3EFEA]">
+                  <div className="flex items-center justify-between border-b border-[#DED6CC]/15 pb-3">
+                    <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                      {itemNum} / {category}
+                    </span>
+                    <span className="text-[10px] font-mono text-[#DED6CC]/60 bg-[#F3EFEA]/5 px-2 py-0.5 rounded-xs border border-[#DED6CC]/10">
+                      {isFr ? "Aperçu Android Build 10" : "Android Build 10 Preview"}
+                    </span>
+                  </div>
+
+                  <div className="space-y-2 py-4">
+                    <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-wider font-semibold block">
+                      {isFr ? "Architecture Produit Mobile" : "Mobile Product Architecture"}
+                    </span>
+                    <h4 className="text-xl sm:text-2xl font-bold text-[#F3EFEA] tracking-tight">
+                      {project.title}
+                    </h4>
+                    <p className="text-xs text-[#DED6CC]/75 leading-relaxed line-clamp-3">
+                      {shortDesc}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-[#DED6CC]/15 flex items-center justify-between text-[11px] font-mono text-[#DED6CC]/60">
+                    <span>React Native · Supabase · PostgreSQL</span>
+                    <span className="text-[#A65F4B] group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1 font-semibold">
+                      {t("work.viewCaseStudy")} →
+                    </span>
+                  </div>
+                </div>
+              )}
             </Link>
           </div>
 
@@ -352,13 +405,36 @@ const ProjectEditorialItem = React.memo(function ProjectEditorialItem({
             aria-label={`Explore the ${project.name} case study`}
             className="block relative aspect-[16/10] rounded-xs overflow-hidden border border-[#DED6CC] bg-[#3A171C] group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A65F4B]"
           >
-            <Image
-              src={project.heroImage}
-              alt={`${project.name} — ${shortDesc}`}
-              fill
-              className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
-              sizes="(max-width: 1024px) 100vw, 55vw"
-            />
+            {project.heroImage ? (
+              <Image
+                src={project.heroImage}
+                alt={`${project.name} — ${shortDesc}`}
+                fill
+                className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
+                sizes="(max-width: 1024px) 100vw, 55vw"
+              />
+            ) : (
+              <div className="w-full h-full flex flex-col justify-between p-6 sm:p-8 bg-[#3A171C] text-[#F3EFEA]">
+                <div className="flex items-center justify-between border-b border-[#DED6CC]/15 pb-3">
+                  <span className="text-xs font-mono text-[#A65F4B] uppercase tracking-widest font-bold">
+                    {itemNum} / {category}
+                  </span>
+                </div>
+                <div className="space-y-2 py-4">
+                  <h4 className="text-xl sm:text-2xl font-bold text-[#F3EFEA] tracking-tight">
+                    {project.title}
+                  </h4>
+                  <p className="text-xs text-[#DED6CC]/75 leading-relaxed line-clamp-3">
+                    {shortDesc}
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-[#DED6CC]/15 flex items-center justify-between text-[11px] font-mono text-[#DED6CC]/60">
+                  <span className="text-[#A65F4B] group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1 font-semibold">
+                    {t("work.viewCaseStudy")} →
+                  </span>
+                </div>
+              </div>
+            )}
           </Link>
         </div>
 

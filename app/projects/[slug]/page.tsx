@@ -31,7 +31,9 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const fullTitle = `${rawTitle} | Youssef Manssouri`;
   const pageDesc = project.seoDescription || project.shortDescription;
   const projectUrl = `https://www.youssefmanssouri.site/projects/${project.slug}`;
-  const imageUrl = `https://www.youssefmanssouri.site${project.heroImage}`;
+  const imageUrl = project.heroImage
+    ? (project.heroImage.startsWith("http") ? project.heroImage : `https://www.youssefmanssouri.site${project.heroImage}`)
+    : "https://www.youssefmanssouri.site/images/projects/businessos-main.jpg";
 
   return {
     title: rawTitle,
@@ -127,7 +129,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         "url": projectUrl,
         "image": imageUrl,
         "applicationCategory": project.applicationCategory || "BusinessApplication",
-        "operatingSystem": "Web Browser",
+        "operatingSystem": project.schemaType === "SoftwareApplication" ? "Android" : "Web Browser",
         "author": {
           "@type": "Person",
           "@id": "https://www.youssefmanssouri.site/#identity",

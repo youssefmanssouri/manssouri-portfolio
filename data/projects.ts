@@ -93,11 +93,18 @@ export interface Project {
   buildScopeFr?: string[];
   features: string[];
   featuresFr: string[];
-  heroImage: string;
-  galleryImages: string[];
+  heroImage?: string;
+  galleryImages?: string[];
   githubUrl?: string;
   isPrivateRepo?: boolean;
   liveUrl?: string;
+  liveUrlLabelEn?: string;
+  liveUrlLabelFr?: string;
+  downloadUrl?: string;
+  downloadLabelEn?: string;
+  downloadLabelFr?: string;
+  downloadNoteEn?: string;
+  downloadNoteFr?: string;
   hasLiveDemo: boolean;
   featured: boolean;
   order: number;
@@ -1133,6 +1140,298 @@ export const PROJECTS: Project[] = [
     order: 4,
     schemaType: "WebApplication",
     applicationCategory: "BusinessApplication"
+  },
+  {
+    id: "wealthflow",
+    slug: "wealthflow",
+    name: "WealthFlow",
+    title: "WealthFlow — Personal Finance Mobile Application",
+    seoTitle: "WealthFlow — Personal Finance Mobile Application | Case Study",
+    seoTitleFr: "WealthFlow — Application Mobile de Finances Personnelles | Étude de Cas",
+    seoDescription: "Case study of WealthFlow, a personal finance mobile application built with React Native, Expo, TypeScript, Supabase and PostgreSQL.",
+    seoDescriptionFr: "Étude de cas de WealthFlow, une application mobile de finances personnelles développée avec React Native, Expo, TypeScript, Supabase et PostgreSQL.",
+    lastModified: "2026-09-13",
+    category: "MOBILE PRODUCT & PERSONAL FINANCE",
+    categoryFr: "APPLICATION MOBILE & FINANCES PERSONNELLES",
+    role: "Product Architecture, Mobile Development & Backend Integration",
+    roleFr: "Architecture Produit, Développement Mobile & Intégration Backend",
+    shortDescription: "A personal finance mobile application built with React Native and Supabase for tracking transactions, managing budgets, setting savings goals, and understanding personal cash flow.",
+    shortDescriptionFr: "Une application mobile de finances personnelles développée avec React Native et Supabase pour suivre les transactions, gérer les budgets, définir des objectifs d’épargne et mieux comprendre ses flux financiers.",
+    longDescription: "An independent personal finance mobile product demonstrating end-to-end mobile product development, authentication, relational data modeling, cloud-backed persistence, analytics, and Android distribution.",
+    longDescriptionFr: "Un produit mobile indépendant de finances personnelles démontrant le développement complet d'une application mobile, l'authentification, la modélisation relationnelle des données, la persistance cloud, l'analytique et la distribution Android.",
+    overview: "WealthFlow is an independent personal finance mobile application engineered to provide daily clarity over personal cash flow. Built with React Native and Expo SDK 52 and backed by Supabase and PostgreSQL, the application unifies income and expense tracking, category-based monthly budgets with warning thresholds, target-driven savings goals, and cash flow analytics into a cohesive, responsive mobile product.",
+    overviewFr: "WealthFlow est une application mobile indépendante de finances personnelles conçue pour apporter une lisibilité quotidienne sur les flux de trésorerie. Développée avec React Native et Expo SDK 52 et adossée à Supabase et PostgreSQL, l'application réunit le suivi des revenus et dépenses, des budgets mensuels par catégorie avec seuils d'alerte, des objectifs d'épargne ciblés et des indicateurs d'analyse financière dans un produit mobile cohérent et réactif.",
+    objective: "Demonstrate end-to-end mobile product development by combining disciplined client state management, resilient authentication lifecycles across application restarts, database-level security policies, relational schema modeling, and reproducible Android distribution via Expo EAS.",
+    objectiveFr: "Démontrer la maîtrise complète du cycle de développement d'un produit mobile en combinant gestion d'état client rigoureuse, cycle de vie d'authentification persistant aux redémarrages, règles de sécurité au niveau base de données, modélisation relationnelle et distribution Android reproductible via Expo EAS.",
+    problemSolution: {
+      problemTitleEn: "Fragmented Personal Finance Tracking",
+      problemTitleFr: "Fragmentation de la Gestion Financière Personnelle",
+      problemDescEn: "Managing personal finances often means switching between disconnected records, budget calculations, and manual tracking. WealthFlow brings these workflows into one focused mobile experience.",
+      problemDescFr: "La gestion des finances personnelles implique souvent plusieurs outils, des calculs budgétaires et un suivi manuel. WealthFlow rassemble ces usages dans une expérience mobile centralisée.",
+      solutionTitleEn: "A Unified, Persistent Personal Finance Experience",
+      solutionTitleFr: "Une Expérience Mobile Centralisée et Persistante",
+      solutionDescEn: "WealthFlow combines transaction management, budgets, savings goals, analytics, authentication, and persistent user sessions in a single mobile product backed by Supabase and PostgreSQL.",
+      solutionDescFr: "WealthFlow réunit la gestion des transactions, les budgets, les objectifs d’épargne, l’analyse financière, l’authentification et la persistance des sessions dans une seule application mobile reposant sur Supabase et PostgreSQL."
+    },
+    metrics: [
+      {
+        value: "05",
+        label: "Core Modules",
+        labelFr: "Modules Clés",
+        detail: "Transactions, budgets, goals, analytics & preferences",
+        detailFr: "Transactions, budgets, épargne, analyses & préférences"
+      },
+      {
+        value: "07",
+        label: "Supported Currencies",
+        labelFr: "Devises Prises en Charge",
+        detail: "USD, EUR, GBP, MAD, JPY, CAD, AUD",
+        detailFr: "USD, EUR, GBP, MAD, JPY, CAD, AUD"
+      },
+      {
+        value: "RLS",
+        label: "Database-level user data isolation",
+        labelFr: "Isolation des données au niveau base",
+        detail: "PostgreSQL Row Level Security policies via Supabase",
+        detailFr: "Politiques Row Level Security PostgreSQL via Supabase"
+      },
+      {
+        value: "Build 10",
+        label: "Android Distribution",
+        labelFr: "Distribution Android",
+        detail: "Expo EAS preview standalone APK package",
+        detailFr: "Package APK autonome généré via Expo EAS"
+      }
+    ],
+    capabilities: [
+      {
+        id: "cap-transactions",
+        titleEn: "Transaction Management",
+        titleFr: "Gestion des Transactions",
+        summaryEn: "Track income and expenses with categories, merchant/details information, relative date grouping, and search functionality.",
+        summaryFr: "Suivi des revenus et dépenses avec catégories, informations de commerçant/détails, regroupement par dates relatives et recherche intégrée.",
+        practicalOutcomeEn: "Allows fast logging and chronological review of cash inflows and outflows with granular search and category filtering.",
+        practicalOutcomeFr: "Permet la saisie rapide et la consultation chronologique des entrées et sorties de fonds avec recherche textuelle et filtrage par catégorie."
+      },
+      {
+        id: "cap-budgets",
+        titleEn: "Budget Management",
+        titleFr: "Gestion Budgétaire",
+        summaryEn: "Set monthly category limits and monitor progress with threshold-based warning states.",
+        summaryFr: "Définition de plafonds mensuels par catégorie et suivi de la consommation avec seuils d'alerte visuels.",
+        practicalOutcomeEn: "Prevents accidental overspending through real-time consumption bars and progressive visual warnings as limits approach 100%.",
+        practicalOutcomeFr: "Prévient les dépassements budgétaires imprévus grâce à des barres de progression et des alertes visuelles progressives à l'approche de la limite."
+      },
+      {
+        id: "cap-savings",
+        titleEn: "Savings Goals",
+        titleFr: "Objectifs d'Épargne",
+        summaryEn: "Create savings targets, track progress, and record contributions toward individual goals.",
+        summaryFr: "Création d'objectifs d'épargne ciblés, suivi de l'avancement et enregistrement des versements dédiés.",
+        practicalOutcomeEn: "Provides structured tracking for distinct milestones, logging every deposit and computing remaining amounts and percentages.",
+        practicalOutcomeFr: "Offre un suivi structuré par projet d'épargne distinct, consignant chaque versement et calculant les montants et pourcentages restants."
+      },
+      {
+        id: "cap-analytics",
+        titleEn: "Financial Analytics",
+        titleFr: "Analyse Financière",
+        summaryEn: "Review net savings, savings rate, and category distribution to understand spending and saving patterns.",
+        summaryFr: "Consultation de l'épargne nette, du taux d'épargne et de la répartition par catégorie pour analyser les flux financiers.",
+        practicalOutcomeEn: "Delivers financial clarity through summaries that expose net surplus, savings rates, and primary expense drivers.",
+        practicalOutcomeFr: "Délivre une vision synthétique claire de la santé financière, mettant en évidence l'épargne nette, le taux d'épargne et les principaux postes de dépenses."
+      },
+      {
+        id: "cap-preferences",
+        titleEn: "Preferences & Data Portability",
+        titleFr: "Préférences & Portabilité des Données",
+        summaryEn: "Manage profile preferences, themes, supported currencies, and export personal data as JSON.",
+        summaryFr: "Configuration du profil utilisateur, des thèmes clair/sombre, des 7 devises prises en charge et export des données au format JSON.",
+        practicalOutcomeEn: "Empowers user control with multi-currency formatting (USD, EUR, GBP, MAD, JPY, CAD, AUD), theme selection, and complete JSON data exports.",
+        practicalOutcomeFr: "Garantit le contrôle utilisateur avec formatage multi-devises (USD, EUR, GBP, MAD, JPY, CAD, AUD), personnalisation du thème et export intégral des données en JSON."
+      }
+    ],
+    engineeringPoints: [
+      {
+        titleEn: "Authentication Lifecycle & Session Persistence",
+        titleFr: "Cycle de Vie d'Authentification & Persistance de Session",
+        descEn: "Engineered around Supabase Auth with persistent session storage via AsyncStorage. The mobile client securely restores user tokens on boot, ensuring sessions remain active across application restarts without unnecessary sign-in prompts.",
+        descFr: "Conçu autour de Supabase Auth avec persistance de session via AsyncStorage. Le client mobile restaure de façon sécurisée les jetons au démarrage, maintenant la session active à travers les redémarrages de l'application sans sollicitation intempestive."
+      },
+      {
+        titleEn: "Session Initialization vs Action Loading Decoupling",
+        titleFr: "Découplage de l'Initialisation de Session et du Chargement d'Action",
+        descEn: "Separated the initial authentication hydration from ongoing sign-in/sign-up action loading states. This structural separation prevents authentication actions from destroying or remounting the root React Navigation container, preserving seamless navigation transitions.",
+        descFr: "Séparation stricte entre l'hydratation initiale de la session et les indicateurs de chargement des actions de connexion/inscription. Ce découplage empêche les actions d'authentification de démonter ou réinitialiser le conteneur racine de React Navigation."
+      },
+      {
+        titleEn: "Database-Level PostgreSQL Row Level Security",
+        titleFr: "Sécurité PostgreSQL au Niveau Base de Données (RLS)",
+        descEn: "Leveraged Supabase and PostgreSQL Row Level Security (RLS) policies across all financial tables (transactions, budgets, savings goals). Authorization is enforced directly within the database engine based on the authenticated user's JWT UID.",
+        descFr: "Mise en œuvre des politiques de sécurité Row Level Security (RLS) de Supabase et PostgreSQL sur l'ensemble des tables financières. L'autorisation est garantie directement par le moteur de base de données à partir de l'UID issu du jeton JWT."
+      },
+      {
+        titleEn: "React Navigation State Architecture",
+        titleFr: "Architecture des États de Navigation React Navigation",
+        descEn: "Configured React Navigation v7 with strict segregation between the unauthenticated authentication stack (sign-in, sign-up) and the authenticated tab navigator (dashboard, transactions, budgets, savings, profile).",
+        descFr: "Configuration de React Navigation v7 avec séparation étanche entre la pile d'authentification non authentifiée (connexion, inscription) et la barre d'onglets de l'application connectée."
+      },
+      {
+        titleEn: "Automated Android EAS Preview Distribution",
+        titleFr: "Distribution d'un Aperçu Android via Expo EAS",
+        descEn: "Packaged the mobile application into a standalone Android APK (Build 10) using Expo Application Services (EAS Build). This provides an installable preview build directly verifiable on real Android devices without implying a production store release.",
+        descFr: "Génération de l'application mobile en package APK autonome (Build 10) via Expo Application Services (EAS Build), offrant une version de prévisualisation directement installable et vérifiable sur appareils Android réels sans revendiquer une publication store de production."
+      }
+    ],
+    decisions: [
+      {
+        titleEn: "Persistent Authenticated Sessions",
+        titleFr: "Sessions Authentifiées Persistantes",
+        decisionEn: "Persist authentication state across application restarts rather than relying only on in-memory state.",
+        decisionFr: "Persister l'état d'authentification à travers les redémarrages de l'application plutôt que de s'en remettre uniquement à la mémoire vive.",
+        rationaleEn: "Users should not be returned to the authentication flow simply because the application process restarted.",
+        rationaleFr: "L'utilisateur ne doit pas être renvoyé sur l'écran de connexion simplement parce que le processus de l'application a été fermé ou redémarré."
+      },
+      {
+        titleEn: "Supabase + PostgreSQL Backend Architecture",
+        titleFr: "Architecture Backend Supabase + PostgreSQL",
+        decisionEn: "Use Supabase as the authentication and database platform.",
+        decisionFr: "Utiliser Supabase comme plateforme d'authentification et de base de données relationnelle.",
+        rationaleEn: "Provides managed authentication, PostgreSQL persistence, and database-level authorization without requiring a separate custom backend service for the project.",
+        rationaleFr: "Fournit une authentification gérée, la persistance relationnelle PostgreSQL et l'autorisation au niveau base de données sans nécessiter un service backend séparé sur mesure."
+      },
+      {
+        titleEn: "Decouple Auth Hydration from Action Loading",
+        titleFr: "Découpler l'Hydratation Auth du Chargement d'Action",
+        decisionEn: "Keep initial auth hydration separate from sign-in/sign-up loading states.",
+        decisionFr: "Séparer l'hydratation initiale de l'authentification des états de chargement lors de la connexion ou de l'inscription.",
+        rationaleEn: "Prevents authentication actions from destroying or remounting the root navigation container.",
+        rationaleFr: "Évite que les actions d'authentification ne provoquent la destruction ou le remontage intempestif du conteneur de navigation racine."
+      }
+    ],
+    learnings: [
+      {
+        titleEn: "Auth State Belongs to Application Architecture",
+        titleFr: "L'Authentification est une Question d'Architecture",
+        descEn: "Authentication state is part of application architecture, not just a login-screen concern.",
+        descFr: "L'état d'authentification fait partie intégrante de l'architecture applicative globale, et ne se limite pas à la logique d'un formulaire de connexion."
+      },
+      {
+        titleEn: "Navigation Containers Must Remain Stable",
+        titleFr: "Stabilité des Conteneurs de Navigation",
+        descEn: "Navigation containers should not be unnecessarily destroyed during ordinary async actions.",
+        descFr: "Les conteneurs de navigation ne doivent pas être inutilement détruits ou réinitialisés lors des opérations asynchrones courantes."
+      },
+      {
+        titleEn: "Database-Level Authorization Simplifies Security",
+        titleFr: "L'Autorisation en Base Simplifie la Sécurité",
+        descEn: "Database-level authorization can simplify secure user-scoped data access.",
+        descFr: "L'autorisation au niveau base de données (RLS) simplifie et fiabilise l'accès cloisonné aux données par utilisateur."
+      },
+      {
+        titleEn: "Mobile Lifecycles Demand Rigorous Persistence",
+        titleFr: "Le Cycle de Vie Mobile Exige une Persistance Rigoureuse",
+        descEn: "Mobile products require careful consideration of persistence and application lifecycle.",
+        descFr: "Les produits mobiles nécessitent une attention particulière portée à la persistance des données et au cycle de vie de l'application."
+      },
+      {
+        titleEn: "Working Products Need Credible Presentation",
+        titleFr: "Un Produit Fonctionnel Nécessite une Présentation Crédible",
+        descEn: "A working product also needs a credible distribution and presentation layer.",
+        descFr: "Un produit logiciel abouti requiert également une couche soignée et crédible de distribution et de présentation publique."
+      }
+    ],
+    technologies: [
+      "React Native",
+      "Expo SDK 52",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "React Navigation v7",
+      "AsyncStorage",
+      "EAS Build"
+    ],
+    techStackDetails: [
+      {
+        tech: "React Native & Expo 52",
+        purposeEn: "Cross-platform mobile client with native Android compilation and modern component architecture.",
+        purposeFr: "Client mobile multiplateforme avec compilation native Android et architecture de composants moderne."
+      },
+      {
+        tech: "TypeScript",
+        purposeEn: "Full-system type safety spanning financial entities, database models, and typed navigation parameters.",
+        purposeFr: "Sécurité de typage statique couvrant les entités financières, les modèles de données et la navigation."
+      },
+      {
+        tech: "Supabase Auth",
+        purposeEn: "User identity management, JWT token issuance, and session recovery across app restarts.",
+        purposeFr: "Gestion de l'identité utilisateur, émission de tokens JWT et restauration de session au redémarrage."
+      },
+      {
+        tech: "PostgreSQL & RLS",
+        purposeEn: "Relational persistence with Row Level Security enforcing strict user-scoped data isolation at the database layer.",
+        purposeFr: "Persistance relationnelle avec Row Level Security garantissant l'isolation des données au niveau base de données."
+      },
+      {
+        tech: "React Navigation v7",
+        purposeEn: "Native stack and bottom-tab navigation with isolated authenticated and guest routing flows.",
+        purposeFr: "Navigation native par onglets et piles avec dissociation des flux invités et connectés."
+      }
+    ],
+    buildScopeEn: [
+      "Relational data modeling for transactions, categories, budgets, and savings targets",
+      "Persistent authentication flow backed by Supabase and AsyncStorage session hydration",
+      "Monthly category budgets with threshold warning calculations",
+      "Targeted savings goals with milestone progress tracking and contribution logging",
+      "Financial analytics engine computing net savings, savings rate, and category distribution",
+      "Comprehensive JSON personal financial data export functionality",
+      "Profile preferences supporting light/dark theme selection and 7 global currencies",
+      "Reproducible Android APK preview package generation via Expo Application Services (EAS Build)"
+    ],
+    buildScopeFr: [
+      "Modélisation relationnelle des transactions, catégories, budgets et objectifs d'épargne",
+      "Flux d'authentification persistant adossé à Supabase et hydratation de session AsyncStorage",
+      "Budgets mensuels par catégorie avec calcul des seuils d'avertissement",
+      "Objectifs d'épargne ciblés avec suivi de l'avancement et historique des versements",
+      "Moteur d'analyse financière calculant l'épargne nette, le taux d'épargne et la répartition catégorielle",
+      "Fonctionnalité complète d'export des données financières personnelles en JSON",
+      "Préférences de profil prenant en charge les thèmes clair/sombre et 7 devises",
+      "Génération reproductible de l'aperçu APK Android via Expo Application Services (EAS Build)"
+    ],
+    features: [
+      "Income and expense transaction tracking with merchant/details metadata",
+      "Transaction filtering by category, flow type, and text search",
+      "Monthly category budgets with visual warning states",
+      "Target-driven savings goals with contribution records",
+      "Financial summary metrics: net savings, savings rate, and category distribution",
+      "Multi-currency support (USD, EUR, GBP, MAD, JPY, CAD, AUD)",
+      "Light and dark appearance modes",
+      "Structured JSON personal financial data export"
+    ],
+    featuresFr: [
+      "Suivi des transactions de revenus et dépenses avec informations commerçant/détails",
+      "Filtrage des transactions par catégorie, type de flux et recherche textuelle",
+      "Budgets mensuels par catégorie avec alertes visuelles de dépassement",
+      "Objectifs d'épargne avec cibles chiffrées et enregistrement des versements",
+      "Indicateurs de synthèse financière : épargne nette, taux d'épargne et répartition par catégorie",
+      "Prise en charge de 7 devises (USD, EUR, GBP, MAD, JPY, CAD, AUD)",
+      "Thèmes visuels clair et sombre",
+      "Export structuré des données financières personnelles au format JSON"
+    ],
+    galleryImages: [],
+    isPrivateRepo: true,
+    liveUrl: "https://wealthflow-landing.vercel.app",
+    liveUrlLabelEn: "Explore WealthFlow",
+    liveUrlLabelFr: "Explorer WealthFlow",
+    downloadUrl: "https://expo.dev/artifacts/eas/b4uzShKt2-1ESDJYQDpPq3tTnOaF1HK_WmSDklvTZAE.apk",
+    downloadLabelEn: "Download Android Preview",
+    downloadLabelFr: "Télécharger l'aperçu Android",
+    downloadNoteEn: "Android preview build. Installation may trigger Google Play Protect verification because the APK is distributed outside Google Play.",
+    downloadNoteFr: "Build d'aperçu Android. L'installation peut déclencher un avertissement Google Play Protect car l'APK est distribué en dehors du Google Play Store.",
+    hasLiveDemo: true,
+    featured: true,
+    order: 5,
+    schemaType: "SoftwareApplication",
+    applicationCategory: "FinanceApplication"
   }
 ];
 
