@@ -610,7 +610,7 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
-              {/* Live Product */}
+              {/* Live Product / Presentation Site */}
               {project.hasLiveDemo && project.liveUrl ? (
                 <a
                   href={project.liveUrl}
@@ -621,12 +621,20 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
                   <div className="flex items-center justify-between text-xs font-mono font-bold text-[#242222]">
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                      <span>{t("caseStudy.proofLiveProduct")}</span>
+                      <span>
+                        {project.slug === "wealthflow"
+                          ? (isFr ? "Site de Présentation du Produit" : "Product Presentation Site")
+                          : t("caseStudy.proofLiveProduct")}
+                      </span>
                     </div>
                     <ExternalLink className="w-3.5 h-3.5 text-[#A65F4B] group-hover:translate-x-0.5 transition-transform" />
                   </div>
                   <p className="text-[11px] text-[#242222]/70 leading-snug">
-                    {t("caseStudy.proofLiveProductDesc")}
+                    {project.slug === "wealthflow"
+                      ? (isFr
+                          ? "Page de présentation WealthFlow déployée sur Vercel, avec aperçu du produit, fonctionnalités, détails techniques et téléchargement de l'aperçu Android."
+                          : "Dedicated WealthFlow landing page deployed on Vercel, with product overview, feature showcase, technical details, and Android preview download.")
+                      : t("caseStudy.proofLiveProductDesc")}
                   </p>
                 </a>
               ) : (
@@ -691,18 +699,26 @@ export function ProjectCaseStudyClient({ project, nextProject }: ProjectCaseStud
             </div>
           </div>
 
-          {/* Live Sandbox Demo Invitation */}
+          {/* Live Sandbox Demo / Product Presentation Invitation */}
           {project.hasLiveDemo && project.liveUrl && (
             <div className="p-8 sm:p-10 rounded-xs bg-[#FAF7F2] border border-[#A65F4B]/50 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="max-w-xl space-y-2">
                 <span className="text-[11px] font-mono text-[#A65F4B] uppercase tracking-widest font-bold block">
-                  {t("caseStudy.liveDemoBadge")}
+                  {project.slug === "wealthflow"
+                    ? (isFr ? "SITE DE PRÉSENTATION DU PRODUIT" : "PRODUCT PRESENTATION SITE")
+                    : t("caseStudy.liveDemoBadge")}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-[#242222]">
-                  {t("caseStudy.liveDemoTitle")}
+                  {project.slug === "wealthflow"
+                    ? (isFr ? "Explorer le Site Produit WealthFlow" : "Explore the WealthFlow Product Site")
+                    : t("caseStudy.liveDemoTitle")}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#242222]/80 leading-relaxed">
-                  {t("caseStudy.liveDemoDesc")}
+                  {project.slug === "wealthflow"
+                    ? (isFr
+                        ? "Page de présentation WealthFlow déployée sur Vercel, avec aperçu du produit, fonctionnalités, détails techniques et téléchargement de l'aperçu Android."
+                        : "Dedicated WealthFlow landing page deployed on Vercel, with product overview, feature showcase, technical details, and Android preview download.")
+                    : t("caseStudy.liveDemoDesc")}
                 </p>
                 <p className="text-[11px] font-mono text-[#242222]/60 pt-1">
                   🔒 {t("caseStudy.liveDemoDisclaimer")}
