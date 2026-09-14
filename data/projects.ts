@@ -1211,7 +1211,10 @@ export const PROJECTS: Project[] = [
         summaryEn: "Track income and expenses with categories, merchant/details information, relative date grouping, and search functionality.",
         summaryFr: "Suivi des revenus et dépenses avec catégories, informations de commerçant/détails, regroupement par dates relatives et recherche intégrée.",
         practicalOutcomeEn: "Allows fast logging and chronological review of cash inflows and outflows with granular search and category filtering.",
-        practicalOutcomeFr: "Permet la saisie rapide et la consultation chronologique des entrées et sorties de fonds avec recherche textuelle et filtrage par catégorie."
+        practicalOutcomeFr: "Permet la saisie rapide et la consultation chronologique des entrées et sorties de fonds avec recherche textuelle et filtrage par catégorie.",
+        image: "/images/projects/wealthflow-transactions.jpg",
+        imageCaptionEn: "Chronological transaction ledger with merchant categorization, flow type segmentation, and real-time search",
+        imageCaptionFr: "Livre-journal chronologique des transactions avec catégorisation par commerçant, filtrage par type et recherche instantanée"
       },
       {
         id: "cap-budgets",
@@ -1220,7 +1223,10 @@ export const PROJECTS: Project[] = [
         summaryEn: "Set monthly category limits and monitor progress with threshold-based warning states.",
         summaryFr: "Définition de plafonds mensuels par catégorie et suivi de la consommation avec seuils d'alerte visuels.",
         practicalOutcomeEn: "Prevents accidental overspending through real-time consumption bars and progressive visual warnings as limits approach 100%.",
-        practicalOutcomeFr: "Prévient les dépassements budgétaires imprévus grâce à des barres de progression et des alertes visuelles progressives à l'approche de la limite."
+        practicalOutcomeFr: "Prévient les dépassements budgétaires imprévus grâce à des barres de progression et des alertes visuelles progressives à l'approche de la limite.",
+        image: "/images/projects/wealthflow-budgets.jpg",
+        imageCaptionEn: "Category-specific budget allocation with real-time consumption progress and threshold warnings",
+        imageCaptionFr: "Allocation budgétaire par catégorie avec suivi en temps réel de la consommation et alertes de seuil"
       },
       {
         id: "cap-savings",
@@ -1238,7 +1244,10 @@ export const PROJECTS: Project[] = [
         summaryEn: "Review net savings, savings rate, and category distribution to understand spending and saving patterns.",
         summaryFr: "Consultation de l'épargne nette, du taux d'épargne et de la répartition par catégorie pour analyser les flux financiers.",
         practicalOutcomeEn: "Delivers financial clarity through summaries that expose net surplus, savings rates, and primary expense drivers.",
-        practicalOutcomeFr: "Délivre une vision synthétique claire de la santé financière, mettant en évidence l'épargne nette, le taux d'épargne et les principaux postes de dépenses."
+        practicalOutcomeFr: "Délivre une vision synthétique claire de la santé financière, mettant en évidence l'épargne nette, le taux d'épargne et les principaux postes de dépenses.",
+        image: "/images/projects/wealthflow-analytics.jpg",
+        imageCaptionEn: "Financial analytics dashboard featuring net savings calculation, savings rate benchmark, and SVG category distribution",
+        imageCaptionFr: "Tableau de bord d'analyse financière présentant l'épargne nette, le taux d'épargne de référence et la répartition catégorielle en SVG"
       },
       {
         id: "cap-preferences",
@@ -1247,7 +1256,10 @@ export const PROJECTS: Project[] = [
         summaryEn: "Manage profile preferences, themes, supported currencies, and export personal data as JSON.",
         summaryFr: "Configuration du profil utilisateur, des thèmes clair/sombre, des 7 devises prises en charge et export des données au format JSON.",
         practicalOutcomeEn: "Empowers user control with multi-currency formatting (USD, EUR, GBP, MAD, JPY, CAD, AUD), theme selection, and complete JSON data exports.",
-        practicalOutcomeFr: "Garantit le contrôle utilisateur avec formatage multi-devises (USD, EUR, GBP, MAD, JPY, CAD, AUD), personnalisation du thème et export intégral des données en JSON."
+        practicalOutcomeFr: "Garantit le contrôle utilisateur avec formatage multi-devises (USD, EUR, GBP, MAD, JPY, CAD, AUD), personnalisation du thème et export intégral des données en JSON.",
+        image: "/images/projects/wealthflow-profile.jpg",
+        imageCaptionEn: "Personal finance preferences with 7 global currencies, theme selection, and complete JSON data export",
+        imageCaptionFr: "Préférences financières personnelles avec prise en charge de 7 devises, sélection du thème et export intégral des données en JSON"
       }
     ],
     engineeringPoints: [
@@ -1417,7 +1429,14 @@ export const PROJECTS: Project[] = [
       "Thèmes visuels clair et sombre",
       "Export structuré des données financières personnelles au format JSON"
     ],
-    galleryImages: [],
+    heroImage: "/images/projects/wealthflow-main.jpg",
+    galleryImages: [
+      "/images/projects/wealthflow-main.jpg",
+      "/images/projects/wealthflow-transactions.jpg",
+      "/images/projects/wealthflow-budgets.jpg",
+      "/images/projects/wealthflow-analytics.jpg",
+      "/images/projects/wealthflow-profile.jpg"
+    ],
     isPrivateRepo: true,
     liveUrl: "https://wealthflow-landing.vercel.app",
     liveUrlLabelEn: "Explore WealthFlow",
